@@ -24,8 +24,11 @@ import javafx.util.Duration;
 
 public class ChatView {
 	private ClientController clientController;
+	
 	private static Scene scene;
+	
 	LoginView loginView;
+	
 	TextArea areaMessages = new TextArea();
 	private TextField input = new TextField();
 	Button btnSend = new Button("Send");

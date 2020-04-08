@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Optional;
 
@@ -24,22 +25,9 @@ public class ClientController {
 
     public BufferedReader socketIn;
     public  OutputStreamWriter socketOut;
-
-    public ClientController(ClientModel clientModel){
-        this.clientModel = clientModel;
-    }
-    public  void addChatView(ChatView chatView){
-        this.view = chatView;
-    }
-    public void addLoginView(LoginView loginView){
-        this.loginView = loginView;
-    }
-    public void setViewManager(ClientViewManager viewManager) {
-        this.viewManager = viewManager;
-    }
-    public ClientViewManager getViewManager() {
-        return viewManager;
-    }
+    
+    
+    
     public boolean connect (String ipaddress, String port){
         if (validateIpAddress(ipaddress)&&validatePortNumber(port)){
             try {
@@ -269,6 +257,8 @@ public class ClientController {
     	
     }
     
+         
+     
         
     //Source: https://tagmycode.com/snippet/5207/yes-no-cancel-dialog-in-javafx#.XiML3MhKjD4
      void showAlertYesNo(String alertTitle,String alertMessage) {
@@ -286,4 +276,22 @@ public class ClientController {
             }
     });
 }
+     
+     
+     public ClientController(ClientModel clientModel){
+         this.clientModel = clientModel;
+     }
+     public  void addChatView(ChatView chatView){
+         this.view = chatView;
+     }
+     public void addLoginView(LoginView loginView){
+         this.loginView = loginView;
+     }
+     public void setViewManager(ClientViewManager viewManager) {
+         this.viewManager = viewManager;
+     }
+     public ClientViewManager getViewManager() {
+         return viewManager;
+     }
+     
 }

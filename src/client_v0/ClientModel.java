@@ -1,15 +1,33 @@
 package client_v0;
 
 import java.util.logging.Logger;
+import  java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class ClientModel {
 	
-    String defaultiIPAddress = "147.86.8.31";
-    int defaultPortNumber = 50001;
+	 InetAddress localHost;
+	 String localIP;
+          
+     //https://crunchify.com/how-to-get-server-ip-address-and-hostname-in-java/
+{
+     try {
+    	 localHost = InetAddress.getLocalHost();
+    	 localIP = localHost.getHostAddress();
+         } 
+     
+     catch (UnknownHostException e) {
+    
+    	 e.printStackTrace();
+     }
+     //end https://crunchify.com/how-to-get-server-ip-address-and-hostname-in-java/
+     
+}
+	String defaultiIPAddress = localIP;
+    int defaultPortNumber = 8080;
 
     private String ipAddress;
     private int port;
-
     private String user;
     private String hash;
     private String currentChatroom;
