@@ -3,7 +3,7 @@ package jassmendPackage;
 import java.util.ArrayList;
 
 public class Player {
-    public static final int HAND_SIZE = 5;
+    public static final int HAND_SIZE = 9;
     
     private final String playerName; // This is the ID
     private final ArrayList<Card> cards = new ArrayList<>();
