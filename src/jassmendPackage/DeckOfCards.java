@@ -12,7 +12,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class DeckOfCards {
     private final ArrayList<Card> cards = new ArrayList<>();
     private final SimpleIntegerProperty cardsRemaining = new SimpleIntegerProperty();
-
+    
     /**
      * We only ever have one deck of cards, so we do not set an ID attribute.
      */
@@ -31,13 +31,13 @@ public class DeckOfCards {
     }
 
     /**
-     * Gather all 52 cards, and shuffle them
+     * Gather all 36 cards, and shuffle them
      */
     public void shuffle() {
         // Remove all cards
         cards.clear();
         
-        // Add all 52 cards
+        // Add all 36 cards
         for (Card.Suit suit : Card.Suit.values()) {
             for (Card.Rank rank : Card.Rank.values()) {
                 Card card = new Card(suit, rank);
@@ -60,4 +60,11 @@ public class DeckOfCards {
         cardsRemaining.setValue(cards.size());
         return card;
     }
-}
+    
+    public boolean isEmpty() {
+    	return cards.size() == 0;
+    }	
+    	    
+        
+  }
+
