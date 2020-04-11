@@ -1,8 +1,5 @@
 package client_v0;
 
-
-
-
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;;
