@@ -1,6 +1,6 @@
 package Server.message;
 
-import Server.Chatroom;
+import Server.Gamelobby;
 import Server.Client;
 import Server.Sendable;
 
@@ -31,7 +31,7 @@ public class SendMessage extends Message {
 			
 			// If not an individual user, try a chatroom
 			if (target == null) {
-				Chatroom chatroom = Chatroom.exists(destination);
+				Gamelobby chatroom = Gamelobby.exists(destination);
 				if (chatroom != null) target = chatroom;
 			}
 

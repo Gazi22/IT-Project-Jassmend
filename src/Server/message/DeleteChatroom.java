@@ -1,6 +1,6 @@
 package Server.message;
 
-import Server.Chatroom;
+import Server.Gamelobby;
 import Server.Client;
 
 public class DeleteChatroom extends Message {
@@ -20,9 +20,9 @@ public class DeleteChatroom extends Message {
 	public void process(Client client) {
 		boolean result = false;
 		if (client.getToken().equals(token)) {
-			Chatroom chatroom = Chatroom.exists(name);
+			Gamelobby chatroom = Gamelobby.exists(name);
 			if (chatroom != null && chatroom.getOwner().equals(client.getName())) {
-				Chatroom.remove(chatroom);
+				Gamelobby.remove(chatroom);
 				result = true;
 			}
 		}

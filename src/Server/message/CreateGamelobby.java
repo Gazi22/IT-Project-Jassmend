@@ -1,15 +1,15 @@
 package Server.message;
 
 import Server.Account;
-import Server.Chatroom;
+import Server.Gamelobby;
 import Server.Client;
 
-public class CreateChatroom extends Message {
+public class CreateGamelobby extends Message {
 	private String token;
 	private String name;
 	private boolean isPublic;
 	
-	public CreateChatroom(String[] data) {
+	public CreateGamelobby(String[] data) {
 		super(data);
 		this.token = data[1];
 		this.name = data[2];
@@ -25,9 +25,9 @@ public class CreateChatroom extends Message {
 	public void process(Client client) {
 		boolean result = false;
 		if (client.getToken().equals(token)) {
-			if (name.length() >= 3 && Account.exists(name) == null && Chatroom.exists(name) == null) {
-				Chatroom chatroom = new Chatroom(name, isPublic, client.getName());
-				Chatroom.add(chatroom);
+			if (name.length() >= 3 && Account.exists(name) == null && Gamelobby.exists(name) == null) {
+				Gamelobby chatroom = new Gamelobby(name, isPublic, client.getName());
+				Gamelobby.add(chatroom);
 				result = true;				
 			}
 		}

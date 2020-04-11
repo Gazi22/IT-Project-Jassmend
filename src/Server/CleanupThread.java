@@ -23,8 +23,8 @@ public class CleanupThread extends Thread {
 			Account.saveAccounts();
 
 			// Clean up chatrooms
-			Chatroom.cleanupChatrooms();
-			Chatroom.saveChatrooms();
+			Gamelobby.cleanupChatrooms();
+			Gamelobby.saveChatrooms();
 
 			System.gc();
 

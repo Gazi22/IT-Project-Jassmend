@@ -2,14 +2,14 @@ package Server.message;
 
 import java.util.ArrayList;
 
-import Server.Chatroom;
+import Server.Gamelobby;
 import Server.Client;
 
-public class ListChatroomUsers extends Message {
+public class ListGamelobbyUsers extends Message {
 	private String token;
 	private String name;
 
-	public ListChatroomUsers(String[] data) {
+	public ListGamelobbyUsers(String[] data) {
 		super(data);
 		this.token = data[1];
 		this.name = data[2];
@@ -24,7 +24,7 @@ public class ListChatroomUsers extends Message {
 		boolean result = false;
 		ArrayList<String> names = null;
 		if (client.getToken().equals(token)) {
-			Chatroom chatroom = Chatroom.exists(name);
+			Gamelobby chatroom = Gamelobby.exists(name);
 			if (chatroom != null) {
 				names = chatroom.getUsers();
 				if (chatroom.isPublic() || names.contains(client.getName())) {

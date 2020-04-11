@@ -18,7 +18,7 @@ public class Server {
 		
 		// Reload any existing chatrooms and accounts
 		logger.info("Read any existing data");
-		Chatroom.readChatrooms();
+		Gamelobby.readChatrooms();
 		Account.readAccounts();
 		
 		

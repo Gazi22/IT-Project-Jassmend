@@ -27,12 +27,12 @@ import Server.message.Message;
  * 
  * At the class level, we maintain a list of all existing chatrooms.
  */
-public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
+public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable {
 	private static final long serialVersionUID = 1;
 
 	private static Logger logger = Logger.getLogger("");
 
-	private static final TreeSet<Chatroom> chatrooms = new TreeSet<>();
+	private static final TreeSet<Gamelobby> chatrooms = new TreeSet<>();
 
 	private final String name;
 	private final String owner; // username of an account
@@ -43,16 +43,16 @@ public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
 	/**
 	 * Add a new chatroom to our list of chatrooms
 	 */
-	public static void add(Chatroom chatroom) {
+	public static void add(Gamelobby chatroom) {
 		chatrooms.add(chatroom);
 	}
 
 	/**
 	 * Remove a chatroom from our list of valid chatrooms
 	 */
-	public static void remove(Chatroom chatroom) {
+	public static void remove(Gamelobby chatroom) {
 		synchronized (chatrooms) {
-			for (Iterator<Chatroom> i = chatrooms.iterator(); i.hasNext();) {
+			for (Iterator<Gamelobby> i = chatrooms.iterator(); i.hasNext();) {
 				if (chatroom == i.next()) i.remove();
 			}
 		}
@@ -64,7 +64,7 @@ public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
 	public static ArrayList<String> listPublicNames() {
 		ArrayList<String> names = new ArrayList<>();
 		synchronized (chatrooms) {
-			for (Chatroom c : chatrooms) if (c.isPublic) names.add(c.name);
+			for (Gamelobby c : chatrooms) if (c.isPublic) names.add(c.name);
 		}
 		return names;
 	}
@@ -72,9 +72,9 @@ public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
 	/**
 	 * Find and return an existing chatroom
 	 */
-	public static Chatroom exists(String name) {
+	public static Gamelobby exists(String name) {
 		synchronized (chatrooms) {
-			for (Chatroom chatroom : chatrooms) {
+			for (Gamelobby chatroom : chatrooms) {
 				if (chatroom.name.equals(name)) return chatroom;
 			}
 		}
@@ -88,8 +88,8 @@ public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
 		synchronized (chatrooms) {
 			logger.fine("Cleanup chatrooms: " + chatrooms.size() + " chatrooms registered");
 			Instant expiry = Instant.now().minusSeconds(3 * 86400); // 3 days
-			for (Iterator<Chatroom> i = chatrooms.iterator(); i.hasNext();) {
-				Chatroom chatroom = i.next();
+			for (Iterator<Gamelobby> i = chatrooms.iterator(); i.hasNext();) {
+				Gamelobby chatroom = i.next();
 				if (chatroom.lastMessage.isBefore(expiry)) {
 					logger.fine("Cleanup chatrooms: removing chatroom " + chatroom.getName());
 					i.remove();
@@ -107,7 +107,7 @@ public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
 		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(chatroomFile))) {
 			synchronized (chatrooms) {
 				out.writeInt(chatrooms.size());
-				for (Chatroom chatroom : chatrooms) {
+				for (Gamelobby chatroom : chatrooms) {
 					out.writeObject(chatroom);
 				}
 				out.flush();
@@ -127,7 +127,7 @@ public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
 		try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(chatroomFile))) {
 			int num = in.readInt();
 			for (int i = 0; i < num; i++) {
-				Chatroom chatroom = (Chatroom) in.readObject();
+				Gamelobby chatroom = (Gamelobby) in.readObject();
 				chatrooms.add(chatroom);
 				logger.fine("Loaded chatroom " + chatroom.getName());
 			}
@@ -136,7 +136,7 @@ public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
 		}
 	}
 
-	public Chatroom(String name, boolean isPublic, String owner) {
+	public Gamelobby(String name, boolean isPublic, String owner) {
 		this.name = name;
 		this.isPublic = isPublic;
 		this.owner = owner;
@@ -175,12 +175,12 @@ public class Chatroom implements Comparable<Chatroom>, Sendable, Serializable {
 	@Override
 	public boolean equals(Object o) {
 		if (o == null || o.getClass() != this.getClass()) return false;
-		Chatroom oc = (Chatroom) o;
+		Gamelobby oc = (Gamelobby) o;
 		return oc.name.equals(this.name);
 	}
 
 	@Override
-	public int compareTo(Chatroom c) {
+	public int compareTo(Gamelobby c) {
 		return name.compareTo(c.name);
 	}
 

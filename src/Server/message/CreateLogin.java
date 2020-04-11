@@ -1,7 +1,7 @@
 package Server.message;
 
 import Server.Account;
-import Server.Chatroom;
+import Server.Gamelobby;
 import Server.Client;
 
 /**
@@ -27,7 +27,7 @@ public class CreateLogin extends Message {
 		boolean result = false;
 		if (username != null && username.length() >= 3) {
 			if (password != null && password.length() >= 3) { // lax password requirements
-				if (Account.exists(username) == null && Chatroom.exists(username) == null) {
+				if (Account.exists(username) == null && Gamelobby.exists(username) == null) {
 					Account newAccount = new Account(username, password);
 					Account.add(newAccount);
 					result = true;
