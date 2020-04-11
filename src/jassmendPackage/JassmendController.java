@@ -46,7 +46,7 @@ public class JassmendController {
         			Card card = deck.dealCard();
         			p.addCard(card);
         		}
-        		p.evaluateHand();
+        		
         		PlayerPane pp = view.getPlayerPane(i);
         		pp.updatePlayerDisplay();
         	}
