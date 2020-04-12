@@ -61,7 +61,7 @@ public class Jassmend_Game_View {
 	
 	//Hallo
 	
-	
+
 	
 	public Jassmend_Game_View (Stage stage) {
 		
@@ -83,24 +83,39 @@ public class Jassmend_Game_View {
 	player2Info.getChildren().add(userNamePl2);
 	player2Info.getChildren().add(scorePl2);
 	
+	player2Info.setAlignment(Pos.CENTER);
+	
 	
 	player3Info.getChildren().add(userNamePl3);
 	player3Info.getChildren().add(scorePl3);
+	
+	HBox player3Box = new HBox(player3Info);
+	player3Box.setAlignment(Pos.CENTER);
+	
+	player3Box.setVisible(true);
 	
 	
 	player4Info.getChildren().add(userNamePl4);
 	player4Info.getChildren().add(scorePl4);
 	
+	player4Info.setAlignment(Pos.CENTER);
+	
 	
 	
 	BorderPane outerPane = new BorderPane();
 	
+	outerPane.setVisible(true);
+	
 	BorderPane middlePane = new BorderPane();
+	
+	middlePane.setVisible(true);
 	
 	BorderPane innerPane = new BorderPane();
 	
+	innerPane.setVisible(true);
+	
 	middlePane.setBottom(player1Box);
-	middlePane.setTop(player3Info);
+	middlePane.setTop(player3Box);
 	middlePane.setLeft(player2Info);
 	middlePane.setRight(player4Info);
 	middlePane.setCenter(innerPane);
