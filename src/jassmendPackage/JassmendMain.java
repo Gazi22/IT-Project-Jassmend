@@ -1,10 +1,10 @@
 package jassmendPackage;
 
-<<<<<<< HEAD
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-=======
+
 import jassmendPackage.JassmendController;
 import jassmendPackage.JassmendModel;
 import jassmendPackage.Jassmend_Game_View;
