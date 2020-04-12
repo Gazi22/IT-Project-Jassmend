@@ -59,6 +59,8 @@ public class Jassmend_Game_View {
 	MenuItem RulesItem = new MenuItem("How to play?");
 	
 	
+	//Hallo
+	
 	
 	
 	public Jassmend_Game_View (Stage stage) {
