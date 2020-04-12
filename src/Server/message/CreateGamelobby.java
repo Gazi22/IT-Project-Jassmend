@@ -16,11 +16,7 @@ public class CreateGamelobby extends Message {
 		this.isPublic = data[3].equalsIgnoreCase("true");
 	}
 
-	/**
-	 * We can only create a new chatroom if the name is not in use: not as a user and not as a chatroom.
-	 * Valid names are at least 3 characters long
-	 * @param client
-	 */
+
 	@Override
 	public void process(Client client) {
 		boolean result = false;
