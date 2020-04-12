@@ -1,5 +1,6 @@
 package jassmendPackage;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -18,7 +19,7 @@ public class Jassmend_Game_View {
 	protected static Stage stage;
 	//private Model 
 	
-	
+	Insets insets = new Insets(10);
 	//Player areas
 	
 	//Player bottom
@@ -75,7 +76,7 @@ public class Jassmend_Game_View {
 	player1Info.getChildren().add(scorePl1);
 	
 	HBox player1Box = new HBox(player1Info);
-	
+	player1Box.setAlignment(Pos.CENTER);
 	
 	player2Info.getChildren().add(userNamePl2);
 	player2Info.getChildren().add(scorePl2);
@@ -105,10 +106,7 @@ public class Jassmend_Game_View {
 	outerPane.setCenter(middlePane);
 	outerPane.setTop(meba);
 	
-	
-	
-	
-	
+		
 	Scene GameScene = new Scene(outerPane);
 	stage.setScene(GameScene);
 	stage.setTitle("Jassmend");
