@@ -22,6 +22,7 @@ public class ClientController {
     private ChatView view;
     private LoginView loginView;
     private ClientViewManager viewManager;
+    private GameView gameView;
 
     public BufferedReader socketIn;
     public  OutputStreamWriter socketOut;
@@ -286,6 +287,9 @@ public class ClientController {
      }
      public void addLoginView(LoginView loginView){
          this.loginView = loginView;
+     }
+     public void addGameView(GameView gameView){
+         this.gameView = gameView;
      }
      public void setViewManager(ClientViewManager viewManager) {
          this.viewManager = viewManager;
