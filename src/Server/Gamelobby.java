@@ -39,9 +39,10 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private final boolean isPublic;
 	private final ArrayList<String> users = new ArrayList<>();
 	private Instant lastMessage;
-	private int players =4;
-	private int playerID;
-
+	private final int maxPlayers =4;
+	private int [] playerIDs = new int[maxPlayers];
+	
+	
 	/**
 	 * Add a new gamelobby to our list of gamelobbys
 	 */
@@ -77,8 +78,10 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public static Gamelobby exists(String name) {
 		synchronized (gamelobbys) {
 			for (Gamelobby gamelobby : gamelobbys) {
+				if(gamelobby.isFull()==true) {//If statement, wenn true, prüfen ob full ist
 				if (gamelobby.name.equals(name)) return gamelobby;
 			}
+		}
 		}
 		return null;
 	}
@@ -189,14 +192,49 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public String getOwner() {
 		return owner;
 	}
+	
+	//check array full
+	public boolean isFull() {
+		for (int x=0; x < playerIDs.length; x++)
+	           if (x == playerIDs.length - 1) {
+	        	   return true;
+	           }
+		return false;
+	}
 
 	public boolean isPublic() {
 		return isPublic;
 	}
 
 	public void addUser(String username) {
-		if (!users.contains(username)) users.add(username);
+		if (!users.contains(username)) 
+		{users.add(username);}
+		
+		if(playerIDs.length==0) {
+			playerIDs[0]=1;
+		}
+		else {
+			if(playerIDs.length==1) {
+				playerIDs[1]=2;}
+			else {
+				if(playerIDs.length==2) {
+					playerIDs[2]=3;
+			}
+				else {
+					if(playerIDs.length==2) {
+						playerIDs[2]=3;
+					}
+					else playerIDs[3]=4;}
+			}
+		}
+		
+		
 	}
+				
+			
+		
+		
+	
 
 	public void removeUser(String username) {
 		users.remove(username);
