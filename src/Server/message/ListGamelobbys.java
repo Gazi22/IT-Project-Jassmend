@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import Server.Gamelobby;
 import Server.Client;
 
-public class ListGames extends Message {
+public class ListGamelobbys extends Message {
 	private String token;
 	
-	public ListGames(String[] data) {
+	public ListGamelobbys(String[] data) {
 		super(data);
 		this.token = data[1];
 	}

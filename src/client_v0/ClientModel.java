@@ -30,7 +30,7 @@ public class ClientModel {
     private int port;
     private String user;
     private String hash;
-    private String currentChatroom;
+    private String currentGamelobby;
 
     private Logger logger = Logger.getLogger("");
 
@@ -85,11 +85,11 @@ public class ClientModel {
         return this.hash;
     }
 
-    public String getCurrentChatroom() {
-        return currentChatroom;
+    public String getCurrentGamelobby() {
+        return currentGamelobby;
     }
     
-    public void setCurrentChatroom(String currentChatroom) {
-        this.currentChatroom = currentChatroom;
+    public void setCurrentgamelobby(String currentGamelobby) {
+        this.currentGamelobby = currentGamelobby;
     }
 }

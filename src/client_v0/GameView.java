@@ -3,6 +3,7 @@ package client_v0;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -28,6 +29,7 @@ public class GameView {
 	Label scorePl1 = new Label("Score:");
 	VBox player1Info = new VBox();
 	HBox player1Cards = new HBox();
+	Button player1Btn = new Button("Test");
 	
 	//Player top
 	Label userNamePl2 = new Label("Player 2");
@@ -79,6 +81,7 @@ public class GameView {
 	
 	player1Info.getChildren().add(userNamePl1);
 	player1Info.getChildren().add(scorePl1);
+	player1Info.getChildren().add(player1Btn);
 	
 	HBox player1Box = new HBox(player1Info);
 	player1Box.setAlignment(Pos.CENTER);
@@ -130,7 +133,10 @@ public class GameView {
 	scene = new Scene(outerPane);
 
 
-
+	 player1Btn.setOnAction(event -> {
+     	System.out.println("Turn finished, it is now player 2 turn");
+     	
+     });;
 	
 	
 	}

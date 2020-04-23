@@ -17,17 +17,17 @@ public class ListGamelobbyUsers extends Message {
 
 	/**
 	 * Only allowed if the chatorom is public, or the client is a member of the
-	 * chatroom
+	 * gamelobby
 	 */
 	@Override
 	public void process(Client client) {
 		boolean result = false;
 		ArrayList<String> names = null;
 		if (client.getToken().equals(token)) {
-			Gamelobby chatroom = Gamelobby.exists(name);
-			if (chatroom != null) {
-				names = chatroom.getUsers();
-				if (chatroom.isPublic() || names.contains(client.getName())) {
+			Gamelobby gamelobby = Gamelobby.exists(name);
+			if (gamelobby != null) {
+				names = gamelobby.getUsers();
+				if (gamelobby.isPublic() || names.contains(client.getName())) {
 					result = true;
 				}
 			}

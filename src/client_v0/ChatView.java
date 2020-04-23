@@ -47,16 +47,16 @@ public class ChatView {
 		this.clientController = clientController;
 		
 		Menu user = new Menu("User");
-		Menu chatrooms = new Menu("Chatrooms");
+		Menu gamelobbys = new Menu("Gamelobby");
 		Menu file = new Menu("File");
 		Menu extras = new Menu("Extras");
 		MenuBar menuBar = new MenuBar();
 		
-		menuBar.getMenus().addAll(user,chatrooms,file,extras);
+		menuBar.getMenus().addAll(user,gamelobbys,file,extras);
 		
 		MenuItem menuItemLogout = new MenuItem("Logout");
 		
-		MenuItem menuItemChatrooms = new MenuItem ("Chatrooms");
+		MenuItem menuItemGamelobbys = new MenuItem ("gamelobby");
 		
 		//Window for password change
 		MenuItem menuItemChangePassword = new MenuItem("Change your password");
@@ -67,7 +67,7 @@ public class ChatView {
 		user.getItems().add(menuItemLogout);
 		user.getItems().add(menuItemChangePassword);
 		user.getItems().add(menuItemDeleteAccount);
-		chatrooms.getItems().add(menuItemChatrooms);
+		gamelobbys.getItems().add(menuItemGamelobbys);
 
 		menuItemLogout.setOnAction(e -> {
 			clientController.logout();
@@ -107,8 +107,8 @@ public class ChatView {
           
 		});
 	
-		menuItemChatrooms.setOnAction(e4 -> {
-			showChatroomScreen();
+		menuItemGamelobbys.setOnAction(e4 -> {
+			showgamelobbyScreen();
 		});
 		
 		btnSend.setOnAction((event -> {
@@ -138,19 +138,19 @@ public class ChatView {
 		scene = new Scene(root, 500, 275);
 	}
 	
-	public void showChatroomScreen() {
+	public void showgamelobbyScreen() {
         //Based on http://tutorials.jenkov.com/javafx/listview.html
         Stage stage = new Stage();
         
                
-        Button btnCreateChatroom = new Button("Create Chatroom:");
-        Button btnJoinChatroom = new Button("Join Selected Chatroom");
-        btnJoinChatroom.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
-        stage.setTitle("Chatroom List");
+        Button btnCreateGamelobby = new Button("Create gamelobby:");
+        Button btnJoinGamelobby = new Button("Join selected gamelobby");
+        btnJoinGamelobby.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+        stage.setTitle("Gamelobby List");
 
         ListView listView = new ListView();
 
-        clientController.getChatroomList();
+        clientController.getGamelobbyList();
         //Not the best way to do it but it does the trick
         PauseTransition pause = new PauseTransition(Duration.seconds(1));
         pause.setOnFinished(e -> {
@@ -159,23 +159,24 @@ public class ChatView {
             for (String str:lastMessage.split("\\|")) {
                 listView.getItems().add(str);
             }
-            btnJoinChatroom.setOnAction(e2 -> {
+            btnJoinGamelobby.setOnAction(e2 -> {
                 ObservableList selectedIndices = listView.getSelectionModel().getSelectedIndices();
-                String chatroom = "";
+                String gamelobby = "";
                 for(Object o : selectedIndices){
-                    chatroom = (String)listView.getItems().get((int)o);
-                    clientController.joinChatroom(chatroom);
+                    gamelobby = (String)listView.getItems().get((int)o);
+                    clientController.joinGamelobby(gamelobby);
+                    
                 }
                 //Don't do this at home kids !
                 PauseTransition pause2 = new PauseTransition(Duration.seconds(1));
-                String finalChatroom = chatroom;
+                String finalGamelobby = gamelobby;
                 pause2.setOnFinished(e3 -> {
                     int lastMessageIndex2 = areaMessages.getText().split("\n").length-1;
                     String lastMessage2 = areaMessages.getText().split("\n")[lastMessageIndex2];
 
                     if (lastMessage2.equals("Received: Result|true")){
-                        clientController.joinSuccessfull(finalChatroom);
-                        joinedChatroomMode();
+                        clientController.joinSuccessfull(finalGamelobby);
+                        joinedGamelobbyMode();
                         stage.close();
                     }
                 });
@@ -184,23 +185,23 @@ public class ChatView {
         });
         pause.play();
 
-        btnCreateChatroom.setOnAction(e4 -> {
+        btnCreateGamelobby.setOnAction(e4 -> {
             // Assume success always!
         					
     			TextInputDialog txtInput = new TextInputDialog();
-    	    	 txtInput.setTitle("Create new Chatroom");
-    	    	 txtInput.setContentText("Name of new chatroom:");
+    	    	 txtInput.setTitle("Create new gamelobby");
+    	    	 txtInput.setContentText("Name of new gamelobby:");
     	    	 
-    	    	Optional<String> newChatroom = txtInput.showAndWait();
+    	    	Optional<String> newGamelobby = txtInput.showAndWait();
     	    	
-    			clientController.createChatroom(newChatroom);
+    			clientController.createGamelobby(newGamelobby);
     			
-                clientController.showAlert("New Chatroom","The chatroom"+newChatroom+"has been created");
+                clientController.showAlert("New gamelobby","The gamelobby"+newGamelobby+"has been created");
                             
     		});
         
         
-        VBox vBox = new VBox(listView, btnJoinChatroom,btnCreateChatroom);
+        VBox vBox = new VBox(listView, btnJoinGamelobby,btnCreateGamelobby);
         vBox.setStyle("-fx-background-color: BEIGE;");
         Scene scene = new Scene(vBox, 250, 150);
         stage.setScene(scene);
@@ -211,7 +212,7 @@ public class ChatView {
 	
 	
 	
-	public void joinedChatroomMode(){
+	public void joinedGamelobbyMode(){
         btnSend.setDisable(false);
         input.setDisable(false);
     }

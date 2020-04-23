@@ -4,7 +4,7 @@ import Server.Gamelobby;
 import Server.Client;
 
 /**
- * Remove a user as a member of a chatroom
+ * Remove a user as a member of a gamelobby
  */
 public class LeaveGamelobby extends Message {
 	private String token;
@@ -19,7 +19,7 @@ public class LeaveGamelobby extends Message {
 	}
 
 	/**
-	 * The owner of a chatroom can remove anyone. A user can remove themselves.
+	 * The owner of a gamelobby can remove anyone. A user can remove themselves.
 	 * Otherwise, no one can remove anyone.
 	 */
 	@Override
