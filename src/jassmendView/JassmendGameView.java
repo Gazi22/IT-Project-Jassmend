@@ -112,6 +112,9 @@ public class JassmendGameView {
 		 
 		txt1.setPromptText("Type here your message"); 
 		HBox.setHgrow(txt1, Priority.ALWAYS); 
+		
+		msgArea.setPrefHeight(600);
+		msgArea.setPrefWidth(300);
 		 
 		chatbox1.getChildren().add(txtSend); 
 		chatbox1.getChildren().add(txt1); 
@@ -151,7 +154,7 @@ public class JassmendGameView {
 		primaryStage.show();
 
 		// Disallow to resize window due to the images
-		primaryStage.setResizable(false);
+		//primaryStage.setResizable(false);
 	}
 
 	
