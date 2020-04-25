@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -63,7 +65,14 @@ public class GameView {
 	public Object areaMessages;
 	
 	
-	//Hallo
+	// Chat
+	
+	TextField txt1 = new TextField ();
+	Button txtSend = new Button ("Send");
+	TextArea msgArea = new TextArea ();
+	HBox chatbox1 = new HBox ();
+	VBox chatbox2 = new VBox ();
+	VBox chatbox3 = new VBox ();
 	
 
 	
@@ -77,7 +86,8 @@ public class GameView {
 		
 		
 	meba.getMenus().addAll(OptionsMenu, HelpMenu);	
-		
+	
+	// ___________________________________________________________________
 	
 	player1Info.getChildren().add(userNamePl1);
 	player1Info.getChildren().add(scorePl1);
@@ -106,6 +116,23 @@ public class GameView {
 	
 	player4Info.setAlignment(Pos.CENTER);
 	
+	// __________________________________________________________________
+	
+	
+	txt1.setPromptText("Type here your message");
+	HBox.setHgrow(txt1, Priority.ALWAYS);
+	
+	chatbox1.getChildren().add(txtSend);
+	chatbox1.getChildren().add(txt1);
+	
+	chatbox2.getChildren().add(msgArea);
+	
+	chatbox3.getChildren().add(chatbox2);
+	chatbox3.getChildren().add(chatbox1);
+	
+	
+	
+	
 	
 	
 	BorderPane outerPane = new BorderPane();
@@ -128,6 +155,7 @@ public class GameView {
 	
 	outerPane.setCenter(middlePane);
 	outerPane.setTop(meba);
+	outerPane.setRight(chatbox3);
 	
 		
 	scene = new Scene(outerPane);
