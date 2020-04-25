@@ -33,11 +33,9 @@ public class CreateAccountView {
 		gridAccountView.setHgap(10);
 		gridAccountView.setVgap(10);
 
-		       
-
 		 
 		 gridAccountView.add(lblHeader, 0,0,2,1);
-		 GridPane.setHalignment(lblHeader, HPos.CENTER);
+		 GridPane.setHalignment(lblHeader, HPos. CENTER);
 		 GridPane.setMargin(lblHeader, new Insets(20, 0,20,0));
 
 		 
