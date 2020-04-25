@@ -1,15 +1,15 @@
 package jassmendController;
 
 import jassmendModel.JassmendModel;
-import jassmendView.JassmendView;
+import jassmendView.JassmendGameView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 public class JassmendController {
 	
 	private JassmendModel model;
-	private JassmendView view;
+	private JassmendGameView view;
 	
-	public JassmendController(JassmendModel model, JassmendView view) {
+	public JassmendController(JassmendModel model, JassmendGameView view) {
 		this.model = model;
 		this.view = view;
 		

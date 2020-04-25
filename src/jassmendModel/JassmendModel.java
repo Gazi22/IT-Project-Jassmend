@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import jassmendPackage.DeckOfCards;
 import jassmendPackage.Player;
-import poker.version_graphics.PokerGame;
-import poker.version_graphics.view.PokerGameView;
+import jassmendMain.JassmendMain;
+import jassmendView.JassmendGameView;
 
 public class JassmendModel {
 	 

@@ -13,8 +13,11 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import jassmendModel.JassmendModel;
 
 public class JassmendGameView {
+	
+	private JassmendModel model;
 	
 	protected static Stage stage;
 	//private Model 
@@ -59,9 +62,10 @@ public class JassmendGameView {
 	
 	MenuItem RulesItem = new MenuItem("How to play?");
 	
-	public JassmendGameView (Stage stage) {
+	public JassmendGameView (Stage stage, JassmendModel model) {
 		
 		this.stage = stage;
+		this.model = model;
 		
 	OptionsMenu.getItems().addAll(ResumeItem);
 	HelpMenu.getItems().addAll(RulesItem);
