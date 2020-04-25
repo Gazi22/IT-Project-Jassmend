@@ -10,7 +10,7 @@ public class ClientChatRoom extends Application {
     ChatView view;
     LoginView loginView;
     CreateAccountView createAccountView;
-
+    GameView gameView;
    
 
     public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class ClientChatRoom extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Gönnjamin");
+        primaryStage.setTitle("Jassmend");
         ClientModel clientModel = new ClientModel();
 
         ClientController clientController = new ClientController(clientModel);
@@ -30,8 +30,10 @@ public class ClientChatRoom extends Application {
         loginView = new LoginView(clientController, view);
         clientController.addLoginView(loginView);
         createAccountView = new CreateAccountView(clientController);
+        gameView  = new GameView(clientController);
+        clientController.addGameView(gameView);
 
-        clientView = new ClientViewManager(primaryStage, view, loginView, createAccountView);
+        clientView = new ClientViewManager(primaryStage, view, loginView, createAccountView,gameView);
        
         clientController.setViewManager(clientView);
         primaryStage.show();

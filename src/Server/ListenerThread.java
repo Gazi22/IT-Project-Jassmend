@@ -28,7 +28,7 @@ public class ListenerThread extends Thread {
 	public void run() {
 		logger.info("Starting listener on port " + port);
 		while (true) {
-			try {
+			try {			
 				Socket socket = listener.accept();
 				Client.add(new Client(socket));
 			} catch (Exception e) {

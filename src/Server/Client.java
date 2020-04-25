@@ -28,7 +28,7 @@ public class Client implements Sendable {
 	private Socket socket;
 	private boolean clientReachable = true;
 	private Instant lastUsage;
-
+    private int playerID;
 	/**
 	 * Add a new client to our list of active clients.
 	 */

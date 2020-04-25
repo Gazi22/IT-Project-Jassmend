@@ -22,6 +22,7 @@ public class ClientController {
     private ChatView view;
     private LoginView loginView;
     private ClientViewManager viewManager;
+    private GameView gameView;
 
     public BufferedReader socketIn;
     public  OutputStreamWriter socketOut;
@@ -188,18 +189,26 @@ public class ClientController {
         clientModel.setUser(username);
         clientModel.setHash(hash);
     }
-    public void getChatroomList(){
+    public void getGamelobbyList(){
         //No additional checks done, since button is disabled until confirmed login
-        String concatString = "ListChatrooms|"+clientModel.gethash();
-        sendToServer(concatString);
-    }
-    public void joinChatroom(String chatroom){
-        String concatString = "JoinChatroom|"+clientModel.gethash()+"|"+chatroom+"|"+clientModel.getUser();
+        String concatString = "ListGamelobbys|"+clientModel.gethash();
         sendToServer(concatString);
     }
     
-    public  void createChatroom(Optional<String> newChatroom){
-        String concatString = "CreateChatroom|"+clientModel.gethash()+"|"+newChatroom+"|"+"true";
+    public void getGamelobbyUsers(String gamelobby){
+        //No additional checks done, since button is disabled until confirmed login
+        String concatString = "ListGamelobbyUsers|"+clientModel.gethash()+"|"+gamelobby;
+        sendToServer(concatString);
+    }
+    
+    
+    public void joinGamelobby(String gamelobby){
+        String concatString = "JoinGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
+    
+    public  void createGamelobby(Optional<String> newGamelobby){
+        String concatString = "CreateGamelobby|"+clientModel.gethash()+"|"+newGamelobby+"|"+"true";
         sendToServer(concatString);
     }
     
@@ -226,12 +235,12 @@ public class ClientController {
     }
     
     public void sendMessage(String message){
-        // Destination is currently selected chatroom
-        String concatString = "SendMessage|"+clientModel.gethash()+"|"+clientModel.getCurrentChatroom()+"|"+message;
+        // Destination is currently selected gamelobby
+        String concatString = "SendMessage|"+clientModel.gethash()+"|"+clientModel.getCurrentGamelobby()+"|"+message;
         sendToServer(concatString);
     }
-    public void joinSuccessfull(String chatroom){
-        clientModel.setCurrentChatroom(chatroom);
+    public void joinSuccessfull(String gamelobby){
+        clientModel.setCurrentgamelobby(gamelobby);
     }
 
 
@@ -286,6 +295,9 @@ public class ClientController {
      }
      public void addLoginView(LoginView loginView){
          this.loginView = loginView;
+     }
+     public void addGameView(GameView gameView){
+         this.gameView = gameView;
      }
      public void setViewManager(ClientViewManager viewManager) {
          this.viewManager = viewManager;

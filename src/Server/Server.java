@@ -16,9 +16,9 @@ public class Server {
 		// Setup logging, including a file handler
 		setupLogging();
 		
-		// Reload any existing chatrooms and accounts
+		// Reload any existing gamelobbys and accounts
 		logger.info("Read any existing data");
-		Gamelobby.readChatrooms();
+		Gamelobby.readgamelobbys();
 		Account.readAccounts();
 		
 		
@@ -50,7 +50,7 @@ public class Server {
 		logger.setLevel(Level.FINE);
 		logger.getHandlers()[0].setLevel(Level.WARNING); // Standard (console) handler
 		try {
-			FileHandler fh = new FileHandler("%h/ChatroomServer_%u_%g.log", 10000000, 2);
+			FileHandler fh = new FileHandler("%h/gamelobbyServer_%u_%g.log", 10000000, 2);
 			fh.setFormatter(new SimpleFormatter());
 			fh.setLevel(Level.FINE);
 			logger.addHandler(fh);

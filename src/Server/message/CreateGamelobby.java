@@ -22,8 +22,8 @@ public class CreateGamelobby extends Message {
 		boolean result = false;
 		if (client.getToken().equals(token)) {
 			if (name.length() >= 3 && Account.exists(name) == null && Gamelobby.exists(name) == null) {
-				Gamelobby chatroom = new Gamelobby(name, isPublic, client.getName());
-				Gamelobby.add(chatroom);
+				Gamelobby gamelobby = new Gamelobby(name, isPublic, client.getName());
+				Gamelobby.add(gamelobby);
 				result = true;				
 			}
 		}
