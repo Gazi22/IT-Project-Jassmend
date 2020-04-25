@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.TextArea; 
+import javafx.scene.control.TextField; 
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -23,51 +25,58 @@ public class JassmendGameView {
 	
 	public Stage primaryStage;
 	//private Model 
+	Insets insets = new Insets(10);
+	// Player areas
+
+	// Player bottom
+	Label userNamePl1 = new Label("Player 1");
+	Label scorePl1 = new Label("Score:");
+	VBox player1Info = new VBox();
+	HBox player1Cards = new HBox();
+
+	// Player top
+	Label userNamePl2 = new Label("Player 2");
+	Label scorePl2 = new Label("Score:");
+	VBox player2Info = new VBox();
+	HBox player2Cards = new HBox();
+
+	// Player left
+	Label userNamePl3 = new Label("Player 3");
+	Label scorePl3 = new Label("Score:");
+	VBox player3Info = new VBox();
+	HBox player3Cards = new HBox();
+
+	// Player bottom
+	Label userNamePl4 = new Label("Player 4");
+	Label scorePl4 = new Label("Score:");
+	VBox player4Info = new VBox();
+	HBox player4Cards = new HBox();
+
+	// Menu Bar
+
+	MenuBar meba = new MenuBar();
+
+	Menu optionsMenu = new Menu("Options");
+
+	Menu helpMenu = new Menu("Help");
+
+	MenuItem resumeItem = new MenuItem("Quit Game");
+
+	MenuItem rulesItem = new MenuItem("How to play?");
+	
+	// Chat 
+	 
+	TextField txt1 = new TextField (); 
+	Button txtSend = new Button ("Send"); 
+	TextArea msgArea = new TextArea (); 
+	HBox chatbox1 = new HBox (); 
+	VBox chatbox2 = new VBox (); 
+	VBox chatbox3 = new VBox (); 
 	
 	public JassmendGameView(Stage primaryStage, JassmendModel model) {
 
 		this.primaryStage = primaryStage;
 		this.model = model;
-
-		Insets insets = new Insets(10);
-		// Player areas
-
-		// Player bottom
-		Label userNamePl1 = new Label("Player 1");
-		Label scorePl1 = new Label("Score:");
-		VBox player1Info = new VBox();
-		HBox player1Cards = new HBox();
-
-		// Player top
-		Label userNamePl2 = new Label("Player 2");
-		Label scorePl2 = new Label("Score:");
-		VBox player2Info = new VBox();
-		HBox player2Cards = new HBox();
-
-		// Player left
-		Label userNamePl3 = new Label("Player 3");
-		Label scorePl3 = new Label("Score:");
-		VBox player3Info = new VBox();
-		HBox player3Cards = new HBox();
-
-		// Player bottom
-		Label userNamePl4 = new Label("Player 4");
-		Label scorePl4 = new Label("Score:");
-		VBox player4Info = new VBox();
-		HBox player4Cards = new HBox();
-
-		// Menu Bar
-
-		MenuBar meba = new MenuBar();
-
-		Menu optionsMenu = new Menu("Options");
-
-		Menu helpMenu = new Menu("Help");
-
-		MenuItem resumeItem = new MenuItem("Quit Game");
-
-		MenuItem rulesItem = new MenuItem("How to play?");
-		
 		
 		optionsMenu.getItems().addAll(resumeItem);
 		helpMenu.getItems().addAll(rulesItem);
@@ -97,6 +106,20 @@ public class JassmendGameView {
 		player4Info.getChildren().add(scorePl4);
 
 		player4Info.setAlignment(Pos.CENTER);
+		
+		// __________________________________________________________________ 
+		 
+		 
+		txt1.setPromptText("Type here your message"); 
+		HBox.setHgrow(txt1, Priority.ALWAYS); 
+		 
+		chatbox1.getChildren().add(txtSend); 
+		chatbox1.getChildren().add(txt1); 
+		 
+		chatbox2.getChildren().add(msgArea); 
+		 
+		chatbox3.getChildren().add(chatbox2); 
+		chatbox3.getChildren().add(chatbox1); 
 
 		BorderPane outerPane = new BorderPane();
 
@@ -118,6 +141,7 @@ public class JassmendGameView {
 
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
+		outerPane.setRight(chatbox3); 
 
 		gameScene = new Scene(outerPane);
 		primaryStage.setMinHeight(600);
