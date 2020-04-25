@@ -45,7 +45,7 @@ public class GameView {
 	VBox player3Info = new VBox();
 	HBox player3Cards = new HBox();
 	
-	//Player bottom
+	//Player right
 	Label userNamePl4 = new Label("Player 4");
 	Label scorePl4 = new Label("Score:");
 	VBox player4Info = new VBox();
