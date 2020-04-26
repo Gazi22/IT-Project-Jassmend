@@ -1,5 +1,8 @@
 package jassmendView;
 
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,11 +19,18 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import jassmendMain.JassmendMain;
 import jassmendModel.JassmendModel;
 
 public class JassmendGameView {
 	
-	public Scene loginScene, gameScene;
+	public Scene gameScene;
 	private JassmendModel model;
 	
 	public Stage primaryStage;
@@ -53,22 +63,17 @@ public class JassmendGameView {
 	HBox player4Cards = new HBox();
 
 	// Menu Bar
-
-	MenuBar meba = new MenuBar();
-
-	Menu optionsMenu = new Menu("Options");
-
-	Menu helpMenu = new Menu("Help");
-
-	MenuItem resumeItem = new MenuItem("Quit Game");
-
-	MenuItem rulesItem = new MenuItem("How to play?");
+    MenuBar meba = new MenuBar();
+    Menu optionsMenu = new Menu("Options");
+    Menu helpMenu = new Menu("Help");
+    MenuItem resumeItem = new MenuItem("Quit Game");
+    MenuItem rulesItem = new MenuItem("How to play?");
 	
-	// Chat 
-	 
+	// Chat  
 	TextField txt1 = new TextField (); 
 	Button txtSend = new Button ("Send"); 
 	TextArea msgArea = new TextArea (); 
+	Label lblchat = new Label("Chat");
 	HBox chatbox1 = new HBox (); 
 	VBox chatbox2 = new VBox (); 
 	VBox chatbox3 = new VBox (); 
@@ -80,6 +85,27 @@ public class JassmendGameView {
 		
 		optionsMenu.getItems().addAll(resumeItem);
 		helpMenu.getItems().addAll(rulesItem);
+		
+		// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
+		
+		helpMenu.setOnAction( e -> {
+			if(Desktop.isDesktopSupported())
+				
+			{
+				try {
+					Desktop.getDesktop().browse(new URI("https://www.swisslos.ch/de/jass/informationen/jass-regeln/jass-grundlagen.html"));
+					
+				}catch (IOException e1) {
+					e1.printStackTrace();
+					
+				}catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+			
+		
+		
 
 		meba.getMenus().addAll(optionsMenu, helpMenu);
 
@@ -112,11 +138,15 @@ public class JassmendGameView {
 		 
 		txt1.setPromptText("Type here your message"); 
 		HBox.setHgrow(txt1, Priority.ALWAYS); 
+		
+		msgArea.setPrefHeight(600);
+		msgArea.setPrefWidth(300);
 		 
 		chatbox1.getChildren().add(txtSend); 
 		chatbox1.getChildren().add(txt1); 
 		 
-		chatbox2.getChildren().add(msgArea); 
+		chatbox2.getChildren().add(lblchat);
+		chatbox2.getChildren().add(msgArea);
 		 
 		chatbox3.getChildren().add(chatbox2); 
 		chatbox3.getChildren().add(chatbox1); 
@@ -151,7 +181,7 @@ public class JassmendGameView {
 		primaryStage.show();
 
 		// Disallow to resize window due to the images
-		primaryStage.setResizable(false);
+		//primaryStage.setResizable(false);
 	}
 
 	
