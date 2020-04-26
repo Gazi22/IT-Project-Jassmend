@@ -1,5 +1,6 @@
 package client_v0;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 import javafx.animation.PauseTransition;
@@ -145,7 +146,7 @@ public class ChatView {
                
         Button btnCreateGamelobby = new Button("Create gamelobby:");
         Button btnJoinGamelobby = new Button("Join selected gamelobby");
-        btnJoinGamelobby.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+     
         stage.setTitle("Gamelobby List");
 
         ListView listView = new ListView();
@@ -155,8 +156,9 @@ public class ChatView {
         PauseTransition pause = new PauseTransition(Duration.seconds(1));
         pause.setOnFinished(e -> {
             int lastMessageIndex = areaMessages.getText().split("\n").length-1;
-            String lastMessage = areaMessages.getText().split("\n")[lastMessageIndex];
-            for (String str:lastMessage.split("\\|")) {
+            String [] lastMessage = areaMessages.getText().split("\n")[lastMessageIndex].split("\\|");
+						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
+            for (String str:gameLobbyList) {
                 listView.getItems().add(str);
             }
             btnJoinGamelobby.setOnAction(e2 -> {
@@ -191,8 +193,11 @@ public class ChatView {
     			TextInputDialog txtInput = new TextInputDialog();
     	    	 txtInput.setTitle("Create new gamelobby");
     	    	 txtInput.setContentText("Name of new gamelobby:");
-    	    	 
-    	    	Optional<String> newGamelobby = txtInput.showAndWait();
+					Optional<String> result = txtInput.showAndWait();
+    	    	 String newGamelobby = "";
+    	    	 if (result.isPresent()){
+    	    	 	newGamelobby = result.get();
+						 }
     	    	
     			clientController.createGamelobby(newGamelobby);
     			
