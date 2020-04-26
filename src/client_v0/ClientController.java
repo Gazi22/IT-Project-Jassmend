@@ -207,7 +207,7 @@ public class ClientController {
         sendToServer(concatString);
     }
     
-    public  void createGamelobby(Optional<String> newGamelobby){
+    public  void createGamelobby(String newGamelobby){
         String concatString = "CreateGamelobby|"+clientModel.gethash()+"|"+newGamelobby+"|"+"true";
         sendToServer(concatString);
     }

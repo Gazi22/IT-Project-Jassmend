@@ -40,7 +40,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private final ArrayList<String> users = new ArrayList<>();
 	private Instant lastMessage;
 	private final int maxPlayers =4;
-	private int [] playerIDs = new int[maxPlayers];
+	private String [] playerIDs = new String[maxPlayers];
 	
 	
 	/**
@@ -78,8 +78,11 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public static Gamelobby exists(String name) {
 		synchronized (gamelobbys) {
 			for (Gamelobby gamelobby : gamelobbys) {
-				if(gamelobby.isFull()==true) {//If statement, wenn true, prüfen ob full ist
-				if (gamelobby.name.equals(name)) return gamelobby;
+				if (gamelobby.name.equals(name)){
+					if(!gamelobby.isFull()) {
+						return gamelobby;
+				}
+					
 			}
 		}
 		}
@@ -196,10 +199,10 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	//check array full
 	public boolean isFull() {
 		for (int x=0; x < playerIDs.length; x++)
-	           if (x == playerIDs.length - 1) {
-	        	   return true;
+	           if (playerIDs[x] == null) {
+	        	   return false;
 	           }
-		return false;
+		return true;
 	}
 
 	public boolean isPublic() {
@@ -210,28 +213,25 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		if (!users.contains(username)) 
 		{users.add(username);}
 		
-		if(playerIDs.length==0) {
-			playerIDs[0]=1;
+		if(playerIDs[0]==null) {
+			playerIDs[0]=username;
+			System.out.println(username+"ist Player 1");
 		}
+		
 		else {
-			if(playerIDs.length==1) {
-				playerIDs[1]=2;}
+			if(playerIDs[1]==null) {
+				playerIDs[1]=username;
+				System.out.println(username+"ist Player 2");}
 			else {
-				if(playerIDs.length==2) {
-					playerIDs[2]=3;
+				if(playerIDs[2]==null) {
+					playerIDs[2]=username;
+					System.out.println(username+"ist Player 3");
 			}
-				else {
-					if(playerIDs.length==2) {
-						playerIDs[2]=3;
-					}
-					else playerIDs[3]=4;}
+									
+					else playerIDs[3]=username;
+				System.out.println(username+"ist Player 4");}
 			}
 		}
-		
-		
-	}
-				
-			
 		
 		
 	
