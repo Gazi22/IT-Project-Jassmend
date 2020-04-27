@@ -13,5 +13,6 @@ public class Logout extends Message {
 		client.setToken(null); // Destroy authentication token
 		client.setAccount(null); // Destroy account information
 		client.send(new Result(true));
+		System.out.println(client+" logged out!");
 	}
 }

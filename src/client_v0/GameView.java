@@ -1,6 +1,8 @@
 package client_v0;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import javafx.animation.PauseTransition;
@@ -69,6 +71,7 @@ public class GameView {
 	Menu LobbyMenu = new Menu("Gamelobby");
 	
 	MenuItem ResumeItem = new MenuItem("Quit Game");
+	MenuItem LogoutItem = new MenuItem("Logout");
 	
 	MenuItem RulesItem = new MenuItem("How to play?");
 	
@@ -93,7 +96,7 @@ public class GameView {
 
 	this.clientController = clientController;
 	   
-	OptionsMenu.getItems().addAll(ResumeItem);
+	OptionsMenu.getItems().addAll(ResumeItem,LogoutItem);
 	HelpMenu.getItems().addAll(RulesItem);
 	LobbyMenu.getItems().addAll(Gamelobbys);
 		
@@ -185,6 +188,21 @@ public class GameView {
      	
      });;
 	
+     LogoutItem.setOnAction(e -> {
+    	 clientController.getGamelobbyList();
+    	 int lastMessageIndex = msgArea.getText().split("\n").length-1;
+         String [] lastMessage = msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
+						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
+         for (String str:gameLobbyList) {
+         clientController.leaveGamelobby(str);
+         }
+         
+         
+    	 clientController.logout();
+         clientController.showAlert("Logout","You have been sucessfully logged out.");
+         this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
+     });
+     
      Gamelobbys.setOnAction(e4 -> {
 			showgamelobbyScreen();
 		});

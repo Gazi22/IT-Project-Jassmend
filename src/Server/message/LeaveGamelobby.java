@@ -34,5 +34,6 @@ public class LeaveGamelobby extends Message {
 			}
 		}
 		client.send(new Result(result));
+		System.out.println(username+"left"+name);
 	}
 }

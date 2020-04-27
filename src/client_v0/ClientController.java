@@ -211,6 +211,11 @@ public class ClientController {
         sendToServer(concatString);
     }
     
+    public void leaveGamelobby (String gamelobby) {
+    	String concatString = "LeaveGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
+    
     public  void createGamelobby(String newGamelobby){
         String concatString = "CreateGamelobby|"+clientModel.gethash()+"|"+newGamelobby+"|"+"true";
         sendToServer(concatString);
