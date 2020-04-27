@@ -34,7 +34,7 @@ public class ChatView {
 	private TextField input = new TextField();
 	Button btnSend = new Button("Send");
 	Button btnLogout = new Button("Logout");
-	
+	public Stage newStageGameView;
 	
 	public ChatView(ClientController clientController){
 		areaMessages.setPrefHeight(450);
@@ -180,6 +180,12 @@ public class ChatView {
                         clientController.joinSuccessfull(finalGamelobby);
                         joinedGamelobbyMode();
                         stage.close();
+                        //Handling Create Account button
+                       
+                            newStageGameView = new Stage();
+                            newStageGameView.setScene(GameView.getScene());
+                            newStageGameView.show();
+                     
                     }
                 });
                 pause2.play();

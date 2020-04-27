@@ -215,21 +215,21 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		
 		if(playerIDs[0]==null) {
 			playerIDs[0]=username;
-			System.out.println(username+"ist Player 1");
+			System.out.println(username+" ist Player 1");
 		}
 		
 		else {
 			if(playerIDs[1]==null) {
 				playerIDs[1]=username;
-				System.out.println(username+"ist Player 2");}
+				System.out.println(username+" ist Player 2");}
 			else {
 				if(playerIDs[2]==null) {
 					playerIDs[2]=username;
-					System.out.println(username+"ist Player 3");
+					System.out.println(username+" ist Player 3");
 			}
 									
 					else playerIDs[3]=username;
-				System.out.println(username+"ist Player 4");}
+				System.out.println(username+" ist Player 4");}
 			}
 		}
 		

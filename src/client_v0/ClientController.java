@@ -36,12 +36,12 @@ public class ClientController {
 
                 String connecting = "Connecting to "+ipaddress+" via port:"+port;
                 clientModel.log_info(connecting);
-                appendMessage(connecting);
+                appendMessageGameView(connecting);
 
                 socket = new Socket(ipaddress, Integer.parseInt(port));
                 String established = "Connection established !";
                 clientModel.log_info(established);
-                appendMessage(established);
+                appendMessageGameView(established);
 
                 clientModel.setIpAddress(ipaddress);
                 clientModel.setPort(Integer.parseInt(port));
@@ -64,7 +64,7 @@ public class ClientController {
             String incorrectFormat = "Formatting of IP-Address and/or Port is incorrect !";
 
             clientModel.log_warning(incorrectFormat);
-            appendMessage(incorrectFormat);
+            appendMessageGameView(incorrectFormat);
 
             return false;
         }
@@ -74,6 +74,10 @@ public class ClientController {
 
     public void appendMessage(String message){
         view.areaMessages.appendText(message+"\n");
+    }
+    
+    public void appendMessageGameView(String message){
+        gameView.msgArea.appendText(message+"\n");
     }
     
     public void setText_IPField(String text){
@@ -95,12 +99,12 @@ public class ClientController {
 
             String connecting = "Connecting to "+ipaddress+" via port:"+port;
             clientModel.log_info(connecting);
-            appendMessage(connecting);
+            appendMessageGameView(connecting);
 
             socket = new Socket(ipaddress, port);
             String established = "Connection established !";
             clientModel.log_info(established);
-            appendMessage(established);
+            appendMessageGameView(established);
 
             loginView.setText_txtIPAddress(ipaddress);
             loginView.setText_txtPort(String.valueOf(port));
@@ -115,7 +119,7 @@ public class ClientController {
                             String msg;
                             try {
                                 msg = socketIn.readLine();
-                                appendMessage("Received: " + msg);
+                                appendMessageGameView("Received: " + msg);
                             } catch (IOException e) {
                                 break;
                             }

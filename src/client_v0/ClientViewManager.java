@@ -16,17 +16,17 @@ public class ClientViewManager {
 
     public Stage primaryStage;
     private CreateAccountView createAccountView;
-    private ChatView view;
+    private GameView view;
     private LoginView loginView;
-    private GameView gameView;
+   
     
 
-    public ClientViewManager(Stage primaryStage, ChatView view, LoginView loginView, CreateAccountView createAccountView, GameView gameView) {
+    public ClientViewManager(Stage primaryStage, GameView view, LoginView loginView, CreateAccountView createAccountView) {
         this.primaryStage = primaryStage;
         this.createAccountView = createAccountView;
         this.view = view;
         this.loginView = loginView;
-        this.gameView = gameView;
+       
         
         primaryStage.setScene(LoginView.getScene());
     }
@@ -46,7 +46,7 @@ public class ClientViewManager {
         return createAccountView;
     }
     
-    public ChatView getView() {
+    public GameView getView() {
         return view;
     }
 
@@ -54,7 +54,5 @@ public class ClientViewManager {
         return loginView;
     }
     
-    public GameView getGameView() {
-        return gameView;
-    }
+   
 }

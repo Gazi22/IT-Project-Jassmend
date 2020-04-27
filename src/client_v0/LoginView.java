@@ -17,7 +17,7 @@ public class LoginView {
 
     private static Scene scene;
     private ClientController clientController;
-    private ChatView view;
+    private GameView view;
     public Stage newStageCreateAccount;
 
     Label lblUserName = new Label("User Name:");
@@ -36,7 +36,7 @@ public class LoginView {
     HBox hboxBtn = new HBox(10);
 
 
-    public LoginView(ClientController clientController, ChatView view)
+    public LoginView(ClientController clientController, GameView view)
     {
         this.clientController = clientController;
         this.view  = view;
@@ -108,15 +108,15 @@ public class LoginView {
             //Not the best way to do it but it does the trick
             PauseTransition pause = new PauseTransition(Duration.seconds(1));
             pause.setOnFinished(event2 -> {
-                int lastMessageIndex = view.areaMessages.getText().split("\n").length-1;
-                String lastMessage = view.areaMessages.getText().split("\n")[lastMessageIndex];
+                int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
+                String lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex];
                 if (lastMessage.matches("Received: Result\\|true\\|.*")) {
                     //Get Login hash and store in model
                     int hashIndex = lastMessage.split("\\|").length-1;
                     String hash = lastMessage.split("\\|")[hashIndex];
                     clientController.loginSuccesfull(user, hash);
                    
-                    this.clientController.getViewManager().primaryStage.setScene(ChatView.getScene()); 
+                    this.clientController.getViewManager().primaryStage.setScene(GameView.getScene()); 
                 }
                 else {
                 	

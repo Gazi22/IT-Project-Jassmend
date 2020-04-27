@@ -7,10 +7,9 @@ import javafx.stage.Stage;
 
 public class ClientChatRoom extends Application {
     ClientViewManager clientView;
-    ChatView view;
     LoginView loginView;
     CreateAccountView createAccountView;
-    GameView gameView;
+    GameView view;
    
 
     public static void main(String[] args) {
@@ -25,15 +24,15 @@ public class ClientChatRoom extends Application {
         ClientModel clientModel = new ClientModel();
 
         ClientController clientController = new ClientController(clientModel);
-        view = new ChatView(clientController);
-        clientController.addChatView(view);
+        view = new GameView(clientController);
+        clientController.addGameView(view);
         loginView = new LoginView(clientController, view);
         clientController.addLoginView(loginView);
         createAccountView = new CreateAccountView(clientController);
-        gameView  = new GameView(clientController);
-        clientController.addGameView(gameView);
+       
+      
 
-        clientView = new ClientViewManager(primaryStage, view, loginView, createAccountView,gameView);
+        clientView = new ClientViewManager(primaryStage, view, loginView, createAccountView);
        
         clientController.setViewManager(clientView);
         primaryStage.show();
