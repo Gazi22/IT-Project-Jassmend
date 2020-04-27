@@ -7,6 +7,7 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextInputDialog;
+import java.net.ConnectException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -130,10 +131,12 @@ public class ClientController {
             }
 
             return true;
+            
         } catch (Exception e) {
             clientModel.log_error(e.toString());
             return false;
         }
+        
     }
 
     private  boolean validateIpAddress(String ipAddress) {
