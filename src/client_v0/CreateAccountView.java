@@ -8,6 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.JdbcConnection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 
 
@@ -18,6 +26,10 @@ public class CreateAccountView {
 	static TextField txtPassword = new TextField();
 	static TextField txtUsername = new TextField();
 	Button btnSubmit = new Button("Submit");
+	final String url = "jdbc:mysql://localhost:3306/projectjassmend";
+	final String user = "root";
+	final String pw = "AdminProject123";
+
 
 
 	private static Scene sceneAccView;
@@ -68,6 +80,25 @@ public class CreateAccountView {
 	//SOME ALERT ERROR HANDLING missing?
 		 btnSubmit.setOnAction(event -> {
 	            // Assume success always!
+			 //https://stackoverflow.com/questions/43281490/sql-syntax-in-java-forms-gettext
+			String myQuery = "INSERT INTO `UserInformation`(`username`, `userpassword`)"
+					    + "VALUES (?, ?)";
+			try { Connection myConnection = DriverManager.getConnection(url + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Zurich", user, pw);
+					// 1. Get a connection to database
+					try (PreparedStatement pstm = myConnection.prepareStatement(myQuery)) {
+					    pstm.setString(1, txtUsername.getText());
+					    pstm.setString(2, txtPassword.getText());
+					    pstm.executeUpdate();
+					
+					// Console Check if Statement was executed
+					System.out.println("Statement Complete.");
+					
+				}
+			}
+				catch (SQLException exc) {
+					exc.printStackTrace();
+				}
+				
 	            clientController.registerUser(txtUsername.getText(), txtPassword.getText());
 	           this.clientController.getLoginView().newStageCreateAccount.close();
 	        });

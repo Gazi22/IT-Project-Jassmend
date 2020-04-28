@@ -56,9 +56,7 @@ public class LoginView {
 
         gridLoginView.add(txtUser, 1, 4);
 
-
         gridLoginView.add(lblPassword, 0, 5);
-
 
         gridLoginView.add(txtPassword, 1, 5);
 
