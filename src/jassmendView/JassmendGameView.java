@@ -20,15 +20,25 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
+import static jassmendPackage.Player.HAND_SIZE;
+
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
+import jassmendPackage.Player;
+import jassmendPackage.Card;
+import jassmendPackage.CardView;
+import jassmendPackage.CardHand;
 import jassmendMain.JassmendMain;
 import jassmendModel.JassmendModel;
 
 public class JassmendGameView {
+
+	private Player player1;
 	
 	public Scene gameScene;
 	private JassmendModel model;
@@ -78,7 +88,13 @@ public class JassmendGameView {
 	VBox chatbox2 = new VBox (); 
 	VBox chatbox3 = new VBox (); 
 	
-	public JassmendGameView(Stage primaryStage, JassmendModel model) {
+	
+	/** TEST */
+    public static ArrayList<Button> cardButtons = new ArrayList<>();
+    private boolean displayed = false;
+	
+	
+    public JassmendGameView(Stage primaryStage, JassmendModel model) {
 
 		this.primaryStage = primaryStage;
 		this.model = model;
@@ -104,11 +120,11 @@ public class JassmendGameView {
 			}
 		});
 			
-		
-		
-
 		meba.getMenus().addAll(optionsMenu, helpMenu);
 
+		
+		
+		player1Info.getChildren().add(player1Cards);
 		player1Info.getChildren().add(userNamePl1);
 		player1Info.getChildren().add(scorePl1);
 
@@ -179,11 +195,35 @@ public class JassmendGameView {
 		primaryStage.setScene(gameScene);
 		primaryStage.setTitle("Jassmend");
 		primaryStage.show();
+		
+		
+		for (int i = 0; i < 9; i++) {
+            Button btnCard = new CardView();
+            player1Cards.getChildren().add(btnCard);
+            player1Cards.setSpacing(2);}
+		}
+            
+            
+       public void addCardsToHand() {
+       	for (int i = 0; i < Player.HAND_SIZE; i++) {
+       		Card card = null;
+       		if (player1.getCards().size() > i) card = player1.getCards().get(i);
+       		CardView cl = (CardView) player1Cards.getChildren().get(i);
+       		cl.setCard(card);
+		
+		
+		
+		
+		
+		
+		
+		
 
 		// Disallow to resize window due to the images
 		//primaryStage.setResizable(false);
 	}
 
 	
-
+    }
 }
+

@@ -1,22 +1,23 @@
 package jassmendPackage;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 // Code from Pokerproject
 
-/** public class CardView extends Button {
+    public class CardView extends Button {
     public CardView() {
         super();
-        //this.getStyleClass().add("card");
+        this.getStyleClass().add("card");
     }
    public void setCard(Card card) { 
 
 
         if (card != null) {
             String fileName = cardToFileName(card);
-            Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("Client/images/Cards/" +fileName));
+            Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("Cards/" + fileName));
             ImageView imv = new ImageView(image);
             imv.fitWidthProperty().bind(this.widthProperty());
             imv.fitHeightProperty().bind(this.heightProperty());
@@ -41,4 +42,4 @@ import javafx.scene.image.ImageView;
         String suit = card.getSuit().toString();
         return suit + "_" + rank + ".png";
     }
-} */
+} 
