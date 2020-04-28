@@ -188,21 +188,28 @@ public class GameView {
      	
      });;
 	
+     
+     //Handlungsbedarf transition
      LogoutItem.setOnAction(e -> {
     	 clientController.getGamelobbyList();
-    	 int lastMessageIndex = msgArea.getText().split("\n").length-1;
-         String [] lastMessage = msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
-						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
-         for (String str:gameLobbyList) {
-         clientController.leaveGamelobby(str);
-         }
-         
-         
-    	 clientController.logout();
-         clientController.showAlert("Logout","You have been sucessfully logged out.");
+    	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
+         pause.setOnFinished(e5 -> {
+        	              
+        	 int lastMessageIndex = msgArea.getText().split("\n").length-1;
+             String [] lastMessage = msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
+    						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
+             for (String str:gameLobbyList) {
+             clientController.leaveGamelobby(str);
+             }
+        	
+            	 
+         clientController.logout();
          this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
      });
      
+     pause.play();
+     
+     });
      Gamelobbys.setOnAction(e4 -> {
 			showgamelobbyScreen();
 		});

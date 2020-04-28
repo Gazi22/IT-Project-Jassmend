@@ -225,25 +225,29 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 			else {
 				if(playerIDs[2]==null) {
 					playerIDs[2]=username;
-					System.out.println(username+" ist Player 3");
+					System.out.println(username+" ist Player 3");}
+				  else {
+					if(playerIDs[3]==null) {
+						playerIDs[3]=username;
+						System.out.println(username+" ist Player 4");
 			}
-									
-					else playerIDs[3]=username;
-				System.out.println(username+" ist Player 4");}
-			}
-		}
+			
+	       }					
+		  }	
+		 }
+       }
 		
 		
 	
 
 	public void removeUser(String username) {
 		users.remove(username);
-		System.out.println(username + " left the gamelobbys!");
-		for (int x=0; x < playerIDs.length; x++)
+			for (int x=0; x < playerIDs.length; x++) {
 	           if (playerIDs[x] == username) {
 	        	   playerIDs[x]= null;
+	        	   System.out.println(username + " left the gamelobbys!"+playerIDs[x]+"is null");
 	           }
-		
+		}
 	}
 	
 	public ArrayList<String> getUsers() {

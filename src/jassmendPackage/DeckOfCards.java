@@ -65,23 +65,7 @@ public class DeckOfCards {
     	return cards.size() == 0;
     }	
     	    
-    public CardHand dealHand (int handSize) {
-    	if(handSize<=0||
-    	(handSize >36)){
-    		
-    		throw new IllegalArgumentException();
-    	}
-    	if (handSize>cards.size()) {
-    		return null;
-    	}
-    	
-    	CardHand hand= new CardHand();
-    	for (int i = 0; i<handSize;i++)
-    	{
-    		hand.addCard(dealCard());
-    	}
-    	return hand;
-    }
+    
     
     
    
