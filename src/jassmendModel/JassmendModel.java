@@ -12,14 +12,14 @@ public class JassmendModel {
 		private final ArrayList<Player> players = new ArrayList<>();
 		private DeckOfCards deck;
 		
-	/**	public JassmendModel() {
-			for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
-				players.add(new Player("Player " + i));
+		public JassmendModel() {
+			for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
+				players.add(new Player("Player " + i, 0));
 			}
 			
 			deck = new DeckOfCards();
 		}
-		*/
+		
 		public Player getPlayer(int i) {
 			return players.get(i);
 		}
