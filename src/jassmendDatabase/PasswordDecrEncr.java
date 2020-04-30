@@ -13,6 +13,8 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+// provided by Mr. Bradley Richards / Code Resource from Stackoverflow
+
 public class PasswordDecrEncr {
 	
 	public static void main(String[] args) throws Exception {

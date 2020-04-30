@@ -8,32 +8,36 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.application.Platform;
 import com.mysql.jdbc.Driver;
+import jassmendDatabase.JassmendDatabase;
 import com.mysql.cj.jdbc.JdbcConnection;
+import com.mysql.cj.protocol.Resultset;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-
-public class CreateAccountView {
+public class CreateAccountView{
+	
+	JassmendDatabase jassDB = new JassmendDatabase();
 	Label lblHeader = new Label("Create a new account FOR FREE!");
 	Label lblUsername = new Label("Username : ");
 	Label lblPassword = new Label("Password : ");
-	static TextField txtPassword = new TextField();
-	static TextField txtUsername = new TextField();
+	public static TextField txtPassword = new TextField();
+	public static TextField txtUsername = new TextField();
 	Button btnSubmit = new Button("Submit");
-	final String url = "jdbc:mysql://localhost:3306/projectjassmend";
-	final String user = "root";
-	final String pw = "AdminProject123";
-
-
-
 	private static Scene sceneAccView;
 	private ClientController clientController;
+	 // https://stackoverflow.com/questions/43281490/sql-syntax-in-java-forms-gettext
+
 
 	public CreateAccountView(ClientController clientController)
 	{
@@ -80,39 +84,17 @@ public class CreateAccountView {
 	//SOME ALERT ERROR HANDLING missing?
 		 btnSubmit.setOnAction(event -> {
 	            // Assume success always!
-			 //https://stackoverflow.com/questions/43281490/sql-syntax-in-java-forms-gettext
-			String myQuery = "INSERT INTO `UserInformation`(`username`, `userpassword`)"
-					    + "VALUES (?, ?)";
-			try { Connection myConnection = DriverManager.getConnection(url + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Zurich", user, pw);
-					// 1. Get a connection to database
-					try (PreparedStatement pstm = myConnection.prepareStatement(myQuery)) {
-					    pstm.setString(1, txtUsername.getText());
-					    pstm.setString(2, txtPassword.getText());
-					    pstm.executeUpdate();
-					
-					// Console Check if Statement was executed
-					System.out.println("Statement Complete.");
-					
-				}
-			}
-				catch (SQLException exc) {
-					exc.printStackTrace();
-				}
-				
-	            clientController.registerUser(txtUsername.getText(), txtPassword.getText());
-	           this.clientController.getLoginView().newStageCreateAccount.close();
-	        });
-		 
-		 
-	        	
-		    
-		 sceneAccView = new Scene(gridAccountView, 500, 275);
-		 
-		 
-		 
+			
+			jassDB.registerAccDB(txtUsername.getText(), txtPassword.getText());
+			clientController.registerUser(txtUsername.getText(), txtPassword.getText());
+			this.clientController.getLoginView().newStageCreateAccount.close();
+			});
+
+		sceneAccView = new Scene(gridAccountView, 500, 275);
+
 	}
 	
-	
+    
 	
 	public static Scene getSceneAccView () {
 		
