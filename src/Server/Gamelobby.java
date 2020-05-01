@@ -243,7 +243,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public void removeUser(String username) {
 		users.remove(username);
 			for (int x=0; x < playerIDs.length; x++) {
-	           if (playerIDs[x] == username) {
+	           if (playerIDs[x].equals(username)) {
 	        	   playerIDs[x]= null;
 	        	   System.out.println(username + " left the gamelobbys!"+playerIDs[x]+"is null");
 	           }
