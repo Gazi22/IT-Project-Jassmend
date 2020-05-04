@@ -36,7 +36,11 @@ public class JoinGamelobby extends Message {
 			if (gamelobby.getOwner().equals(client.getName())
 					|| client.getName().equals(username) && gamelobby.isPublic()) {
 				gamelobby.addUser(username);
-				
+				//ids[0]=gamelobby.playerIDs(0);
+				//ids[1]=gamelobby.playerIDs(1);
+				//ids[2]=gamelobby.playerIDs(2);
+			//	ids[3]=gamelobby.playerIDs(3);
+
 				result = true;
 				
 			}

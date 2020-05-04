@@ -120,6 +120,12 @@ public class ClientController {
                             String msg;
                             try {
                                 msg = socketIn.readLine();
+                               // if (msg.startsWith("MessageText")) {
+                                  //  String [] arrMsgText = msg.split("\\|");
+                                 //   msg=arrMsgText[1]+": "+arrMsgText[3];
+                                  //  appendMessageGameView(msg);
+                              //  }
+
                                 appendMessageGameView("Received: " + msg);
                             } catch (IOException e) {
                                 break;

@@ -31,6 +31,11 @@ public class GameView {
 	  private static Scene scene;
 	    private ClientController clientController;
 	    
+	    
+	//Client Server Communication
+	int playerID;    
+	    
+	    
 	//private Model 
 	
 	Insets insets = new Insets(10);
@@ -75,7 +80,7 @@ public class GameView {
 	
 	MenuItem RulesItem = new MenuItem("How to play?");
 	
-	MenuItem Gamelobbys = new MenuItem("Show Gamelobbys");
+	MenuItem gamelobbyItem = new MenuItem("Show Gamelobbys");
 	
 	public Object areaMessages;
 	
@@ -98,7 +103,7 @@ public class GameView {
 	   
 	OptionsMenu.getItems().addAll(ResumeItem,LogoutItem);
 	HelpMenu.getItems().addAll(RulesItem);
-	LobbyMenu.getItems().addAll(Gamelobbys);
+	LobbyMenu.getItems().addAll(gamelobbyItem);
 		
 		
 	meba.getMenus().addAll(OptionsMenu, HelpMenu, LobbyMenu);	
@@ -210,7 +215,7 @@ public class GameView {
      pause.play();
      
      });
-     Gamelobbys.setOnAction(e4 -> {
+     gamelobbyItem.setOnAction(e4 -> {
 			showgamelobbyScreen();
 		});
 	

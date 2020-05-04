@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 import Server.message.Message;
 
+
 /**
  * This class represents a gamelobby, which may be either public or private, and
  * has a list of accounts that are members. A gamelobby is "owned" by the user
@@ -215,6 +216,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		
 		if(playerIDs[0]==null) {
 			playerIDs[0]=username;
+
 			System.out.println(username+" ist Player 1");
 		}
 		
@@ -238,7 +240,15 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
        }
 		
 		
-	
+
+
+	public String playerIDs(int i) {
+		for (int x=0; x < playerIDs.length; x++) {
+			return playerIDs[x];
+		}
+		return null;
+	}
+
 
 	public void removeUser(String username) {
 		users.remove(username);

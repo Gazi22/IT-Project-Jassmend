@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import jassmendPackage.Player;
 import jassmendPackage.Card;
 import jassmendPackage.CardView;
-import jassmendPackage.CardHand;
+
 import jassmendMain.JassmendMain;
 import jassmendModel.JassmendModel;
 
