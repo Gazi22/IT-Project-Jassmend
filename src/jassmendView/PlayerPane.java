@@ -42,12 +42,12 @@ public class PlayerPane extends VBox {
 	//	lblName.setText(player1.getPlayerName());
 		for (int i = 0; i < Player.HAND_SIZE; i++) {
     		Card card = null;
-    		if (player1.getCards().size() > i) {
-    		//card = player1.getCards().get(i);
+    		if (player1.getCards().size() > i) card = player1.getCards().get(i);
+			{
     		CardView cl = (CardView) cardBox.getChildren().get(i);
-    		cl.setCard(card); 
+    		cl.setCard(card);
     		}
-		
+
 	}
 
 

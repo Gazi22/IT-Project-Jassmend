@@ -28,14 +28,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
-import jassmendPackage.Player;
-import jassmendPackage.Card;
-import jassmendPackage.CardView;
-
-=======
-//import jassmendPackage.CardHand;
->>>>>>> Dave7
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.JassmendModel;
@@ -51,7 +43,7 @@ public class JassmendGameView {
 	Insets insets = new Insets(10);
 	
 	
-	public PlayerPane pp = new PlayerPane();
+
 	
 	
 	Button btnDeal = new Button("Deal");
@@ -101,7 +93,8 @@ public class JassmendGameView {
 
 		this.primaryStage = primaryStage;
 		this.model = model;
-		
+		PlayerPane pp = new PlayerPane();
+		pp.setPlayer(model.getPlayer(1));
 		optionsMenu.getItems().addAll(resumeItem);
 		helpMenu.getItems().addAll(rulesItem);
 		
@@ -126,7 +119,7 @@ public class JassmendGameView {
 		meba.getMenus().addAll(optionsMenu, helpMenu);
 
 		
-		//pp.setPlayer(model.getPlayer());
+
 		
 		player1Box.getChildren().add(pp);
 		player1Box.setAlignment(Pos.CENTER);
