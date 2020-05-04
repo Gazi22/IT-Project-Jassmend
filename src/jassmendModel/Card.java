@@ -1,35 +1,35 @@
-package jassmendPackage;
+package jassmendModel;
 
 
 public class Card {
-    public enum Suit { Clubs, Diamonds, Hearts, Spades;
+    public enum Suit { Kreuz, Ecke, Herz, Schaufel;
         @Override
         public String toString() {
             String suit = "";
             switch (this) {
-            case Clubs: suit = "clubs"; break;
-            case Diamonds: suit = "diamonds"; break;
-            case Hearts: suit = "hearts"; break;
-            case Spades: suit = "spades"; break;
+            case Kreuz: suit = "Kreuz"; break;
+            case Ecke: suit = "Ecke"; break;
+            case Herz: suit = "Herz"; break;
+            case Schaufel: suit = "Schaufel"; break;
             }
             return suit;
         }
     };
     
-    public enum Rank { Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace;
+    public enum Rank { Sechs, Sieben, Acht, Neun, Zehn, Bube, Dame, Koenig, Ass;
         @Override
         public String toString() {
-            String str = "ace";  // Assume we have an ace, then cover all other cases
+            String str = "Ass";  // Assume we have an ace, then cover all other cases
             // Get ordinal value, which ranges from 0 to 8
             int ordinal = this.ordinal();
             if (ordinal <= 4) {
                 str = Integer.toString(ordinal+6);
             } else if (ordinal == 5) { // Jack
-                str = "jack";
+                str = "Bube";
             } else if (ordinal == 6) { // Queen
-                str = "queen";
+                str = "Dame";
             } else if (ordinal == 7) { // King
-                str = "king";
+                str = "Koenig";
             }
             return str;
         }

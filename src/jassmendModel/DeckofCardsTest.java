@@ -1,4 +1,4 @@
-package jassmendPackage;
+package jassmendModel;
 
 import static org.junit.jupiter.api.Assertions.*;
 

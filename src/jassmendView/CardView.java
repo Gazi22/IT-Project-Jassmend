@@ -1,5 +1,6 @@
-package jassmendPackage;
+package jassmendView;
 
+import jassmendModel.Card;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -7,7 +8,7 @@ import javafx.scene.image.ImageView;
 
 // Code from Pokerproject
 
-    public class CardView extends Button {
+    public class CardView extends Label {
     public CardView() {
         super();
         this.getStyleClass().add("card");
@@ -40,6 +41,6 @@ import javafx.scene.image.ImageView;
      private String cardToFileName(Card card) {
         String rank = card.getRank().toString();
         String suit = card.getSuit().toString();
-        return suit + "_" + rank + ".png";
+        return suit + "_" + rank + ".jpg";
     }
 } 

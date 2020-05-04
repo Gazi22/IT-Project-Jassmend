@@ -1,4 +1,4 @@
-package jassmendPackage;
+package jassmendModel;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class Player {
     }
        
 
-    public static String getPlayerName() {
+    public String getPlayerName() {
         return playerName;
     }
 

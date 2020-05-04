@@ -1,7 +1,12 @@
 package jassmendController;
 
+import jassmendMain.JassmendMain;
+import jassmendModel.Card;
+import jassmendModel.DeckOfCards;
 import jassmendModel.JassmendModel;
+import jassmendModel.Player;
 import jassmendView.JassmendGameView;
+import jassmendView.PlayerPane;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 public class JassmendController {
@@ -14,7 +19,7 @@ public class JassmendController {
 		this.view = view;
 		
 		//view.getShuffleButton().setOnAction( e -> shuffle() );
-		//view.getDealButton().setOnAction( e -> deal() );
+		view.getbtnDeal().setOnAction( e -> deal() );
 	}
 	
 
@@ -34,14 +39,13 @@ public class JassmendController {
     }
     */
 	
-    /**
-     * Deal each player five cards, then evaluate the two hands
+     //Deal each player five cards, then evaluate the two hands
      
     private void deal() {
-    	int cardsRequired = PokerGame.NUM_PLAYERS * Player.HAND_SIZE;
+    	int cardsRequired = JassmendMain.NUM_PLAYERS * Player.HAND_SIZE;
     	DeckOfCards deck = model.getDeck();
     	if (cardsRequired <= deck.getCardsRemaining()) {
-        	for (int i = 0; i < PokerGame.NUM_PLAYERS; i++) {
+        	for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
         		Player p = model.getPlayer(i);
         		p.discardHand();
         		for (int j = 0; j < Player.HAND_SIZE; j++) {
@@ -51,11 +55,12 @@ public class JassmendController {
         		
         		PlayerPane pp = view.getPlayerPane(i);
         		pp.updatePlayerDisplay();
+        		
         	}
     	} else {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
             alert.showAndWait();
     	}
     }
-    */
+    
 }
