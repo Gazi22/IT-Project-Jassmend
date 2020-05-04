@@ -2,8 +2,6 @@ package jassmendModel;
 
 import java.util.ArrayList;
 
-import jassmendPackage.DeckOfCards;
-import jassmendPackage.Player;
 import jassmendMain.JassmendMain;
 import jassmendView.JassmendGameView;
 

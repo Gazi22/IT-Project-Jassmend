@@ -20,8 +20,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
-import static jassmendPackage.Player.HAND_SIZE;
+import static jassmendModel.Player.HAND_SIZE;
 
 import java.awt.Desktop;
 import java.io.IOException;
@@ -29,29 +28,39 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import jassmendPackage.Player;
 import jassmendPackage.Card;
 import jassmendPackage.CardView;
 
+=======
+//import jassmendPackage.CardHand;
+>>>>>>> Dave7
 import jassmendMain.JassmendMain;
+import jassmendModel.Card;
 import jassmendModel.JassmendModel;
+import jassmendModel.Player;
 
 public class JassmendGameView {
 
-	private Player player1;
-	
 	public Scene gameScene;
 	private JassmendModel model;
 	
 	public Stage primaryStage;
 	//private Model 
 	Insets insets = new Insets(10);
+	
+	
+	public PlayerPane pp = new PlayerPane();
+	
+	
+	Button btnDeal = new Button("Deal");
 	// Player areas
 
 	// Player bottom
 	Label userNamePl1 = new Label("Player 1");
 	Label scorePl1 = new Label("Score:");
-	VBox player1Info = new VBox();
+	VBox player1Box = new VBox();
 	HBox player1Cards = new HBox();
 
 	// Player top
@@ -88,13 +97,7 @@ public class JassmendGameView {
 	VBox chatbox2 = new VBox (); 
 	VBox chatbox3 = new VBox (); 
 	
-	
-	/** TEST */
-    public static ArrayList<Button> cardButtons = new ArrayList<>();
-    private boolean displayed = false;
-	
-	
-    public JassmendGameView(Stage primaryStage, JassmendModel model) {
+	  public JassmendGameView(Stage primaryStage, JassmendModel model) {
 
 		this.primaryStage = primaryStage;
 		this.model = model;
@@ -123,12 +126,9 @@ public class JassmendGameView {
 		meba.getMenus().addAll(optionsMenu, helpMenu);
 
 		
+		//pp.setPlayer(model.getPlayer());
 		
-		player1Info.getChildren().add(player1Cards);
-		player1Info.getChildren().add(userNamePl1);
-		player1Info.getChildren().add(scorePl1);
-
-		HBox player1Box = new HBox(player1Info);
+		player1Box.getChildren().add(pp);
 		player1Box.setAlignment(Pos.CENTER);
 
 		player2Info.getChildren().add(userNamePl2);
@@ -188,6 +188,7 @@ public class JassmendGameView {
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
 		outerPane.setRight(chatbox3); 
+		outerPane.setBottom(btnDeal);
 
 		gameScene = new Scene(outerPane);
 		primaryStage.setMinHeight(600);
@@ -197,23 +198,7 @@ public class JassmendGameView {
 		primaryStage.show();
 		
 		
-		for (int i = 0; i < 9; i++) {
-            Button btnCard = new CardView();
-            player1Cards.getChildren().add(btnCard);
-            player1Cards.setSpacing(2);}
-		}
-            
-            
-       public void addCardsToHand() {
-       	for (int i = 0; i < Player.HAND_SIZE; i++) {
-       		Card card = null;
-       		if (player1.getCards().size() > i) card = player1.getCards().get(i);
-       		CardView cl = (CardView) player1Cards.getChildren().get(i);
-       		cl.setCard(card);
-		
-		
-		
-		
+
 		
 		
 		
@@ -223,7 +208,15 @@ public class JassmendGameView {
 		//primaryStage.setResizable(false);
 	}
 
+	public Button getbtnDeal() {
+		
+		return btnDeal;
+	}
 	
-    }
+	
+	public PlayerPane getPlayerPane(int i) {
+		return (PlayerPane) player1Box.getChildren().get(i);
+	}
 }
+
 

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.19.jar"/>
-	<classpathentry kind="lib" path="dblib/mysql-connector-java-8.0.19.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="src" />
+	<classpathentry kind="con"
+		path="org.eclipse.jdt.launching.JRE_CONTAINER" />
+	<classpathentry kind="con"
+		path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5" />
+	<classpathentry kind="lib"
+		path="C:/Users/daves/git/IT-Project-Jassmend/dblib/mysql-connector-java-8.0.19.jar" />
+	<classpathentry kind="output" path="bin" />
 </classpath>
