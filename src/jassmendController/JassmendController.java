@@ -45,7 +45,7 @@ public class JassmendController {
     	int cardsRequired = JassmendMain.NUM_PLAYERS * Player.HAND_SIZE;
     	DeckOfCards deck = model.getDeck();
     	if (cardsRequired <= deck.getCardsRemaining()) {
-        	//for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
+        	for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
         		Player p = model.getPlayer(1);
         		p.discardHand();
         		for (int j = 0; j < Player.HAND_SIZE; j++) {
@@ -57,10 +57,11 @@ public class JassmendController {
         		pp.updatePlayerDisplay();
         		//}
 
-    	} else {
+    	}   {
             Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
             alert.showAndWait();
     	}
     }
     
+}
 }

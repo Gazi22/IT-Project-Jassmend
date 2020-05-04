@@ -11,14 +11,14 @@ import javafx.scene.image.ImageView;
     public class CardView extends Label {
     public CardView() {
         super();
-        this.getStyleClass().add("card");
+       this.getStyleClass().add("card");
     }
    public void setCard(Card card) { 
 
 
         if (card != null) {
             String fileName = cardToFileName(card);
-            Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("Cards/" + fileName));
+            Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("cards/images/" + fileName));
             ImageView imv = new ImageView(image);
             imv.fitWidthProperty().bind(this.widthProperty());
             imv.fitHeightProperty().bind(this.heightProperty());
@@ -32,7 +32,9 @@ import javafx.scene.image.ImageView;
 
             this.setGraphic(null);
 
-            System.out.println("Could not set grafics for cards");
+            System.out.println("Could not set graphics for cards");
+            
+            
         }
 
     }

@@ -28,6 +28,14 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
+
+import jassmendModel.Player;
+import jassmendModel.Card;
+import jassmendView.CardView;
+
+
+//import jassmendPackage.CardHand;
+
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.JassmendModel;
@@ -208,7 +216,7 @@ public class JassmendGameView {
 	
 	
 	public PlayerPane getPlayerPane(int i) {
-		return (PlayerPane) player1Box.getChildren().get(i);
+		return (PlayerPane) player1Box.getChildren().get(0);
 	}
 }
 
