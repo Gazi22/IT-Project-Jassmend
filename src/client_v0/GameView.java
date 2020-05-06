@@ -266,7 +266,7 @@ public class GameView {
                     int lastMessageIndex2 = msgArea.getText().split("\n").length-1;
                     String lastMessage2 = msgArea.getText().split("\n")[lastMessageIndex2];
 
-                    if (lastMessage2.equals("Received: Result|true")){
+                    if (lastMessage2.startsWith("PlayerIDs")){
                         clientController.joinSuccessfull(finalGamelobby);
                         joinedGamelobbyMode();
                         stage.close();

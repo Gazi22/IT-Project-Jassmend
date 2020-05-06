@@ -1,11 +1,11 @@
 package jassmendDatabase;
 
 import java.sql.*;
-import com.mysql.jdbc.Driver;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import client_v0.*;
-import com.mysql.cj.jdbc.JdbcConnection;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +19,7 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 
 import javafx.application.Platform;
-import com.mysql.cj.protocol.Resultset;
+
 
 public class JassmendDatabase {
 	
