@@ -20,19 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="250c1d07-f76c-4614-abac-4b4cf7f4aa36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Server/message/MessageGameText.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server/message/SendGameMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server/message/StartGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/CleanupThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/CleanupThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Gamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Gamelobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendView/JassmendGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendView/JassmendGameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/message/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/StartGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Ecke_Acht.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Ecke_8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Ecke_Neun.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Ecke_9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Ecke_Sechs.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Ecke_6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Ecke_Sieben.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Ecke_7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Ecke_Zehn.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Ecke_10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Herz_Acht.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Herz_8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Herz_Neun.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Herz_9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Herz_Sechs.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Herz_6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Herz_Sieben.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Herz_7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Herz_Zehn.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Herz_10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Kreuz_Acht.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Kreuz_8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Kreuz_Neun.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Kreuz_9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Kreuz_Sechs.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Kreuz_6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Kreuz_Sieben.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Kreuz_7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Kreuz_Zehn.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Kreuz_10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Schaufel_Acht.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Schaufel_8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Schaufel_Neun.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Schaufel_9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Schaufel_Sechs.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Schaufel_6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Schaufel_Sieben.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Schaufel_7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cards/images/Schaufel_Zehn.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/cards/images/Schaufel_10.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +61,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PokerProjektDaveGaz/PokerProject" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -59,7 +71,7 @@
       <recent name="Server.message" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientChatRoom">
+  <component name="RunManager" selected="Application.JassmendMain">
     <configuration name="ClientChatRoom" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client_v0.ClientChatRoom" />
       <module name="IT-Project-Jassmend" />
@@ -106,9 +118,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JassmendMain" />
         <item itemvalue="Application.ClientChatRoom" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.JassmendMain" />
       </list>
     </recent_temporary>
   </component>
@@ -146,45 +158,49 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588771160152" />
-    <state width="2517" height="411" key="GridCell.Tab.0.bottom" timestamp="1588775026872">
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1588779927446">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="411" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588775026872" />
+    <state x="1060" y="455" key="FileChooserDialogImpl/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588779927446" />
+    <state width="2517" height="339" key="GridCell.Tab.0.bottom" timestamp="1588781049813">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="339" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588781049813" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596679" />
-    <state width="2517" height="411" key="GridCell.Tab.0.center" timestamp="1588775026872">
+    <state width="2517" height="339" key="GridCell.Tab.0.center" timestamp="1588781049813">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="411" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588775026872" />
+    <state width="2517" height="339" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588781049813" />
     <state width="1877" height="285" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596679" />
-    <state width="2517" height="411" key="GridCell.Tab.0.left" timestamp="1588775026872">
+    <state width="2517" height="339" key="GridCell.Tab.0.left" timestamp="1588781049813">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="411" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588775026872" />
+    <state width="2517" height="339" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588781049813" />
     <state width="1877" height="285" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596679" />
-    <state width="2517" height="411" key="GridCell.Tab.0.right" timestamp="1588775026872">
+    <state width="2517" height="339" key="GridCell.Tab.0.right" timestamp="1588781049813">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="411" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588775026872" />
+    <state width="2517" height="339" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588781049813" />
     <state width="1877" height="285" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596679" />
-    <state width="2517" height="339" key="GridCell.Tab.1.bottom" timestamp="1588773832843">
+    <state width="2517" height="339" key="GridCell.Tab.1.bottom" timestamp="1588781052853">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="339" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773832843" />
+    <state width="2517" height="339" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588781052853" />
     <state width="1877" height="238" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596677" />
-    <state width="2517" height="339" key="GridCell.Tab.1.center" timestamp="1588773832843">
+    <state width="2517" height="339" key="GridCell.Tab.1.center" timestamp="1588781052853">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="339" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773832843" />
+    <state width="2517" height="339" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588781052853" />
     <state width="1877" height="238" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596677" />
-    <state width="2517" height="339" key="GridCell.Tab.1.left" timestamp="1588773832843">
+    <state width="2517" height="339" key="GridCell.Tab.1.left" timestamp="1588781052853">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="339" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773832843" />
+    <state width="2517" height="339" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588781052853" />
     <state width="1877" height="238" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596677" />
-    <state width="2517" height="339" key="GridCell.Tab.1.right" timestamp="1588773832843">
+    <state width="2517" height="339" key="GridCell.Tab.1.right" timestamp="1588781052853">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="339" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773832843" />
+    <state width="2517" height="339" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588781052853" />
     <state width="1877" height="238" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596677" />
     <state x="760" y="274" key="SettingsEditor" timestamp="1588768536160">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -213,6 +229,11 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/jassmendView/CardView.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

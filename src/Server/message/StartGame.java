@@ -39,7 +39,7 @@ public class StartGame extends Message {
 		SendGameMessage msgGame=new SendGameMessage(gameInfo);
 
 		msgGame.process(client);
-		
+
 
 
 	}
