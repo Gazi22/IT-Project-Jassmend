@@ -28,14 +28,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-
-import jassmendModel.Player;
-import jassmendModel.Card;
-import jassmendView.CardView;
-
-
-//import jassmendPackage.CardHand;
-
+import jassmendPackage.Player;
+import jassmendPackage.Card;
+import jassmendPackage.CardView;
+// import jassmendPackage.CardHand;
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.JassmendModel;
