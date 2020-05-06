@@ -12,6 +12,7 @@ public class CleanupThread extends Thread {
 
 	@Override
 	public void run() {
+		Gamelobby.cleanupgamelobbys();
 		while (true) {
 			logger.info("Cleanup process triggered");
 
@@ -23,7 +24,7 @@ public class CleanupThread extends Thread {
 			Account.saveAccounts();
 
 			// Clean up gamelobbys
-			Gamelobby.cleanupgamelobbys();
+
 			Gamelobby.savegamelobbys();
 
 			System.gc();

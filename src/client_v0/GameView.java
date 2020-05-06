@@ -292,8 +292,10 @@ public class GameView {
 						 }
     	    	
     			clientController.createGamelobby(newGamelobby);
+    	    	 stage.close();
     			
                 clientController.showAlert("New gamelobby","The gamelobby"+newGamelobby+"has been created");
+			showgamelobbyScreen();
                             
     		});
         

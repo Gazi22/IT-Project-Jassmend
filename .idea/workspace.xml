@@ -1,529 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-	<<<<<<< HEAD
-	<component name="BranchesTreeState">
-		<expand>
-			<path>
-				<item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-				<item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-			</path>
-			<path>
-				<item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-				<item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-			</path>
-			<path>
-				<item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-				<item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-				<item name="GROUP_NODE:origin"
-					type="e8cecc67:BranchNodeDescriptor" />
-			</path>
-		</expand>
-		<select />
-	</component>
-	<component name="ChangeListManager">
-		<list default="true" id="9ab0eeda-eab1-4ee2-b73e-f08f37d37089"
-			name="Default Changelist" comment="Bugg fixes">
-			<change beforePath="$PROJECT_DIR$/.idea/misc.xml"
-				beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml"
-				afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/.idea/workspace.xml"
-				beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml"
-				afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/IT-Project-Jassmend.iml"
-				beforeDir="false" afterPath="$PROJECT_DIR$/IT-Project-Jassmend.iml"
-				afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/accounts.sav"
-				beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav"
-				afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/gamelobby.sav"
-				beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav"
-				afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/src/Server/Gamelobby.java"
-				beforeDir="false"
-				afterPath="$PROJECT_DIR$/src/Server/Gamelobby.java" afterDir="false" />
-			<change
-				beforePath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java"
-				beforeDir="false"
-				afterPath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java"
-				afterDir="false" />
-			<change
-				beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java"
-				beforeDir="false"
-				afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java"
-				afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java"
-				beforeDir="false"
-				afterPath="$PROJECT_DIR$/src/client_v0/GameView.java"
-				afterDir="false" />
-			<change
-				beforePath="$PROJECT_DIR$/src/jassmendView/JassmendGameView.java"
-				beforeDir="false"
-				afterPath="$PROJECT_DIR$/src/jassmendView/JassmendGameView.java"
-				afterDir="false" />
-		</list>
-		<option name="SHOW_DIALOG" value="false" />
-		<option name="HIGHLIGHT_CONFLICTS" value="true" />
-		<option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-		<option name="LAST_RESOLUTION" value="IGNORE" />
-	</component>
-	<component name="Git.Settings">
-		<option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-	</component>
-	<component name="ProjectId" id="1b5BGbvgIOMN6HVXky4BQc3adw5" />
-	<component name="ProjectViewState">
-		<option name="hideEmptyMiddlePackages" value="true" />
-		<option name="showLibraryContents" value="true" />
-	</component>
-	<component name="PropertiesComponent">
-		<property name="Downloaded.Files.Path.Enabled" value="false" />
-		<property name="Repository.Attach.Annotations" value="false" />
-		<property name="Repository.Attach.JavaDocs" value="false" />
-		<property name="Repository.Attach.Sources" value="false" />
-		<property name="RunOnceActivity.OpenProjectViewOnStart"
-			value="true" />
-		<property name="RunOnceActivity.ShowReadmeOnStart"
-			value="true" />
-		<property name="WebServerToolWindowFactoryState"
-			value="false" />
-		<property name="aspect.path.notification.shown" value="true" />
-		<property name="findjar.last.used.dir"
-			value="$PROJECT_DIR$/lib" />
-		<property name="last_opened_file_path"
-			value="$PROJECT_DIR$/.." />
-		<property
-			name="nodejs_interpreter_path.stuck_in_default_project"
-			value="undefined stuck path" />
-		<property name="nodejs_npm_path_reset_for_default_project"
-			value="true" />
-		<property name="project.structure.last.edited"
-			value="Libraries" />
-		<property name="project.structure.proportion" value="0.15" />
-		<property name="project.structure.side.proportion"
-			value="0.0" />
-	</component>
-	<component name="RunManager"
-		selected="Application.ClientChatRoom">
-		<configuration name="ClientChatRoom" type="Application"
-			factoryName="Application" temporary="true" nameIsGenerated="true">
-			<option name="MAIN_CLASS_NAME"
-				value="client_v0.ClientChatRoom" />
-			<module name="IT-Project-Jassmend" />
-			<extension name="coverage">
-				<pattern>
-					<option name="PATTERN" value="client_v0.*" />
-					<option name="ENABLED" value="true" />
-				</pattern>
-			</extension>
-			<method v="2">
-				<option name="Make" enabled="true" />
-			</method>
-		</configuration>
-		<configuration name="DeckofCardsTest" type="Application"
-			factoryName="Application" temporary="true" nameIsGenerated="true">
-			<option name="MAIN_CLASS_NAME"
-				value="jassmendPackage.DeckofCardsTest" />
-			<module name="IT-Project-Jassmend" />
-			<extension name="coverage">
-				<pattern>
-					<option name="PATTERN" value="jassmendPackage.*" />
-					<option name="ENABLED" value="true" />
-				</pattern>
-			</extension>
-			<method v="2">
-				<option name="Make" enabled="true" />
-			</method>
-		</configuration>
-		<configuration name="JassmendMain" type="Application"
-			factoryName="Application" temporary="true" nameIsGenerated="true">
-			<option name="MAIN_CLASS_NAME"
-				value="jassmendMain.JassmendMain" />
-			<module name="IT-Project-Jassmend" />
-			<extension name="coverage">
-				<pattern>
-					<option name="PATTERN" value="jassmendMain.*" />
-					<option name="ENABLED" value="true" />
-				</pattern>
-			</extension>
-			<method v="2">
-				<option name="Make" enabled="true" />
-			</method>
-		</configuration>
-		<configuration name="Server" type="Application"
-			factoryName="Application" temporary="true" nameIsGenerated="true">
-			<option name="MAIN_CLASS_NAME" value="Server.Server" />
-			<module name="IT-Project-Jassmend" />
-			<extension name="coverage">
-				<pattern>
-					<option name="PATTERN" value="Server.*" />
-					<option name="ENABLED" value="true" />
-				</pattern>
-			</extension>
-			<method v="2">
-				<option name="Make" enabled="true" />
-			</method>
-		</configuration>
-		<recent_temporary>
-			<list>
-				<item itemvalue="Application.ClientChatRoom" />
-				<item itemvalue="Application.Server" />
-				<item itemvalue="Application.DeckofCardsTest" />
-				<item itemvalue="Application.JassmendMain" />
-			</list>
-		</recent_temporary>
-	</component>
-	<component name="SvnConfiguration">
-		<configuration />
-	</component>
-	<component name="TaskManager">
-		<task active="true" id="Default" summary="Default task">
-			<changelist id="9ab0eeda-eab1-4ee2-b73e-f08f37d37089"
-				name="Default Changelist" comment="" />
-			<created>1587911979290</created>
-			<option name="number" value="Default" />
-			<option name="presentableId" value="Default" />
-			<updated>1587911979290</updated>
-			<workItem from="1587911981932" duration="3959000" />
-		</task>
-		<task id="LOCAL-00001" summary="Bugg fixes">
-			<created>1588344656941</created>
-			<option name="number" value="00001" />
-			<option name="presentableId" value="LOCAL-00001" />
-			<option name="project" value="LOCAL" />
-			<updated>1588344656941</updated>
-		</task>
-		<option name="localTasksCounter" value="2" />
-		<servers />
-	</component>
-	<component name="TypeScriptGeneratedFilesManager">
-		<option name="version" value="1" />
-	</component>
-	<component name="Vcs.Log.Tabs.Properties">
-		<option name="TAB_STATES">
-			<map>
-				<entry key="MAIN">
-					<value>
-						<State />
-					</value>
-				</entry>
-			</map>
-		</option>
-		<option name="oldMeFiltersMigrated" value="true" />
-	</component>
-	<component name="VcsManagerConfiguration">
-		<MESSAGE value="Bugg fixes" />
-		<option name="LAST_COMMIT_MESSAGE" value="Bugg fixes" />
-	</component>
-	<component name="WindowStateProjectService">
-		<state x="1060" y="441" key="FileChooserDialogImpl"
-			timestamp="1588344489241">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state x="1060" y="441"
-			key="FileChooserDialogImpl/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588344489241" />
-		<state width="2517" height="399" key="GridCell.Tab.0.bottom"
-			timestamp="1588584901510">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state width="2517" height="399"
-			key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588584901510" />
-		<state width="2517" height="399" key="GridCell.Tab.0.center"
-			timestamp="1588584901510">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state width="2517" height="399"
-			key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588584901510" />
-		<state width="2517" height="399" key="GridCell.Tab.0.left"
-			timestamp="1588584901509">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state width="2517" height="399"
-			key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588584901509" />
-		<state width="2517" height="399" key="GridCell.Tab.0.right"
-			timestamp="1588584901510">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state width="2517" height="399"
-			key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588584901510" />
-		<state width="2517" height="490" key="GridCell.Tab.1.bottom"
-			timestamp="1588584901507">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state width="2517" height="490"
-			key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588584901507" />
-		<state width="2517" height="490" key="GridCell.Tab.1.center"
-			timestamp="1588584901507">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state width="2517" height="490"
-			key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588584901507" />
-		<state width="2517" height="490" key="GridCell.Tab.1.left"
-			timestamp="1588584901507">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state width="2517" height="490"
-			key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588584901507" />
-		<state width="2517" height="490" key="GridCell.Tab.1.right"
-			timestamp="1588584901507">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state width="2517" height="490"
-			key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588584901507" />
-		<state x="760" y="274" key="SettingsEditor"
-			timestamp="1588269421208">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state x="760" y="274"
-			key="SettingsEditor/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588269421208" />
-		<state x="984" y="592"
-			key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD"
-			timestamp="1588269440452">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state x="984" y="592"
-			key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588269440452" />
-		<state x="662" y="320" key="new project wizard"
-			timestamp="1588344414712">
-			<screen x="0" y="0" width="2560" height="1400" />
-		</state>
-		<state x="662" y="320"
-			key="new project wizard/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400"
-			timestamp="1588344414712" />
-	</component>
-	<component name="XDebuggerManager">
-		<breakpoint-manager>
-			<breakpoints>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>197</line>
-					<option name="timeStamp" value="7" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>196</line>
-					<option name="timeStamp" value="8" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>163</line>
-					<option name="timeStamp" value="9" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>164</line>
-					<option name="timeStamp" value="10" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>175</line>
-					<option name="timeStamp" value="11" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ClientController.java</url>
-					<line>121</line>
-					<option name="timeStamp" value="23" />
-				</line-breakpoint>
-			</breakpoints>
-		</breakpoint-manager>
-		<watches-manager>
-			<configuration name="Application">
-				<watch expression="playerIDs[x].equals(username)"
-					language="JAVA" />
-			</configuration>
-		</watches-manager>
-	</component>
-	=======
-	<component name="ChangeListManager">
-		<list default="true" id="9ab0eeda-eab1-4ee2-b73e-f08f37d37089"
-			name="Default Changelist" comment="">
-			<change beforePath="$PROJECT_DIR$/accounts.sav"
-				beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav"
-				afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/gamelobby.sav"
-				beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav"
-				afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/src/Server/Gamelobby.java"
-				beforeDir="false"
-				afterPath="$PROJECT_DIR$/src/Server/Gamelobby.java" afterDir="false" />
-			<change beforePath="$PROJECT_DIR$/src/client_v0/ChatView.java"
-				beforeDir="false"
-				afterPath="$PROJECT_DIR$/src/client_v0/ChatView.java"
-				afterDir="false" />
-			<change
-				beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java"
-				beforeDir="false"
-				afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java"
-				afterDir="false" />
-		</list>
-		<option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-		<option name="SHOW_DIALOG" value="false" />
-		<option name="HIGHLIGHT_CONFLICTS" value="true" />
-		<option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-		<option name="LAST_RESOLUTION" value="IGNORE" />
-	</component>
-	<component name="Git.Settings">
-		<option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-	</component>
-	<component name="IgnoredFileRootStore">
-		<option name="generatedRoots">
-			<set>
-				<option
-					value="D:\Uni\Informatik\Anderes\IT-Project-Jassmend\.idea" />
-			</set>
-		</option>
-	</component>
-	<component name="ProjectId" id="1b5BGbvgIOMN6HVXky4BQc3adw5" />
-	<component name="PropertiesComponent">
-		<property name="WebServerToolWindowFactoryState"
-			value="false" />
-		<property name="aspect.path.notification.shown" value="true" />
-		<property name="last_opened_file_path" value="$PROJECT_DIR$" />
-		<property
-			name="nodejs_interpreter_path.stuck_in_default_project"
-			value="undefined stuck path" />
-		<property name="nodejs_npm_path_reset_for_default_project"
-			value="true" />
-	</component>
-	<component name="RunDashboard">
-		<option name="ruleStates">
-			<list>
-				<RuleState>
-					<option name="name"
-						value="ConfigurationTypeDashboardGroupingRule" />
-				</RuleState>
-				<RuleState>
-					<option name="name" value="StatusDashboardGroupingRule" />
-				</RuleState>
-			</list>
-		</option>
-	</component>
-	<component name="RunManager" selected="Application.Server">
-		<configuration name="ClientChatRoom" type="Application"
-			factoryName="Application" temporary="true" nameIsGenerated="true">
-			<option name="MAIN_CLASS_NAME"
-				value="client_v0.ClientChatRoom" />
-			<module name="IT-Project-Jassmend" />
-			<extension name="coverage">
-				<pattern>
-					<option name="PATTERN" value="client_v0.*" />
-					<option name="ENABLED" value="true" />
-				</pattern>
-			</extension>
-			<method v="2">
-				<option name="Make" enabled="true" />
-			</method>
-		</configuration>
-		<configuration name="Server" type="Application"
-			factoryName="Application" temporary="true" nameIsGenerated="true">
-			<option name="MAIN_CLASS_NAME" value="Server.Server" />
-			<module name="IT-Project-Jassmend" />
-			<extension name="coverage">
-				<pattern>
-					<option name="PATTERN" value="Server.*" />
-					<option name="ENABLED" value="true" />
-				</pattern>
-			</extension>
-			<method v="2">
-				<option name="Make" enabled="true" />
-			</method>
-		</configuration>
-		<recent_temporary>
-			<list>
-				<item itemvalue="Application.Server" />
-				<item itemvalue="Application.ClientChatRoom" />
-			</list>
-		</recent_temporary>
-	</component>
-	<component name="SvnConfiguration">
-		<configuration />
-	</component>
-	<component name="TaskManager">
-		<task active="true" id="Default" summary="Default task">
-			<changelist id="9ab0eeda-eab1-4ee2-b73e-f08f37d37089"
-				name="Default Changelist" comment="" />
-			<created>1587911979290</created>
-			<option name="number" value="Default" />
-			<option name="presentableId" value="Default" />
-			<updated>1587911979290</updated>
-			<workItem from="1587911981932" duration="3959000" />
-		</task>
-		<servers />
-	</component>
-	<component name="TypeScriptGeneratedFilesManager">
-		<option name="version" value="1" />
-	</component>
-	<component name="Vcs.Log.Tabs.Properties">
-		<option name="TAB_STATES">
-			<map>
-				<entry key="MAIN">
-					<value>
-						<State />
-					</value>
-				</entry>
-			</map>
-		</option>
-	</component>
-	<component name="XDebuggerManager">
-		<breakpoint-manager>
-			<breakpoints>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/Server/message/CreateGamelobby.java</url>
-					<line>23</line>
-					<option name="timeStamp" value="1" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/Server/message/CreateGamelobby.java</url>
-					<line>24</line>
-					<option name="timeStamp" value="2" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>197</line>
-					<option name="timeStamp" value="7" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>196</line>
-					<option name="timeStamp" value="8" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>163</line>
-					<option name="timeStamp" value="9" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>164</line>
-					<option name="timeStamp" value="10" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/client_v0/ChatView.java</url>
-					<line>175</line>
-					<option name="timeStamp" value="11" />
-				</line-breakpoint>
-				<line-breakpoint enabled="true" type="java-line">
-					<url>file://$PROJECT_DIR$/src/Server/message/JoinGamelobby.java</url>
-					<line>33</line>
-					<option name="timeStamp" value="14" />
-				</line-breakpoint>
-			</breakpoints>
-		</breakpoint-manager>
-		<watches-manager>
-			<configuration name="Application">
-				<watch expression="Gamelobby.exists(name)" language="JAVA" />
-				<watch expression="gamelobby.isFull()" language="JAVA" />
-			</configuration>
-		</watches-manager>
-	</component>
-	>>>>>>> Dave7
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="250c1d07-f76c-4614-abac-4b4cf7f4aa36" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Server/message/MessageGameText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/message/SendGameMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/message/StartGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/CleanupThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/CleanupThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Gamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Gamelobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jassmendView/JassmendGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendView/JassmendGameView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1bS13wQbY1a7aIX0uw93rXzPX5A" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Server.message" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ClientChatRoom">
+    <configuration name="ClientChatRoom" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client_v0.ClientChatRoom" />
+      <module name="IT-Project-Jassmend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client_v0.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JassmendMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jassmendMain.JassmendMain" />
+      <module name="IT-Project-Jassmend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jassmendMain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.Server" />
+      <module name="IT-Project-Jassmend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ClientChatRoom" />
+      <item itemvalue="Application.JassmendMain" />
+      <item itemvalue="Application.Server" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ClientChatRoom" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.JassmendMain" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="250c1d07-f76c-4614-abac-4b4cf7f4aa36" name="Default Changelist" comment="" />
+      <created>1588610484912</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588610484912</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="760" y="274" key="#Project_Structure" timestamp="1588768397151">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="760" y="274" key="#Project_Structure/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588768397151" />
+    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588771160152">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588771160152" />
+    <state width="2517" height="411" key="GridCell.Tab.0.bottom" timestamp="1588775026872">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="411" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588775026872" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596679" />
+    <state width="2517" height="411" key="GridCell.Tab.0.center" timestamp="1588775026872">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="411" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588775026872" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596679" />
+    <state width="2517" height="411" key="GridCell.Tab.0.left" timestamp="1588775026872">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="411" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588775026872" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596679" />
+    <state width="2517" height="411" key="GridCell.Tab.0.right" timestamp="1588775026872">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="411" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588775026872" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596679" />
+    <state width="2517" height="339" key="GridCell.Tab.1.bottom" timestamp="1588773832843">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="339" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773832843" />
+    <state width="1877" height="238" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596677" />
+    <state width="2517" height="339" key="GridCell.Tab.1.center" timestamp="1588773832843">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="339" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773832843" />
+    <state width="1877" height="238" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596677" />
+    <state width="2517" height="339" key="GridCell.Tab.1.left" timestamp="1588773832843">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="339" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773832843" />
+    <state width="1877" height="238" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596677" />
+    <state width="2517" height="339" key="GridCell.Tab.1.right" timestamp="1588773832843">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="339" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773832843" />
+    <state width="1877" height="238" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@2560.101.1920.1040" timestamp="1588618596677" />
+    <state x="760" y="274" key="SettingsEditor" timestamp="1588768536160">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="760" y="274" key="SettingsEditor/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588768536160" />
+    <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1588773611422">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1288" height="708" key="XDebugger.FullValuePopup/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1588773611422" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/jassmendView/JassmendGameView.java</url>
+          <line>216</line>
+          <properties class="jassmendView.JassmendGameView" method="getPlayerPane">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Server/message/LeaveGamelobby.java</url>
+          <line>25</line>
+          <properties class="Server.message.LeaveGamelobby" method="process">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="&quot;LeaveGamelobby|&quot;+clientModel.gethash()+&quot;|&quot;+gamelobby+&quot;|&quot;+clientModel.getUser()" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IT_Project_Jassmend$ClientChatRoom.ic" NAME="ClientChatRoom Coverage Results" MODIFIED="1588694595548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>client_v0.*</FILTER>
+    </SUITE>
+  </component>
 </project>

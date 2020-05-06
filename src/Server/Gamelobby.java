@@ -82,7 +82,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 				if (gamelobby.name.equals(name)){
 					if(!gamelobby.isFull()) {
 						return gamelobby;
-				}
+					}
 					
 			}
 		}
@@ -96,13 +96,11 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public static void cleanupgamelobbys() {
 		synchronized (gamelobbys) {
 			logger.fine("Cleanup gamelobbys: " + gamelobbys.size() + " gamelobbys registered");
-			Instant expiry = Instant.now().minusSeconds(3 * 86400); // 3 days
-			for (Iterator<Gamelobby> i = gamelobbys.iterator(); i.hasNext();) {
+			 for (Iterator<Gamelobby> i = gamelobbys.iterator(); i.hasNext();) {
 				Gamelobby gamelobby = i.next();
-				if (gamelobby.lastMessage.isBefore(expiry)) {
 					logger.fine("Cleanup gamelobbys: removing gamelobby " + gamelobby.getName());
 					i.remove();
-				}
+
 			}
 			logger.fine("Cleanup gamelobbys: " + gamelobbys.size() + " gamelobbys registered");
 		}
@@ -216,35 +214,29 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		
 		if(playerIDs[0]==null) {
 			playerIDs[0]=username;
+			System.out.println(username+" ist Player 1");}
+				else if(playerIDs[1]==null) {
+						playerIDs[1]=username;
+						System.out.println(username+" ist Player 2");}
+							else if (playerIDs[2]==null) {
+									playerIDs[2]=username;
+									System.out.println(username+" ist Player 3");}
+				 	 					else if (playerIDs[3]==null) {
+				 	 							playerIDs[3]=username;
+												System.out.println(username+" ist Player 4");}
 
-			System.out.println(username+" ist Player 1");
-		}
-		
-		else {
-			if(playerIDs[1]==null) {
-				playerIDs[1]=username;
-				System.out.println(username+" ist Player 2");}
-			else {
-				if(playerIDs[2]==null) {
-					playerIDs[2]=username;
-					System.out.println(username+" ist Player 3");}
-				  else {
-					if(playerIDs[3]==null) {
-						playerIDs[3]=username;
-						System.out.println(username+" ist Player 4");
-			}
-			
+
 	       }					
-		  }	
-		 }
-       }
+
+
+
 		
 		
 
 
-	public String playerIDs(int i) {
+	public String getPlayerIDs(int i) {
 		for (int x=0; x < playerIDs.length; x++) {
-			return playerIDs[x];
+			return playerIDs[i];
 		}
 		return null;
 	}

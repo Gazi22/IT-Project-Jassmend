@@ -107,7 +107,7 @@ public class JassmendGameView {
 		helpMenu.getItems().addAll(rulesItem);
 		
 		// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
-		
+
 		helpMenu.setOnAction( e -> {
 			if(Desktop.isDesktopSupported())
 				
@@ -197,12 +197,11 @@ public class JassmendGameView {
 		primaryStage.setScene(gameScene);
 		primaryStage.setTitle("Jassmend");
 		primaryStage.show();
-		
-		
 
-		
-		
-		
+
+
+
+		  //System.out.println(player1Box.getChildren().get(1));
 		
 
 		// Disallow to resize window due to the images

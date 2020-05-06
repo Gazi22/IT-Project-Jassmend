@@ -25,6 +25,9 @@ public class ClientController {
     private ClientViewManager viewManager;
     private GameView gameView;
 
+    private String[] playerIDs= new String[4];
+    private String gamelobbyName;
+
     public BufferedReader socketIn;
     public  OutputStreamWriter socketOut;
     
@@ -120,12 +123,27 @@ public class ClientController {
                             String msg;
                             try {
                                 msg = socketIn.readLine();
-                               // if (msg.startsWith("MessageText")) {
-                                  //  String [] arrMsgText = msg.split("\\|");
-                                 //   msg=arrMsgText[1]+": "+arrMsgText[3];
-                                  //  appendMessageGameView(msg);
-                              //  }
+                                if (msg.startsWith("MessageText")) {
+                                   String [] arrMsgText = msg.split("\\|");
+                                   msg=arrMsgText[1]+": "+arrMsgText[3];
+                                   appendMessageGameView(msg);
+                                }
+                                else if(msg.startsWith("MessageGameText")) {
+                                    String[] arrMsgText = msg.split("\\|");
+                                    msg = arrMsgText[3] +"|"+ arrMsgText[4]+"|"+ arrMsgText[5]+"|"+  arrMsgText[6]+"|"+  arrMsgText[7];
+                                    if(arrMsgText[3].equals("PlayerIDs")){
+                                        playerIDs[0]=arrMsgText[4];
+                                        playerIDs[1]=arrMsgText[5];
+                                        playerIDs[2]=arrMsgText[6];
+                                        playerIDs[3]=arrMsgText[7];
+                                        gamelobbyName=arrMsgText[2];
+                                    }
 
+                                    appendMessageGameView(msg);
+
+                                }
+
+                                else
                                 appendMessageGameView("Received: " + msg);
                             } catch (IOException e) {
                                 break;
