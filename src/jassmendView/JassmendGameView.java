@@ -28,7 +28,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-
 // import jassmendPackage.CardHand;
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
