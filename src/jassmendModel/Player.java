@@ -18,10 +18,8 @@ public class Player {
     	return playerScore;
     }
        
-    public void setPLayerName(String playerName){
-        Player.playerName = this.playerName;
-    }
-    public String getPlayerName() {
+    public static String getPlayerName() {
+
         return playerName;
     }
 

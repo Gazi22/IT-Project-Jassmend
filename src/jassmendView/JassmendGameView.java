@@ -11,8 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea; 
-import javafx.scene.control.TextField; 
+import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -40,16 +43,19 @@ public class JassmendGameView {
 	Insets insets = new Insets(10);
 	
 	
-
-	
-	
+	// Controll Area
 	Button btnDeal = new Button("Deal");
+	
+	HBox controlBox = new HBox();
+	
+	
+	
 	// Player areas
 
 	// Player bottom
 	Label userNamePl1 = new Label("Player 1");
 	Label scorePl1 = new Label("Score:");
-	VBox player1Box = new VBox();
+	HBox player1Box = new HBox();
 	HBox player1Cards = new HBox();
 
 	// Player top
@@ -78,6 +84,7 @@ public class JassmendGameView {
     MenuItem rulesItem = new MenuItem("How to play?");
 	
 	// Chat  
+    TitledPane chatArea = new TitledPane();
 	TextField txt1 = new TextField (); 
 	Button txtSend = new Button ("Send"); 
 	TextArea msgArea = new TextArea (); 
@@ -140,11 +147,14 @@ public class JassmendGameView {
 		player4Info.setAlignment(Pos.CENTER);
 		
 		// __________________________________________________________________ 
-
-
-		txt1.setPromptText("Type here your message");
-		HBox.setHgrow(txt1, Priority.ALWAYS);
-
+		 
+		
+		chatArea.setText("Chat");
+		
+		 
+		txt1.setPromptText("Type here your message"); 
+		HBox.setHgrow(txt1, Priority.ALWAYS); 
+		
 		msgArea.setPrefHeight(600);
 		msgArea.setPrefWidth(300);
 
@@ -154,10 +164,45 @@ public class JassmendGameView {
 
 		chatbox2.getChildren().add(lblchat);
 		chatbox2.getChildren().add(msgArea);
+		 
+		chatbox3.getChildren().add(chatbox2); 
+		chatbox3.getChildren().add(chatbox1); 
+		
+		chatArea.setContent(chatbox3);
+		
+		//____________________________________________________________________
+		
+		
+		controlBox.getChildren().addAll(btnDeal);
+		controlBox.setAlignment(Pos.CENTER);
+		
+		
+		//_____________________________________________________________________
 
-		chatbox3.getChildren().add(chatbox2);
-		chatbox3.getChildren().add(chatbox1);
-
+		
+		//Table Leaderboard
+		
+        TableView table = new TableView();
+		
+		table.setEditable(false);
+		
+		
+		TableColumn playerNameCol = new TableColumn("Player");
+		TableColumn scoreCol = new TableColumn("Score");
+		
+		playerNameCol.setCellValueFactory(c -> Player.getPlayerName());
+		
+		
+		table.getColumns().addAll(playerNameCol, scoreCol);
+		
+		
+		
+		
+		
+		
+		
+		//______________________________________________________________________
+		
 		BorderPane outerPane = new BorderPane();
 
 		outerPane.setVisible(true);
@@ -178,8 +223,9 @@ public class JassmendGameView {
 
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
-		outerPane.setRight(chatbox3);
+		outerPane.setRight(chatArea); 
 		outerPane.setBottom(btnDeal);
+		outerPane.setLeft(table);
 
 		gameScene = new Scene(outerPane);
 		primaryStage.setMinHeight(600);

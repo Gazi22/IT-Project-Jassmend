@@ -24,6 +24,7 @@ public class PlayerPane extends VBox {
     	for (int i = 0; i < 9; i++) {
     		Button btnCard = new CardView();
     		cardBox.getChildren().add(btnCard);
+    		btnCard.getStyleClass().add("button");
     		cardBox.setSpacing(2);
     		
     		}
@@ -37,7 +38,7 @@ public class PlayerPane extends VBox {
 
 
 	public void updatePlayerDisplay() {
-	//	lblName.setText(player1.getPlayerName());
+		lblName.setText(player1.getPlayerName());
 		for (int i = 0; i < Player.HAND_SIZE; i++) {
     		Card card = null;
     		if (player1.getCards().size() > i) card = player1.getCards().get(i);
