@@ -24,8 +24,8 @@ public class PlayerPane extends VBox {
     	this.getChildren().addAll(cardBox,lblName, lblScore);
     	
     	for (int i = 0; i < 9; i++) {
-    		Label lblCard = new CardView();
-    		cardBox.getChildren().add(lblCard);
+    		Button btnCard = new CardView();
+    		cardBox.getChildren().add(btnCard);
     		cardBox.setSpacing(2);
     		
     		}

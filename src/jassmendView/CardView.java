@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 
 // Code from Pokerproject
 
-    public class CardView extends Label {
+    public class CardView extends Button {
     public CardView() {
         super();
        this.getStyleClass().add("card");
