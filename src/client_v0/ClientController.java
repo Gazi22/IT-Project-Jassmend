@@ -1,19 +1,15 @@
 package client_v0;
 
-import javafx.application.Application;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.TextInputDialog;
-import java.net.ConnectException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Optional;
 
@@ -207,6 +203,7 @@ public class ClientController {
         }
     }
 
+
     public void registerUser(String username, String password){
         String concatString = "CreateLogin|"+username+"|"+password;
         sendToServer(concatString);
@@ -341,5 +338,16 @@ public class ClientController {
      public ClientViewManager getViewManager() {
          return viewManager;
      }
-     
+
+
+    public String getPlayerIDs(int i) {
+        for (int x = 0; x < playerIDs.length; x++) {
+            return playerIDs[i];
+        }
+        return null;
+    }
+
+
+
+
 }

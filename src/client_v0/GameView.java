@@ -30,7 +30,7 @@ import javafx.util.Duration;
 public class GameView {
 	  private static Scene scene;
 	    private ClientController clientController;
-	    
+	    private String [] playerIDs;
 	    
 	//Client Server Communication
 	int playerID;    
@@ -269,6 +269,13 @@ public class GameView {
                     if (lastMessage2.startsWith("PlayerIDs")){
                         clientController.joinSuccessfull(finalGamelobby);
                         joinedGamelobbyMode();
+
+                        //Nullpointerexception
+                      //  playerIDs[0]=clientController.getPlayerIDs(0);
+						//playerIDs[1]=clientController.getPlayerIDs(1);
+						//playerIDs[2]=clientController.getPlayerIDs(2);
+						//playerIDs[3]=clientController.getPlayerIDs(3);
+
                         stage.close();
                         //Handling Create Account button
                                                                        

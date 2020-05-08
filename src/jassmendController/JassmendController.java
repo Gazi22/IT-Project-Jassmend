@@ -1,5 +1,6 @@
 package jassmendController;
 
+import Server.message.Deck;
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.DeckOfCards;
@@ -43,7 +44,7 @@ public class JassmendController {
      
     private void deal() {
     	int cardsRequired = JassmendMain.NUM_PLAYERS * Player.HAND_SIZE;
-    	DeckOfCards deck = model.getDeck();
+    	Deck deck = model.getDeck();
     	if (cardsRequired <= deck.getCardsRemaining()) {
         	for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
         		Player p = model.getPlayer(1);

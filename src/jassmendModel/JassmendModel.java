@@ -2,27 +2,28 @@ package jassmendModel;
 
 import java.util.ArrayList;
 
+import Server.message.Deck;
 import jassmendMain.JassmendMain;
 import jassmendView.JassmendGameView;
 
 public class JassmendModel {
 	 
 		private final ArrayList<Player> players = new ArrayList<>();
-		private DeckOfCards deck;
+		private Deck deck;
 		
 		public JassmendModel() {
 			for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
 				players.add(new Player("Player " + i, 0));
 			}
 			
-			deck = new DeckOfCards();
+			deck = new Deck();
 		}
 		
 		public Player getPlayer(int i) {
 			return players.get(i);
 		}
 		
-		public DeckOfCards getDeck() {
+		public Deck getDeck() {
 			return deck;
 		}
 		/*
