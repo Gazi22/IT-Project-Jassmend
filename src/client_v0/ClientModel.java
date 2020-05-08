@@ -1,5 +1,10 @@
 package client_v0;
 
+import Server.message.Deck;
+import jassmendMain.JassmendMain;
+import jassmendModel.Player;
+
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import  java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -8,7 +13,7 @@ public class ClientModel {
 	
 	 InetAddress localHost;
 	 String localIP;
-          
+     int clientPlayerID;
      //https://crunchify.com/how-to-get-server-ip-address-and-hostname-in-java/
 {
      try {
@@ -73,6 +78,13 @@ public class ClientModel {
         this.user = username;
     }
 
+    public void setClientPlayerID(int id){this.clientPlayerID=id;}
+
+    public int getClientPlayerID(){
+        return this.clientPlayerID;
+    }
+
+
     public String getUser(){
         return this.user;
     }
@@ -91,5 +103,27 @@ public class ClientModel {
     
     public void setCurrentgamelobby(String currentGamelobby) {
         this.currentGamelobby = currentGamelobby;
+    }
+
+    private final ArrayList<Player> players = new ArrayList<>();
+    private Deck deck;
+
+
+
+    public ClientModel() {
+        for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
+            players.add(new Player("Player " + i, 0));
+        }
+
+        deck = new Deck();
+    }
+
+
+    public Player getPlayer(int i) {
+        return players.get(i);
+    }
+
+    public Deck getDeck() {
+        return deck;
     }
 }

@@ -109,7 +109,8 @@ public class LoginView {
                 int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
                 String lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex];
                 if (lastMessage.matches("Received: Result\\|true\\|.*")) {
-                    //Get Login hash and store in model
+
+                    //Get Login hash and store in
                     int hashIndex = lastMessage.split("\\|").length-1;
                     String hash = lastMessage.split("\\|")[hashIndex];
                     clientController.loginSuccesfull(user, hash);

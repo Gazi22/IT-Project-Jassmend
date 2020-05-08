@@ -1,10 +1,16 @@
 package client_v0;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import jassmendModel.JassmendModel;
+import jassmendView.PlayerPane;
 import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -30,13 +36,15 @@ import javafx.util.Duration;
 public class GameView {
 	  private static Scene scene;
 	    private ClientController clientController;
-	    private String [] playerIDs;
+
 	    
 	//Client Server Communication
-	int playerID;    
-	    
-	    
-	//private Model 
+	private String [] playerIDs=new String[4];
+
+
+
+	Button btnDeal = new Button("Deal");
+	// Player areas
 	
 	Insets insets = new Insets(10);
 	//Player areas
@@ -44,7 +52,7 @@ public class GameView {
 	//Player bottom
 	Label userNamePl1 = new Label("Player 1");
 	Label scorePl1 = new Label("Score:");
-	VBox player1Info = new VBox();
+	VBox player1Box = new VBox();
 	HBox player1Cards = new HBox();
 	Button player1Btn = new Button("Test");
 	
@@ -79,7 +87,7 @@ public class GameView {
 	MenuItem LogoutItem = new MenuItem("Logout");
 	
 	MenuItem RulesItem = new MenuItem("How to play?");
-	
+	Menu helpMenu = new Menu("Help");
 	MenuItem gamelobbyItem = new MenuItem("Show Gamelobbys");
 	
 	public Object areaMessages;
@@ -88,6 +96,7 @@ public class GameView {
 	// Chat
 	
 	TextField txt1 = new TextField ();
+	Label lblchat = new Label("Chat");
 	Button btnSend = new Button ("Send");
 	TextArea msgArea = new TextArea ();
 	HBox chatbox1 = new HBox ();
@@ -96,87 +105,100 @@ public class GameView {
 	
 
 	
-	public GameView (ClientController clientController) {
+	public GameView (ClientController clientController, ClientModel model) {
 		
 
 	this.clientController = clientController;
-	   
+	PlayerPane pp = new PlayerPane();
+	pp.setPlayer(model.getPlayer(1));
 	OptionsMenu.getItems().addAll(ResumeItem,LogoutItem);
 	HelpMenu.getItems().addAll(RulesItem);
 	LobbyMenu.getItems().addAll(gamelobbyItem);
-		
-		
-	meba.getMenus().addAll(OptionsMenu, HelpMenu, LobbyMenu);	
+	// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
+
+		helpMenu.setOnAction( e -> {
+			if(Desktop.isDesktopSupported())
+
+			{
+				try {
+					Desktop.getDesktop().browse(new URI("https://www.swisslos.ch/de/jass/informationen/jass-regeln/jass-grundlagen.html"));
+
+				}catch (IOException e1) {
+					e1.printStackTrace();
+
+				}catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+
+
+		meba.getMenus().addAll(OptionsMenu, HelpMenu, LobbyMenu);
 	
 	// ___________________________________________________________________
-	
-	player1Info.getChildren().add(userNamePl1);
-	player1Info.getChildren().add(scorePl1);
-	player1Info.getChildren().add(player1Btn);
-	
-	HBox player1Box = new HBox(player1Info);
-	player1Box.setAlignment(Pos.CENTER);
-	
-	player2Info.getChildren().add(userNamePl2);
-	player2Info.getChildren().add(scorePl2);
-	
-	player2Info.setAlignment(Pos.CENTER);
-	
-	
-	player3Info.getChildren().add(userNamePl3);
-	player3Info.getChildren().add(scorePl3);
-	
-	HBox player3Box = new HBox(player3Info);
-	player3Box.setAlignment(Pos.CENTER);
-	
-	player3Box.setVisible(true);
-	
-	
-	player4Info.getChildren().add(userNamePl4);
-	player4Info.getChildren().add(scorePl4);
-	
-	player4Info.setAlignment(Pos.CENTER);
+
+
+		player1Box.getChildren().add(pp);
+		player1Box.setAlignment(Pos.CENTER);
+
+		player2Info.getChildren().add(userNamePl2);
+		player2Info.getChildren().add(scorePl2);
+
+		player2Info.setAlignment(Pos.CENTER);
+
+		player3Info.getChildren().add(userNamePl3);
+		player3Info.getChildren().add(scorePl3);
+
+		HBox player3Box = new HBox(player3Info);
+		player3Box.setAlignment(Pos.CENTER);
+
+		player3Box.setVisible(true);
+
+		player4Info.getChildren().add(userNamePl4);
+		player4Info.getChildren().add(scorePl4);
+
+		player4Info.setAlignment(Pos.CENTER);
 	
 	// __________________________________________________________________
-	
-	
-	txt1.setPromptText("Type here your message");
-	HBox.setHgrow(txt1, Priority.ALWAYS);
-	
-	chatbox1.getChildren().add(btnSend);
-	chatbox1.getChildren().add(txt1);
-	
-	chatbox2.getChildren().add(msgArea);
-	
-	chatbox3.getChildren().add(chatbox2);
-	chatbox3.getChildren().add(chatbox1);
-	
-	
-	
-	
-	
-	
-	BorderPane outerPane = new BorderPane();
-	
-	outerPane.setVisible(true);
-	
-	BorderPane middlePane = new BorderPane();
-	
-	middlePane.setVisible(true);
-	
-	BorderPane innerPane = new BorderPane();
-	
-	innerPane.setVisible(true);
-	
-	middlePane.setBottom(player1Box);
-	middlePane.setTop(player3Box);
-	middlePane.setLeft(player2Info);
-	middlePane.setRight(player4Info);
-	middlePane.setCenter(innerPane);
-	
-	outerPane.setCenter(middlePane);
-	outerPane.setTop(meba);
-	outerPane.setRight(chatbox3);
+
+
+		txt1.setPromptText("Type here your message");
+		HBox.setHgrow(txt1, Priority.ALWAYS);
+
+		msgArea.setPrefHeight(600);
+		msgArea.setPrefWidth(300);
+
+		chatbox1.getChildren().add(btnSend);
+		chatbox1.getChildren().add(txt1);
+
+		chatbox2.getChildren().add(lblchat);
+		chatbox2.getChildren().add(msgArea);
+
+		chatbox3.getChildren().add(chatbox2);
+		chatbox3.getChildren().add(chatbox1);
+
+		BorderPane outerPane = new BorderPane();
+
+		outerPane.setVisible(true);
+
+		BorderPane middlePane = new BorderPane();
+
+		middlePane.setVisible(true);
+
+		BorderPane innerPane = new BorderPane();
+
+		innerPane.setVisible(true);
+
+		middlePane.setBottom(player1Box);
+		middlePane.setTop(player3Box);
+		middlePane.setLeft(player2Info);
+		middlePane.setRight(player4Info);
+		middlePane.setCenter(innerPane);
+
+		outerPane.setCenter(middlePane);
+		outerPane.setTop(meba);
+		outerPane.setRight(chatbox3);
+		outerPane.setBottom(btnDeal);
 	
 		
 	scene = new Scene(outerPane);
@@ -192,7 +214,8 @@ public class GameView {
      	System.out.println("Turn finished, it is now player 2 turn");
      	
      });;
-	
+
+     btnDeal.setOnAction(e7 -> clientController.deal());
      
      //Handlungsbedarf transition
      LogoutItem.setOnAction(e -> {
@@ -218,9 +241,19 @@ public class GameView {
      gamelobbyItem.setOnAction(e4 -> {
 			showgamelobbyScreen();
 		});
-	
+
+
+
 	}
-	
+	public Button getBtnDeal() {
+
+		return btnDeal;
+	}
+
+
+	public PlayerPane getPlayerPane(int i) {
+		return (PlayerPane) player1Box.getChildren().get(0);
+	}
 
 	
 	
@@ -268,18 +301,31 @@ public class GameView {
 
                     if (lastMessage2.startsWith("PlayerIDs")){
                         clientController.joinSuccessfull(finalGamelobby);
-                        joinedGamelobbyMode();
+						clientController.joinedGamelobbyMode();
 
-                        //Nullpointerexception
-                      //  playerIDs[0]=clientController.getPlayerIDs(0);
-						//playerIDs[1]=clientController.getPlayerIDs(1);
-						//playerIDs[2]=clientController.getPlayerIDs(2);
-						//playerIDs[3]=clientController.getPlayerIDs(3);
+						for (int x=0; x < playerIDs.length; x++) {
+							if (clientController.getPlayerIDs(x)!=null){
+								playerIDs[x]= clientController.getPlayerIDs(x);
+								System.out.println("Arraypostition"+ x+" "+playerIDs[x]);
+							}
+							else{
+								System.out.println("Arraypostition"+ x+" "+"is empty");
+							}
+
+							}
+
 
                         stage.close();
+						if (!clientController.isFull()){
+							clientController.gamelobbyIsFull("GamelobbyIsFull");
+							clientController.comparePlayerIDs();
+							clientController.setGameConfig();
+							System.out.println("Gamelobby is full - start GameView");
+						}
                         //Handling Create Account button
                                                                        
                     }
+
                 });
                 pause2.play();
             });
@@ -305,23 +351,21 @@ public class GameView {
 			showgamelobbyScreen();
                             
     		});
-        
-        
+
+
+
         VBox vBox = new VBox(listView, btnJoinGamelobby,btnCreateGamelobby);
         vBox.setStyle("-fx-background-color: BEIGE;");
         Scene scene = new Scene(vBox, 250, 150);
         stage.setScene(scene);
         stage.show();
     }
+
+
+
+
 	
-	
-	
-	
-	
-	public void joinedGamelobbyMode(){
-        btnSend.setDisable(false);
-        txt1.setDisable(false);
-    }
+
 
 public static Scene getScene () {
 		
@@ -332,3 +376,5 @@ public static Scene getScene () {
 
 
 }
+
+

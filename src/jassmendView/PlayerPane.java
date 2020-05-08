@@ -14,9 +14,7 @@ public class PlayerPane extends VBox {
 	
 	// Link to player object
     private Player player1;
-    private Player player2;
-    private Player player3;
-    private Player player4;
+
     
     public PlayerPane() {
     	super();

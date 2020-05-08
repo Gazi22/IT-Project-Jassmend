@@ -18,7 +18,9 @@ public class Player {
     	return playerScore;
     }
        
-
+    public void setPLayerName(String playerName){
+        Player.playerName = this.playerName;
+    }
     public String getPlayerName() {
         return playerName;
     }

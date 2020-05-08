@@ -19,17 +19,12 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import static jassmendModel.Player.HAND_SIZE;
-
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-
-
-// import jassmendPackage.CardHand;
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.JassmendModel;
@@ -145,22 +140,23 @@ public class JassmendGameView {
 		player4Info.setAlignment(Pos.CENTER);
 		
 		// __________________________________________________________________ 
-		 
-		 
-		txt1.setPromptText("Type here your message"); 
-		HBox.setHgrow(txt1, Priority.ALWAYS); 
-		
+
+
+		txt1.setPromptText("Type here your message");
+		HBox.setHgrow(txt1, Priority.ALWAYS);
+
 		msgArea.setPrefHeight(600);
 		msgArea.setPrefWidth(300);
-		 
-		chatbox1.getChildren().add(txtSend); 
-		chatbox1.getChildren().add(txt1); 
-		 
+
+		//BTN - TXT SEND? Bitte btn im Namen haben
+		chatbox1.getChildren().add(txtSend);
+		chatbox1.getChildren().add(txt1);
+
 		chatbox2.getChildren().add(lblchat);
 		chatbox2.getChildren().add(msgArea);
-		 
-		chatbox3.getChildren().add(chatbox2); 
-		chatbox3.getChildren().add(chatbox1); 
+
+		chatbox3.getChildren().add(chatbox2);
+		chatbox3.getChildren().add(chatbox1);
 
 		BorderPane outerPane = new BorderPane();
 
@@ -182,7 +178,7 @@ public class JassmendGameView {
 
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
-		outerPane.setRight(chatbox3); 
+		outerPane.setRight(chatbox3);
 		outerPane.setBottom(btnDeal);
 
 		gameScene = new Scene(outerPane);

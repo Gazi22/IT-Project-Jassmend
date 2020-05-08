@@ -1,11 +1,16 @@
 package client_v0;
 
+import Server.message.Deck;
+import jassmendMain.JassmendMain;
+import jassmendModel.Card;
+import jassmendModel.Player;
+import jassmendView.PlayerPane;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
-
+import jassmendModel.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,7 +25,7 @@ public class ClientController {
     private LoginView loginView;
     private ClientViewManager viewManager;
     private GameView gameView;
-
+    private int gamelobbyFlag=0;
     private String[] playerIDs= new String[4];
     private String gamelobbyName;
 
@@ -134,6 +139,15 @@ public class ClientController {
                                         playerIDs[3]=arrMsgText[7];
                                         gamelobbyName=arrMsgText[2];
                                     }
+                                    else if(arrMsgText[3].equals("GamelobbyFull")) {
+                                        if (gamelobbyFlag == 0) {
+                                            System.out.println("The gamelobby is full, the game will now start");
+                                            //show gameView
+                                            //clientController.comparePlayerIDs();
+                                            //clientController.setGameConfig();
+                                            //gamelobbyFlag = 1;
+                                        }
+                                    }
 
                                     appendMessageGameView(msg);
 
@@ -208,6 +222,9 @@ public class ClientController {
         String concatString = "CreateLogin|"+username+"|"+password;
         sendToServer(concatString);
     }
+    public void gamelobbyIsFull(String message){
+        sendToServer(message);
+    }
     public void loginUser(String username, String password){
        
         String concatString = "Login|"+username+"|"+password;
@@ -217,12 +234,28 @@ public class ClientController {
         clientModel.setUser(username);
         clientModel.setHash(hash);
     }
+
     public void getGamelobbyList(){
         //No additional checks done, since button is disabled until confirmed login
         String concatString = "ListGamelobbys|"+clientModel.gethash();
         sendToServer(concatString);
     }
-    
+
+    public void comparePlayerIDs() {
+        for (int x = 0; x < playerIDs.length; x++) {
+            if (playerIDs[x].equals(clientModel.getUser())) {
+                clientModel.setClientPlayerID(x + 1);
+            }
+        }
+    }
+
+    public void setGameConfig(){
+        for(int i  = 0; i < 4;i++){
+              clientModel.getPlayer(i).setPLayerName(getPlayerIDs(i));
+            }
+        }
+
+
     public void getGamelobbyUsers(String gamelobby){
         //No additional checks done, since button is disabled until confirmed login
         String concatString = "ListGamelobbyUsers|"+clientModel.gethash()+"|"+gamelobby;
@@ -322,6 +355,8 @@ public class ClientController {
      
      public ClientController(ClientModel clientModel){
          this.clientModel = clientModel;
+
+
      }
      public  void addChatView(ChatView chatView){
          this.view = chatView;
@@ -347,6 +382,45 @@ public class ClientController {
         return null;
     }
 
+
+
+
+    public void joinedGamelobbyMode(){
+        gameView.btnSend.setDisable(false);
+        gameView.txt1.setDisable(false);
+    }
+
+    public boolean isFull() {
+        for (int x=0; x < playerIDs.length; x++)
+            if (playerIDs[x] == null) {
+                return false;
+            }
+        return true;
+    }
+    public void deal() {
+        int cardsRequired = JassmendMain.NUM_PLAYERS * Player.HAND_SIZE;
+        Deck deck = clientModel.getDeck();
+        if (cardsRequired <= deck.getCardsRemaining()) {
+            for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
+
+                Player p = clientModel.getPlayer(i);
+                p.discardHand();
+                for (int j = 0; j < Player.HAND_SIZE; j++) {
+                    Card card = deck.dealCard();
+                    p.addCard(card);
+                }
+
+                PlayerPane pp = gameView.getPlayerPane(1);
+                pp.updatePlayerDisplay();
+                //}
+
+            }   {
+                Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
+                alert.showAndWait();
+            }
+        }
+
+    }
 
 
 
