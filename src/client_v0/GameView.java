@@ -317,10 +317,8 @@ public class GameView {
 
                         stage.close();
 						if (!clientController.isFull()){
-							clientController.gamelobbyIsFull("GamelobbyIsFull");
-							clientController.comparePlayerIDs();
-							clientController.setGameConfig();
-							System.out.println("Gamelobby is full - start GameView");
+							clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
+
 						}
                         //Handling Create Account button
                                                                        

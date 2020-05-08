@@ -197,10 +197,13 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	
 	//check array full
 	public boolean isFull() {
-		for (int x=0; x < playerIDs.length; x++)
-	           if (playerIDs[x] == null) {
-	        	   return false;
-	           }
+
+		for (int x = 0; x < playerIDs.length; x++) {
+			if (playerIDs[x]==null) {
+				return false;
+
+			}
+		}
 		return true;
 	}
 

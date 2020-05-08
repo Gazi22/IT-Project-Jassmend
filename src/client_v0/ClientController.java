@@ -130,9 +130,11 @@ public class ClientController {
                                    appendMessageGameView(msg);
                                 }
                                 else if(msg.startsWith("MessageGameText")) {
+
                                     String[] arrMsgText = msg.split("\\|");
-                                    msg = arrMsgText[3] +"|"+ arrMsgText[4]+"|"+ arrMsgText[5]+"|"+  arrMsgText[6]+"|"+  arrMsgText[7];
                                     if(arrMsgText[3].equals("PlayerIDs")){
+                                    msg = arrMsgText[3] +"|"+ arrMsgText[4]+"|"+ arrMsgText[5]+"|"+  arrMsgText[6]+"|"+  arrMsgText[7];
+
                                         playerIDs[0]=arrMsgText[4];
                                         playerIDs[1]=arrMsgText[5];
                                         playerIDs[2]=arrMsgText[6];
@@ -146,6 +148,7 @@ public class ClientController {
                                             //clientController.comparePlayerIDs();
                                             //clientController.setGameConfig();
                                             //gamelobbyFlag = 1;
+                                            //System.out.println("PlayerIDClient: "clientModel.getClientPlayerID"+"playername: "+clientModel.getPlayerName);
                                         }
                                     }
 
@@ -222,8 +225,9 @@ public class ClientController {
         String concatString = "CreateLogin|"+username+"|"+password;
         sendToServer(concatString);
     }
-    public void gamelobbyIsFull(String message){
-        sendToServer(message);
+    public void gamelobbyIsFull(String gamelobby,String message){
+        String concatString = message+"|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
     }
     public void loginUser(String username, String password){
        
@@ -391,10 +395,12 @@ public class ClientController {
     }
 
     public boolean isFull() {
-        for (int x=0; x < playerIDs.length; x++)
-            if (playerIDs[x] == null) {
+         for (int x = 0; x < playerIDs.length; x++) {
+            if (playerIDs[x]==null) {
                 return false;
+
             }
+        }
         return true;
     }
     public void deal() {
