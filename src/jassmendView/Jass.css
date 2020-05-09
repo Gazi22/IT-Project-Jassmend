@@ -22,6 +22,8 @@
     -fx-min-height: 180;
     -fx-pref-height: 162;
     -fx-max-height: 800;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 
@@ -33,10 +35,16 @@
     -fx-border-color: black;
     -fx-border-width: 5.0px;
     -fx-background-color: rgb(255,255,255);
-    -fx-min-width: 48;
+    -fx-min-width: 330;
     -fx-pref-width: 200;
     -fx-max-width: 490;
-    -fx-min-height: 80;
+    -fx-min-height: 300;
     -fx-pref-height: 300;
     -fx-max-height: 800;
 }
+
+
+
+
+
+

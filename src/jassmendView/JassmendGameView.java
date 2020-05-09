@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,9 +14,16 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea; 
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -80,7 +88,7 @@ public class JassmendGameView {
 	// Chat  
     TitledPane chatArea = new TitledPane();
 	TextField txt1 = new TextField (); 
-	Button txtSend = new Button ("Send"); 
+	Button btnSend = new Button ("Send"); 
 	TextArea msgArea = new TextArea (); 
 	Label lblchat = new Label("Chat");
 	HBox chatbox1 = new HBox (); 
@@ -152,8 +160,8 @@ public class JassmendGameView {
 		msgArea.setPrefHeight(600);
 		msgArea.setPrefWidth(300);
 
-		//BTN - TXT SEND? Bitte btn im Namen haben
-		chatbox1.getChildren().add(txtSend);
+		
+		chatbox1.getChildren().add(btnSend);
 		chatbox1.getChildren().add(txt1);
 
 		chatbox2.getChildren().add(lblchat);
@@ -189,32 +197,35 @@ public class JassmendGameView {
 		
 		table.getColumns().addAll(playerNameCol, scoreCol);
 		
-		
-		
-		
-		
-		
-		
 		//______________________________________________________________________
 		
+		
+		Image image = new Image("Background/image/Jassmend_GameView_Background.jpg");
+		ImageView mv = new ImageView(image);
+		mv.setFitHeight(1210);
+		mv.setFitWidth(1280);
+		mv.setPreserveRatio(true);
+		
+		
+		
+		
+		
+		
 		BorderPane outerPane = new BorderPane();
-
-		outerPane.setVisible(true);
-
-		BorderPane middlePane = new BorderPane();
-
-		middlePane.setVisible(true);
-
-		BorderPane innerPane = new BorderPane();
-
-		innerPane.setVisible(true);
+        outerPane.setVisible(true);
+        BorderPane middlePane = new BorderPane();
+        middlePane.setVisible(true);
+        BorderPane innerPane = new BorderPane();
+        innerPane.setVisible(true);
 
 		middlePane.setBottom(player1Box);
 		middlePane.setTop(player3Box);
+		
 		middlePane.setLeft(player2Info);
 		middlePane.setRight(player4Info);
 		middlePane.setCenter(innerPane);
 
+		outerPane.getChildren().add(mv);
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
 		outerPane.setRight(chatArea); 
@@ -222,12 +233,18 @@ public class JassmendGameView {
 		outerPane.setLeft(table);
 
 		gameScene = new Scene(outerPane);
-		primaryStage.setMinHeight(600);
-		primaryStage.setMinWidth(800);
+		primaryStage.setMinHeight(500);
+		primaryStage.setMinWidth(1250);
 		primaryStage.setScene(gameScene);
 		primaryStage.setTitle("Jassmend");
+		primaryStage.setMaximized(true);
 		primaryStage.show();
-
+		
+		
+		
+		
+		
+		
 
 		  //System.out.println(player1Box.getChildren().get(1));
 		
