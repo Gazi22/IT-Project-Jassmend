@@ -1,6 +1,7 @@
 package jassmendDatabase;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
@@ -53,7 +54,7 @@ public class PasswordDecrEncr {
         pbeCipher.init(Cipher.ENCRYPT_MODE, key);
         AlgorithmParameters parameters = pbeCipher.getParameters();
         IvParameterSpec ivParameterSpec = parameters.getParameterSpec(IvParameterSpec.class);
-        byte[] cryptoText = pbeCipher.doFinal(property.getBytes("UTF-8"));
+        byte[] cryptoText = pbeCipher.doFinal(property.getBytes(StandardCharsets.UTF_8));
         byte[] iv = ivParameterSpec.getIV();
         return base64Encode(iv) + ":" + base64Encode(cryptoText);
     }
@@ -67,10 +68,10 @@ public class PasswordDecrEncr {
         String property = string.split(":")[1];
         Cipher pbeCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         pbeCipher.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(base64Decode(iv)));
-        return new String(pbeCipher.doFinal(base64Decode(property)), "UTF-8");
+        return new String(pbeCipher.doFinal(base64Decode(property)), StandardCharsets.UTF_8);
     }
 
-    private static byte[] base64Decode(String property) throws IOException {
+    private static byte[] base64Decode(String property) {
         return Base64.getDecoder().decode(property);
     }
 

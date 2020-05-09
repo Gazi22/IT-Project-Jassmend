@@ -33,16 +33,17 @@ public class JoinGamelobby extends Message {
 		String [] ids = new String[4];
 		if (client.getToken().equals(token)) {
 			Gamelobby gamelobby = Gamelobby.exists(name);
+			if(!gamelobby.isFull()) {
 			if (gamelobby.getOwner().equals(client.getName())
 					|| client.getName().equals(username) && gamelobby.isPublic()) {
 				gamelobby.addUser(username);
-				ids[0]=gamelobby.getPlayerIDs(0);
-				ids[1]=gamelobby.getPlayerIDs(1);
-				ids[2]=gamelobby.getPlayerIDs(2);
-				ids[3]=gamelobby.getPlayerIDs(3);
+				ids[0] = gamelobby.getPlayerIDs(0);
+				ids[1] = gamelobby.getPlayerIDs(1);
+				ids[2] = gamelobby.getPlayerIDs(2);
+				ids[3] = gamelobby.getPlayerIDs(3);
 
 				result = true;
-				
+			}
 			}
 		}
 

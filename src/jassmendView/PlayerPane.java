@@ -38,7 +38,7 @@ public class PlayerPane extends VBox {
 
 
 	public void updatePlayerDisplay() {
-		lblName.setText(player1.getPlayerName());
+		lblName.setText(Player.getPlayerName());
 		for (int i = 0; i < Player.HAND_SIZE; i++) {
     		Card card = null;
     		if (player1.getCards().size() > i) card = player1.getCards().get(i);

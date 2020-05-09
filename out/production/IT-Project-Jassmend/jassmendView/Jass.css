@@ -1,0 +1,42 @@
+
+
+.player {
+    -fx-font-size: 20.0px;
+    -fx-font-family: Forte;
+    -fx-font-color: rgb(250,250,210);
+    -fx-padding: 5.0px;
+    -fx-border-color: black;
+    -fx-border-width: 3.0px;
+    -fx-background-color: green;
+}
+
+
+
+
+
+.button {
+
+	-fx-min-width: 48;
+    -fx-pref-width: 150;
+    -fx-max-width: 490;
+    -fx-min-height: 180;
+    -fx-pref-height: 162;
+    -fx-max-height: 800;
+}
+
+
+
+.card {
+    -fx-font-size: 15.0px;
+    -fx-padding: 10.0px;
+    -fx-margin: 25px 50px 75px 100px;
+    -fx-border-color: black;
+    -fx-border-width: 5.0px;
+    -fx-background-color: rgb(255,255,255);
+    -fx-min-width: 48;
+    -fx-pref-width: 200;
+    -fx-max-width: 490;
+    -fx-min-height: 80;
+    -fx-pref-height: 300;
+    -fx-max-height: 800;
+}

@@ -122,16 +122,15 @@ public class LoginView {
                 }
             });
             pause.play();
-        });;
+        });
 
 
-        
         btnGameView.setOnAction(event -> {
         	this.clientController.getViewManager().primaryStage.setScene(GameView.getScene()); 
         	
-        });;
-        
-        
+        });
+
+
         btnConnect.setOnAction((event2) -> {
             // Button was clicked, do something...
             String inputIP = txtIPAddress.getText();

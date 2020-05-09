@@ -17,8 +17,8 @@ public class Card implements Collection <Card>, Serializable {
             }
             return suit;
         }
-    };
-    
+    }
+
     public enum Rank { Sechs, Sieben, Acht, Neun, Zehn, Bube, Dame, Koenig, Ass;
         @Override
         public String toString() {
@@ -36,8 +36,8 @@ public class Card implements Collection <Card>, Serializable {
             }
             return str;
         }
-    };
-    
+    }
+
     private final Suit suit;
     private final Rank rank;
 	private final String cardValue = null;
@@ -56,10 +56,7 @@ public class Card implements Collection <Card>, Serializable {
     		return false;
     	}
     	Card cardOther =(Card)other;
-    	if(cardValue !=cardOther.cardValue) {
-    		return false;
-    	}
-    	return true;
+        return cardValue == cardOther.cardValue;
     }
     
     

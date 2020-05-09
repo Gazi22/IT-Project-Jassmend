@@ -33,7 +33,7 @@ public class CleanupThread extends Thread {
 			long freeMemory = Runtime.getRuntime().freeMemory();
 			freeMemory /= (1024 * 1024);
 			logger.info("Cleanup process complete; " + freeMemory + "MB available, " +
-						currentThread().activeCount() + " threads running");
+						activeCount() + " threads running");
 
 			try {
 				Thread.sleep(300000); // Every 5 minutes

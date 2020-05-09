@@ -20,7 +20,7 @@ public class JassmendMain extends Application {
 	
 
 	@Override
-	public void start(Stage myPrimaryStage) throws Exception {
+	public void start(Stage myPrimaryStage) {
 		model = new JassmendModel();
 		view = new JassmendGameView(myPrimaryStage, model);
 		controller = new JassmendController(model, view);

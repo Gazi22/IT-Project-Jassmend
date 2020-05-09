@@ -145,10 +145,10 @@ public class ClientController {
                                         if (gamelobbyFlag == 0) {
                                             System.out.println("The gamelobby is full, the game will now start");
                                             //show gameView
-                                            //clientController.comparePlayerIDs();
-                                            //clientController.setGameConfig();
-                                            //gamelobbyFlag = 1;
-                                            //System.out.println("PlayerIDClient: "clientModel.getClientPlayerID"+"playername: "+clientModel.getPlayerName);
+                                            comparePlayerIDs();
+                                            setGameConfig();
+                                            gamelobbyFlag = 1;
+                                            System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+getPlayerNames(0));
                                         }
                                     }
 
@@ -255,7 +255,7 @@ public class ClientController {
 
     public void setGameConfig(){
         for(int i  = 0; i < 4;i++){
-              clientModel.getPlayer(i).setPLayerName(getPlayerIDs(i));
+              clientModel.getPlayer(i).setPlayerName(getPlayerIDs(i));
             }
         }
 
@@ -297,7 +297,13 @@ public class ClientController {
         sendToServer(concatString);
     }
     
-    
+    public String getPlayerNames(int i){
+        String[] playerNames=new String[4];
+         for(int x=0;x<4;x++){
+           playerNames[x]=clientModel.getPlayer(x).getPlayerName();
+        }
+         return playerNames[i];
+    }
     
     public  void logout(){
         
@@ -395,13 +401,14 @@ public class ClientController {
     }
 
     public boolean isFull() {
-         for (int x = 0; x < playerIDs.length; x++) {
-            if (playerIDs[x]==null) {
-                return false;
-
+        boolean full = true;
+        for (int i=0; i<playerIDs.length; i++) {
+            if (playerIDs[i].equals("null")) {
+                full = false;
+                break;
             }
         }
-        return true;
+        return full;
     }
     public void deal() {
         int cardsRequired = JassmendMain.NUM_PLAYERS * Player.HAND_SIZE;

@@ -80,12 +80,11 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		synchronized (gamelobbys) {
 			for (Gamelobby gamelobby : gamelobbys) {
 				if (gamelobby.name.equals(name)){
-					if(!gamelobby.isFull()) {
 						return gamelobby;
 					}
 					
 			}
-		}
+
 		}
 		return null;
 	}
@@ -196,23 +195,23 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	}
 	
 	//check array full
-	public boolean isFull() {
-
-		for (int x = 0; x < playerIDs.length; x++) {
-			if (playerIDs[x]==null) {
-				return false;
-
+		public boolean isFull() {
+			boolean full = true;
+			for (int i=0; i<playerIDs.length; i++) {
+				if (playerIDs[i]==(null)) {
+					full = false;
+					break;
+				}
 			}
+			return full;
 		}
-		return true;
-	}
 
 	public boolean isPublic() {
 		return isPublic;
 	}
 
 	public void addUser(String username) {
-		if (!users.contains(username)) 
+		if (!users.contains(username))
 		{users.add(username);}
 		
 		if(playerIDs[0]==null) {

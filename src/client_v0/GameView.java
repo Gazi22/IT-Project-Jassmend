@@ -213,9 +213,9 @@ public class GameView {
 	 player1Btn.setOnAction(event -> {
      	System.out.println("Turn finished, it is now player 2 turn");
      	
-     });;
+     });
 
-     btnDeal.setOnAction(e7 -> clientController.deal());
+		btnDeal.setOnAction(e7 -> clientController.deal());
      
      //Handlungsbedarf transition
      LogoutItem.setOnAction(e -> {
@@ -316,7 +316,7 @@ public class GameView {
 
 
                         stage.close();
-						if (!clientController.isFull()){
+						if (clientController.isFull()){
 							clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
 
 						}

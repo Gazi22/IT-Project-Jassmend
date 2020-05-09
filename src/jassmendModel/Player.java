@@ -10,7 +10,7 @@ public class Player {
     private final ArrayList<Card> cards = new ArrayList<>();
   
     public Player(String playerName, int playerScore) {
-        this.playerName = playerName;
+        Player.playerName = playerName;
         this.playerScore = playerScore;
     }
     
@@ -19,9 +19,9 @@ public class Player {
     }
        
     public static String getPlayerName() {
-
         return playerName;
     }
+    public void setPlayerName(String playerName){this.playerName =playerName;}
 
     public ArrayList<Card> getCards() {
         return cards;

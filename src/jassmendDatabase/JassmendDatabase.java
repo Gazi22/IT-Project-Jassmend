@@ -106,13 +106,8 @@ public class JassmendDatabase {
     		rs = stmt2.executeQuery();
     		while(rs.next()) {
     			String userNameFetch = rs.getString("Username");
-    			
-    			if(userNameFetch.equals(userName)){
-    				return false;
-    			} else {
-    				
-    				return true;
-    			}
+
+                return !userNameFetch.equals(userName);
    
     		}
     		
@@ -236,7 +231,7 @@ public class JassmendDatabase {
         return salt;
     }
     
-    private static String toHex(byte[] array) throws NoSuchAlgorithmException   /** https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/ */
+    private static String toHex(byte[] array)    /** https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/ */
     {
         BigInteger bi = new BigInteger(1, array);
         String hex = bi.toString(16);
@@ -268,8 +263,7 @@ public class JassmendDatabase {
         return diff == 0;
     }
     /** https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/ */
-    private static byte[] fromHex(String hex) throws NoSuchAlgorithmException
-    {
+    private static byte[] fromHex(String hex) {
         byte[] bytes = new byte[hex.length() / 2];
         for(int i = 0; i<bytes.length ;i++)
         {
