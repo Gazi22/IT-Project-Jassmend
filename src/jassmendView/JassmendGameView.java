@@ -32,10 +32,17 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import static jassmendModel.Player.HAND_SIZE;
 import java.awt.Desktop;
+import java.awt.Dimension;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+
+
+
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.JassmendModel;
@@ -95,6 +102,9 @@ public class JassmendGameView {
 	VBox chatbox2 = new VBox (); 
 	VBox chatbox3 = new VBox (); 
 	
+	
+
+	
 	  public JassmendGameView(Stage primaryStage, JassmendModel model) {
 
 		this.primaryStage = primaryStage;
@@ -103,6 +113,8 @@ public class JassmendGameView {
 		pp.setPlayer(model.getPlayer(1));
 		optionsMenu.getItems().addAll(resumeItem);
 		helpMenu.getItems().addAll(rulesItem);
+		
+
 		
 		// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
 
@@ -175,8 +187,8 @@ public class JassmendGameView {
 		//____________________________________________________________________
 		
 		
-		controlBox.getChildren().addAll(btnDeal);
-		controlBox.setAlignment(Pos.CENTER);
+		//controlBox.getChildren().addAll(btnDeal);
+		//controlBox.setAlignment(Pos.CENTER);
 		
 		
 		//_____________________________________________________________________
@@ -200,16 +212,15 @@ public class JassmendGameView {
 		//______________________________________________________________________
 		
 		
-		Image image = new Image("Background/image/Jassmend_GameView_Background.jpg");
+		Image image = new Image("Background/image/Jassmend_GameView_Background_FULLHD.jpg");
 		ImageView mv = new ImageView(image);
-		mv.setFitHeight(1210);
-		mv.setFitWidth(1280);
+		mv.setFitHeight(1210); //1210
+		mv.setFitWidth(1280); //1280
 		mv.setPreserveRatio(true);
 		
 		
 		
-		
-		
+
 		
 		BorderPane outerPane = new BorderPane();
         outerPane.setVisible(true);
@@ -217,6 +228,13 @@ public class JassmendGameView {
         middlePane.setVisible(true);
         BorderPane innerPane = new BorderPane();
         innerPane.setVisible(true);
+        
+        
+       /** outerPane.setBackground(new Background(new BackgroundImage(image,BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER,
+                BackgroundSize.DEFAULT)));
+*/
 
 		middlePane.setBottom(player1Box);
 		middlePane.setTop(player3Box);
@@ -225,7 +243,7 @@ public class JassmendGameView {
 		middlePane.setRight(player4Info);
 		middlePane.setCenter(innerPane);
 
-		outerPane.getChildren().add(mv);
+		//outerPane.getChildren().add(mv);
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
 		outerPane.setRight(chatArea); 
@@ -233,12 +251,14 @@ public class JassmendGameView {
 		outerPane.setLeft(table);
 
 		gameScene = new Scene(outerPane);
-		primaryStage.setMinHeight(500);
-		primaryStage.setMinWidth(1250);
+		gameScene.getStylesheets().add(getClass().getResource("Jass.css").toExternalForm());
+		primaryStage.setMinHeight(500);//500
+		primaryStage.setMinWidth(1250);//1250
 		primaryStage.setScene(gameScene);
 		primaryStage.setTitle("Jassmend");
 		primaryStage.setMaximized(true);
 		primaryStage.show();
+		
 		
 		
 		

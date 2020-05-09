@@ -10,20 +10,25 @@
     -fx-background-color: green;
 }
 
-
-
-
+.root{
+    -fx-background-image: url(/Background/image/Jassmend_GameView_Background_FULLHD.jpg);
+    -fx-background-size:cover;
+}
 
 .button {
-
-	-fx-min-width: 48;
-    -fx-pref-width: 150;
-    -fx-max-width: 490;
-    -fx-min-height: 180;
-    -fx-pref-height: 162;
-    -fx-max-height: 800;
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+    -fx-border-radius: 7px;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(three-pass-box, #000000, 5, 0, 0, 5);
+    -fx-background-color: linear-gradient(to right, rgba(230,171,0,1) 0%, rgba(223,189,0,1) 100%);
+    -fx-min-height: 30;
+    -fx-min-width: 80;
+    -fx-text-fill: black;
+}
+.button:hover{
+    -fx-background-color: linear-gradient(to right, rgba(255,130,60,1) 0%, rgba(255,156,77,1) 100%);
+    -fx-effect: dropshadow(three-pass-box, #000000, 15, 0.2, 0, 5);
+    -fx-cursor:hand;
 }
 
 
@@ -35,13 +40,15 @@
     -fx-border-color: black;
     -fx-border-width: 5.0px;
     -fx-background-color: rgb(255,255,255);
-    -fx-min-width: 330;
-    -fx-pref-width: 200;
-    -fx-max-width: 490;
-    -fx-min-height: 300;
-    -fx-pref-height: 300;
-    -fx-max-height: 800;
+    -fx-min-width: 33;
+    -fx-pref-width: 20;
+    -fx-max-width: 49;
+    -fx-min-height: 35;
+    -fx-pref-height: 30;
+    -fx-max-height: 80;
 }
+
+
 
 
 
