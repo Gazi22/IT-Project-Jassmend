@@ -148,6 +148,7 @@ public class LoginView {
         });
 
         scene = new Scene(gridLoginView, 500, 275);
+        scene.getStylesheets().add(getClass().getResource("AccJass.css").toExternalForm());
     }
 
     public void connectedMode(){

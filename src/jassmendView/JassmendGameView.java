@@ -187,8 +187,8 @@ public class JassmendGameView {
 		//____________________________________________________________________
 		
 		
-		//controlBox.getChildren().addAll(btnDeal);
-		//controlBox.setAlignment(Pos.CENTER);
+	//	controlBox.getChildren().addAll(btnDeal);
+	//	controlBox.setAlignment(Pos.CENTER);
 		
 		
 		//_____________________________________________________________________
@@ -214,9 +214,14 @@ public class JassmendGameView {
 		
 		Image image = new Image("Background/image/Jassmend_GameView_Background_FULLHD.jpg");
 		ImageView mv = new ImageView(image);
-		mv.setFitHeight(1210); //1210
-		mv.setFitWidth(1280); //1280
+		
+		
+		
+		/*
+		mv.setFitHeight(1210);
+		mv.setFitWidth(1280);
 		mv.setPreserveRatio(true);
+		*/
 		
 		
 		
@@ -250,6 +255,7 @@ public class JassmendGameView {
 		outerPane.setBottom(btnDeal);
 		outerPane.setLeft(table);
 
+		
 		gameScene = new Scene(outerPane);
 		gameScene.getStylesheets().add(getClass().getResource("Jass.css").toExternalForm());
 		primaryStage.setMinHeight(500);//500
