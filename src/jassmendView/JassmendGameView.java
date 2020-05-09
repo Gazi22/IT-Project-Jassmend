@@ -43,13 +43,7 @@ public class JassmendGameView {
 	Insets insets = new Insets(10);
 	
 	
-	// Controll Area
 	Button btnDeal = new Button("Deal");
-	
-	HBox controlBox = new HBox();
-	
-	
-	
 	// Player areas
 
 	// Player bottom
@@ -235,11 +229,8 @@ public class JassmendGameView {
 		primaryStage.show();
 
 
-
-
 		  //System.out.println(player1Box.getChildren().get(1));
 		
-
 		// Disallow to resize window due to the images
 		//primaryStage.setResizable(false);
 	}
