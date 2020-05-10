@@ -49,8 +49,9 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private Instant lastMessage;
 	private final int maxPlayers =4;
 	private String [] playerIDs = new String[maxPlayers];
-	private Object[] playerHand=new Object[9];
+	private ArrayList<Card> playerHand=new ArrayList<>(9);
 	private Deck deck;
+
 	
 	/**
 	 * Add a new gamelobby to our list of gamelobbys
@@ -252,7 +253,8 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 
 				for (int j = 0; j < Player.HAND_SIZE; j++) {
 					Card card = deck.dealCard();
-					playerHand[j] = card;
+					playerHand.add(card);
+					
 					//p.addCard(card);
 				}
 
@@ -268,11 +270,10 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 
 	}
 
-	public Object getPlayerHand(int i){
-		for(int x=0;x<9;x++){
-			return playerHand[x];
-		}
-		return null;
+	public Card getPlayerHand(int i){
+		return playerHand.get(i);
+
+
 	}
 	public String getPlayerIDs(int i) {
 		for (int x=0; x < playerIDs.length; x++) {
@@ -300,4 +301,8 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public Deck getDeck() {
 		return deck;
 	}
+	public void addCard(Card card) {
+		if (playerHand.size() < 9) playerHand.add(card);
+	}
+
 }

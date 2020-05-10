@@ -10,6 +10,8 @@ import jassmendModel.Player;
 import jassmendView.PlayerPane;
 import javafx.scene.control.Alert;
 
+import java.util.ArrayList;
+
 /**
  * Add a user as a member of a gamelobby.
  */
@@ -20,7 +22,7 @@ public class DealCards extends Message {
 	private ClientModel clientModel;
 
 
-	private Object[] player=new Object[9];
+
 
 	public DealCards(String[] data) {
 		super(data);
@@ -40,13 +42,13 @@ public class DealCards extends Message {
 		
 		boolean result = false;
 
-		Object [] hand = new Object[9];
+		String [] hand= new String[9];
 		if (client.getToken().equals(token)) {
 			Gamelobby gamelobby = Gamelobby.exists(name);
 
 			gamelobby.deal();
 			for(int x = 0;x<9;x++){
-				hand[x]=gamelobby.getPlayerHand(x);
+				hand[x]=(gamelobby.getPlayerHand(x).toString());
 			}
 
 		}

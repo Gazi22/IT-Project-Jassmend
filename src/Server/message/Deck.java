@@ -53,7 +53,9 @@ public class Deck {
     public Card dealCard() {
         Card card = (cards.size() > 0) ? cards.remove(cards.size()-1) : null;
         cardsRemaining.setValue(cards.size());
+
         return card;
+
     }
 
     public boolean isEmpty() {
