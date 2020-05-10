@@ -20,32 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/message/DealCards.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IT-Project-Jassmend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IT-Project-Jassmend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/CleanupThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/CleanupThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/jassmendView/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/jassmendView/Jass.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Gamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Gamelobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Sendable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Sendable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientChatRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientViewManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendDatabase/JassmendDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendDatabase/JassmendDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendDatabase/PasswordDecrEncr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendDatabase/PasswordDecrEncr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendMain/JassmendMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendMain/JassmendMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendModel/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendModel/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendModel/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendModel/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendView/PlayerPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendView/PlayerPane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +52,11 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Server.message" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.ClientChatRoom">
     <configuration name="ClientChatRoom" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client_v0.ClientChatRoom" />
@@ -78,6 +64,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="client_v0.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JassmendMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jassmendMain.JassmendMain" />
+      <module name="IT-Project-Jassmend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jassmendMain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,11 +100,13 @@
     <list>
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.ClientChatRoom" />
+      <item itemvalue="Application.JassmendMain" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClientChatRoom" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.JassmendMain" />
       </list>
     </recent_temporary>
   </component>
@@ -132,8 +133,45 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589122952382">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589122952382" />
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1589125458453">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589125458453" />
+    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1589125458453">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="399" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589125458453" />
+    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1589125458453">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="399" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589125458453" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1589125458453">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="399" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589125458453" />
+    <state width="2517" height="490" key="GridCell.Tab.1.bottom" timestamp="1589125458443">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="490" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589125458443" />
+    <state width="2517" height="490" key="GridCell.Tab.1.center" timestamp="1589125458442">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="490" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589125458442" />
+    <state width="2517" height="490" key="GridCell.Tab.1.left" timestamp="1589125458442">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="490" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589125458442" />
+    <state width="2517" height="490" key="GridCell.Tab.1.right" timestamp="1589125458443">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="490" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589125458443" />
     <state x="760" y="274" key="SettingsEditor" timestamp="1589041233885">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -142,5 +180,23 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="984" y="592" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589041261145" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1589122665300">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589122665300" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Server/message/DealCards.java</url>
+          <line>38</line>
+          <properties class="Server.message.DealCards" method="process">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

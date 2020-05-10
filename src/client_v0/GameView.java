@@ -36,7 +36,7 @@ import javafx.util.Duration;
 public class GameView {
 	  private static Scene scene;
 	    private ClientController clientController;
-
+	     private String finalGamelobby;
 	    
 	//Client Server Communication
 	private String [] playerIDs=new String[4];
@@ -106,7 +106,6 @@ public class GameView {
 
 	
 	public GameView (ClientController clientController, ClientModel model) {
-		
 
 	this.clientController = clientController;
 	PlayerPane pp = new PlayerPane();
@@ -215,7 +214,7 @@ public class GameView {
      	
      });
 
-		btnDeal.setOnAction(e7 -> clientController.deal());
+		btnDeal.setOnAction(e7 -> clientController.dealCards(finalGamelobby));
      
      //Handlungsbedarf transition
      LogoutItem.setOnAction(e -> {
@@ -251,7 +250,7 @@ public class GameView {
 	}
 
 
-	public PlayerPane getPlayerPane(int i) {
+	public PlayerPane getPlayerPane() {
 		return (PlayerPane) player1Box.getChildren().get(0);
 	}
 
@@ -294,7 +293,7 @@ public class GameView {
                 }
                 //Don't do this at home kids !
                 PauseTransition pause2 = new PauseTransition(Duration.seconds(1));
-                String finalGamelobby = gamelobby;
+                finalGamelobby = gamelobby;
                 pause2.setOnFinished(e3 -> {
                     int lastMessageIndex2 = msgArea.getText().split("\n").length-1;
                     String lastMessage2 = msgArea.getText().split("\n")[lastMessageIndex2];

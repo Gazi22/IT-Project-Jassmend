@@ -151,7 +151,9 @@ public class ClientController {
                                             System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+getPlayerNames(0));
                                         }
                                     }
-
+                                    else if (arrMsgText[3].equals("PlayerHand")){
+                                        System.out.println("Playerhand: "+arrMsgText[4]+arrMsgText[12]);
+                                    }
                                     appendMessageGameView(msg);
 
                                 }
@@ -269,6 +271,10 @@ public class ClientController {
     
     public void joinGamelobby(String gamelobby){
         String concatString = "JoinGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
+    public void dealCards(String gamelobby){
+        String concatString = "DealCards|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
         sendToServer(concatString);
     }
     
@@ -410,30 +416,7 @@ public class ClientController {
         }
         return full;
     }
-    public void deal() {
-        int cardsRequired = JassmendMain.NUM_PLAYERS * Player.HAND_SIZE;
-        Deck deck = clientModel.getDeck();
-        if (cardsRequired <= deck.getCardsRemaining()) {
-            for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
 
-                Player p = clientModel.getPlayer(i);
-                p.discardHand();
-                for (int j = 0; j < Player.HAND_SIZE; j++) {
-                    Card card = deck.dealCard();
-                    p.addCard(card);
-                }
-
-                PlayerPane pp = gameView.getPlayerPane(1);
-                pp.updatePlayerDisplay();
-                //}
-
-            }   {
-                Alert alert = new Alert(AlertType.ERROR, "Not enough cards - shuffle first");
-                alert.showAndWait();
-            }
-        }
-
-    }
 
 
 

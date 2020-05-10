@@ -13,7 +13,14 @@ import java.util.Iterator;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 
+import Server.message.Deck;
 import Server.message.Message;
+import client_v0.ClientModel;
+import jassmendMain.JassmendMain;
+import jassmendModel.Card;
+import jassmendModel.Player;
+import jassmendView.PlayerPane;
+import javafx.scene.control.Alert;
 
 
 /**
@@ -34,7 +41,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private static Logger logger = Logger.getLogger("");
 
 	private static final TreeSet<Gamelobby> gamelobbys = new TreeSet<>();
-
+	private ClientModel clientModel;
 	private final String name;
 	private final String owner; // username of an account
 	private final boolean isPublic;
@@ -42,7 +49,8 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private Instant lastMessage;
 	private final int maxPlayers =4;
 	private String [] playerIDs = new String[maxPlayers];
-	
+	private Object[] playerHand=new Object[9];
+	private Deck deck;
 	
 	/**
 	 * Add a new gamelobby to our list of gamelobbys
@@ -228,14 +236,44 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 												System.out.println(username+" ist Player 4");}
 
 
-	       }					
+	       }
 
 
 
-		
-		
+
+	public void deal() {
+		int cardsRequired = JassmendMain.NUM_PLAYERS * Player.HAND_SIZE;
+		deck = new Deck();
+		Deck deck = getDeck();
+		if (cardsRequired <= deck.getCardsRemaining()) {
+
+				//Player p = clientModel.getPlayer(i);
+				//p.discardHand();
+
+				for (int j = 0; j < Player.HAND_SIZE; j++) {
+					Card card = deck.dealCard();
+					playerHand[j] = card;
+					//p.addCard(card);
+				}
+
+				//PlayerPane pp = gameView.getPlayerPane();
+				//pp.updatePlayerDisplay();
+				//}
 
 
+			{
+
+			}
+		}
+
+	}
+
+	public Object getPlayerHand(int i){
+		for(int x=0;x<9;x++){
+			return playerHand[x];
+		}
+		return null;
+	}
 	public String getPlayerIDs(int i) {
 		for (int x=0; x < playerIDs.length; x++) {
 			return playerIDs[i];
@@ -256,5 +294,10 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	
 	public ArrayList<String> getUsers() {
 		return users; // Arguably, we should return only a copy
+	}
+
+
+	public Deck getDeck() {
+		return deck;
 	}
 }

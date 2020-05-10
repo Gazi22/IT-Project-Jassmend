@@ -29,7 +29,7 @@ public class LoginView {
     Label lblPort = new Label();
     TextField txtPort = new TextField();
     Button btnSignIn = new Button("Sign in");
-    Button btnGameView = new Button("GameView");
+
     Button btnCreateAccount = new Button("Create new account");
     Button btnConnect = new Button("connect");
 
@@ -80,7 +80,7 @@ public class LoginView {
 
         hboxBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hboxBtn.getChildren().add(btnSignIn);
-        hboxBtn.getChildren().add(btnGameView);
+
         hboxBtn.getChildren().addAll(btnCreateAccount, btnConnect);
         gridLoginView.add(hboxBtn, 1, 8);
 
@@ -125,10 +125,6 @@ public class LoginView {
         });
 
 
-        btnGameView.setOnAction(event -> {
-        	this.clientController.getViewManager().primaryStage.setScene(GameView.getScene()); 
-        	
-        });
 
 
         btnConnect.setOnAction((event2) -> {
