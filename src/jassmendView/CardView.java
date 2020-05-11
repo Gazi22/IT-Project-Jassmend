@@ -21,8 +21,10 @@ import javafx.scene.image.ImageView;
             String fileName = cardToFileName(card);
             Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("cards/images/" + fileName));
             ImageView imv = new ImageView(image);
-            imv.fitWidthProperty().bind(this.widthProperty());
-            imv.fitHeightProperty().bind(this.heightProperty());
+            //imv.fitWidthProperty().bind(this.widthProperty());
+            //imv.fitHeightProperty().bind(this.heightProperty());
+        	imv.setFitWidth(100);
+        	imv.setFitHeight(100);
             imv.setPreserveRatio(true);
             this.setGraphic(imv);
 

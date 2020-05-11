@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 
 public class PlayerPane extends VBox {
 	private Label lblName = new Label();
-	private Label lblScore = new Label("Score:");
+	private Label lblScore = new Label("");
 	private HBox cardBox = new HBox();
 	
 	// Link to player object
@@ -20,12 +20,12 @@ public class PlayerPane extends VBox {
     public PlayerPane() {
     	super();
     	
-    	this.getChildren().addAll(cardBox,lblName, lblScore);
+    	this.getChildren().addAll(cardBox,lblScore,lblName);
     	
     	for (int i = 0; i < 9; i++) {
     		Button btnCard = new CardView();
     		cardBox.getChildren().add(btnCard);
-    		btnCard.getStyleClass().add("button");
+    		btnCard.getStyleClass().add("btnCard");
     		cardBox.setSpacing(2);
     		
     		}
