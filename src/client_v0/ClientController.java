@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class ClientController {
@@ -28,7 +30,8 @@ public class ClientController {
     private int gamelobbyFlag=0;
     private String[] playerIDs= new String[4];
     private String gamelobbyName;
-
+    private String [] myCurrentPlayerHand=new String[9];
+    ArrayList<Card> handCards = new ArrayList<>();
     public BufferedReader socketIn;
     public  OutputStreamWriter socketOut;
     
@@ -152,13 +155,26 @@ public class ClientController {
                                         }
                                     }
                                     else if (arrMsgText[3].equals("PlayerHand")){
-                                        System.out.println("Playerhand: "+arrMsgText[4]+arrMsgText[12]);
+                                        if(clientModel.getUser().equals(arrMsgText[1])) {
+                                            msg = arrMsgText[3] + "|" + arrMsgText[4] + "|" + arrMsgText[5] + "|" + arrMsgText[6] + "|" + arrMsgText[7] + "|" + arrMsgText[8] + "|" + arrMsgText[9] + "|" + arrMsgText[10] + "|" + arrMsgText[11] + "|" + arrMsgText[12];
+                                            for (int x = 4; x < 13; x++) {
+                                                setMyCurrentPlayerHand(x-4,arrMsgText[x]);}
+
+                                            for (int y = 0; y < 9; y++) {
+                                                stringToCard(myCurrentPlayerHand[y]);
+
+                                                }
+                                            System.out.println(handCards.toString());
+                                            applyCardImages();
+
+                                        }
                                     }
                                     appendMessageGameView(msg);
 
                                 }
 
                                 else
+                                    //for testing purposes
                                 appendMessageGameView("Received: " + msg);
                             } catch (IOException e) {
                                 break;
@@ -255,9 +271,16 @@ public class ClientController {
         }
     }
 
+    public void setMyCurrentPlayerHand(int i,String cardString){
+
+            myCurrentPlayerHand[i]=cardString;
+        }
+
+
     public void setGameConfig(){
         for(int i  = 0; i < 4;i++){
               clientModel.getPlayer(i).setPlayerName(getPlayerIDs(i));
+
             }
         }
 
@@ -417,7 +440,81 @@ public class ClientController {
         return full;
     }
 
+//Player p = clientModel.getPlayer(clientModel.getClientPlayerID());!!!!
+    private void applyCardImages(){
+        Player p = clientModel.getPlayer(1);
+        p.discardHand();
+        for (int j = 0; j < Player.HAND_SIZE; j++) {
+            Card card = handCards.get(j);
+            p.addCard(card);
+        }
+        PlayerPane pp = gameView.getPlayerPane(1);
+        pp.updatePlayerDisplay();
 
+    }
+
+    public String switchNumbersToWords(String number){
+        switch(number){
+            case "6": return "Sechs";
+            case "7": return "Sieben";
+            case "8": return "Acht";
+            case "9": return "Neun";
+            case "10": return "Zehn";
+            default:
+                return number;
+
+        }
+    }
+
+
+//https://stackoverflow.com/questions/1080904/how-can-i-lookup-a-java-enum-from-its-string-value/1080914
+//https://stackoverflow.com/questions/9276639/java-how-to-split-a-string-by-a-number-of-characters
+    public void stringToCard(String stringOfCard){
+        if(stringOfCard.startsWith("Kreuz")){
+            String suitString;
+            String rankString;
+
+            suitString=(stringOfCard.substring(0,5));
+            rankString=switchNumbersToWords(stringOfCard.substring(5));
+
+            Card card=new Card(Card.Suit.valueOf(suitString),Card.Rank.valueOf(rankString));
+            handCards.add(card);
+
+        }
+        else if(stringOfCard.startsWith("Herz")){
+            String suitString;
+            String rankString;
+
+            suitString=(stringOfCard.substring(0,4));
+            rankString=switchNumbersToWords(stringOfCard.substring(4));
+
+            Card card=new Card(Card.Suit.valueOf(suitString),Card.Rank.valueOf(rankString));
+            handCards.add(card);
+
+        }
+        else if(stringOfCard.startsWith("Ecke")){
+            String suitString;
+            String rankString;
+
+            suitString=(stringOfCard.substring(0,4));
+            rankString=switchNumbersToWords(stringOfCard.substring(4));
+
+            Card card=new Card(Card.Suit.valueOf(suitString),Card.Rank.valueOf(rankString));
+            handCards.add(card);
+
+        }
+        else if(stringOfCard.startsWith("Schaufel")){
+            String suitString;
+            String rankString;
+
+            suitString=(stringOfCard.substring(0,8));
+            rankString=switchNumbersToWords(stringOfCard.substring(8));
+
+            Card card=new Card(Card.Suit.valueOf(suitString),Card.Rank.valueOf(rankString));
+            handCards.add(card);
+
+        }
+    }
 
 
 }

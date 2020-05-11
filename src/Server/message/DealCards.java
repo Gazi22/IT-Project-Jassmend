@@ -19,7 +19,7 @@ public class DealCards extends Message {
 	private String token;
 	private String name;
 	private String username;
-	private ClientModel clientModel;
+
 
 
 
@@ -50,7 +50,7 @@ public class DealCards extends Message {
 			for(int x = 0;x<9;x++){
 				hand[x]=(gamelobby.getPlayerHand(x).toString());
 			}
-
+				gamelobby.clearPlayerHand();
 		}
 
 

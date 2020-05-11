@@ -115,7 +115,7 @@ public class ClientModel {
             players.add(new Player("Player " + i, 0));
         }
 
-        deck = new Deck();
+
     }
 
 

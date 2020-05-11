@@ -156,6 +156,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		this.isPublic = isPublic;
 		this.owner = owner;
 		this.lastMessage = Instant.now();
+		deck = new Deck();
 	}
 
 	@Override // Sendable
@@ -243,31 +244,14 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 
 
 	public void deal() {
-		int cardsRequired = JassmendMain.NUM_PLAYERS * Player.HAND_SIZE;
-		deck = new Deck();
+
+
 		Deck deck = getDeck();
-		if (cardsRequired <= deck.getCardsRemaining()) {
+		for (int j = 0; j < Player.HAND_SIZE; j++) {
+			Card card = deck.dealCard();
+			playerHand.add(card);
 
-				//Player p = clientModel.getPlayer(i);
-				//p.discardHand();
-
-				for (int j = 0; j < Player.HAND_SIZE; j++) {
-					Card card = deck.dealCard();
-					playerHand.add(card);
-					
-					//p.addCard(card);
-				}
-
-				//PlayerPane pp = gameView.getPlayerPane();
-				//pp.updatePlayerDisplay();
-				//}
-
-
-			{
-
-			}
 		}
-
 	}
 
 	public Card getPlayerHand(int i){
@@ -282,6 +266,9 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		return null;
 	}
 
+	public void clearPlayerHand(){
+		playerHand.clear();
+	}
 
 	public void removeUser(String username) {
 		users.remove(username);

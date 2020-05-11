@@ -2,6 +2,7 @@ package jassmendView;
 
 import jassmendModel.Card;
 import jassmendModel.Player;
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -13,7 +14,7 @@ public class PlayerPane extends VBox {
 	private HBox cardBox = new HBox();
 	
 	// Link to player object
-    private Player player1;
+    private Player player;
 
     
     public PlayerPane() {
@@ -32,22 +33,27 @@ public class PlayerPane extends VBox {
 
 
     public void setPlayer (Player player) {
-    	this.player1 = player;
+    	this.player = player;
     	updatePlayerDisplay();
     }
 
 
 	public void updatePlayerDisplay() {
-		lblName.setText(Player.getPlayerName());
-		for (int i = 0; i < Player.HAND_SIZE; i++) {
-    		Card card = null;
-    		if (player1.getCards().size() > i) card = player1.getCards().get(i);
-			{
-    		CardView cl = (CardView) cardBox.getChildren().get(i);
-    		cl.setCard(card);
-    		}
+    	//added new fx thread
+		Platform.runLater(new Runnable() {
+			@Override public void run() {
+				lblName.setText(Player.getPlayerName());
+				for (int i = 0; i < Player.HAND_SIZE; i++) {
+					Card card = null;
+					if (player.getCards().size() > i) card = player.getCards().get(i);
+					{
 
-	}
+						CardView cl = (CardView) cardBox.getChildren().get(i);
+						cl.setCard(card);
+					}
+				}
+			}
+	});
 
 
 

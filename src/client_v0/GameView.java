@@ -1,6 +1,6 @@
 package client_v0;
 
-import java.awt.*;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,21 +10,21 @@ import java.util.List;
 import java.util.Optional;
 
 import jassmendModel.JassmendModel;
+import jassmendModel.Player;
 import jassmendView.PlayerPane;
 import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -32,12 +32,25 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import java.awt.Desktop;
+import java.awt.Dimension;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Toolkit;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+
 
 public class GameView {
 	  private static Scene scene;
 	    private ClientController clientController;
 	     private String finalGamelobby;
-	    
+			public Stage primaryStage;
 	//Client Server Communication
 	private String [] playerIDs=new String[4];
 
@@ -94,7 +107,7 @@ public class GameView {
 	
 	
 	// Chat
-	
+	TitledPane chatArea = new TitledPane();
 	TextField txt1 = new TextField ();
 	Label lblchat = new Label("Chat");
 	Button btnSend = new Button ("Send");
@@ -161,6 +174,8 @@ public class GameView {
 	// __________________________________________________________________
 
 
+		chatArea.setText("Chat");
+
 		txt1.setPromptText("Type here your message");
 		HBox.setHgrow(txt1, Priority.ALWAYS);
 
@@ -176,16 +191,33 @@ public class GameView {
 		chatbox3.getChildren().add(chatbox2);
 		chatbox3.getChildren().add(chatbox1);
 
+		chatArea.setContent(chatbox3);
+
+		//----------------------------------------------------------------------------------------------------------
+		//Table Leaderboard
+
+		TableView table = new TableView();
+		table.setEditable(false);
+
+		TableColumn playerNameCol=new TableColumn("Player");
+		TableColumn scoreCol=new TableColumn("Score");
+
+		playerNameCol.setCellValueFactory(c-> Player.getPlayerName());
+
+		table.getColumns().addAll(playerNameCol,scoreCol);
+
+		//----------------------------------------------------------------------------------------------------------
+
+		Image image = new Image("Background/image/Jassmend_GameView_Background_FULLHD.jpg");
+		ImageView mv = new ImageView(image);
+
+		//-----------------------------------------------------------------------------------------------------
+
 		BorderPane outerPane = new BorderPane();
-
 		outerPane.setVisible(true);
-
 		BorderPane middlePane = new BorderPane();
-
 		middlePane.setVisible(true);
-
 		BorderPane innerPane = new BorderPane();
-
 		innerPane.setVisible(true);
 
 		middlePane.setBottom(player1Box);
@@ -196,16 +228,24 @@ public class GameView {
 
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
-		outerPane.setRight(chatbox3);
+		outerPane.setRight(chatArea);
 		outerPane.setBottom(btnDeal);
+		outerPane.setLeft(table);
 	
 		
 	scene = new Scene(outerPane);
+		scene.getStylesheets().add(getClass().getResource("Jass.css").toExternalForm());
+	//	primaryStage.setMinHeight(500);//500
+	//	primaryStage.setMinWidth(1250);//1250
+	//	primaryStage.setScene(scene);
+	//	primaryStage.setTitle("Jassmend");
+		//primaryStage.setMaximized(true);
 
-	
-	
-	
-	btnSend.setOnAction((event -> {
+
+
+
+
+		btnSend.setOnAction((event -> {
 		 clientController.sendMessage(txt1.getText());
 	}));
 
@@ -250,7 +290,7 @@ public class GameView {
 	}
 
 
-	public PlayerPane getPlayerPane() {
+	public PlayerPane getPlayerPane(int i) {
 		return (PlayerPane) player1Box.getChildren().get(0);
 	}
 

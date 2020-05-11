@@ -1,5 +1,7 @@
 package Server;
 
+import Server.message.Deck;
+
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -10,9 +12,10 @@ public class Server {
 	private static final Logger logger = Logger.getLogger("");
 	private static int port = -1;
 	private static String homeDirectory = "";
-
+	;
 	
 	public static void main(String[] args) {
+
 		// Setup logging, including a file handler
 		setupLogging();
 		

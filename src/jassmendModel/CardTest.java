@@ -34,7 +34,7 @@ private void cardToString()
 private void cardEquals() {
 	System.out.println("\n******* Cards.equals(): *******");
 	
-	Card card1 = new Card(Card.Suit.Kreuz,Card.Rank.Zehn);
+	Card card1 = new Card(Card.Suit.Kreuz,Card.Rank.Acht);
 	Card card2 = new Card(Card.Suit.Herz, Card.Rank.Acht);
 	System.out.println(card1.toString()+
 			((card1.equals(card2))?"==":"!=") +

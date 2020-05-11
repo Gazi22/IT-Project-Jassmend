@@ -52,6 +52,7 @@ public class JassmendController {
         		for (int j = 0; j < Player.HAND_SIZE; j++) {
         			Card card = deck.dealCard();
         			p.addCard(card);
+        			System.out.println(card);
         		}
         		
         		PlayerPane pp = view.getPlayerPane(1);
