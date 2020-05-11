@@ -21,6 +21,9 @@ public class ClientChatRoom extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Jassmend");
+        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(600);
+        primaryStage.setResizable(false);
         ClientModel clientModel = new ClientModel();
 
         ClientController clientController = new ClientController(clientModel);

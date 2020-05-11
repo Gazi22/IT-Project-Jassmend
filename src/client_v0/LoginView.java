@@ -19,6 +19,7 @@ public class LoginView {
     private ClientController clientController;
     private GameView view;
     public Stage newStageCreateAccount;
+    
 
     Label lblUserName = new Label("User Name:");
     TextField txtUser = new TextField();
@@ -49,32 +50,31 @@ public class LoginView {
         gridLoginView.setVgap(10);
         gridLoginView.setPadding(new Insets(25, 25, 25, 25));
 
+        lblUserName.getStyleClass().add("outline");
+        lblPassword.getStyleClass().add("outline");
+        lblPort.getStyleClass().add("outline");
+        lblIP.getStyleClass().add("outline");
 
+		gridLoginView.add(lblUserName, 0, 4);
 
-        gridLoginView.add(lblUserName, 0, 4);
+		gridLoginView.add(txtUser, 1, 4);
 
+		gridLoginView.add(lblPassword, 0, 5);
 
-        gridLoginView.add(txtUser, 1, 4);
+		gridLoginView.add(txtPassword, 1, 5);
 
-        gridLoginView.add(lblPassword, 0, 5);
+		gridLoginView.add(lblIP, 0, 0);
 
-        gridLoginView.add(txtPassword, 1, 5);
+		gridLoginView.add(txtIPAddress, 1, 0);
 
-        gridLoginView.add(lblIP, 0, 0);
+		gridLoginView.add(lblPort, 0, 1);
 
-        gridLoginView.add(txtIPAddress, 1, 0);
-
-        gridLoginView.add(lblPort, 0, 1);
-
-        gridLoginView.add(txtPort, 1, 1);
-
+		gridLoginView.add(txtPort, 1, 1);
 
         lblIP.setText("IP-Address:");
 
 
         lblPort.setText("Port:");
-
-
 
 
 
@@ -90,11 +90,14 @@ public class LoginView {
 
         //Handling Login button
 
-
+        
         //Handling Create Account button
         btnCreateAccount.setOnAction(e -> {
             newStageCreateAccount = new Stage();
             newStageCreateAccount.setScene(CreateAccountView.getSceneAccView());
+            newStageCreateAccount.setMinWidth(600);
+            newStageCreateAccount.setMinHeight(400);
+            newStageCreateAccount.setResizable(false);
             newStageCreateAccount.show();
         });
 
@@ -144,7 +147,8 @@ public class LoginView {
         });
 
         scene = new Scene(gridLoginView, 500, 275);
-        scene.getStylesheets().add(getClass().getResource("AccJass.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("LogJass.css").toExternalForm());
+        
     }
 
     public void connectedMode(){

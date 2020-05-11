@@ -51,17 +51,9 @@ public class CreateAccountView{
 		gridAccountView.setHgap(10);
 		gridAccountView.setVgap(10);
 		
-		/*Image image = new Image("Background/image/Jassmend_PIC_POG.png");
-		ImageView imv = new ImageView(image);
-		//imv.fitWidthProperty().bind(primaryStage.getPrimaryStage().widthProperty());
-		
-		
-		
-		gridAccountView.setBackground(new Background(new BackgroundImage(image,BackgroundRepeat.REPEAT,
-                BackgroundRepeat.REPEAT,
-                BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT)));
-		*/
+		lblHeader.getStyleClass().add("outline");
+		lblUsername.getStyleClass().add("outline");
+		lblPassword.getStyleClass().add("outline");
 		 
 		 gridAccountView.add(lblHeader, 0,0,2,1);
 		 GridPane.setHalignment(lblHeader, HPos. CENTER);
