@@ -37,6 +37,9 @@ public class PlayerPane extends VBox {
     	updatePlayerDisplay();
     }
 
+    public HBox getCardBox(){
+    	return cardBox;
+	}
 
 	public void updatePlayerDisplay() {
     	//added new fx thread

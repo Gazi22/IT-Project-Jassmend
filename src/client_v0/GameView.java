@@ -11,6 +11,7 @@ import java.util.Optional;
 
 import jassmendModel.JassmendModel;
 import jassmendModel.Player;
+import jassmendView.CardView;
 import jassmendView.PlayerPane;
 import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
@@ -115,9 +116,15 @@ public class GameView {
 	HBox chatbox1 = new HBox ();
 	VBox chatbox2 = new VBox ();
 	VBox chatbox3 = new VBox ();
-	
 
-	
+
+	//PlayArea
+	HBox playedCardPl1 = new HBox();
+	VBox playedCardPl2 = new VBox();
+	HBox playedCardPl3 = new HBox();
+	VBox playedCardPl4 = new VBox();
+
+
 	public GameView (ClientController clientController, ClientModel model) {
 
 	this.clientController = clientController;
@@ -193,6 +200,15 @@ public class GameView {
 
 		chatArea.setContent(chatbox3);
 
+		//-----------------------------------------------------------------------
+
+		HBox controlBox = new HBox();
+		controlBox.getChildren().addAll(btnDeal);
+		controlBox.setAlignment(Pos.CENTER);
+
+
+
+
 		//----------------------------------------------------------------------------------------------------------
 		//Table Leaderboard
 
@@ -207,11 +223,30 @@ public class GameView {
 		table.getColumns().addAll(playerNameCol,scoreCol);
 
 		//----------------------------------------------------------------------------------------------------------
+		for (int i = 0; i < 1; i++) {
+			Button btnCard = new CardView();
+			playedCardPl1.getChildren().add(btnCard);
+			btnCard.getStyleClass().add("btnCard");
+			playedCardPl1.setAlignment(Pos.CENTER);
+			Button btnCard2 = new CardView();
+			playedCardPl2.getChildren().add(btnCard2);
+			btnCard.getStyleClass().add("btnCard");
+			playedCardPl2.setAlignment(Pos.CENTER);
+			Button btnCard3 = new CardView();
+			playedCardPl3.getChildren().add(btnCard3);
+			btnCard.getStyleClass().add("btnCard");
+			playedCardPl3.setAlignment(Pos.CENTER);
+			Button btnCard4 = new CardView();
+			playedCardPl4.getChildren().add(btnCard4);
+			btnCard.getStyleClass().add("btnCard");
+			playedCardPl4.setAlignment(Pos.CENTER);
 
-		Image image = new Image("Background/image/Jassmend_GameView_Background_FULLHD.jpg");
-		ImageView mv = new ImageView(image);
+		}
+
 
 		//-----------------------------------------------------------------------------------------------------
+
+
 
 		BorderPane outerPane = new BorderPane();
 		outerPane.setVisible(true);
@@ -229,11 +264,15 @@ public class GameView {
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
 		outerPane.setRight(chatArea);
-		outerPane.setBottom(btnDeal);
 		outerPane.setLeft(table);
-	
-		
-	scene = new Scene(outerPane);
+		outerPane.setBottom(controlBox);
+
+		innerPane.setBottom(playedCardPl1);
+		innerPane.setLeft(playedCardPl2);
+		innerPane.setTop(playedCardPl3);
+		innerPane.setRight(playedCardPl4);
+
+		scene = new Scene(outerPane);
 		scene.getStylesheets().add(getClass().getResource("Jass.css").toExternalForm());
 	//	primaryStage.setMinHeight(500);//500
 	//	primaryStage.setMinWidth(1250);//1250

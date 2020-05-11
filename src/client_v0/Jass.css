@@ -11,7 +11,7 @@
 }
 
 .root{
-    -fx-background-image: url(/Background/image/Jassmend_GameView_Background_FULLHD.jpg);
+    -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
     -fx-background-size:cover;
 }
 
@@ -29,24 +29,33 @@
     -fx-background-color: linear-gradient(to right, rgba(255,130,60,1) 0%, rgba(255,156,77,1) 100%);
     -fx-effect: dropshadow(three-pass-box, #000000, 15, 0.2, 0, 5);
     -fx-cursor:hand;
+    -fx-scale-y: 1.5;
+    -fx-scale-x: 1.5;
 }
 
+.table-view{
+	-fx-border-color: b8860b;
+
+
+}
 
 
 .card {
-    -fx-font-size: 15.0px;
+    -fx-font-size: 50.0px;
     -fx-padding: 10.0px;
     -fx-margin: 25px 50px 75px 100px;
-    -fx-border-color: black;
-    -fx-border-width: 5.0px;
-    -fx-background-color: rgb(255,255,255);
-    -fx-min-width: 33;
-    -fx-pref-width: 20;
+    -fx-border-color: transparent;
+    -fx-border-width: 3.0px;
+    -fx-background-color: transparent; 
+    -fx-min-width: 43;
+    -fx-pref-width: 80;
     -fx-max-width: 49;
-    -fx-min-height: 35;
-    -fx-pref-height: 30;
-    -fx-max-height: 80;
+    -fx-min-height: 70;
+    -fx-pref-height: 90;
+    -fx-max-height: 100;
 }
+
+
 
 
 

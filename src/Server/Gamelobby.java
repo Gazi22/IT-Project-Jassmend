@@ -51,6 +51,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private String [] playerIDs = new String[maxPlayers];
 	private ArrayList<Card> playerHand=new ArrayList<>(9);
 	private Deck deck;
+	private int turnCounter=0;
 
 	
 	/**
@@ -257,7 +258,14 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public Card getPlayerHand(int i){
 		return playerHand.get(i);
 
+	}
 
+	public int getTurnCounter(){
+		return turnCounter;
+	}
+
+	public void increaseTurnCounter(){
+		turnCounter++;
 	}
 	public String getPlayerIDs(int i) {
 		for (int x=0; x < playerIDs.length; x++) {

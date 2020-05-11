@@ -20,20 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client_v0/Jass.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client_v0/Jassmend_GameView_Background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/message/TurnManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/Jass.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Gamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Gamelobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/DealCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/DealCards.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendController/JassmendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendController/JassmendController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendModel/CardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendModel/CardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendView/CardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendView/CardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/Jass.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jassmendView/PlayerPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendView/PlayerPane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,22 +176,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="411" height="466" key="DebuggerActiveHint/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589206505092" />
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1589218091671">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1589227379034">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589218091671" />
-    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1589218091670">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589227379034" />
+    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1589227379034">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589218091670" />
-    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1589218091670">
+    <state width="2517" height="399" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589227379034" />
+    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1589227379034">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589218091670" />
-    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1589218091670">
+    <state width="2517" height="399" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589227379034" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1589227379034">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589218091670" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589227379034" />
     <state width="2517" height="490" key="GridCell.Tab.1.bottom" timestamp="1589218055408">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -234,14 +228,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/client_v0/ClientController.java</url>
-          <line>298</line>
-          <properties class="client_v0.ClientController" method="dealCards">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/message/DealCards.java</url>
           <line>42</line>

@@ -7,6 +7,7 @@ import jassmendModel.Player;
 import jassmendView.PlayerPane;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
@@ -34,6 +35,7 @@ public class ClientController {
     ArrayList<Card> handCards = new ArrayList<>();
     public BufferedReader socketIn;
     public  OutputStreamWriter socketOut;
+    private String[] playerTurns = new String[4];
     
     
     
@@ -131,6 +133,7 @@ public class ClientController {
                                    String [] arrMsgText = msg.split("\\|");
                                    msg=arrMsgText[1]+": "+arrMsgText[3];
                                    appendMessageGameView(msg);
+
                                 }
                                 else if(msg.startsWith("MessageGameText")) {
 
@@ -169,6 +172,35 @@ public class ClientController {
 
                                         }
                                     }
+
+                                    else if (arrMsgText[3].equals("StartGame")){
+                                        if (clientModel.getClientPlayerID()==1){
+                                            buttonsFalse();
+                                        }
+                                        else buttonsTrue();
+                                    }
+
+                                    else if (arrMsgText[3].equals("TurnInfo")){
+                                        for(int x=0;x<4;x++){
+                                            playerTurns[x]=arrMsgText[x+4];
+                                        }
+
+                                        for (int y=0;y<4;y++){
+                                            if(playerTurns[y].equals("1")) {
+                                                if (clientModel.getClientPlayerID()==1) {
+                                                     buttonsFalse();
+                                                    showAlert("Gameinfo","It is your turn!");}
+                                                
+                                                else {buttonsTrue();
+                                                showAlert("Gameinfo","It is Player "+y+1+" turn!");}
+                                        }
+
+
+                                        }
+                                        }
+
+
+
                                     appendMessageGameView(msg);
 
                                 }
@@ -190,12 +222,12 @@ public class ClientController {
             }
 
             return true;
-            
+
         } catch (Exception e) {
             clientModel.log_error(e.toString());
             return false;
         }
-        
+
     }
 
     private  boolean validateIpAddress(String ipAddress) {
@@ -248,7 +280,7 @@ public class ClientController {
         sendToServer(concatString);
     }
     public void loginUser(String username, String password){
-       
+
         String concatString = "Login|"+username+"|"+password;
         sendToServer(concatString);
     }
@@ -290,8 +322,8 @@ public class ClientController {
         String concatString = "ListGamelobbyUsers|"+clientModel.gethash()+"|"+gamelobby;
         sendToServer(concatString);
     }
-    
-    
+
+
     public void joinGamelobby(String gamelobby){
         String concatString = "JoinGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
         sendToServer(concatString);
@@ -300,32 +332,37 @@ public class ClientController {
         String concatString = "DealCards|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
         sendToServer(concatString);
     }
-    
+
+    public void turnFinished(String gamelobby){
+        String concatString = "TurnManager|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
+
     public void leaveGamelobby (String gamelobby) {
     	String concatString = "LeaveGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
         sendToServer(concatString);
     }
-    
+
     public  void createGamelobby(String newGamelobby){
         String concatString = "CreateGamelobby|"+clientModel.gethash()+"|"+newGamelobby+"|"+"true";
         sendToServer(concatString);
     }
-    
+
     public  void deleteAccount(){
         String concatString = "DeleteLogin|"+clientModel.gethash();
         sendToServer(concatString);
     }
-    
+
     public  void changePassword(String newPassword){
         String concatString = "ChangePassword|"+clientModel.gethash()+"|"+newPassword;
         sendToServer(concatString);
     }
-    
+
     public  void ping(){
         String concatString = "Ping|"+clientModel.gethash();
         sendToServer(concatString);
     }
-    
+
     public String getPlayerNames(int i){
         String[] playerNames=new String[4];
          for(int x=0;x<4;x++){
@@ -333,12 +370,12 @@ public class ClientController {
         }
          return playerNames[i];
     }
-    
+
     public  void logout(){
-        
+
         sendToServer("Logout");
     }
-    
+
     public void sendMessage(String message){
         // Destination is currently selected gamelobby
         String concatString = "SendMessage|"+clientModel.gethash()+"|"+clientModel.getCurrentGamelobby()+"|"+message;
@@ -352,28 +389,28 @@ public class ClientController {
     public LoginView getLoginView() {
         return loginView;
     }
-    
+
     //Alerts for user feedback
      void showAlert(String alertTitle,String alertMessage) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(alertTitle);
         alert.setContentText(alertMessage);
- 
+
         alert.showAndWait();
     }
-    
+
      void showInputDialog(String inputTitle,String inputContent) {
     	 TextInputDialog txtInput = new TextInputDialog();
     	 txtInput.setTitle(inputTitle);
     	 txtInput.setContentText(inputContent);
     	Optional<String> result = txtInput.showAndWait();
-    	 
-    	
+
+
     }
-    
-         
-     
-        
+
+
+
+
     //Source: https://tagmycode.com/snippet/5207/yes-no-cancel-dialog-in-javafx#.XiML3MhKjD4
      void showAlertYesNo(String alertTitle,String alertMessage) {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -390,8 +427,8 @@ public class ClientController {
             }
     });
 }
-     
-     
+
+
      public ClientController(ClientModel clientModel){
          this.clientModel = clientModel;
 
@@ -429,6 +466,22 @@ public class ClientController {
         gameView.txt1.setDisable(false);
     }
 
+    public void buttonsFalse() {
+        for (int i = 0; i < 9; i++) {
+           gameView.getPlayerPane(1).getCardBox().getChildren().get(i).setDisable(false);
+            }
+    }
+
+    public void player1Turn(){
+
+
+    }
+
+    public void buttonsTrue() {
+        for (int i = 0; i < 9; i++) {
+            gameView.getPlayerPane(1).getCardBox().getChildren().get(i).setDisable(true);
+        }
+    }
     public boolean isFull() {
         boolean full = true;
         for (int i=0; i<playerIDs.length; i++) {
