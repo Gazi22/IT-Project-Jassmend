@@ -55,7 +55,8 @@ public class GameView {
 	//Client Server Communication
 	private String [] playerIDs=new String[4];
 
-
+//temporary
+	Button btnEndTurn = new Button("End Turn");
 
 	Button btnDeal = new Button("Deal");
 	// Player areas
@@ -203,7 +204,7 @@ public class GameView {
 		//-----------------------------------------------------------------------
 
 		HBox controlBox = new HBox();
-		controlBox.getChildren().addAll(btnDeal);
+		controlBox.getChildren().addAll(btnDeal,btnEndTurn);
 		controlBox.setAlignment(Pos.CENTER);
 
 
@@ -294,6 +295,7 @@ public class GameView {
      });
 
 		btnDeal.setOnAction(e7 -> clientController.dealCards(finalGamelobby));
+		btnEndTurn.setOnAction(e8->clientController.turnFinished(finalGamelobby));
      
      //Handlungsbedarf transition
      LogoutItem.setOnAction(e -> {

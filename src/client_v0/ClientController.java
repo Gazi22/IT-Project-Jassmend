@@ -5,6 +5,7 @@ import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.Player;
 import jassmendView.PlayerPane;
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -186,14 +187,18 @@ public class ClientController {
                                         }
 
                                         for (int y=0;y<4;y++){
+
                                             if(playerTurns[y].equals("1")) {
-                                                if (clientModel.getClientPlayerID()==1) {
+                                                if (clientModel.getClientPlayerID()==(y+1)) {
                                                      buttonsFalse();
                                                     showAlert("Gameinfo","It is your turn!");}
+
                                                 
                                                 else {buttonsTrue();
-                                                showAlert("Gameinfo","It is Player "+y+1+" turn!");}
+                                                showAlert("Gameinfo","It is Player "+(y+1)+" turn!");}
                                         }
+
+
 
 
                                         }
@@ -392,11 +397,17 @@ public class ClientController {
 
     //Alerts for user feedback
      void showAlert(String alertTitle,String alertMessage) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(alertTitle);
-        alert.setContentText(alertMessage);
+         //added new fx thread
+         Platform.runLater(new Runnable() {
+             @Override
+             public void run() {
+                 Alert alert = new Alert(AlertType.INFORMATION);
+                 alert.setTitle(alertTitle);
+                 alert.setContentText(alertMessage);
 
-        alert.showAndWait();
+                 alert.showAndWait();
+             }
+         });
     }
 
      void showInputDialog(String inputTitle,String inputContent) {
