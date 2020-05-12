@@ -483,10 +483,19 @@ public class ClientController {
             }
     }
 
-    public void player1Turn(){
+    public Button getbutton(int i) {
 
+        return  (Button) gameView.getPlayerPane(1).getCardBox().getChildren().get(i);
 
     }
+
+    public void btn1PlayCard(){
+        getbutton(0).setOnAction(e10->{
+
+                }
+                );
+    }
+
 
     public void buttonsTrue() {
         for (int i = 0; i < 9; i++) {
