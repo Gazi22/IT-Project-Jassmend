@@ -1,25 +1,22 @@
 package client_v0;
 
-import Server.message.Deck;
-import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.Player;
+import jassmendView.CardView;
 import jassmendView.PlayerPane;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
-import jassmendModel.Player;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class ClientController {
@@ -37,9 +34,12 @@ public class ClientController {
     public BufferedReader socketIn;
     public  OutputStreamWriter socketOut;
     private String[] playerTurns = new String[4];
-    
-    
-    
+    CardView cardView;
+
+
+
+
+
     public boolean connect (String ipaddress, String port){
         if (validateIpAddress(ipaddress)&&validatePortNumber(port)){
             try {
@@ -203,7 +203,10 @@ public class ClientController {
 
                                         }
                                         }
-
+                                    //Auf Server implementieren etc
+                                    else if (arrMsgText[3].equals("RoundFinished")) {
+                                        //CLEAR CARDSHOLDER?
+                                    }
 
 
                                     appendMessageGameView(msg);
@@ -341,6 +344,11 @@ public class ClientController {
     public void turnFinished(String gamelobby){
         String concatString = "TurnManager|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
         sendToServer(concatString);
+    }
+
+    public void sendCardPlayed(String card,String gamelobby){
+        String concatString = "CardPlayed|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+
     }
 
     public void leaveGamelobby (String gamelobby) {
@@ -483,18 +491,14 @@ public class ClientController {
             }
     }
 
-    public Button getbutton(int i) {
 
-        return  (Button) gameView.getPlayerPane(1).getCardBox().getChildren().get(i);
 
-    }
-
-    public void btn1PlayCard(){
-        getbutton(0).setOnAction(e10->{
+    public void btn1PlayCard(Card card){
+                   gameView.getHandButton(0).setGraphic(null);
+                    CardView cl = (CardView) gameView.getFieldButton(0);
+                    cl.setCard(card);
 
                 }
-                );
-    }
 
 
     public void buttonsTrue() {
@@ -503,6 +507,7 @@ public class ClientController {
         }
     }
     public boolean isFull() {
+
         boolean full = true;
         for (int i=0; i<playerIDs.length; i++) {
             if (playerIDs[i].equals("null")) {
@@ -588,6 +593,8 @@ public class ClientController {
 
         }
     }
+
+
 
 
 }

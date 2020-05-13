@@ -51,6 +51,7 @@ public class GameView {
 	  private static Scene scene;
 	    private ClientController clientController;
 	     private String finalGamelobby;
+	     	private CardView cardView;
 			public Stage primaryStage;
 	//Client Server Communication
 	private String [] playerIDs=new String[4];
@@ -128,25 +129,23 @@ public class GameView {
 
 	public GameView (ClientController clientController, ClientModel model) {
 
-	this.clientController = clientController;
-	PlayerPane pp = new PlayerPane();
-	pp.setPlayer(model.getPlayer(1));
-	OptionsMenu.getItems().addAll(ResumeItem,LogoutItem);
-	HelpMenu.getItems().addAll(RulesItem);
-	LobbyMenu.getItems().addAll(gamelobbyItem);
-	// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
+		this.clientController = clientController;
+		PlayerPane pp = new PlayerPane();
+		pp.setPlayer(model.getPlayer(1));
+		OptionsMenu.getItems().addAll(ResumeItem, LogoutItem);
+		HelpMenu.getItems().addAll(RulesItem);
+		LobbyMenu.getItems().addAll(gamelobbyItem);
+		// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
 
-		helpMenu.setOnAction( e -> {
-			if(Desktop.isDesktopSupported())
-
-			{
+		helpMenu.setOnAction(e -> {
+			if (Desktop.isDesktopSupported()) {
 				try {
 					Desktop.getDesktop().browse(new URI("https://www.swisslos.ch/de/jass/informationen/jass-regeln/jass-grundlagen.html"));
 
-				}catch (IOException e1) {
+				} catch (IOException e1) {
 					e1.printStackTrace();
 
-				}catch (URISyntaxException e1) {
+				} catch (URISyntaxException e1) {
 					e1.printStackTrace();
 				}
 			}
@@ -154,8 +153,8 @@ public class GameView {
 
 
 		meba.getMenus().addAll(OptionsMenu, HelpMenu, LobbyMenu);
-	
-	// ___________________________________________________________________
+
+		// ___________________________________________________________________
 
 
 		player1Box.getChildren().add(pp);
@@ -178,8 +177,8 @@ public class GameView {
 		player4Info.getChildren().add(scorePl4);
 
 		player4Info.setAlignment(Pos.CENTER);
-	
-	// __________________________________________________________________
+
+		// __________________________________________________________________
 
 
 		chatArea.setText("Chat");
@@ -204,10 +203,8 @@ public class GameView {
 		//-----------------------------------------------------------------------
 
 		HBox controlBox = new HBox();
-		controlBox.getChildren().addAll(btnDeal,btnEndTurn);
+		controlBox.getChildren().addAll(btnDeal, btnEndTurn);
 		controlBox.setAlignment(Pos.CENTER);
-
-
 
 
 		//----------------------------------------------------------------------------------------------------------
@@ -216,12 +213,12 @@ public class GameView {
 		TableView table = new TableView();
 		table.setEditable(false);
 
-		TableColumn playerNameCol=new TableColumn("Player");
-		TableColumn scoreCol=new TableColumn("Score");
+		TableColumn playerNameCol = new TableColumn("Player");
+		TableColumn scoreCol = new TableColumn("Score");
 
-		playerNameCol.setCellValueFactory(c-> Player.getPlayerName());
+		playerNameCol.setCellValueFactory(c -> Player.getPlayerName());
 
-		table.getColumns().addAll(playerNameCol,scoreCol);
+		table.getColumns().addAll(playerNameCol, scoreCol);
 
 		//----------------------------------------------------------------------------------------------------------
 		for (int i = 0; i < 1; i++) {
@@ -246,7 +243,6 @@ public class GameView {
 
 
 		//-----------------------------------------------------------------------------------------------------
-
 
 
 		BorderPane outerPane = new BorderPane();
@@ -275,28 +271,43 @@ public class GameView {
 
 		scene = new Scene(outerPane);
 		scene.getStylesheets().add(getClass().getResource("Jass.css").toExternalForm());
-	//	primaryStage.setMinHeight(500);//500
-	//	primaryStage.setMinWidth(1250);//1250
-	//	primaryStage.setScene(scene);
-	//	primaryStage.setTitle("Jassmend");
+		//	primaryStage.setMinHeight(500);//500
+		//	primaryStage.setMinWidth(1250);//1250
+		//	primaryStage.setScene(scene);
+		//	primaryStage.setTitle("Jassmend");
 		//primaryStage.setMaximized(true);
 
 
-
-
-
 		btnSend.setOnAction((event -> {
-		 clientController.sendMessage(txt1.getText());
-	}));
+			clientController.sendMessage(txt1.getText());
+		}));
 
-	 player1Btn.setOnAction(event -> {
-     	System.out.println("Turn finished, it is now player 2 turn");
-     	
-     });
+		player1Btn.setOnAction(e9 -> {
+			System.out.println("Turn finished, it is now player 2 turn");
 
-		btnDeal.setOnAction(e7 -> clientController.dealCards(finalGamelobby));
+		});
+
+
+		//Play the first Card into the first fieldbutton
+		getHandButton(0).setOnAction(e10->{
+
+			CardView cV1 = (CardView) getHandButton(0);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(0));
+
+			//clientController.turnFinished(finalGamelobby);
+
+		});
+
+
+		btnDeal.setOnAction(e7 -> {
+			clientController.dealCards(finalGamelobby);
+				});
+
+
 		btnEndTurn.setOnAction(e8->clientController.turnFinished(finalGamelobby));
-     
+
      //Handlungsbedarf transition
      LogoutItem.setOnAction(e -> {
     	 clientController.getGamelobbyList();
@@ -335,7 +346,8 @@ public class GameView {
 		return (PlayerPane) player1Box.getChildren().get(0);
 	}
 
-	
+
+
 	
 	
 	
@@ -441,7 +453,16 @@ public class GameView {
 
 
 
+	public Button getHandButton(int i) {
 
+		return  (Button) getPlayerPane(1).getCardBox().getChildren().get(i);
+
+	}
+	public Button getFieldButton(int i) {
+
+		return  (Button) playedCardPl1.getChildren().get(i);
+
+	}
 	
 
 

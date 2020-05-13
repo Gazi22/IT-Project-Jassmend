@@ -1,5 +1,6 @@
 package jassmendView;
 
+import client_v0.ClientController;
 import jassmendModel.Card;
 import jassmendModel.Player;
 import javafx.application.Platform;
@@ -8,10 +9,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+
 public class PlayerPane extends VBox {
 	private Label lblName = new Label();
 	private Label lblScore = new Label("");
 	private HBox cardBox = new HBox();
+	private ClientController clientController;
+	ArrayList<Card> cardsHolder = new ArrayList<>();
 	
 	// Link to player object
     private Player player;
@@ -52,7 +57,11 @@ public class PlayerPane extends VBox {
 					{
 
 						CardView cl = (CardView) cardBox.getChildren().get(i);
-						cl.setCard(card);
+						if(card!=null) {
+							cl.setCard(card);
+							cardsHolder.add(card);
+						}
+
 					}
 				}
 			}
@@ -62,6 +71,24 @@ public class PlayerPane extends VBox {
 
 	}
 
+	public Card getCardsHolder(int i){
+		return cardsHolder.get(i);
+	}
 
+	public void setCardsHolder(Card card){
+		if ( card!=null) {
+			cardsHolder.add(card);
+		}
+
+	}
+
+	public int getCardsHolderSize(){
+		return cardsHolder.size();
+	}
+
+	//Execute when dealCards is executed
+	public void clearCardsHolder(){
+		cardsHolder.clear();
+	}
 }
 
