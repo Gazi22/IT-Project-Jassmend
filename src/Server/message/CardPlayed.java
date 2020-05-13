@@ -6,18 +6,20 @@ import Server.Gamelobby;
 /**
  * Add a user as a member of a gamelobby.
  */
-public class TurnManager extends Message {
+public class CardPlayed extends Message {
 	private String token;
 	private String name;
 	private String username;
+	private String cardPlayed;
 
 
 
-	public TurnManager(String[] data) {
+	public CardPlayed(String[] data) {
 		super(data);
 		this.token = data[1];
 		this.name = data[2];
 		this.username = data[3];
+		this.cardPlayed =data [4];
 	}
 
 
@@ -28,30 +30,18 @@ public class TurnManager extends Message {
 	 */
 	@Override
 	public void process(Client client) {
-	String turnMessage="";
+	String [] arrCardsPlayed=new String[4];
+		String cardCounter="";
 	if (client.getToken().equals(token)) {
 		Gamelobby gamelobby = Gamelobby.exists(name);
-		//increases turncounter by 1
-		gamelobby.increaseTurnCounter();
-		if (gamelobby.getTurnCounter()%4==0){gamelobby.increaseRoundCounter();}
-		int mod =gamelobby.getTurnCounter()%4;
-		switch(mod){
-			case 0:
-				turnMessage="1"+"|"+"0"+"|"+"0"+"|"+"0";
-				break;
-			case 1:
-				turnMessage="0"+"|"+"1"+"|"+"0"+"|"+"0";
-				break;
-			case 2:
-				turnMessage="0"+"|"+"0"+"|"+"1"+"|"+"0";
-				break;
-			case 3:
-				turnMessage="0"+"|"+"0"+"|"+"0"+"|"+"1";
-				break;
+		gamelobby.increaseCardCounter();
+		if (gamelobby.getCardCounter()>4){gamelobby.resetCardCounter();}
 
-			default:
-				turnMessage="Error";
-				break;
+		for (int x = gamelobby.getCardCounter(); x < gamelobby.getCardCounter()+1; x++) {
+
+			gamelobby.setCardsInRound(x, cardPlayed);
+			arrCardsPlayed[x-1] = gamelobby.getCardsInRound(x-1);
+			cardCounter = Integer.toString(gamelobby.getCardCounter());
 		}
 	}
 
@@ -62,7 +52,7 @@ public class TurnManager extends Message {
 		gameInfo[2]=this.name;
 
 
-		gameInfo[3]="TurnInfo"+"|"+turnMessage;
+		gameInfo[3]="CardsPlayed"+"|"+cardCounter+"|"+arrCardsPlayed[0]+"|"+arrCardsPlayed[1]+"|"+arrCardsPlayed[2]+"|"+arrCardsPlayed[3];
 
 		SendGameMessage msgGame=new SendGameMessage(gameInfo);
 

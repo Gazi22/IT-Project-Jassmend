@@ -47,13 +47,18 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private final boolean isPublic;
 	private final ArrayList<String> users = new ArrayList<>();
 	private Instant lastMessage;
-	private final int maxPlayers =4;
-	private String [] playerIDs = new String[maxPlayers];
-	private ArrayList<Card> playerHand=new ArrayList<>(9);
+	private final int maxPlayers = 4;
+	private String[] playerIDs = new String[maxPlayers];
+	private ArrayList<Card> playerHand = new ArrayList<>(9);
 	private Deck deck;
-	private int turnCounter=0;
+	private int turnCounter = 0;
+	private String[] cardsInRound = new String[4];
+	private int roundCounter = 0;
+	private ArrayList<String> sticheTeam1 = new ArrayList<String>();
+	private ArrayList<String> sticheTeam2 = new ArrayList<String>();
+	private int cardCounter = 0;
 
-	
+
 	/**
 	 * Add a new gamelobby to our list of gamelobbys
 	 */
@@ -66,12 +71,12 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	 */
 	public static void remove(Gamelobby gamelobby) {
 		synchronized (gamelobbys) {
-			for (Iterator<Gamelobby> i = gamelobbys.iterator(); i.hasNext();) {
+			for (Iterator<Gamelobby> i = gamelobbys.iterator(); i.hasNext(); ) {
 				if (gamelobby == i.next()) i.remove();
 			}
 		}
 	}
-	
+
 	/**
 	 * List gamelobby names
 	 */
@@ -82,17 +87,17 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		}
 		return names;
 	}
-	
+
 	/**
 	 * Find and return an existing gamelobby
 	 */
 	public static Gamelobby exists(String name) {
 		synchronized (gamelobbys) {
 			for (Gamelobby gamelobby : gamelobbys) {
-				if (gamelobby.name.equals(name)){
-						return gamelobby;
-					}
-					
+				if (gamelobby.name.equals(name)) {
+					return gamelobby;
+				}
+
 			}
 
 		}
@@ -105,10 +110,10 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public static void cleanupgamelobbys() {
 		synchronized (gamelobbys) {
 			logger.fine("Cleanup gamelobbys: " + gamelobbys.size() + " gamelobbys registered");
-			 for (Iterator<Gamelobby> i = gamelobbys.iterator(); i.hasNext();) {
+			for (Iterator<Gamelobby> i = gamelobbys.iterator(); i.hasNext(); ) {
 				Gamelobby gamelobby = i.next();
-					logger.fine("Cleanup gamelobbys: removing gamelobby " + gamelobby.getName());
-					i.remove();
+				logger.fine("Cleanup gamelobbys: removing gamelobby " + gamelobby.getName());
+				i.remove();
 
 			}
 			logger.fine("Cleanup gamelobbys: " + gamelobbys.size() + " gamelobbys registered");
@@ -169,7 +174,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	 * Send a message to every user of this gamelobby who is logged on. Users may
 	 * remain in a gamelobby after logout or disconnection, so we remove inactive
 	 * users when we find them.
-	 * 
+	 * <p>
 	 * Note: If multiple clients are logged in with the same name, only one will
 	 * receive a message. An alternative would be to iterate through the
 	 * clients-list and match names, but this would require synchronization on the
@@ -204,44 +209,44 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public String getOwner() {
 		return owner;
 	}
-	
+
 	//check array full
-		public boolean isFull() {
-			boolean full = true;
-			for (int i=0; i<playerIDs.length; i++) {
-				if (playerIDs[i]==(null)) {
-					full = false;
-					break;
-				}
+	public boolean isFull() {
+		boolean full = true;
+		for (int i = 0; i < playerIDs.length; i++) {
+			if (playerIDs[i] == (null)) {
+				full = false;
+				break;
 			}
-			return full;
 		}
+		return full;
+	}
 
 	public boolean isPublic() {
 		return isPublic;
 	}
 
 	public void addUser(String username) {
-		if (!users.contains(username))
-		{users.add(username);}
-		
-		if(playerIDs[0]==null) {
-			playerIDs[0]=username;
-			System.out.println(username+" ist Player 1");}
-				else if(playerIDs[1]==null) {
-						playerIDs[1]=username;
-						System.out.println(username+" ist Player 2");}
-							else if (playerIDs[2]==null) {
-									playerIDs[2]=username;
-									System.out.println(username+" ist Player 3");}
-				 	 					else if (playerIDs[3]==null) {
-				 	 							playerIDs[3]=username;
-												System.out.println(username+" ist Player 4");}
+		if (!users.contains(username)) {
+			users.add(username);
+		}
+
+		if (playerIDs[0] == null) {
+			playerIDs[0] = username;
+			System.out.println(username + " ist Player 1");
+		} else if (playerIDs[1] == null) {
+			playerIDs[1] = username;
+			System.out.println(username + " ist Player 2");
+		} else if (playerIDs[2] == null) {
+			playerIDs[2] = username;
+			System.out.println(username + " ist Player 3");
+		} else if (playerIDs[3] == null) {
+			playerIDs[3] = username;
+			System.out.println(username + " ist Player 4");
+		}
 
 
-	       }
-
-
+	}
 
 
 	public void deal() {
@@ -255,39 +260,40 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		}
 	}
 
-	public Card getPlayerHand(int i){
+	public Card getPlayerHand(int i) {
 		return playerHand.get(i);
 
 	}
 
-	public int getTurnCounter(){
+	public int getTurnCounter() {
 		return turnCounter;
 	}
 
-	public void increaseTurnCounter(){
+	public void increaseTurnCounter() {
 		turnCounter++;
 	}
+
 	public String getPlayerIDs(int i) {
-		for (int x=0; x < playerIDs.length; x++) {
+		for (int x = 0; x < playerIDs.length; x++) {
 			return playerIDs[i];
 		}
 		return null;
 	}
 
-	public void clearPlayerHand(){
+	public void clearPlayerHand() {
 		playerHand.clear();
 	}
 
 	public void removeUser(String username) {
 		users.remove(username);
-			for (int x=0; x < playerIDs.length; x++) {
-	           if (playerIDs[x].equals(username)) {
-	        	   playerIDs[x]= null;
-	        	   System.out.println(username + " left the gamelobbys!"+playerIDs[x]+"is null");
-	           }
+		for (int x = 0; x < playerIDs.length; x++) {
+			if (playerIDs[x].equals(username)) {
+				playerIDs[x] = null;
+				System.out.println(username + " left the gamelobbys!" + playerIDs[x] + "is null");
+			}
 		}
 	}
-	
+
 	public ArrayList<String> getUsers() {
 		return users; // Arguably, we should return only a copy
 	}
@@ -296,8 +302,43 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public Deck getDeck() {
 		return deck;
 	}
+
 	public void addCard(Card card) {
 		if (playerHand.size() < 9) playerHand.add(card);
 	}
 
+	public void setCardsInRound(int x, String card) {
+		cardsInRound[x-1] = card;
+	}
+
+	public String getCardsInRound(int i) {
+		return cardsInRound[i];
+	}
+
+	public int getRoundCounter() {
+		return roundCounter;
+	}
+
+	public void increaseRoundCounter() {
+		roundCounter++;
+	}
+
+	public int getCardCounter() {
+		return cardCounter;
+	}
+
+	public void increaseCardCounter() {
+		cardCounter++;
+	}
+
+	public void resetCardCounter() {
+		cardCounter = 0;
+	}
+
+	public void setSticheTeam1(String card) {
+		sticheTeam1.add(card);
+	}
+	public void setSticheTeam2(String card) {
+		sticheTeam2.add(card);
+	}
 }

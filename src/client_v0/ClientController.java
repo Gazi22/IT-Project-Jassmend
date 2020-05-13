@@ -35,6 +35,9 @@ public class ClientController {
     public  OutputStreamWriter socketOut;
     private String[] playerTurns = new String[4];
     CardView cardView;
+    ArrayList<Card> cardsPlayed = new ArrayList<>();
+    int btnToActivate;
+    int cardPlayedNr;
 
 
 
@@ -165,7 +168,7 @@ public class ClientController {
                                                 setMyCurrentPlayerHand(x-4,arrMsgText[x]);}
 
                                             for (int y = 0; y < 9; y++) {
-                                                stringToCard(myCurrentPlayerHand[y]);
+                                                handCards.add(stringToCard(myCurrentPlayerHand[y]));
 
                                                 }
                                             System.out.println(handCards.toString());
@@ -207,6 +210,82 @@ public class ClientController {
                                     else if (arrMsgText[3].equals("RoundFinished")) {
                                         //CLEAR CARDSHOLDER?
                                     }
+
+                                    else if (arrMsgText[3].equals("CardsPlayed")) {
+                                        for(int x=5;x<9;x++){
+                                            cardsPlayed.add(stringToCard(arrMsgText[x]));
+                                                 clientModel.setClientPlayerID(2);
+                                                                                     }
+
+                                        //works for the first round where player 1 starts
+                                        if (arrMsgText[4].equals("1"))
+
+                                        {cardPlayedNr=1;
+                                        //client ID ersetzen durch clientModel.getClientPlayerID()!=1){
+                                            if (clientModel.getClientPlayerID()!=1){
+                                                if (clientModel.getClientPlayerID()==2){
+                                                    btnToActivate= 4;
+                                                }
+                                                if (clientModel.getClientPlayerID()==3){
+                                                    btnToActivate= 3;//then btn3
+                                                }
+                                                if (clientModel.getClientPlayerID()==4){
+                                                    btnToActivate= 2;//then btn2
+                                                }
+                                            }
+
+                                        }
+                                        else if (arrMsgText[4].equals("2")){
+                                            cardPlayedNr=2;
+                                            if (clientModel.getClientPlayerID()!=2){
+                                                if (clientModel.getClientPlayerID()==1){
+                                                    btnToActivate= 2;//then btn2
+                                                }
+                                                if (clientModel.getClientPlayerID()==3){
+                                                    btnToActivate= 3;//then btn3
+                                                }
+                                                if (clientModel.getClientPlayerID()==4){
+                                                    btnToActivate= 4; //then btn4
+                                                }
+                                            }
+
+                                        }
+                                        else if (arrMsgText[4].equals("3")){
+                                            cardPlayedNr=3;
+                                            if (clientModel.getClientPlayerID()!=3){
+                                                if (clientModel.getClientPlayerID()==1){
+                                                    btnToActivate= 3;//then btn3
+                                                }
+                                                if (clientModel.getClientPlayerID()==2){
+                                                    btnToActivate= 4;//then btn4
+                                                }
+                                                if (clientModel.getClientPlayerID()==4){
+                                                    btnToActivate= 2;//then btn2
+                                                }
+                                            }
+
+                                        }
+                                        else if (arrMsgText[4].equals("4")){
+                                            cardPlayedNr=4;
+                                            if (clientModel.getClientPlayerID()!=4){
+                                                if (clientModel.getClientPlayerID()==1){
+                                                    btnToActivate= 4;//then btn4
+                                                }
+                                                if (clientModel.getClientPlayerID()==2){
+                                                    btnToActivate= 3;//then btn3
+                                                }
+                                                if (clientModel.getClientPlayerID()==3){
+                                                    btnToActivate= 2;//then btn2
+                                                }
+                                            }
+                                        }
+
+
+                                        gameView.showPlayedCards();
+
+
+                                    }
+
 
 
                                     appendMessageGameView(msg);
@@ -347,7 +426,8 @@ public class ClientController {
     }
 
     public void sendCardPlayed(String card,String gamelobby){
-        String concatString = "CardPlayed|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        String concatString = "CardPlayed|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+card;
+        sendToServer(concatString);
 
     }
 
@@ -492,15 +572,6 @@ public class ClientController {
     }
 
 
-
-    public void btn1PlayCard(Card card){
-                   gameView.getHandButton(0).setGraphic(null);
-                    CardView cl = (CardView) gameView.getFieldButton(0);
-                    cl.setCard(card);
-
-                }
-
-
     public void buttonsTrue() {
         for (int i = 0; i < 9; i++) {
             gameView.getPlayerPane(1).getCardBox().getChildren().get(i).setDisable(true);
@@ -547,7 +618,7 @@ public class ClientController {
 
 //https://stackoverflow.com/questions/1080904/how-can-i-lookup-a-java-enum-from-its-string-value/1080914
 //https://stackoverflow.com/questions/9276639/java-how-to-split-a-string-by-a-number-of-characters
-    public void stringToCard(String stringOfCard){
+    public Card stringToCard(String stringOfCard){
         if(stringOfCard.startsWith("Kreuz")){
             String suitString;
             String rankString;
@@ -556,7 +627,7 @@ public class ClientController {
             rankString=switchNumbersToWords(stringOfCard.substring(5));
 
             Card card=new Card(Card.Suit.valueOf(suitString),Card.Rank.valueOf(rankString));
-            handCards.add(card);
+            return card;
 
         }
         else if(stringOfCard.startsWith("Herz")){
@@ -567,7 +638,7 @@ public class ClientController {
             rankString=switchNumbersToWords(stringOfCard.substring(4));
 
             Card card=new Card(Card.Suit.valueOf(suitString),Card.Rank.valueOf(rankString));
-            handCards.add(card);
+            return card;
 
         }
         else if(stringOfCard.startsWith("Ecke")){
@@ -578,7 +649,7 @@ public class ClientController {
             rankString=switchNumbersToWords(stringOfCard.substring(4));
 
             Card card=new Card(Card.Suit.valueOf(suitString),Card.Rank.valueOf(rankString));
-            handCards.add(card);
+            return card;
 
         }
         else if(stringOfCard.startsWith("Schaufel")){
@@ -589,12 +660,22 @@ public class ClientController {
             rankString=switchNumbersToWords(stringOfCard.substring(8));
 
             Card card=new Card(Card.Suit.valueOf(suitString),Card.Rank.valueOf(rankString));
-            handCards.add(card);
+            return card;
 
         }
+
+        else return null;
     }
 
+    public int getBtnToActivate() {
+        return btnToActivate;
+    }
 
+    public Card getCardsPlayed(int i){
+        return cardsPlayed.get(i);
+    }
 
-
+    public int getCardPlayedNr() {
+        return cardPlayedNr;
+    }
 }

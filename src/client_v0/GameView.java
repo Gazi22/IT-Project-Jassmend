@@ -14,6 +14,7 @@ import jassmendModel.Player;
 import jassmendView.CardView;
 import jassmendView.PlayerPane;
 import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -288,17 +289,19 @@ public class GameView {
 		});
 
 
+
 		//Play the first Card into the first fieldbutton
-		getHandButton(0).setOnAction(e10->{
+			getHandButton(0).setOnAction(e10 -> {
 
-			CardView cV1 = (CardView) getHandButton(0);
-			cV1.setGraphic(null);
-			CardView cV2 = (CardView) getFieldButton(0);
-			cV2.setCard(pp.getCardsHolder(0));
+				CardView cV1 = (CardView) getHandButton(0);
+				cV1.setGraphic(null);
+				CardView cV2 = (CardView) getFieldButton(0);
+				cV2.setCard(pp.getCardsHolder(0));
+				clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby);
+				clientController.turnFinished(finalGamelobby);
 
-			//clientController.turnFinished(finalGamelobby);
+			});
 
-		});
 
 
 		btnDeal.setOnAction(e7 -> {
@@ -459,11 +462,24 @@ public class GameView {
 
 	}
 	public Button getFieldButton(int i) {
-
-		return  (Button) playedCardPl1.getChildren().get(i);
-
+if(i==1) {return (Button) playedCardPl2.getChildren().get(0);}
+else if(i==2){return (Button) playedCardPl3.getChildren().get(0);}
+else if(i==3){return (Button) playedCardPl4.getChildren().get(0);}
+else return (Button) playedCardPl1.getChildren().get(0);
 	}
-	
+
+	public void showPlayedCards(){
+		//added new fx thread
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				int i = clientController.getBtnToActivate();
+
+				CardView cV2 = (CardView) getFieldButton(i-1);
+				cV2.setCard(clientController.getCardsPlayed(clientController.getCardPlayedNr()));//
+			}
+		});
+	}
 
 
 public static Scene getScene () {
@@ -471,6 +487,7 @@ public static Scene getScene () {
 		return scene;
 		
 	}
+
 
 
 
