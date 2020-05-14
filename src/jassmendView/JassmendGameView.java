@@ -14,6 +14,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea; 
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.MenuItem;
@@ -41,8 +42,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-
-
+import client_v0.CreateAccountView;
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.JassmendModel;
@@ -51,15 +51,19 @@ import jassmendModel.Player;
 public class JassmendGameView {
 
 	public Scene gameScene;
+	public Stage TrumpfWindow;
 	private JassmendModel model;
 	
 	public Stage primaryStage;
 	//private Model 
 	Insets insets = new Insets(10);
 	
-	
+	Button btnTrumpf = new Button("Trumpf");
 	Button btnDeal = new Button("Deal");
 	// Player areas
+
+
+
 
 	// Player bottom
 	Label userNamePl1 = new Label("Player 1");
@@ -97,7 +101,7 @@ public class JassmendGameView {
 	TextField txt1 = new TextField (); 
 	Button btnSend = new Button ("Send"); 
 	TextArea msgArea = new TextArea (); 
-	Label lblchat = new Label("Chat");
+	Label lblchat = new Label("Chat with your fellow players");
 	HBox chatbox1 = new HBox (); 
 	VBox chatbox2 = new VBox (); 
 	VBox chatbox3 = new VBox (); 
@@ -179,6 +183,7 @@ public class JassmendGameView {
 		
 		msgArea.setPrefHeight(600);
 		msgArea.setPrefWidth(300);
+		msgArea.setId("ChatArea");
 
 		
 		chatbox1.getChildren().add(btnSend);
@@ -196,7 +201,10 @@ public class JassmendGameView {
 		
 		HBox controlBox = new HBox();
 		controlBox.getChildren().addAll(btnDeal);
+		controlBox.getChildren().addAll(btnTrumpf);	
+		btnDeal.setTooltip(new Tooltip ("Start the game by getting your cards!"));
 		controlBox.setAlignment(Pos.CENTER);
+		
 		
 		
 		//_____________________________________________________________________
@@ -220,37 +228,41 @@ public class JassmendGameView {
 		//______________________________________________________________________
 		
 		
-		for (int i = 0; i < 1; i++) {
+		
     		Button btnCard = new CardView();
-    		playedCardPl1.getChildren().add(btnCard);
+    		playedCardPl1.getChildren().addAll(btnCard);
     		btnCard.getStyleClass().add("btnCard");
     		playedCardPl1.setAlignment(Pos.CENTER);
+    		playedCardPl1.setHgrow(btnCard, Priority.ALWAYS);
+    		
     		Button btnCard2 = new CardView();
-    		playedCardPl2.getChildren().add(btnCard2);
+    		playedCardPl2.getChildren().addAll(btnCard2);
     		btnCard.getStyleClass().add("btnCard");
     		playedCardPl2.setAlignment(Pos.CENTER);
+    		playedCardPl2.setVgrow(btnCard2, Priority.ALWAYS);
+    		
     		Button btnCard3 = new CardView();
-    		playedCardPl3.getChildren().add(btnCard3);
+    		playedCardPl3.getChildren().addAll(btnCard3);
     		btnCard.getStyleClass().add("btnCard");
     		playedCardPl3.setAlignment(Pos.CENTER);
+    		playedCardPl3.setHgrow(btnCard3, Priority.ALWAYS);
+    		
     		Button btnCard4 = new CardView();
-    		playedCardPl4.getChildren().add(btnCard4);
+    		playedCardPl4.getChildren().addAll(btnCard4);
     		btnCard.getStyleClass().add("btnCard");
     		playedCardPl4.setAlignment(Pos.CENTER);
+    		playedCardPl4.setVgrow(btnCard4, Priority.ALWAYS);
     		
-    		}
+    		
+    		
 		
 		
 		
+		//_________________________________________________________________________
 		
 		
 		
-		
-		
-		
-		
-		
-		
+
 		
 		//_________________________________________________________________________
 	
@@ -308,6 +320,12 @@ public class JassmendGameView {
 		
 		return btnDeal;
 	}
+	
+	public Button getBtnTrumpf() {
+		return btnTrumpf;
+	}
+
+
 	
 	
 	public PlayerPane getPlayerPane(int i) {
