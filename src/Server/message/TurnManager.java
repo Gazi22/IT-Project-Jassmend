@@ -13,6 +13,7 @@ public class TurnManager extends Message {
 
 
 
+
 	public TurnManager(String[] data) {
 		super(data);
 		this.token = data[1];
@@ -34,6 +35,7 @@ public class TurnManager extends Message {
 		//increases turncounter by 1
 		gamelobby.increaseTurnCounter();
 		if (gamelobby.getTurnCounter()%4==0){gamelobby.increaseRoundCounter();}
+		if(gamelobby.getRoundCounter()==9){gamelobby.resetRoundCounter();}
 		int mod =gamelobby.getTurnCounter()%4;
 		switch(mod){
 			case 0:

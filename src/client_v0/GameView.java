@@ -301,6 +301,86 @@ public class GameView {
 				clientController.turnFinished(finalGamelobby);
 
 			});
+		getHandButton(1).setOnAction(e10 -> {
+
+			CardView cV1 = (CardView) getHandButton(1);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(1));
+			clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby);
+			clientController.turnFinished(finalGamelobby);
+
+		});
+		getHandButton(2).setOnAction(e10 -> {
+
+			CardView cV1 = (CardView) getHandButton(2);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(2));
+			clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby);
+			clientController.turnFinished(finalGamelobby);
+
+		});
+		getHandButton(3).setOnAction(e10 -> {
+
+			CardView cV1 = (CardView) getHandButton(3);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(3));
+			clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby);
+			clientController.turnFinished(finalGamelobby);
+
+		});
+		getHandButton(4).setOnAction(e10 -> {
+
+			CardView cV1 = (CardView) getHandButton(4);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(4));
+			clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby);
+			clientController.turnFinished(finalGamelobby);
+
+		});
+		getHandButton(5).setOnAction(e10 -> {
+
+			CardView cV1 = (CardView) getHandButton(5);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(5));
+			clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby);
+			clientController.turnFinished(finalGamelobby);
+
+		});
+		getHandButton(6).setOnAction(e10 -> {
+
+			CardView cV1 = (CardView) getHandButton(6);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(6));
+			clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby);
+			clientController.turnFinished(finalGamelobby);
+
+		});
+		getHandButton(7).setOnAction(e10 -> {
+
+			CardView cV1 = (CardView) getHandButton(7);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(7));
+			clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby);
+			clientController.turnFinished(finalGamelobby);
+
+		});
+		getHandButton(8).setOnAction(e10 -> {
+
+			CardView cV1 = (CardView) getHandButton(8);
+			cV1.setGraphic(null);
+			CardView cV2 = (CardView) getFieldButton(0);
+			cV2.setCard(pp.getCardsHolder(8));
+			clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby);
+			clientController.turnFinished(finalGamelobby);
+
+		});
 
 
 

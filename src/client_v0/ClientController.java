@@ -184,6 +184,8 @@ public class ClientController {
                                         else buttonsTrue();
                                     }
 
+
+
                                     else if (arrMsgText[3].equals("TurnInfo")){
                                         for(int x=0;x<4;x++){
                                             playerTurns[x]=arrMsgText[x+4];
@@ -211,17 +213,25 @@ public class ClientController {
                                         //CLEAR CARDSHOLDER?
                                     }
 
-                                    else if (arrMsgText[3].equals("CardsPlayed")) {
-                                        for(int x=5;x<9;x++){
-                                            cardsPlayed.add(stringToCard(arrMsgText[x]));
-                                                 clientModel.setClientPlayerID(2);
-                                                                                     }
 
-                                        //works for the first round where player 1 starts
+
+                                    else if (arrMsgText[3].equals("CardsPlayed")) {
+                                        for (int x = 6; x < 10; x++) {
+                                            cardsPlayed.add(stringToCard(arrMsgText[x]));
+
+                                        }
+
+                                       // int roundCount = Integer.parseInt(arrMsgText[4]);
+                                        //for(int y=0;y<roundCount;y++) {
+                                         //   clientModel.setClientPlayerID(clientModel.getClientPlayerID() + y);
+                                           // if (clientModel.getClientPlayerID()>4){
+                                           //     clientModel.setClientPlayerID(1);
+                                          //  }
+
                                         if (arrMsgText[4].equals("1"))
 
                                         {cardPlayedNr=1;
-                                        //client ID ersetzen durch clientModel.getClientPlayerID()!=1){
+                                            //client ID ersetzen durch clientModel.getClientPlayerID()!=1){
                                             if (clientModel.getClientPlayerID()!=1){
                                                 if (clientModel.getClientPlayerID()==2){
                                                     btnToActivate= 4;
@@ -288,7 +298,7 @@ public class ClientController {
 
 
 
-                                    appendMessageGameView(msg);
+                                        appendMessageGameView(msg);
 
                                 }
 

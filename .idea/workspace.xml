@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/jassmendView/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/jassmendView/Jass.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Gamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Gamelobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/message/TurnManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/TurnManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
@@ -177,38 +177,38 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="411" height="466" key="DebuggerActiveHint/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589206505092" />
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1589400566003">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1589485971371">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589400566003" />
-    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1589400566003">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589485971371" />
+    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1589485971371">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589400566003" />
-    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1589400566003">
+    <state width="2517" height="399" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589485971371" />
+    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1589485971371">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589400566003" />
-    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1589400566003">
+    <state width="2517" height="399" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589485971371" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1589485971371">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589400566003" />
-    <state width="2517" height="490" key="GridCell.Tab.1.bottom" timestamp="1589400566001">
+    <state width="2517" height="399" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589485971371" />
+    <state width="2517" height="490" key="GridCell.Tab.1.bottom" timestamp="1589485971360">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589400566001" />
-    <state width="2517" height="490" key="GridCell.Tab.1.center" timestamp="1589400566001">
+    <state width="2517" height="490" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589485971360" />
+    <state width="2517" height="490" key="GridCell.Tab.1.center" timestamp="1589485971360">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589400566001" />
-    <state width="2517" height="490" key="GridCell.Tab.1.left" timestamp="1589400566001">
+    <state width="2517" height="490" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589485971360" />
+    <state width="2517" height="490" key="GridCell.Tab.1.left" timestamp="1589485971360">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589400566001" />
-    <state width="2517" height="490" key="GridCell.Tab.1.right" timestamp="1589400566001">
+    <state width="2517" height="490" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589485971360" />
+    <state width="2517" height="490" key="GridCell.Tab.1.right" timestamp="1589485971360">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589400566001" />
+    <state width="2517" height="490" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589485971360" />
     <state x="760" y="274" key="SettingsEditor" timestamp="1589041233885">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -221,10 +221,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1089" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589391859112" />
-    <state x="797" y="429" width="965" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1589393152352">
+    <state x="797" y="429" width="965" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1589471758366">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="797" y="429" width="965" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589393152352" />
+    <state x="797" y="429" width="965" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589471758366" />
     <state x="1075" y="447" key="refactoring.ChangeSignatureDialog" timestamp="1589365166903">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -238,14 +238,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/message/CardPlayed.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client_v0/GameView.java</url>
-          <line>475</line>
-          <option name="timeStamp" value="42" />
+          <url>file://$PROJECT_DIR$/src/client_v0/ClientController.java</url>
+          <line>217</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

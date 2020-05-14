@@ -32,9 +32,11 @@ public class CardPlayed extends Message {
 	public void process(Client client) {
 	String [] arrCardsPlayed=new String[4];
 		String cardCounter="";
+		String roundCounter="";
 	if (client.getToken().equals(token)) {
 		Gamelobby gamelobby = Gamelobby.exists(name);
 		gamelobby.increaseCardCounter();
+		roundCounter= Integer.toString(gamelobby.getRoundCounter());
 		if (gamelobby.getCardCounter()>4){gamelobby.resetCardCounter();}
 
 		for (int x = gamelobby.getCardCounter(); x < gamelobby.getCardCounter()+1; x++) {
@@ -43,6 +45,7 @@ public class CardPlayed extends Message {
 			arrCardsPlayed[x-1] = gamelobby.getCardsInRound(x-1);
 			cardCounter = Integer.toString(gamelobby.getCardCounter());
 		}
+		gamelobby.addToCardsTotal(username+cardPlayed);
 	}
 
 
@@ -52,7 +55,7 @@ public class CardPlayed extends Message {
 		gameInfo[2]=this.name;
 
 
-		gameInfo[3]="CardsPlayed"+"|"+cardCounter+"|"+arrCardsPlayed[0]+"|"+arrCardsPlayed[1]+"|"+arrCardsPlayed[2]+"|"+arrCardsPlayed[3];
+		gameInfo[3]="CardsPlayed"+"|"+roundCounter+"|"+cardCounter+"|"+arrCardsPlayed[0]+"|"+arrCardsPlayed[1]+"|"+arrCardsPlayed[2]+"|"+arrCardsPlayed[3];
 
 		SendGameMessage msgGame=new SendGameMessage(gameInfo);
 

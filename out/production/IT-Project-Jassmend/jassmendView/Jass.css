@@ -34,11 +34,30 @@
 }
 
 .table-view{
-	-fx-border-color: b8860b;
+	-fx-border-color: black;
+	-fx-background-color: transparent //#D2AB6F 	rgb(210, 171, 111)
 
 
 }
 
+.titled-pane{
+	-fx-border-color: b8860b;
+	-fx-background-color: transparent;
+	
+
+
+}
+
+.text-field{
+
+	-fx-background-color: transparent;
+
+}
+
+.text-area{
+
+	-fx-background-color: transparent;
+}
 
 .card {
     -fx-font-size: 50.0px;

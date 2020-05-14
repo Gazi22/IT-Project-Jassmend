@@ -54,6 +54,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private int turnCounter = 0;
 	private String[] cardsInRound = new String[4];
 	private int roundCounter = 0;
+	private ArrayList<String> cardsTotal = new ArrayList<String>();
 	private ArrayList<String> sticheTeam1 = new ArrayList<String>();
 	private ArrayList<String> sticheTeam2 = new ArrayList<String>();
 	private int cardCounter = 0;
@@ -323,6 +324,9 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		roundCounter++;
 	}
 
+	public void resetRoundCounter(){
+		roundCounter=0;
+	}
 	public int getCardCounter() {
 		return cardCounter;
 	}
@@ -341,4 +345,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public void setSticheTeam2(String card) {
 		sticheTeam2.add(card);
 	}
+
+	public void addToCardsTotal(String card){
+		cardsTotal.add(card);}
 }
