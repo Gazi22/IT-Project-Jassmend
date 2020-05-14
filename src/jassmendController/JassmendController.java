@@ -8,8 +8,10 @@ import jassmendModel.JassmendModel;
 import jassmendModel.Player;
 import jassmendView.JassmendGameView;
 import jassmendView.PlayerPane;
+import jassmendView.TrumpfView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 public class JassmendController {
 	
 	private JassmendModel model;
@@ -21,9 +23,14 @@ public class JassmendController {
 		
 		//view.getShuffleButton().setOnAction( e -> shuffle() );
 		view.getbtnDeal().setOnAction( e -> deal() );
-	}
+		
+		
+		view.getBtnTrumpf().setOnAction(e ->{
+			new TrumpfView();
+			
+		});
 	
-
+	}
 
     /**
      * Remove all cards from players hands, and shuffle the deck
