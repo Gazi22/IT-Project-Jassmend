@@ -2,33 +2,25 @@ package Server.message;
 
 import Server.Client;
 import Server.Gamelobby;
-import client_v0.ClientModel;
-import client_v0.GameView;
-import jassmendMain.JassmendMain;
-import jassmendModel.Card;
-import jassmendModel.Player;
-import jassmendView.PlayerPane;
-import javafx.scene.control.Alert;
-
-import java.util.ArrayList;
 
 /**
  * Add a user as a member of a gamelobby.
  */
-public class DealCards extends Message {
+public class Trumpf extends Message {
 	private String token;
 	private String name;
 	private String username;
+	private  String trumpf;
 
 
 
 
-
-	public DealCards(String[] data) {
+	public Trumpf(String[] data) {
 		super(data);
 		this.token = data[1];
 		this.name = data[2];
 		this.username = data[3];
+		this.trumpf =data[4];
 	}
 
 	
@@ -42,15 +34,11 @@ public class DealCards extends Message {
 		
 		boolean result = false;
 
-		String [] hand= new String[9];
 		if (client.getToken().equals(token)) {
 			Gamelobby gamelobby = Gamelobby.exists(name);
 
-			gamelobby.deal();
-			for(int x = 0;x<9;x++){
-				hand[x]=(gamelobby.getPlayerHand(x).toString());
-			}
-				gamelobby.clearPlayerHand();
+			gamelobby.setTrumpf(trumpf);
+			result=true;
 		}
 
 
@@ -58,7 +46,7 @@ public class DealCards extends Message {
 	String [] gameInfo = new String[4];
 	gameInfo[1]=this.token;
 	gameInfo[2]=this.name;
-	gameInfo[3]="PlayerHand"+"|"+hand[0]+"|"+hand[1]+"|"+hand[2]+"|"+hand[3]+"|"+hand[4]+"|"+hand[5]+"|"+hand[6]+"|"+hand[7]+"|"+hand[8];
+	gameInfo[3]="Trumpf"+"|"+trumpf;
 
 	SendGameMessage msgGame=new SendGameMessage(gameInfo);
 	if (result = true){
