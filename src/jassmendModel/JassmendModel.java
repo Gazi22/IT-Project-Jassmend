@@ -2,9 +2,8 @@ package jassmendModel;
 
 import java.util.ArrayList;
 
-import Server.message.Deck;
+import Server.Deck;
 import jassmendMain.JassmendMain;
-import jassmendView.JassmendGameView;
 
 public class JassmendModel {
 	 

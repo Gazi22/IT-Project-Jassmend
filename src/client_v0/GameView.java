@@ -43,6 +43,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -301,7 +303,7 @@ public class GameView {
 				clientController.turnFinished(finalGamelobby);
 
 			});
-		getHandButton(1).setOnAction(e10 -> {
+		getHandButton(1).setOnAction(e11 -> {
 
 			CardView cV1 = (CardView) getHandButton(1);
 			cV1.setGraphic(null);
@@ -311,7 +313,7 @@ public class GameView {
 			clientController.turnFinished(finalGamelobby);
 
 		});
-		getHandButton(2).setOnAction(e10 -> {
+		getHandButton(2).setOnAction(e12 -> {
 
 			CardView cV1 = (CardView) getHandButton(2);
 			cV1.setGraphic(null);
@@ -321,7 +323,7 @@ public class GameView {
 			clientController.turnFinished(finalGamelobby);
 
 		});
-		getHandButton(3).setOnAction(e10 -> {
+		getHandButton(3).setOnAction(e13 -> {
 
 			CardView cV1 = (CardView) getHandButton(3);
 			cV1.setGraphic(null);
@@ -331,7 +333,7 @@ public class GameView {
 			clientController.turnFinished(finalGamelobby);
 
 		});
-		getHandButton(4).setOnAction(e10 -> {
+		getHandButton(4).setOnAction(e14 -> {
 
 			CardView cV1 = (CardView) getHandButton(4);
 			cV1.setGraphic(null);
@@ -341,7 +343,7 @@ public class GameView {
 			clientController.turnFinished(finalGamelobby);
 
 		});
-		getHandButton(5).setOnAction(e10 -> {
+		getHandButton(5).setOnAction(e15 -> {
 
 			CardView cV1 = (CardView) getHandButton(5);
 			cV1.setGraphic(null);
@@ -351,7 +353,7 @@ public class GameView {
 			clientController.turnFinished(finalGamelobby);
 
 		});
-		getHandButton(6).setOnAction(e10 -> {
+		getHandButton(6).setOnAction(e16 -> {
 
 			CardView cV1 = (CardView) getHandButton(6);
 			cV1.setGraphic(null);
@@ -361,7 +363,7 @@ public class GameView {
 			clientController.turnFinished(finalGamelobby);
 
 		});
-		getHandButton(7).setOnAction(e10 -> {
+		getHandButton(7).setOnAction(e17 -> {
 
 			CardView cV1 = (CardView) getHandButton(7);
 			cV1.setGraphic(null);
@@ -371,7 +373,7 @@ public class GameView {
 			clientController.turnFinished(finalGamelobby);
 
 		});
-		getHandButton(8).setOnAction(e10 -> {
+		getHandButton(8).setOnAction(e18 -> {
 
 			CardView cV1 = (CardView) getHandButton(8);
 			cV1.setGraphic(null);
@@ -554,11 +556,26 @@ else return (Button) playedCardPl1.getChildren().get(0);
 			@Override
 			public void run() {
 				int i = clientController.getBtnToActivate();
-
 				CardView cV2 = (CardView) getFieldButton(i-1);
-				cV2.setCard(clientController.getCardsPlayed(clientController.getCardPlayedNr()));//
-			}
+				cV2.setCard(clientController.getCardsPlayed(clientController.getCardPlayedNr()-1));//
+				}
 		});
+	}
+
+	public void clearFieldButtons(){
+		//added new fx thread
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+
+					//clientController.wait(5000);
+					for (int x = 0; x < 4; x++) {
+						CardView cV2 = (CardView) getFieldButton(x);
+						cV2.setGraphic(null);//
+					}
+
+			}
+			});
 	}
 
 

@@ -158,7 +158,7 @@ public class ClientController {
                                             comparePlayerIDs();
                                             setGameConfig();
                                             gamelobbyFlag = 1;
-                                            System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+getPlayerNames(0));
+                                            System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+clientModel.getUser());
                                         }
                                     }
                                     else if (arrMsgText[3].equals("PlayerHand")){
@@ -216,19 +216,23 @@ public class ClientController {
 
 
                                     else if (arrMsgText[3].equals("CardsPlayed")) {
-                                        for (int x = 6; x < 10; x++) {
-                                            cardsPlayed.add(stringToCard(arrMsgText[x]));
+                                        if(cardsPlayed.size()==4){clearCardsPlayed();}
+                                        int cardsPlayedCounter=Integer.parseInt(arrMsgText[5]);
+                                        cardsPlayed.add(stringToCard(arrMsgText[cardsPlayedCounter+5]));
 
+
+
+                                        //TEST ID
+                                        comparePlayerIDs();
+                                        int roundCount = Integer.parseInt(arrMsgText[4]);
+                                        for(int y=0;y<roundCount;y++) {
+                                            clientModel.setClientPlayerID(clientModel.getClientPlayerID() -1);
+                                            if (clientModel.getClientPlayerID() < 1) {
+                                                clientModel.setClientPlayerID(4);
+                                            }
                                         }
 
-                                       // int roundCount = Integer.parseInt(arrMsgText[4]);
-                                        //for(int y=0;y<roundCount;y++) {
-                                         //   clientModel.setClientPlayerID(clientModel.getClientPlayerID() + y);
-                                           // if (clientModel.getClientPlayerID()>4){
-                                           //     clientModel.setClientPlayerID(1);
-                                          //  }
-
-                                        if (arrMsgText[4].equals("1"))
+                                        if (arrMsgText[5].equals("1"))
 
                                         {cardPlayedNr=1;
                                             //client ID ersetzen durch clientModel.getClientPlayerID()!=1){
@@ -242,40 +246,43 @@ public class ClientController {
                                                 if (clientModel.getClientPlayerID()==4){
                                                     btnToActivate= 2;//then btn2
                                                 }
+                                                gameView.showPlayedCards();
                                             }
 
                                         }
-                                        else if (arrMsgText[4].equals("2")){
+                                        else if (arrMsgText[5].equals("2")){
                                             cardPlayedNr=2;
                                             if (clientModel.getClientPlayerID()!=2){
                                                 if (clientModel.getClientPlayerID()==1){
                                                     btnToActivate= 2;//then btn2
                                                 }
                                                 if (clientModel.getClientPlayerID()==3){
-                                                    btnToActivate= 3;//then btn3
+                                                    btnToActivate= 4;//then btn3
                                                 }
                                                 if (clientModel.getClientPlayerID()==4){
-                                                    btnToActivate= 4; //then btn4
+                                                    btnToActivate= 3; //then btn4
                                                 }
+                                                gameView.showPlayedCards();
                                             }
 
                                         }
-                                        else if (arrMsgText[4].equals("3")){
+                                        else if (arrMsgText[5].equals("3")){
                                             cardPlayedNr=3;
                                             if (clientModel.getClientPlayerID()!=3){
                                                 if (clientModel.getClientPlayerID()==1){
                                                     btnToActivate= 3;//then btn3
                                                 }
                                                 if (clientModel.getClientPlayerID()==2){
-                                                    btnToActivate= 4;//then btn4
+                                                    btnToActivate= 2;//then btn4
                                                 }
                                                 if (clientModel.getClientPlayerID()==4){
-                                                    btnToActivate= 2;//then btn2
+                                                    btnToActivate= 4;//then btn2
                                                 }
+                                                gameView.showPlayedCards();
                                             }
 
                                         }
-                                        else if (arrMsgText[4].equals("4")){
+                                        else if (arrMsgText[5].equals("4")){
                                             cardPlayedNr=4;
                                             if (clientModel.getClientPlayerID()!=4){
                                                 if (clientModel.getClientPlayerID()==1){
@@ -287,11 +294,17 @@ public class ClientController {
                                                 if (clientModel.getClientPlayerID()==3){
                                                     btnToActivate= 2;//then btn2
                                                 }
+                                                gameView.showPlayedCards();
                                             }
+
                                         }
 
 
-                                        gameView.showPlayedCards();
+
+                                    if (cardPlayedNr == 4) {
+                                        waiterino(5000);
+                                        gameView.clearFieldButtons();
+                                    }
 
 
                                     }
@@ -437,6 +450,11 @@ public class ClientController {
 
     public void sendCardPlayed(String card,String gamelobby){
         String concatString = "CardPlayed|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+card;
+        sendToServer(concatString);
+
+    }
+    public void sendTrumpf(String trumpf,String gamelobby){
+        String concatString = "Trumpf|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+trumpf;
         sendToServer(concatString);
 
     }
@@ -685,7 +703,22 @@ public class ClientController {
         return cardsPlayed.get(i);
     }
 
+    public void clearCardsPlayed(){
+        cardsPlayed.clear();
+    }
     public int getCardPlayedNr() {
         return cardPlayedNr;
+    }
+
+    //https://stackoverflow.com/questions/24104313/how-do-i-make-a-delay-in-java
+    public static void waiterino(int ms){
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
     }
 }

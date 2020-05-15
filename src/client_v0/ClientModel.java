@@ -1,6 +1,6 @@
 package client_v0;
 
-import Server.message.Deck;
+import Server.Deck;
 import jassmendMain.JassmendMain;
 import jassmendModel.Player;
 

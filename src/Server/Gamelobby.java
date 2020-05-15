@@ -9,18 +9,15 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 
-import Server.message.Deck;
 import Server.message.Message;
 import client_v0.ClientModel;
-import jassmendMain.JassmendMain;
 import jassmendModel.Card;
 import jassmendModel.Player;
-import jassmendView.PlayerPane;
-import javafx.scene.control.Alert;
 
 
 /**
@@ -54,10 +51,12 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private int turnCounter = 0;
 	private String[] cardsInRound = new String[4];
 	private int roundCounter = 0;
-	private ArrayList<String> cardsTotal = new ArrayList<String>();
+	private ArrayList<String> cardsTotalString = new ArrayList<>();
+
 	private ArrayList<String> sticheTeam1 = new ArrayList<String>();
 	private ArrayList<String> sticheTeam2 = new ArrayList<String>();
 	private int cardCounter = 0;
+	private String trumpf="";
 
 
 	/**
@@ -347,5 +346,23 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	}
 
 	public void addToCardsTotal(String card){
-		cardsTotal.add(card);}
+		cardsTotalString.add(card);}
+
+	public String getCardsTotal(int i){
+		return cardsTotalString.get(i);
+	}
+
+	public void setTrumpf(String trumpf){
+		this.trumpf=trumpf;
+	}
+
+	public String getTrumpf(){
+		return trumpf;
+	}
+
+
+
+
+
+
 }

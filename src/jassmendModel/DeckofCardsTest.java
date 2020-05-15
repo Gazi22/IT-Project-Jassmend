@@ -23,6 +23,7 @@ class DeckofCardsTest {
 		test.deckOfCardsConstructor();
 		test.dealCards();
 		test.dealHands();
+		test.sortCollection();
 		
 		System.out.println();
 		
@@ -92,10 +93,29 @@ class DeckofCardsTest {
         System.out.println(handCards+" "+"cards size: "+cards.size());
 		
 	}
-	 
-	
-	
-	
+
+
+
+	private void sortCollection()
+	{
+		System.out.println("\n******* SORT COLLECTION: *******");
+
+		cards.clear();
+
+		// Add all 36 cards
+		for (Card.Suit suit : Card.Suit.values()) {
+			for (Card.Rank rank : Card.Rank.values()) {
+				Card card = new Card(suit, rank);
+				cards.add(card);
+			}
+		}
+		Collections.shuffle(cards);
+		cardsRemaining.setValue(cards.size());
+Collections.sort(cards);
+
+		System.out.println(handCards+" "+"cards size: "+cards.size()+cards);
+
+	}
 	
 	
 	

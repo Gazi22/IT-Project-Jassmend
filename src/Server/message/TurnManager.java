@@ -34,7 +34,7 @@ public class TurnManager extends Message {
 		Gamelobby gamelobby = Gamelobby.exists(name);
 		//increases turncounter by 1
 		gamelobby.increaseTurnCounter();
-		if (gamelobby.getTurnCounter()%4==0){gamelobby.increaseRoundCounter();}
+		if (gamelobby.getTurnCounter()%36==0){gamelobby.increaseRoundCounter();}
 		if(gamelobby.getRoundCounter()==9){gamelobby.resetRoundCounter();}
 		int mod =gamelobby.getTurnCounter()%4;
 		switch(mod){
