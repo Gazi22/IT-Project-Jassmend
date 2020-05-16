@@ -20,21 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Server/message/GetStiche.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Gamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Gamelobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/DealCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/DealCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/JoinGamelobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/TurnManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/TurnManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientChatRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendModel/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendModel/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendModel/DeckofCardsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendModel/DeckofCardsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/MainMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/MainMenuView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,46 +195,46 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="447" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589200563189" />
-    <state x="1165" y="453" width="790" height="494" key="#xdebugger.XInspectDialog" timestamp="1589642203829">
+    <state x="1165" y="453" width="790" height="494" key="#xdebugger.XInspectDialog" timestamp="1589644159838">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1165" y="453" width="790" height="494" key="#xdebugger.XInspectDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589642203829" />
+    <state x="1165" y="453" width="790" height="494" key="#xdebugger.XInspectDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589644159838" />
     <state width="411" height="466" key="DebuggerActiveHint" timestamp="1589206505092">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="411" height="466" key="DebuggerActiveHint/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589206505092" />
-    <state width="2517" height="490" key="GridCell.Tab.0.bottom" timestamp="1589643709048">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1589650173497">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589643709048" />
-    <state width="2517" height="490" key="GridCell.Tab.0.center" timestamp="1589643709048">
+    <state width="2517" height="399" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589650173497" />
+    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1589650173497">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589643709048" />
-    <state width="2517" height="490" key="GridCell.Tab.0.left" timestamp="1589643709048">
+    <state width="2517" height="399" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589650173497" />
+    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1589650173497">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589643709048" />
-    <state width="2517" height="490" key="GridCell.Tab.0.right" timestamp="1589643709048">
+    <state width="2517" height="399" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589650173497" />
+    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1589650173497">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589643709048" />
-    <state width="2517" height="490" key="GridCell.Tab.1.bottom" timestamp="1589643709049">
+    <state width="2517" height="399" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589650173497" />
+    <state width="2517" height="490" key="GridCell.Tab.1.bottom" timestamp="1589650171867">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589643709049" />
-    <state width="2517" height="490" key="GridCell.Tab.1.center" timestamp="1589643709049">
+    <state width="2517" height="490" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589650171867" />
+    <state width="2517" height="490" key="GridCell.Tab.1.center" timestamp="1589650171867">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589643709049" />
-    <state width="2517" height="490" key="GridCell.Tab.1.left" timestamp="1589643709049">
+    <state width="2517" height="490" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589650171867" />
+    <state width="2517" height="490" key="GridCell.Tab.1.left" timestamp="1589650171867">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589643709049" />
-    <state width="2517" height="490" key="GridCell.Tab.1.right" timestamp="1589643709049">
+    <state width="2517" height="490" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589650171867" />
+    <state width="2517" height="490" key="GridCell.Tab.1.right" timestamp="1589650171867">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589643709049" />
+    <state width="2517" height="490" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589650171867" />
     <state x="760" y="274" key="SettingsEditor" timestamp="1589041233885">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -267,10 +259,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="936" y="330" key="run.anything.popup/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589546357836" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1589523981917">
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1589648858729">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589523981917" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589648858729" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -289,18 +281,17 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="System.out.println(cardsTotalCard.get(0).toString();" language="JAVA" />
-        <watch expression="cardsTotalCard.get(0)" language="JAVA" />
-        <watch expression="cardsTotalCard.get(1)" language="JAVA" />
-        <watch expression="cardsTotalCard.size()" language="JAVA" />
-        <watch expression="cardsTotalCard.get(2)" language="JAVA" />
-        <watch expression="cardsTotalCard.get(3)" language="JAVA" />
-        <watch expression="gamelobby.getCardsTotal(0)" language="JAVA" />
-        <watch expression="gamelobby.getCardsTotal(1)" language="JAVA" />
-        <watch expression="gamelobby.getCardsTotal(3)" language="JAVA" />
-        <watch expression="gamelobby.getCardsTotal(2)" language="JAVA" />
-        <watch expression="gamelobby.getCardsTotal(5)" language="JAVA" />
+        <watch expression="gamelobby.getSticheTeam2(0)" language="JAVA" />
+        <watch expression="gamelobby.getSticheTeam1(0)" language="JAVA" />
+        <watch expression="gamelobby.getCardsWithNames(0" language="JAVA" />
+        <watch expression="getCardsTotalCard(0).toString()" language="JAVA" />
+        <watch expression="gamelobby.getCardsWithNames(1)" language="JAVA" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IT_Project_Jassmend$ClientChatRoom.ic" NAME="ClientChatRoom Coverage Results" MODIFIED="1589646617836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>client_v0.*</FILTER>
+    </SUITE>
   </component>
 </project>

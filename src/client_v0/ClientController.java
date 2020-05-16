@@ -241,7 +241,9 @@ public class ClientController {
 
                                         {cardPlayedNr=1;
                                             //client ID ersetzen durch clientModel.getClientPlayerID()!=1){
-                                            if (clientModel.getClientPlayerID()!=1){
+                                                if (clientModel.getClientPlayerID()==1){
+                                                    btnToActivate= 1;
+                                                }
                                                 if (clientModel.getClientPlayerID()==2){
                                                     btnToActivate= 4;
                                                 }
@@ -252,12 +254,14 @@ public class ClientController {
                                                     btnToActivate= 2;//then btn2
                                                 }
                                                 gameView.showPlayedCards();
-                                            }
+
 
                                         }
                                         else if (arrMsgText[5].equals("2")){
                                             cardPlayedNr=2;
-                                            if (clientModel.getClientPlayerID()!=2){
+                                                if (clientModel.getClientPlayerID()==2){
+                                                    btnToActivate= 1;
+                                                 }
                                                 if (clientModel.getClientPlayerID()==1){
                                                     btnToActivate= 2;//then btn2
                                                 }
@@ -268,12 +272,14 @@ public class ClientController {
                                                     btnToActivate= 3; //then btn4
                                                 }
                                                 gameView.showPlayedCards();
-                                            }
+
 
                                         }
                                         else if (arrMsgText[5].equals("3")){
                                             cardPlayedNr=3;
-                                            if (clientModel.getClientPlayerID()!=3){
+                                                if (clientModel.getClientPlayerID()!=3){
+                                                    btnToActivate=1;
+                                                }
                                                 if (clientModel.getClientPlayerID()==1){
                                                     btnToActivate= 3;//then btn3
                                                 }
@@ -284,12 +290,14 @@ public class ClientController {
                                                     btnToActivate= 4;//then btn2
                                                 }
                                                 gameView.showPlayedCards();
-                                            }
+
 
                                         }
                                         else if (arrMsgText[5].equals("4")){
                                             cardPlayedNr=4;
-                                            if (clientModel.getClientPlayerID()!=4){
+                                                if (clientModel.getClientPlayerID()!=4){
+                                                    btnToActivate=1;
+                                                }
                                                 if (clientModel.getClientPlayerID()==1){
                                                     btnToActivate= 4;//then btn4
                                                 }
@@ -300,7 +308,7 @@ public class ClientController {
                                                     btnToActivate= 2;//then btn2
                                                 }
                                                 gameView.showPlayedCards();
-                                            }
+
 
                                         }
 
@@ -740,4 +748,5 @@ public class ClientController {
             Thread.currentThread().interrupt();
         }
     }
+
 }

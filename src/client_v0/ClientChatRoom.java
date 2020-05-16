@@ -35,6 +35,7 @@ public class ClientChatRoom extends Application {
         viewMenu = new MainMenuView(clientController, view);
         clientController.addMainMenuView(viewMenu);
         createAccountView = new CreateAccountView(clientController);
+
        
       
 

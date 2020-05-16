@@ -35,6 +35,7 @@ public class TurnManager extends Message {
 		//increases turncounter by 1
 		gamelobby.increaseTurnCounter();
 		if (gamelobby.getTurnCounter()%36==0){
+			gamelobby.clearCardsDealt();
 			gamelobby.increaseRoundCounter();
 			gamelobby.getDeck().shuffle();
 		}

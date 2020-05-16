@@ -47,18 +47,19 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private final int maxPlayers = 4;
 	private String[] playerIDs = new String[maxPlayers];
 	private ArrayList<Card> playerHand = new ArrayList<>(9);
+	private ArrayList<String> cardsDealt = new ArrayList<>(36);
 	private Deck deck;
 	private int turnCounter = 0;
 	private String[] cardsInRound = new String[4];
 	private int roundCounter = 0;
 	private ArrayList<String> cardsTotalString = new ArrayList<>();
-
 	private ArrayList<Card> sticheTeam1 = new ArrayList<>();
 	private ArrayList<Card> sticheTeam2 = new ArrayList<>();
 	private int cardCounter = 0;
 	private String trumpf="";
 	private String [] team1Members=new String[2];
 	private String [] team2Members=new String[2];
+	private String firstCardInTurn;
 	private String userPlayingCard;
 	private ArrayList<String> cardsWithNames = new ArrayList<>();
 
@@ -261,6 +262,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		for (int j = 0; j < Player.HAND_SIZE; j++) {
 			Card card = deck.dealCard();
 			playerHand.add(card);
+			cardsDealt.add(card.toString());
 
 		}
 	}
@@ -415,8 +417,20 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		cardsTotalString.clear();
 	}
 
+	public String getFirstCardInTurn(){
+		return firstCardInTurn;
+	}
 
+	public void setFirstCardInTurn(String card){
+		firstCardInTurn=card;
+	}
 
+	public void clearCardsDealt(){
+		cardsDealt.clear();
+	}
+	public String getCardsDealt(int i){
+		return cardsDealt.get(i);
+	}
 
 
 }

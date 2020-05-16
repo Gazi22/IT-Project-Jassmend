@@ -15,8 +15,6 @@ public class CardPlayed extends Message {
     private String name;
     private String username;
     private String cardPlayed;
-    private Gamelobby finalGamelobby;
-
 
 
     public CardPlayed(String[] data) {
@@ -34,14 +32,45 @@ public class CardPlayed extends Message {
      */
     @Override
     public void process(Client client) {
+        boolean result = false;
         String[] arrCardsPlayed = new String[4];
         String cardCounter = "";
         String roundCounter = "";
-       ServerController serverController=new ServerController();
+        ServerController serverController = new ServerController();
         if (client.getToken().equals(token)) {
             Gamelobby gamelobby = Gamelobby.exists(name);
-
             gamelobby.increaseCardCounter();
+
+
+            if (gamelobby.getCardCounter() == 1) {
+                gamelobby.setFirstCardInTurn(cardPlayed);
+            }
+
+
+            if (gamelobby.getCardCounter() > 1) {
+                int x = 0;
+                switch (gamelobby.getCardCounter()) {
+                    case 2:
+                        x = 9;
+                        break;
+                    case 3:
+                        x = 18;
+                        break;
+                    case 4:
+                        x = 27;
+                        break;
+                }
+                if (!cardPlayed.substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4))) {
+                    for (int y = x; y < x + 9; x++) {
+
+                        if (gamelobby.getCardsDealt(y).substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4)) || gamelobby.getCardsDealt(y).substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))) {
+                            result = false;
+                            break;
+                        }
+
+                    }
+                } else result = true;
+            }
             roundCounter = Integer.toString(gamelobby.getRoundCounter());
             if (gamelobby.getCardCounter() > 4) {
                 gamelobby.resetCardCounter();
@@ -59,12 +88,11 @@ public class CardPlayed extends Message {
             gamelobby.addCardsWithNames(cardPlayed);
             gamelobby.addCardsWithNames(username);
 
-              if (gamelobby.getCardCounter() == 4){
-                  serverController.handleStiche(gamelobby);
+            if (gamelobby.getCardCounter() == 4) {
+                serverController.handleStiche(gamelobby);
 
 
-
-                }
+            }
         }
 
 
@@ -75,10 +103,12 @@ public class CardPlayed extends Message {
 
         gameInfo[3] = "CardsPlayed" + "|" + roundCounter + "|" + cardCounter + "|" + arrCardsPlayed[0] + "|" + arrCardsPlayed[1] + "|" + arrCardsPlayed[2] + "|" + arrCardsPlayed[3];
 
-        SendGameMessage msgGame = new SendGameMessage(gameInfo);
+        if (result=true) {
+            SendGameMessage msgGame = new SendGameMessage(gameInfo);
 
-        msgGame.process(client);
-
+            msgGame.process(client);
+        }
+        else client.send(new Result(result));
 
     }
 

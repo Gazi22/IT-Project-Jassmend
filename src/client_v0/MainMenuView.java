@@ -56,7 +56,7 @@ public class MainMenuView {
 	Button stopMusic = new Button("Stop Music");
 	Insets insets = new Insets(5, 5, 5, 5);
 	GridPane gridMainMenuView;
-	
+	public String finalGamelobby;
 	StackPane volumePane;
 
 	
@@ -174,7 +174,7 @@ public class MainMenuView {
 		*/
 	
 	}
-	
+
 	//Open Gamelobby View
 		public void showgamelobbyScreen() {
 	        //Based on http://tutorials.jenkov.com/javafx/listview.html
@@ -208,13 +208,14 @@ public class MainMenuView {
 	                }
 	                //Don't do this at home kids !
 	                PauseTransition pause2 = new PauseTransition(Duration.seconds(1));
-	                view.finalGamelobby = gamelobby;
+	                finalGamelobby = gamelobby;
+	                view.setGamelobby(finalGamelobby);
 	                pause2.setOnFinished(e3 -> {
 	                    int lastMessageIndex2 = view.msgArea.getText().split("\n").length-1;
 	                    String lastMessage2 = view.msgArea.getText().split("\n")[lastMessageIndex2];
 
 	                    if (lastMessage2.startsWith("PlayerIDs")){
-	                        clientController.joinSuccessfull(view.finalGamelobby);
+	                        clientController.joinSuccessfull(finalGamelobby);
 							clientController.joinedGamelobbyMode();
 
 							for (int x=0; x < view.playerIDs.length; x++) {
@@ -231,7 +232,7 @@ public class MainMenuView {
 
 	                        stage.close();
 							if (clientController.isFull()){
-								clientController.gamelobbyIsFull(view.finalGamelobby,"GamelobbyIsFull");
+								clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
 
 							}
 	                        //Handling Create Account button
@@ -275,5 +276,9 @@ public class MainMenuView {
 	
 	public static Scene getScene() {
 		return scene;
+	}
+
+	public String getFinalGamelobby(){
+		return finalGamelobby;
 	}
 }
