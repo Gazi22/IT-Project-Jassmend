@@ -53,10 +53,15 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private int roundCounter = 0;
 	private ArrayList<String> cardsTotalString = new ArrayList<>();
 
-	private ArrayList<String> sticheTeam1 = new ArrayList<String>();
-	private ArrayList<String> sticheTeam2 = new ArrayList<String>();
+	private ArrayList<Card> sticheTeam1 = new ArrayList<>();
+	private ArrayList<Card> sticheTeam2 = new ArrayList<>();
 	private int cardCounter = 0;
 	private String trumpf="";
+	private String [] team1Members=new String[2];
+	private String [] team2Members=new String[2];
+	private String userPlayingCard;
+	private ArrayList<String> cardsWithNames = new ArrayList<>();
+
 
 
 	/**
@@ -338,12 +343,19 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		cardCounter = 0;
 	}
 
-	public void setSticheTeam1(String card) {
-		sticheTeam1.add(card);
+	public void setSticheTeam1(Card card) { sticheTeam1.add(card);
 	}
-	public void setSticheTeam2(String card) {
+	public void setSticheTeam2(Card card) {
 		sticheTeam2.add(card);
 	}
+
+	public String getSticheTeam1(int i){
+		return sticheTeam1.get(i).toString();
+	}
+	public String getSticheTeam2(int i){
+		return sticheTeam1.get(i).toString();
+	}
+
 
 	public void addToCardsTotal(String card){
 		cardsTotalString.add(card);}
@@ -360,6 +372,48 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		return trumpf;
 	}
 
+
+	public void addToTeam1(int i,String username){
+		team1Members[i]=username;
+
+ 	}
+	public void addToTeam2(int i,String username){
+		team2Members[i]=username;
+
+	}
+
+	public String getTeam1Members(int i){
+		return team1Members[i];
+	}
+
+	public String getTeam2Members(int i){
+		return team2Members[i];
+	}
+
+	public String getUserPlayingCard() {
+		return userPlayingCard;
+	}
+	public void setUserPlayingCard(String username){
+		this.userPlayingCard=username;
+	}
+
+	public void addCardsWithNames(String card){
+		cardsWithNames.add(card);
+
+			}
+
+
+	public String getCardsWithNames(int i){
+		return cardsWithNames.get(i);
+	}
+
+	public void clearCardsWithNames(){
+		cardsWithNames.clear();
+	}
+
+	public void clearTotalCards(){
+		cardsTotalString.clear();
+	}
 
 
 

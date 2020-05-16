@@ -15,7 +15,8 @@ public class CardPlayed extends Message {
     private String name;
     private String username;
     private String cardPlayed;
-    ServerController serverController;
+    private Gamelobby finalGamelobby;
+
 
 
     public CardPlayed(String[] data) {
@@ -36,8 +37,10 @@ public class CardPlayed extends Message {
         String[] arrCardsPlayed = new String[4];
         String cardCounter = "";
         String roundCounter = "";
+       ServerController serverController=new ServerController();
         if (client.getToken().equals(token)) {
             Gamelobby gamelobby = Gamelobby.exists(name);
+
             gamelobby.increaseCardCounter();
             roundCounter = Integer.toString(gamelobby.getRoundCounter());
             if (gamelobby.getCardCounter() > 4) {
@@ -51,41 +54,14 @@ public class CardPlayed extends Message {
                 arrCardsPlayed[x - 1] = gamelobby.getCardsInRound(x - 1);
                 cardCounter = Integer.toString(gamelobby.getCardCounter());
             }
+
             gamelobby.addToCardsTotal(cardPlayed);
+            gamelobby.addCardsWithNames(cardPlayed);
+            gamelobby.addCardsWithNames(username);
+
               if (gamelobby.getCardCounter() == 4){
-                  int trumpfYN=0;
-                for(int x =1;x<4;x++){
-                    serverController.setCardsTotalCard(serverController.stringToCard(gamelobby.getCardsTotal(x)));
-                }
-                for(int y =1;y<4;y++){
-                    if(!gamelobby.getCardsTotal(y).startsWith(gamelobby.getTrumpf())){
-                        trumpfYN=0;
-                    }
+                  serverController.handleStiche(gamelobby);
 
-                    else trumpfYN=1;
-                }
-                if (trumpfYN==0){
-                    if(gamelobby.getCardsTotal(0).startsWith("Kreuz")){
-                        serverController.trumpfComparison("Kreuz");}
-
-                    else if(gamelobby.getCardsTotal(0).startsWith("Herz")){
-                        serverController.trumpfComparison("Herz");}
-
-                    else if(gamelobby.getCardsTotal(0).startsWith("Schaufel")){
-                        serverController.trumpfComparison("Schaufel");}
-
-                    else if(gamelobby.getCardsTotal(0).startsWith("Ecke")){
-                        serverController.trumpfComparison("Ecke");}
-
-                    else serverController.trumpfComparison(gamelobby.getTrumpf());
-
-                }
-
-
-
-                serverController.sortTotalCards();
-                //prüfen wenn keine Trumpf - welche Karte zuerst gespielt wurde
-                //Abgleich in welche Teamarray das geschrieben werden muss...
 
 
                 }
@@ -105,4 +81,7 @@ public class CardPlayed extends Message {
 
 
     }
+
+
+
 }

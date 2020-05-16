@@ -12,6 +12,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 class DeckofCardsTest {
 	private final ArrayList<Card> cards = new ArrayList<>();
 	private final ArrayList<Card> handCards = new ArrayList<>();
+	ArrayList<Card> cardsTotal = new ArrayList<>();
     private final SimpleIntegerProperty cardsRemaining = new SimpleIntegerProperty();
     public static final int HAND_SIZE = 9;
     
@@ -107,15 +108,92 @@ class DeckofCardsTest {
 			for (Card.Rank rank : Card.Rank.values()) {
 				Card card = new Card(suit, rank);
 				cards.add(card);
+				card.trumpfHerzSuitValue();
 			}
 		}
 		Collections.shuffle(cards);
 		cardsRemaining.setValue(cards.size());
-Collections.sort(cards);
 
+		Collections.sort(cards);
+		Collections.reverse(cards);
 		System.out.println(handCards+" "+"cards size: "+cards.size()+cards);
 
+
+
+
+		int trumpfYN=0;
+
+
+			Card card1=new Card(Card.Suit.Kreuz, Card.Rank.Koenig);
+
+			Card card2=new Card(Card.Suit.Herz, Card.Rank.Ass);
+
+			Card card3=new Card(Card.Suit.Ecke, Card.Rank.Neun);
+
+			Card card4=new Card(Card.Suit.Schaufel, Card.Rank.Bube);
+
+
+			cardsTotal.add(card1);
+			cardsTotal.add(card2);
+			cardsTotal.add(card3);
+			cardsTotal.add(card4);
+
+
+		for(int y =0;y<4;y++) {
+			if (cardsTotal.get(y).toString().startsWith("Herz")) {
+				trumpfYN = 1;
+
+			}
+		}
+
+
+
+
+		if (trumpfYN==0){
+			if(cardsTotal.get(0).toString().startsWith("Kreuz")){
+				for(Card card:cardsTotal){
+					card.trumpfKreuzSuitValue();
+				}}
+
+			else if(cardsTotal.get(0).toString().startsWith("Herz")){
+					for(Card card:cardsTotal){
+						card.trumpfHerzSuitValue();
+					}}
+
+			else if(cardsTotal.get(0).toString().startsWith("Schaufel")){
+					for(Card card:cardsTotal){
+						card.trumpfSchaufelSuitValue();
+					}}
+
+			else if(cardsTotal.get(0).toString().startsWith("Ecke")){
+						for(Card card:cardsTotal){
+							card.trumpfEckeSuitValue();
+						}}
+		}
+
+			else for(Card card:cardsTotal){
+				card.trumpfHerzSuitValue();
+			}
+
+
+
+
+
+
+		Collections.sort(cardsTotal);
+		Collections.reverse(cardsTotal);
+		String username2="";
+		System.out.println(cardsTotal.toString()+"                   "+cardsTotal.get(0).toString());
+
+
+
 	}
+
+
+
+
+
+
 	
 	
 	

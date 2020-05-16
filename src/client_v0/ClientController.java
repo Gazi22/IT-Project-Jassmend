@@ -153,10 +153,16 @@ public class ClientController {
                                     }
                                     else if(arrMsgText[3].equals("GamelobbyFull")) {
                                         if (gamelobbyFlag == 0) {
+
                                             System.out.println("The gamelobby is full, the game will now start");
                                             //show gameView
                                             comparePlayerIDs();
                                             setGameConfig();
+
+                                            if (clientModel.getClientPlayerID()==1){
+                                                buttonsFalse();
+                                            }
+                                            else buttonsTrue();
                                             gamelobbyFlag = 1;
                                             System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+clientModel.getUser());
                                         }
@@ -177,12 +183,10 @@ public class ClientController {
                                         }
                                     }
 
-                                    else if (arrMsgText[3].equals("StartGame")){
-                                        if (clientModel.getClientPlayerID()==1){
-                                            buttonsFalse();
-                                        }
-                                        else buttonsTrue();
-                                    }
+                                    //else if (arrMsgText[3].equals("StartGame")){
+                                      ////      buttonsFalse();
+                                       // }
+                                       //// }
 
 
 
@@ -302,7 +306,9 @@ public class ClientController {
 
 
                                     if (cardPlayedNr == 4) {
-                                        waiterino(5000);
+                                        waiterino(1000);
+                                        //Auswertung anfordern
+                                       // waiterino(5000);
                                         gameView.clearFieldButtons();
                                     }
 
@@ -427,12 +433,21 @@ public class ClientController {
         }
 
 
+    public void getStiche(String gamelobby){
+        String concatString = "GetStiche|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
+
     public void getGamelobbyUsers(String gamelobby){
         //No additional checks done, since button is disabled until confirmed login
         String concatString = "ListGamelobbyUsers|"+clientModel.gethash()+"|"+gamelobby;
         sendToServer(concatString);
     }
 
+    public void startGame(String gamelobby){
+        String concatString = "StartGame|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
 
     public void joinGamelobby(String gamelobby){
         String concatString = "JoinGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();

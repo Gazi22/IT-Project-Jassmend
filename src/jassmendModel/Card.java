@@ -45,21 +45,25 @@ public class Card implements Collection <Card>, Serializable, Comparable<Card> {
         }
     }
 
-    public enum Rank { Sechs, Sieben, Acht, Neun, Zehn, Bube, Dame, Koenig, Ass;
+    public enum Rank { Sechs, Sieben, Acht, Zehn, Dame, Koenig,Ass,Neun, Bube;
         @Override
         public String toString() {
-            String str = "Ass";  // Assume we have an ace, then cover all other cases
+            String str = "Bube";  // Assume we have an Bube, then cover all other cases
             // Get ordinal value, which ranges from 0 to 8
             int ordinal = this.ordinal();
-            if (ordinal <= 4) {
+            if (ordinal <= 2) {
                 str = Integer.toString(ordinal+6);
-            } else if (ordinal == 5) { // Jack
-                str = "Bube";
-            } else if (ordinal == 6) { // Queen
+			} else if (ordinal == 3) { // Jack
+				str = "10";
+            } else if (ordinal == 4) { // Jack
                 str = "Dame";
-            } else if (ordinal == 7) { // King
+            } else if (ordinal == 5) { // Queen
                 str = "Koenig";
-            }
+            } else if (ordinal == 6) { // King
+                str = "Ass";
+            }else if (ordinal == 7) { // King
+				str = "9";
+			}
             return str;
         }
     }

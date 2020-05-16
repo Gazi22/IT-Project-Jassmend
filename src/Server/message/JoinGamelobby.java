@@ -42,6 +42,11 @@ public class JoinGamelobby extends Message {
 				ids[2] = gamelobby.getPlayerIDs(2);
 				ids[3] = gamelobby.getPlayerIDs(3);
 
+				//Add to Teams
+				gamelobby.addToTeam1(0,ids[0]);
+				gamelobby.addToTeam1(0,ids[2]);
+				gamelobby.addToTeam2(0,ids[1]);
+				gamelobby.addToTeam2(0,ids[3]);
 				result = true;
 			}
 			}

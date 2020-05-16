@@ -300,6 +300,7 @@ public class GameView {
 				CardView cV2 = (CardView) getFieldButton(0);
 				cV2.setCard(pp.getCardsHolder(0));
 				clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby);
+				clientController.waiterino(1000);
 				clientController.turnFinished(finalGamelobby);
 
 			});
@@ -310,6 +311,7 @@ public class GameView {
 			CardView cV2 = (CardView) getFieldButton(0);
 			cV2.setCard(pp.getCardsHolder(1));
 			clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby);
+			clientController.waiterino(1000);
 			clientController.turnFinished(finalGamelobby);
 
 		});
@@ -320,6 +322,7 @@ public class GameView {
 			CardView cV2 = (CardView) getFieldButton(0);
 			cV2.setCard(pp.getCardsHolder(2));
 			clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby);
+			clientController.waiterino(1000);
 			clientController.turnFinished(finalGamelobby);
 
 		});
@@ -330,6 +333,7 @@ public class GameView {
 			CardView cV2 = (CardView) getFieldButton(0);
 			cV2.setCard(pp.getCardsHolder(3));
 			clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby);
+			clientController.waiterino(1000);
 			clientController.turnFinished(finalGamelobby);
 
 		});
@@ -340,6 +344,7 @@ public class GameView {
 			CardView cV2 = (CardView) getFieldButton(0);
 			cV2.setCard(pp.getCardsHolder(4));
 			clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby);
+			clientController.waiterino(1000);
 			clientController.turnFinished(finalGamelobby);
 
 		});
@@ -350,6 +355,7 @@ public class GameView {
 			CardView cV2 = (CardView) getFieldButton(0);
 			cV2.setCard(pp.getCardsHolder(5));
 			clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby);
+			clientController.waiterino(1000);
 			clientController.turnFinished(finalGamelobby);
 
 		});
@@ -360,6 +366,7 @@ public class GameView {
 			CardView cV2 = (CardView) getFieldButton(0);
 			cV2.setCard(pp.getCardsHolder(6));
 			clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby);
+			clientController.waiterino(1000);
 			clientController.turnFinished(finalGamelobby);
 
 		});
@@ -370,6 +377,7 @@ public class GameView {
 			CardView cV2 = (CardView) getFieldButton(0);
 			cV2.setCard(pp.getCardsHolder(7));
 			clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby);
+			clientController.waiterino(1000);
 			clientController.turnFinished(finalGamelobby);
 
 		});
@@ -380,6 +388,7 @@ public class GameView {
 			CardView cV2 = (CardView) getFieldButton(0);
 			cV2.setCard(pp.getCardsHolder(8));
 			clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby);
+			clientController.waiterino(1000);
 			clientController.turnFinished(finalGamelobby);
 
 		});
@@ -401,7 +410,7 @@ public class GameView {
         	              
         	 int lastMessageIndex = msgArea.getText().split("\n").length-1;
              String [] lastMessage = msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
-    						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
+    		 String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
              for (String str:gameLobbyList) {
              clientController.leaveGamelobby(str);
              }

@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck implements Serializable {
+public class Deck  {
     private final ArrayList<Card> cards = new ArrayList<>();
     private final SimpleIntegerProperty cardsRemaining = new SimpleIntegerProperty();
 
