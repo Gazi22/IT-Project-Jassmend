@@ -10,6 +10,7 @@ public class ClientChatRoom extends Application {
     LoginView loginView;
     CreateAccountView createAccountView;
     GameView view;
+    MainMenuView viewMenu;
    
 
     public static void main(String[] args) {
@@ -31,11 +32,13 @@ public class ClientChatRoom extends Application {
         clientController.addGameView(view);
         loginView = new LoginView(clientController, view);
         clientController.addLoginView(loginView);
+        viewMenu = new MainMenuView(clientController, view);
+        clientController.addMainMenuView(viewMenu);
         createAccountView = new CreateAccountView(clientController);
        
       
 
-        clientView = new ClientViewManager(primaryStage, view, loginView, createAccountView);
+        clientView = new ClientViewManager(primaryStage, view, viewMenu, loginView, createAccountView);
        
         clientController.setViewManager(clientView);
         primaryStage.show();

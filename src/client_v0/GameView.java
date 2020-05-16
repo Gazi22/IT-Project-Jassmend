@@ -53,11 +53,11 @@ import javafx.scene.image.ImageView;
 public class GameView {
 	  private static Scene scene;
 	    private ClientController clientController;
-	     private String finalGamelobby;
+	     public String finalGamelobby;
 	     	private CardView cardView;
 			public Stage primaryStage;
 	//Client Server Communication
-	private String [] playerIDs=new String[4];
+	public String [] playerIDs=new String[4];
 
 //temporary
 	Button btnEndTurn = new Button("End Turn");
@@ -101,13 +101,21 @@ public class GameView {
 	Menu OptionsMenu = new Menu("Options");
 	Menu HelpMenu = new Menu("Help");
 	Menu LobbyMenu = new Menu("Gamelobby");
+	Menu returnToMenu = new Menu("Return To Menu");
+	Menu helpMenu = new Menu("Help");
+	Menu soundMenu = new Menu("Sound Options");
 	
 	MenuItem ResumeItem = new MenuItem("Quit Game");
 	MenuItem LogoutItem = new MenuItem("Logout");
-	
 	MenuItem RulesItem = new MenuItem("How to play?");
-	Menu helpMenu = new Menu("Help");
 	MenuItem gamelobbyItem = new MenuItem("Show Gamelobbys");
+	MenuItem clickToReturn = new MenuItem("Click to return");
+	CustomMenuItem customMenuItem = new CustomMenuItem(new Slider());
+	MenuItem playSound = new MenuItem("Play Music");
+	MenuItem pauseSound = new MenuItem("Pause Music");
+	MenuItem stopSound = new MenuItem("Stop Music");
+    
+	
 	
 	public Object areaMessages;
 	
@@ -132,13 +140,17 @@ public class GameView {
 
 	public GameView (ClientController clientController, ClientModel model) {
 
-		this.clientController = clientController;
-		PlayerPane pp = new PlayerPane();
-		pp.setPlayer(model.getPlayer(1));
-		OptionsMenu.getItems().addAll(ResumeItem, LogoutItem);
-		HelpMenu.getItems().addAll(RulesItem);
-		LobbyMenu.getItems().addAll(gamelobbyItem);
-		// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
+	this.clientController = clientController;
+	PlayerPane pp = new PlayerPane();
+	pp.setPlayer(model.getPlayer(1));
+	OptionsMenu.getItems().addAll(ResumeItem,LogoutItem);
+	HelpMenu.getItems().addAll(RulesItem);
+	LobbyMenu.getItems().addAll(gamelobbyItem);
+	returnToMenu.getItems().addAll(clickToReturn);
+	soundMenu.getItems().addAll(playSound, pauseSound, stopSound, customMenuItem);
+	customMenuItem.setHideOnClick(false);
+	
+	// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
 
 		helpMenu.setOnAction(e -> {
 			if (Desktop.isDesktopSupported()) {
@@ -153,9 +165,23 @@ public class GameView {
 				}
 			}
 		});
+		
+		returnToMenu.setOnAction(e2 -> {
+			this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene());
+		});
+		
+		ResumeItem.setOnAction(e3 -> {
+			this.clientController.getViewManager().primaryStage.close();
+		});
+		
+		
+		
+		
 
 
-		meba.getMenus().addAll(OptionsMenu, HelpMenu, LobbyMenu);
+		meba.getMenus().addAll(OptionsMenu, HelpMenu, LobbyMenu, returnToMenu, soundMenu);
+	
+	// ___________________________________________________________________
 
 		// ___________________________________________________________________
 
@@ -594,7 +620,13 @@ public static Scene getScene () {
 		
 	}
 
+public String getFinalGameLobby() {
+	return finalGamelobby;
+}
 
+public String[] getPlayerIDs() {
+	return playerIDs;
+}
 
 
 }

@@ -24,6 +24,7 @@ public class ClientController {
     private Socket socket;
     private ChatView view;
     private LoginView loginView;
+    private MainMenuView menuView;
     private ClientViewManager viewManager;
     private GameView gameView;
     private int gamelobbyFlag=0;
@@ -575,6 +576,9 @@ public class ClientController {
          this.clientModel = clientModel;
 
 
+     }
+     public void addMainMenuView (MainMenuView menuView) {
+    	 this.menuView = menuView;
      }
      public  void addChatView(ChatView chatView){
          this.view = chatView;
