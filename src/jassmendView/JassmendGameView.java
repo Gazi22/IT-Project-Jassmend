@@ -67,25 +67,21 @@ public class JassmendGameView {
 
 	// Player bottom
 	Label userNamePl1 = new Label("Player 1");
-	Label scorePl1 = new Label("Score:");
 	HBox player1Box = new HBox();
 	HBox player1Cards = new HBox();
 
 	// Player top
 	Label userNamePl2 = new Label("Player 2");
-	Label scorePl2 = new Label("Score:");
 	VBox player2Info = new VBox();
 	HBox player2Cards = new HBox();
 
 	// Player left
 	Label userNamePl3 = new Label("Player 3");
-	Label scorePl3 = new Label("Score:");
 	VBox player3Info = new VBox();
 	HBox player3Cards = new HBox();
 
 	// Player bottom
 	Label userNamePl4 = new Label("Player 4");
-	Label scorePl4 = new Label("Score:");
 	VBox player4Info = new VBox();
 	HBox player4Cards = new HBox();
 
@@ -111,6 +107,12 @@ public class JassmendGameView {
 	VBox playedCardPl2 = new VBox();
 	HBox playedCardPl3 = new HBox();
 	VBox playedCardPl4 = new VBox();
+	
+	
+	
+	// Label for displaying the trumpf suit
+	
+	Label trumpf = new Label();
 	
 	
 	
@@ -155,12 +157,12 @@ public class JassmendGameView {
 		player1Box.setAlignment(Pos.CENTER);
 
 		player2Info.getChildren().add(userNamePl2);
-		player2Info.getChildren().add(scorePl2);
+	
 
 		player2Info.setAlignment(Pos.CENTER);
 
 		player3Info.getChildren().add(userNamePl3);
-		player3Info.getChildren().add(scorePl3);
+	
 
 		HBox player3Box = new HBox(player3Info);
 		player3Box.setAlignment(Pos.CENTER);
@@ -168,7 +170,7 @@ public class JassmendGameView {
 		player3Box.setVisible(true);
 
 		player4Info.getChildren().add(userNamePl4);
-		player4Info.getChildren().add(scorePl4);
+
 
 		player4Info.setAlignment(Pos.CENTER);
 		
@@ -176,6 +178,8 @@ public class JassmendGameView {
 		 
 		
 		chatArea.setText("Chat");
+		
+		btnSend.setId("btnSend");
 		
 		 
 		txt1.setPromptText("Type here your message"); 
@@ -203,6 +207,7 @@ public class JassmendGameView {
 		controlBox.getChildren().addAll(btnDeal);
 		controlBox.getChildren().addAll(btnTrumpf);	
 		btnDeal.setTooltip(new Tooltip ("Start the game by getting your cards!"));
+		btnTrumpf.setTooltip(new Tooltip ("Select the Trumpf suit for this round!"));
 		controlBox.setAlignment(Pos.CENTER);
 		
 		
@@ -216,14 +221,18 @@ public class JassmendGameView {
 		
 		table.setEditable(false);
 		
-		
-		TableColumn playerNameCol = new TableColumn("Player");
+		//Runde
+		//Team
+		//Stiche
+		//Score
+		TableColumn roundCol = new TableColumn("Round");
+		TableColumn teamCol = new TableColumn("Team");
+		TableColumn stichCol = new TableColumn("Stiche");
 		TableColumn scoreCol = new TableColumn("Score");
 		
-		playerNameCol.setCellValueFactory(c -> Player.getPlayerName());
 		
 		
-		table.getColumns().addAll(playerNameCol, scoreCol);
+		table.getColumns().addAll(roundCol, teamCol , stichCol, scoreCol);
 		
 		//______________________________________________________________________
 		
@@ -278,6 +287,7 @@ public class JassmendGameView {
         innerPane.setLeft(playedCardPl2);
         innerPane.setTop(playedCardPl3);
         innerPane.setRight(playedCardPl4);
+        innerPane.setCenter(trumpf);
         
         
 		middlePane.setBottom(player1Box);

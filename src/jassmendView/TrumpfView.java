@@ -2,7 +2,9 @@ package jassmendView;
 
 import java.awt.Checkbox;
 
+
 import jassmendController.JassmendController;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +12,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -27,6 +31,7 @@ public class TrumpfView {
 	Button btnSchaufel = new Button("Schaufel");;
 	Button btnHerz = new Button("Herz");
 	Button btnKreuz = new Button("Kreuz");
+    Label lblspace = new Label("__");
 	
 	
 	
@@ -43,15 +48,18 @@ public class TrumpfView {
 	    lblSchaufel.setGraphic(new ImageView(image4));	
 		
 		HBox trumpfBox = new HBox();
-		trumpfBox.setSpacing(10);
+		trumpfBox.setSpacing(5);
 		trumpfBox.getChildren().addAll(lblEcke, lblHerz, lblKreuz, lblSchaufel);
 		
 		
 		
 		
 		HBox slcBox = new HBox();
-		slcBox.getChildren().addAll(btnEcke, btnHerz, btnKreuz, btnSchaufel);
-		slcBox.setSpacing(90);
+		slcBox.getChildren().addAll(btnEcke, btnHerz,  btnKreuz, btnSchaufel);
+		slcBox.setPadding(new Insets(5, 7, 10, 14));
+		slcBox.setSpacing(46);
+		
+		
 	
 	
 	
@@ -69,10 +77,12 @@ public class TrumpfView {
 	
 	
 	secondScene = new Scene(trumpfLayout);
+	secondScene.getStylesheets().add(getClass().getResource("trumpfView.css").toExternalForm());
 	trumpfWindow = new Stage();
 	trumpfWindow.setTitle("Select the Trumpf suit");
-	trumpfWindow.setMinHeight(100);
-	trumpfWindow.setMinWidth(100);
+	trumpfWindow.setMaxHeight(450);
+	trumpfWindow.setMaxWidth(455);
+	trumpfWindow.setResizable(false);
 	trumpfWindow.setScene(secondScene);
 	
 	trumpfWindow.show();
