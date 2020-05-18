@@ -33,6 +33,36 @@
     -fx-scale-x: 1.5;
 }
 
+
+#btnSend{
+
+    -fx-border-radius: 7px;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(three-pass-box, #000000, 5, 0, 0, 5);
+    -fx-background-color: linear-gradient(to right, rgba(230,171,0,1) 0%, rgba(223,189,0,1) 100%);
+    -fx-min-height: 10;
+    -fx-min-width: 10;
+    -fx-text-fill: black;
+
+
+}
+
+#btnSend:hover{
+	-fx-scale-y:0.8;
+    -fx-scale-x:0.8;
+
+}
+
+
+Label{
+
+	-fx-font-family: "Arial Black";
+	-fx-font-size: 12px;
+
+
+}
+
 .table-view{
 	-fx-border-color: black;
 	-fx-background-color: transparent //#D2AB6F 	rgb(210, 171, 111)
@@ -42,7 +72,8 @@
 
 .titled-pane{
 	-fx-border-color: b8860b;
-	-fx-background-color: transparent;
+	-fx-
+	
 	
 
 
@@ -50,13 +81,15 @@
 
 .text-field{
 
-	-fx-background-color: transparent;
+	-fx-background-color: white;
+	-fx-border-color: black;
 
 }
 
 .text-area{
 
-	-fx-background-color: transparent;
+	-fx-background-color: white;
+	-fx-border-color: black;
 }
 
 .card {
