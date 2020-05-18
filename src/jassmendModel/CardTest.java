@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class CardTest {
-
+Card card;
 public static void main (String [] args)	
 {
 	System.out.println("Testing the Card class:");
@@ -13,7 +13,9 @@ public static void main (String [] args)
 	
 	test.cardToString();
 	test.cardEquals();
-	
+	test.comparisonRank();
+	test.comparisonSuit();
+
 	System.out.println();
 }
 
@@ -42,6 +44,27 @@ private void cardEquals() {
 }
 
 
+
+private void comparisonRank(){
+	System.out.println("\n******* Compariso Rank *******");
+
+	Card card1 = new Card(Card.Suit.Kreuz,Card.Rank.Sieben);
+	Card card2 = new Card(Card.Suit.Herz, Card.Rank.Acht);
+	System.out.println(card1.compareTo(card2));
+
+}
+
+
+	private void comparisonSuit(){
+		System.out.println("\n******* Comparison Suit*******");
+
+		Card card1 = new Card(Card.Suit.Herz,Card.Rank.Sieben);
+		Card card2 = new Card(Card.Suit.Kreuz, Card.Rank.Acht);
+		card1.trumpfHerzSuitValue();
+		card2.trumpfHerzSuitValue();
+		System.out.println(card1.compareTo(card2));
+
+	}
 
 
 }

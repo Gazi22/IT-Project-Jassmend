@@ -4,8 +4,34 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class Card implements Collection <Card>, Serializable {
-    public enum Suit { Kreuz, Ecke, Herz, Schaufel;
+public class Card implements Collection <Card>, Serializable, Comparable<Card> {
+	int herzValue =0;
+	int eckeValue =0;
+	int schaufelValue =0;
+	int kreuzValue =0;
+
+	@Override
+	public int compareTo(Card o) {
+		if (this.getSuitValue() < o.getSuitValue()) {
+			return -1;
+		} else if (this.getSuitValue() > o.getSuitValue()) {
+			return 1;
+		} else {
+// suit is identical: compare number
+
+			if (this.rank.ordinal() < o.rank.ordinal()) {
+				return -1;
+			} else if (this.rank.ordinal() > o.rank.ordinal()) {
+				return 1;
+			} else {
+				return 0;
+			}
+		}
+
+	}
+
+
+	public enum Suit { Kreuz, Ecke, Herz, Schaufel;
         @Override
         public String toString() {
             String suit = "";
@@ -19,28 +45,32 @@ public class Card implements Collection <Card>, Serializable {
         }
     }
 
-    public enum Rank { Sechs, Sieben, Acht, Neun, Zehn, Bube, Dame, Koenig, Ass;
+    public enum Rank { Sechs, Sieben, Acht, Zehn, Dame, Koenig,Ass,Neun, Bube;
         @Override
         public String toString() {
-            String str = "Ass";  // Assume we have an ace, then cover all other cases
+            String str = "Bube";  // Assume we have an Bube, then cover all other cases
             // Get ordinal value, which ranges from 0 to 8
             int ordinal = this.ordinal();
-            if (ordinal <= 4) {
+            if (ordinal <= 2) {
                 str = Integer.toString(ordinal+6);
-            } else if (ordinal == 5) { // Jack
-                str = "Bube";
-            } else if (ordinal == 6) { // Queen
+			} else if (ordinal == 3) { // Jack
+				str = "10";
+            } else if (ordinal == 4) { // Jack
                 str = "Dame";
-            } else if (ordinal == 7) { // King
+            } else if (ordinal == 5) { // Queen
                 str = "Koenig";
-            }
+            } else if (ordinal == 6) { // King
+                str = "Ass";
+            }else if (ordinal == 7) { // King
+				str = "9";
+			}
             return str;
         }
     }
 
     private final Suit suit;
     private final Rank rank;
-	private final String cardValue = null;
+
 	          
 	  
     
@@ -49,17 +79,7 @@ public class Card implements Collection <Card>, Serializable {
         this.rank = rank;
      }
 
-    //QUELLE ANGEBEN
-    public boolean equals(Object other)
-    {
-    	if(!(other instanceof Card)) {
-    		return false;
-    	}
-    	Card cardOther =(Card)other;
-        return cardValue == cardOther.cardValue;
-    }
-    
-    
+
     public Suit getSuit() {
         return suit;
     }
@@ -69,11 +89,7 @@ public class Card implements Collection <Card>, Serializable {
         return rank;
     }
     
-    public String getCardValue()
-    {
-    	return cardValue;
-    }
-    
+
     @Override
     public String toString() {
         return suit.toString() + rank.toString();
@@ -157,5 +173,41 @@ public class Card implements Collection <Card>, Serializable {
 		return null;
 	}
 
+	public void trumpfHerzSuitValue(){
+		herzValue =3;
+		eckeValue =0;
+		schaufelValue =0;
+		kreuzValue =0;
+	}
+	public void trumpfKreuzSuitValue(){
+		herzValue =0;
+		eckeValue =0;
+		schaufelValue =0;
+		kreuzValue =3;
+	}
+	public void trumpfEckeSuitValue(){
+		herzValue =0;
+		eckeValue =3;
+		schaufelValue =0;
+		kreuzValue =0;
+	}
+	public void trumpfSchaufelSuitValue(){
+		herzValue =0;
+		eckeValue =0;
+		schaufelValue =3;
+		kreuzValue =0;
+	}
+
+	public int getSuitValue() {
+		if (suit == suit.Herz) {
+			return herzValue;}
+		if (suit == suit.Kreuz) {
+			return kreuzValue;}
+		if (suit == suit.Ecke) {
+			return eckeValue;}
+		if (suit == suit.Schaufel) {
+			return schaufelValue;}
+		else return 0;
+	}
 
 }

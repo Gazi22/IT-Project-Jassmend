@@ -51,6 +51,8 @@ public class DealCards extends Message {
 				hand[x]=(gamelobby.getPlayerHand(x).toString());
 			}
 				gamelobby.clearPlayerHand();
+
+
 		}
 
 

@@ -24,6 +24,7 @@ public class ClientController {
     private Socket socket;
     private ChatView view;
     private LoginView loginView;
+    private MainMenuView menuView;
     private ClientViewManager viewManager;
     private GameView gameView;
     private int gamelobbyFlag=0;
@@ -38,6 +39,8 @@ public class ClientController {
     ArrayList<Card> cardsPlayed = new ArrayList<>();
     int btnToActivate;
     int cardPlayedNr;
+    int sticheTeam1=0;
+    int sticheTeam2=0;
 
 
 
@@ -102,7 +105,7 @@ public class ClientController {
         loginView.txtPort.setText(text);
     }
     
-    public boolean connect (){
+    public boolean connect(){
         try {
             // Get IP address and port from user or use default settings
             String ipaddress;
@@ -142,6 +145,7 @@ public class ClientController {
                                 else if(msg.startsWith("MessageGameText")) {
 
                                     String[] arrMsgText = msg.split("\\|");
+
                                     if(arrMsgText[3].equals("PlayerIDs")){
                                     msg = arrMsgText[3] +"|"+ arrMsgText[4]+"|"+ arrMsgText[5]+"|"+  arrMsgText[6]+"|"+  arrMsgText[7];
 
@@ -153,12 +157,33 @@ public class ClientController {
                                     }
                                     else if(arrMsgText[3].equals("GamelobbyFull")) {
                                         if (gamelobbyFlag == 0) {
+
                                             System.out.println("The gamelobby is full, the game will now start");
                                             //show gameView
+                                            getGameView();
                                             comparePlayerIDs();
                                             setGameConfig();
+
+                                            switch(clientModel.getClientPlayerID()){
+                                                case 1:dealCards(menuView.getFinalGamelobby());
+                                                    break;
+                                                case 2:waiterino(500);
+                                                    dealCards(menuView.getFinalGamelobby());
+                                                    break;
+                                                case 3:waiterino(1000);
+                                                    dealCards(menuView.getFinalGamelobby());
+                                                    break;
+                                                case 4:waiterino(1500);
+                                                    dealCards(menuView.getFinalGamelobby());
+                                                    break;
+                                            }
+
+                                            if (clientModel.getClientPlayerID()==1){
+                                                buttonsFalse();
+                                            }
+                                            else buttonsTrue();
                                             gamelobbyFlag = 1;
-                                            System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+getPlayerNames(0));
+                                            System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+clientModel.getUser());
                                         }
                                     }
                                     else if (arrMsgText[3].equals("PlayerHand")){
@@ -177,12 +202,9 @@ public class ClientController {
                                         }
                                     }
 
-                                    else if (arrMsgText[3].equals("StartGame")){
-                                        if (clientModel.getClientPlayerID()==1){
-                                            buttonsFalse();
-                                        }
-                                        else buttonsTrue();
-                                    }
+
+
+
 
                                     else if (arrMsgText[3].equals("TurnInfo")){
                                         for(int x=0;x<4;x++){
@@ -192,7 +214,7 @@ public class ClientController {
                                         for (int y=0;y<4;y++){
 
                                             if(playerTurns[y].equals("1")) {
-                                                if (clientModel.getClientPlayerID()==(y+1)) {
+                                                if (clientModel.getClientTurnPlayerID()==(y+1)) {
                                                      buttonsFalse();
                                                     showAlert("Gameinfo","It is your turn!");}
 
@@ -200,95 +222,200 @@ public class ClientController {
                                                 else {buttonsTrue();
                                                 showAlert("Gameinfo","It is Player "+(y+1)+" turn!");}
                                         }
-
-
-
-
                                         }
+
                                         }
                                     //Auf Server implementieren etc
                                     else if (arrMsgText[3].equals("RoundFinished")) {
                                         //CLEAR CARDSHOLDER?
                                     }
 
-                                    else if (arrMsgText[3].equals("CardsPlayed")) {
-                                        for(int x=5;x<9;x++){
-                                            cardsPlayed.add(stringToCard(arrMsgText[x]));
-                                                 clientModel.setClientPlayerID(2);
-                                                                                     }
 
-                                        //works for the first round where player 1 starts
-                                        if (arrMsgText[4].equals("1"))
+                                    else if (arrMsgText[3].equals("Stich")) {
+
+                                        String turnPlayer1 = arrMsgText[4];
+
+                                        int y =0;
+                                        int z= 0;
+
+                                        for(int v = 0; v< playerIDs.length; v++) {
+                                            if (playerIDs[v].equals(clientModel.getUser())) {
+                                                z = v;
+                                            }
+                                        }
+                                        for(int x = 0; x< playerIDs.length; x++){
+                                            if(playerIDs[x].equals(turnPlayer1)){
+                                                y=x;
+
+
+
+                                            }
+                                        }
+
+                                        switch(y){
+                                            case 0:
+                                                if(z==0){clientModel.setClientTurnPlayerID(1);}
+                                                if(z==1){clientModel.setClientTurnPlayerID(2);}
+                                                if(z==2){clientModel.setClientTurnPlayerID(3);}
+                                                if(z==3){clientModel.setClientTurnPlayerID(4);}
+                                               break;
+                                            case 1:
+                                                if(z==0){clientModel.setClientTurnPlayerID(4);}
+                                                if(z==1){clientModel.setClientTurnPlayerID(1);}
+                                                if(z==2){clientModel.setClientTurnPlayerID(2);}
+                                                if(z==3){clientModel.setClientTurnPlayerID(3);}
+                                                break;
+                                            case 2:
+                                                if(z==0){clientModel.setClientTurnPlayerID(3);}
+                                                if(z==1){clientModel.setClientTurnPlayerID(4);}
+                                                if(z==2){clientModel.setClientTurnPlayerID(1);}
+                                                if(z==3){clientModel.setClientTurnPlayerID(2);}
+                                                break;
+                                            case 3:
+                                                if(z==0){clientModel.setClientTurnPlayerID(2);}
+                                                if(z==1){clientModel.setClientTurnPlayerID(3);}
+                                                if(z==2){clientModel.setClientTurnPlayerID(4);}
+                                                if(z==3){clientModel.setClientTurnPlayerID(1);}
+                                                break;
+                                        }
+
+
+
+
+                                        if(arrMsgText[6]!="null"){
+                                            sticheTeam1++;
+                                        }
+                                        else sticheTeam2++;
+
+
+
+
+                                        for (int r=0;r<4;r++){
+
+                                            if(playerTurns[r].equals("1")) {
+                                                if (clientModel.getClientTurnPlayerID()==(r+1)) {
+                                                    buttonsFalse();}
+
+
+
+                                                else {buttonsTrue();}
+
+                                            }
+                                        }
+                                        //CLEAR CARDSHOLDER?
+                                    }
+
+
+
+                                    else if (arrMsgText[3].equals("CardsPlayed")) {
+                                        System.out.println("Server sent the card: "+arrMsgText);
+                                        if(clientModel.getClientTurnPlayerID()==1){turnFinished(menuView.getFinalGamelobby());}
+                                        if(cardsPlayed.size()==4){clearCardsPlayed();}
+                                        int cardsPlayedCounter=Integer.parseInt(arrMsgText[5]);
+                                        cardsPlayed.add(stringToCard(arrMsgText[cardsPlayedCounter+5]));
+
+
+
+
+
+                                       // CARDHOLDER LéSCHEN BEI RUNDENÄNDERUNG?int roundCount = Integer.parseInt(arrMsgText[4]);
+
+
+
+                                        if (arrMsgText[5].equals("1"))
 
                                         {cardPlayedNr=1;
-                                        //client ID ersetzen durch clientModel.getClientPlayerID()!=1){
-                                            if (clientModel.getClientPlayerID()!=1){
-                                                if (clientModel.getClientPlayerID()==2){
+                                            //client ID ersetzen durch clientModel.getclientTurnPlayerID()!=1){
+                                                if (clientModel.getClientTurnPlayerID()==1){
+                                                    btnToActivate= 1;
+                                                }
+                                                if (clientModel.getClientTurnPlayerID()==2){
                                                     btnToActivate= 4;
                                                 }
-                                                if (clientModel.getClientPlayerID()==3){
+                                                if (clientModel.getClientTurnPlayerID()==3){
                                                     btnToActivate= 3;//then btn3
                                                 }
-                                                if (clientModel.getClientPlayerID()==4){
+                                                if (clientModel.getClientTurnPlayerID()==4){
                                                     btnToActivate= 2;//then btn2
                                                 }
-                                            }
+                                                gameView.showPlayedCards();
+
 
                                         }
-                                        else if (arrMsgText[4].equals("2")){
+                                        else if (arrMsgText[5].equals("2")){
                                             cardPlayedNr=2;
-                                            if (clientModel.getClientPlayerID()!=2){
-                                                if (clientModel.getClientPlayerID()==1){
+                                                if (clientModel.getClientTurnPlayerID()==2){
+                                                    btnToActivate= 1;
+                                                 }
+                                                if (clientModel.getClientTurnPlayerID()==1){
                                                     btnToActivate= 2;//then btn2
                                                 }
-                                                if (clientModel.getClientPlayerID()==3){
-                                                    btnToActivate= 3;//then btn3
+                                                if (clientModel.getClientTurnPlayerID()==3){
+                                                    btnToActivate= 4;//then btn3
                                                 }
-                                                if (clientModel.getClientPlayerID()==4){
-                                                    btnToActivate= 4; //then btn4
+                                                if (clientModel.getClientTurnPlayerID()==4){
+                                                    btnToActivate= 3; //then btn4
                                                 }
-                                            }
+                                                gameView.showPlayedCards();
+
 
                                         }
-                                        else if (arrMsgText[4].equals("3")){
+                                        else if (arrMsgText[5].equals("3")){
                                             cardPlayedNr=3;
-                                            if (clientModel.getClientPlayerID()!=3){
-                                                if (clientModel.getClientPlayerID()==1){
+                                                if (clientModel.getClientTurnPlayerID()==3){
+                                                    btnToActivate=1;
+                                                }
+                                                if (clientModel.getClientTurnPlayerID()==1){
                                                     btnToActivate= 3;//then btn3
                                                 }
-                                                if (clientModel.getClientPlayerID()==2){
-                                                    btnToActivate= 4;//then btn4
+                                                if (clientModel.getClientTurnPlayerID()==2){
+                                                    btnToActivate= 2;//then btn4
                                                 }
-                                                if (clientModel.getClientPlayerID()==4){
-                                                    btnToActivate= 2;//then btn2
+                                                if (clientModel.getClientTurnPlayerID()==4){
+                                                    btnToActivate= 4;//then btn2
                                                 }
-                                            }
+                                                gameView.showPlayedCards();
+
 
                                         }
-                                        else if (arrMsgText[4].equals("4")){
+                                        else if (arrMsgText[5].equals("4")){
                                             cardPlayedNr=4;
-                                            if (clientModel.getClientPlayerID()!=4){
-                                                if (clientModel.getClientPlayerID()==1){
+                                                if (clientModel.getClientTurnPlayerID()==4){
+                                                    btnToActivate=1;
+                                                }
+                                                if (clientModel.getClientTurnPlayerID()==1){
                                                     btnToActivate= 4;//then btn4
                                                 }
-                                                if (clientModel.getClientPlayerID()==2){
+                                                if (clientModel.getClientTurnPlayerID()==2){
                                                     btnToActivate= 3;//then btn3
                                                 }
-                                                if (clientModel.getClientPlayerID()==3){
+                                                if (clientModel.getClientTurnPlayerID()==3){
                                                     btnToActivate= 2;//then btn2
                                                 }
-                                            }
+                                                gameView.showPlayedCards();
+
+
                                         }
 
 
-                                        gameView.showPlayedCards();
+
+                                    if (cardPlayedNr == 4) {
+                                        waiterino(1000);
+
+                                        if(clientModel.getClientTurnPlayerID()==1) {
+                                            getStiche(menuView.getFinalGamelobby());
+                                        }
+
+                                       // waiterino(5000);
+                                        gameView.clearFieldButtons();
+                                    }
 
 
                                     }
 
 
 
-                                    appendMessageGameView(msg);
+                                        appendMessageGameView(msg);
 
                                 }
 
@@ -386,6 +513,7 @@ public class ClientController {
         for (int x = 0; x < playerIDs.length; x++) {
             if (playerIDs[x].equals(clientModel.getUser())) {
                 clientModel.setClientPlayerID(x + 1);
+                clientModel.setClientTurnPlayerID(x+1);
             }
         }
     }
@@ -404,12 +532,21 @@ public class ClientController {
         }
 
 
+    public void getStiche(String gamelobby){
+        String concatString = "GetStiche|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
+
     public void getGamelobbyUsers(String gamelobby){
         //No additional checks done, since button is disabled until confirmed login
         String concatString = "ListGamelobbyUsers|"+clientModel.gethash()+"|"+gamelobby;
         sendToServer(concatString);
     }
 
+    public void startGame(String gamelobby){
+        String concatString = "StartGame|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
 
     public void joinGamelobby(String gamelobby){
         String concatString = "JoinGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
@@ -427,6 +564,11 @@ public class ClientController {
 
     public void sendCardPlayed(String card,String gamelobby){
         String concatString = "CardPlayed|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+card;
+        sendToServer(concatString);
+
+    }
+    public void sendTrumpf(String trumpf,String gamelobby){
+        String concatString = "Trumpf|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+trumpf;
         sendToServer(concatString);
 
     }
@@ -532,6 +674,9 @@ public class ClientController {
          this.clientModel = clientModel;
 
 
+     }
+     public void addMainMenuView (MainMenuView menuView) {
+    	 this.menuView = menuView;
      }
      public  void addChatView(ChatView chatView){
          this.view = chatView;
@@ -675,7 +820,36 @@ public class ClientController {
         return cardsPlayed.get(i);
     }
 
+    public int getSizeCardsPlayed(){
+        return cardsPlayed.size();
+    }
+
+    public void clearCardsPlayed(){
+        cardsPlayed.clear();
+    }
     public int getCardPlayedNr() {
         return cardPlayedNr;
+    }
+
+    //https://stackoverflow.com/questions/24104313/how-do-i-make-a-delay-in-java
+    public static void waiterino(int ms){
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void getGameView() {
+        //added new fx thread
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                getViewManager().primaryStage.setScene(GameView.getScene());
+            }
+        });
     }
 }

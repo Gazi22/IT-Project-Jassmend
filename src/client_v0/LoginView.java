@@ -17,6 +17,7 @@ public class LoginView {
 
     private static Scene scene;
     private ClientController clientController;
+    private MainMenuView menuView;
     private GameView view;
     public Stage newStageCreateAccount;
     
@@ -35,7 +36,7 @@ public class LoginView {
     Button btnConnect = new Button("connect");
 
     HBox hboxBtn = new HBox(10);
-
+    public String txtUserName = txtUser.getText();
 
     public LoginView(ClientController clientController, GameView view)
     {
@@ -118,7 +119,7 @@ public class LoginView {
                     String hash = lastMessage.split("\\|")[hashIndex];
                     clientController.loginSuccesfull(user, hash);
                    
-                    this.clientController.getViewManager().primaryStage.setScene(GameView.getScene()); 
+                    this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene()); 
                 }
                 else {
                 	
@@ -168,7 +169,10 @@ public class LoginView {
 
     }
 
-
+public String getUserNameTxt() {
+	
+	return txtUser.getText();
+}
 
 public static Scene getScene () {
 		

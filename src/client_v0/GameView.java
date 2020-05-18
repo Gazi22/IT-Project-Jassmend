@@ -43,6 +43,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -50,12 +52,14 @@ import javafx.scene.image.ImageView;
 
 public class GameView {
 	  private static Scene scene;
-	    private ClientController clientController;
-	     private String finalGamelobby;
-	     	private CardView cardView;
-			public Stage primaryStage;
+	private ClientController clientController;
+	private MainMenuView mainMenuView;
+
+	private CardView cardView;
+	public Stage primaryStage;
 	//Client Server Communication
-	private String [] playerIDs=new String[4];
+	public String [] playerIDs=new String[4];
+	String finalGamelobby="";
 
 //temporary
 	Button btnEndTurn = new Button("End Turn");
@@ -98,14 +102,21 @@ public class GameView {
 	
 	Menu OptionsMenu = new Menu("Options");
 	Menu HelpMenu = new Menu("Help");
-	Menu LobbyMenu = new Menu("Gamelobby");
+	Menu returnToMenu = new Menu("Return To Menu");
+	Menu helpMenu = new Menu("Help");
+	Menu soundMenu = new Menu("Sound Options");
 	
 	MenuItem ResumeItem = new MenuItem("Quit Game");
 	MenuItem LogoutItem = new MenuItem("Logout");
-	
 	MenuItem RulesItem = new MenuItem("How to play?");
-	Menu helpMenu = new Menu("Help");
-	MenuItem gamelobbyItem = new MenuItem("Show Gamelobbys");
+
+	MenuItem clickToReturn = new MenuItem("Click to return");
+	CustomMenuItem customMenuItem = new CustomMenuItem(new Slider());
+	MenuItem playSound = new MenuItem("Play Music");
+	MenuItem pauseSound = new MenuItem("Pause Music");
+	MenuItem stopSound = new MenuItem("Stop Music");
+    
+	
 	
 	public Object areaMessages;
 	
@@ -130,13 +141,20 @@ public class GameView {
 
 	public GameView (ClientController clientController, ClientModel model) {
 
-		this.clientController = clientController;
-		PlayerPane pp = new PlayerPane();
-		pp.setPlayer(model.getPlayer(1));
-		OptionsMenu.getItems().addAll(ResumeItem, LogoutItem);
-		HelpMenu.getItems().addAll(RulesItem);
-		LobbyMenu.getItems().addAll(gamelobbyItem);
-		// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
+
+
+
+	this.clientController = clientController;
+	PlayerPane pp = new PlayerPane();
+	pp.setPlayer(model.getPlayer(1));
+	OptionsMenu.getItems().addAll(ResumeItem,LogoutItem);
+	HelpMenu.getItems().addAll(RulesItem);
+	returnToMenu.getItems().addAll(clickToReturn);
+	soundMenu.getItems().addAll(playSound, pauseSound, stopSound, customMenuItem);
+	customMenuItem.setHideOnClick(false);
+
+
+	// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
 
 		helpMenu.setOnAction(e -> {
 			if (Desktop.isDesktopSupported()) {
@@ -151,9 +169,23 @@ public class GameView {
 				}
 			}
 		});
+		
+		returnToMenu.setOnAction(e2 -> {
+			this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene());
+		});
+		
+		ResumeItem.setOnAction(e3 -> {
+			this.clientController.getViewManager().primaryStage.close();
+		});
+		
+		
+		
+		
 
 
-		meba.getMenus().addAll(OptionsMenu, HelpMenu, LobbyMenu);
+		meba.getMenus().addAll(OptionsMenu, HelpMenu, returnToMenu, soundMenu);
+	
+	// ___________________________________________________________________
 
 		// ___________________________________________________________________
 
@@ -293,14 +325,111 @@ public class GameView {
 		//Play the first Card into the first fieldbutton
 			getHandButton(0).setOnAction(e10 -> {
 
-				CardView cV1 = (CardView) getHandButton(0);
-				cV1.setGraphic(null);
-				CardView cV2 = (CardView) getFieldButton(0);
-				cV2.setCard(pp.getCardsHolder(0));
 				clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby);
-				clientController.turnFinished(finalGamelobby);
+				clientController.waiterino(500);
+				for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+					if(pp.getCardsHolder(0).toString().equals(clientController.getCardsPlayed(x).toString())){
+						getHandButton(0).setGraphic(null);
+					}
+				}
 
 			});
+		getHandButton(1).setOnAction(e11 -> {
+
+
+			clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(1).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(1).setGraphic(null);
+				}
+			}
+
+
+		});
+		getHandButton(2).setOnAction(e12 -> {
+
+			clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(2).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(2).setGraphic(null);
+				}
+			}
+
+		});
+		getHandButton(3).setOnAction(e13 -> {
+
+
+			clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(3).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(3).setGraphic(null);
+				}
+			}
+
+		});
+		getHandButton(4).setOnAction(e14 -> {
+
+
+			clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(4).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(4).setGraphic(null);
+				}
+			}
+
+		});
+		getHandButton(5).setOnAction(e15 -> {
+
+
+			clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(5).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(5).setGraphic(null);
+				}
+			}
+
+		});
+		getHandButton(6).setOnAction(e16 -> {
+
+
+			clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(6).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(6).setGraphic(null);
+				}
+			}
+
+		});
+		getHandButton(7).setOnAction(e17 -> {
+
+
+			clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(7).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(7).setGraphic(null);
+				}
+			}
+
+		});
+		getHandButton(8).setOnAction(e18 -> {
+
+
+			clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(8).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(8).setGraphic(null);
+				}
+			}
+
+		});
 
 
 
@@ -316,25 +445,23 @@ public class GameView {
     	 clientController.getGamelobbyList();
     	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
          pause.setOnFinished(e5 -> {
-        	              
+
         	 int lastMessageIndex = msgArea.getText().split("\n").length-1;
              String [] lastMessage = msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
-    						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
+    		 String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
              for (String str:gameLobbyList) {
              clientController.leaveGamelobby(str);
              }
-        	
-            	 
+
+
          clientController.logout();
          this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
      });
-     
+
      pause.play();
-     
+
      });
-     gamelobbyItem.setOnAction(e4 -> {
-			showgamelobbyScreen();
-		});
+
 
 
 
@@ -348,111 +475,6 @@ public class GameView {
 	public PlayerPane getPlayerPane(int i) {
 		return (PlayerPane) player1Box.getChildren().get(0);
 	}
-
-
-
-	
-	
-	
-	
-	
-	//Open Gamelobby View
-	public void showgamelobbyScreen() {
-        //Based on http://tutorials.jenkov.com/javafx/listview.html
-        Stage stage = new Stage();
-        
-               
-        Button btnCreateGamelobby = new Button("Create gamelobby:");
-        Button btnJoinGamelobby = new Button("Join selected gamelobby");
-     
-        stage.setTitle("Gamelobby List");
-
-        ListView listView = new ListView();
-
-        clientController.getGamelobbyList();
-        //Not the best way to do it but it does the trick
-        PauseTransition pause = new PauseTransition(Duration.seconds(1));
-        pause.setOnFinished(e -> {
-            int lastMessageIndex = msgArea.getText().split("\n").length-1;
-            String [] lastMessage = msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
-						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
-            for (String str:gameLobbyList) {
-                listView.getItems().add(str);
-            }
-            btnJoinGamelobby.setOnAction(e2 -> {
-                ObservableList selectedIndices = listView.getSelectionModel().getSelectedIndices();
-                String gamelobby = "";
-                for(Object o : selectedIndices){
-                    gamelobby = (String)listView.getItems().get((int)o);
-                    clientController.joinGamelobby(gamelobby);
-                    
-                }
-                //Don't do this at home kids !
-                PauseTransition pause2 = new PauseTransition(Duration.seconds(1));
-                finalGamelobby = gamelobby;
-                pause2.setOnFinished(e3 -> {
-                    int lastMessageIndex2 = msgArea.getText().split("\n").length-1;
-                    String lastMessage2 = msgArea.getText().split("\n")[lastMessageIndex2];
-
-                    if (lastMessage2.startsWith("PlayerIDs")){
-                        clientController.joinSuccessfull(finalGamelobby);
-						clientController.joinedGamelobbyMode();
-
-						for (int x=0; x < playerIDs.length; x++) {
-							if (clientController.getPlayerIDs(x)!=null){
-								playerIDs[x]= clientController.getPlayerIDs(x);
-								System.out.println("Arraypostition"+ x+" "+playerIDs[x]);
-							}
-							else{
-								System.out.println("Arraypostition"+ x+" "+"is empty");
-							}
-
-							}
-
-
-                        stage.close();
-						if (clientController.isFull()){
-							clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
-
-						}
-                        //Handling Create Account button
-                                                                       
-                    }
-
-                });
-                pause2.play();
-            });
-        });
-        pause.play();
-
-        btnCreateGamelobby.setOnAction(e4 -> {
-            // Assume success always!
-        					
-    			TextInputDialog txtInput = new TextInputDialog();
-    	    	 txtInput.setTitle("Create new gamelobby");
-    	    	 txtInput.setContentText("Name of new gamelobby:");
-					Optional<String> result = txtInput.showAndWait();
-    	    	 String newGamelobby = "";
-    	    	 if (result.isPresent()){
-    	    	 	newGamelobby = result.get();
-						 }
-    	    	
-    			clientController.createGamelobby(newGamelobby);
-    	    	 stage.close();
-    			
-                clientController.showAlert("New gamelobby","The gamelobby"+newGamelobby+"has been created");
-			showgamelobbyScreen();
-                            
-    		});
-
-
-
-        VBox vBox = new VBox(listView, btnJoinGamelobby,btnCreateGamelobby);
-        vBox.setStyle("-fx-background-color: BEIGE;");
-        Scene scene = new Scene(vBox, 250, 150);
-        stage.setScene(scene);
-        stage.show();
-    }
 
 
 
@@ -474,23 +496,49 @@ else return (Button) playedCardPl1.getChildren().get(0);
 			@Override
 			public void run() {
 				int i = clientController.getBtnToActivate();
-
 				CardView cV2 = (CardView) getFieldButton(i-1);
-				cV2.setCard(clientController.getCardsPlayed(clientController.getCardPlayedNr()));//
-			}
+				cV2.setCard(clientController.getCardsPlayed(clientController.getCardPlayedNr()-1));//
+				}
 		});
+	}
+
+	public void clearFieldButtons(){
+		//added new fx thread
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+
+					//clientController.wait(5000);
+					for (int x = 0; x < 4; x++) {
+						CardView cV2 = (CardView) getFieldButton(x);
+						cV2.setGraphic(null);//
+					}
+
+			}
+			});
 	}
 
 
 public static Scene getScene () {
-		
+
 		return scene;
-		
+
 	}
 
 
 
+public String[] getPlayerIDs() {
+	return playerIDs;
+}
 
+public void addMainMenuView(MainMenuView mainMenuView){
+		this.mainMenuView = mainMenuView;
+	}
+
+
+public void setGamelobby(String gamelobby){
+		this.finalGamelobby=gamelobby;
+}
 }
 
 

@@ -1,0 +1,67 @@
+
+
+.root{
+    -fx-background-image: url(/background/image/Jassmend_PIC_POG.png);
+    -fx-background-size:cover;
+   
+}
+
+.button {
+	 -fx-background-color: #ffd700;
+	 -fx-background-radius: 50px;
+ 	 -fx-font-family: "Arial Rounded MT Bold";
+   	 -fx-font-size: 15px;
+   	 -fx-cursor: hand;
+     -fx-border-radius: 30;
+}
+
+.button:hover {
+
+	-fx-background-color: #ffd700;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+
+}
+
+.label {
+
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 40px;
+    
+}
+    
+    
+.outline.label .text {
+	-fx-fill: white;
+    -fx-stroke: black;
+    -fx-stroke-width: 1px;
+}
+
+.slider{
+
+  	-fx-control-inner-background: palegreen;
+	-fx-background-color:#ffd700;  /* Hide the track */
+    -fx-background-insets: 1 0 -1 0, 0, 1;
+    -fx-background-radius: 2.5, 2.5, 1.5;
+    -fx-padding: 0.208333em; /* 2.5 */
+}
+
+.slider .track {
+ 	
+    -fx-background-insets: 1 0 -1 0, 0, 1;
+    -fx-background-radius: 2.5, 2.5, 1.5;
+    -fx-padding: 0.208333em; /* 2.5 */
+   
+}
+
+
+
+.slider .thumb {
+    -fx-pref-height: 30;
+    -fx-pref-width: 30;
+}
+
+
+
+
+

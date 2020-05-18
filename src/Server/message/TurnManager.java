@@ -13,6 +13,7 @@ public class TurnManager extends Message {
 
 
 
+
 	public TurnManager(String[] data) {
 		super(data);
 		this.token = data[1];
@@ -33,7 +34,13 @@ public class TurnManager extends Message {
 		Gamelobby gamelobby = Gamelobby.exists(name);
 		//increases turncounter by 1
 		gamelobby.increaseTurnCounter();
-		if (gamelobby.getTurnCounter()%4==0){gamelobby.increaseRoundCounter();}
+		if (gamelobby.getTurnCounter()%36==0){
+			gamelobby.clearCardsDealt();
+			gamelobby.increaseRoundCounter();
+			gamelobby.getDeck().shuffle();
+			gamelobby.clearSticheTeams();
+		}
+		if(gamelobby.getRoundCounter()==9){gamelobby.resetRoundCounter();}
 		int mod =gamelobby.getTurnCounter()%4;
 		switch(mod){
 			case 0:

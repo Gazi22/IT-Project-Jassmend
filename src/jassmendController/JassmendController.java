@@ -1,9 +1,8 @@
 package jassmendController;
 
-import Server.message.Deck;
+import Server.Deck;
 import jassmendMain.JassmendMain;
 import jassmendModel.Card;
-import jassmendModel.DeckOfCards;
 import jassmendModel.JassmendModel;
 import jassmendModel.Player;
 import jassmendView.JassmendGameView;
@@ -11,7 +10,7 @@ import jassmendView.PlayerPane;
 import jassmendView.TrumpfView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
+
 public class JassmendController {
 	
 	private JassmendModel model;
