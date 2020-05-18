@@ -56,13 +56,13 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private ArrayList<Card> sticheTeam1 = new ArrayList<>();
 	private ArrayList<Card> sticheTeam2 = new ArrayList<>();
 	private int cardCounter = 0;
-	private String trumpf="";
+	private String trumpf="Herz";
 	private String [] team1Members=new String[2];
 	private String [] team2Members=new String[2];
 	private String firstCardInTurn;
 	private String userPlayingCard;
 	private ArrayList<String> cardsWithNames = new ArrayList<>();
-
+	private String stichWinner="";
 
 
 	/**
@@ -141,6 +141,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 				out.close();
 			}
 		} catch (IOException e) {
+
 			logger.severe("Unable to save gamelobbys: " + e.getMessage());
 		}
 	}
@@ -336,7 +337,9 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public int getCardCounter() {
 		return cardCounter;
 	}
-
+	public void decreaseCardCounter() {
+		cardCounter--;
+	}
 	public void increaseCardCounter() {
 		cardCounter++;
 	}
@@ -351,13 +354,22 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		sticheTeam2.add(card);
 	}
 
-	public String getSticheTeam1(int i){
-		return sticheTeam1.get(i).toString();
+	public Card getSticheTeam1(int i){
+		return sticheTeam1.get(i);
 	}
-	public String getSticheTeam2(int i){
-		return sticheTeam1.get(i).toString();
+	public Card getSticheTeam2(int i){
+		return sticheTeam2.get(i);
 	}
 
+	public int getSizeSticheTeam1(){
+		return sticheTeam1.size();
+	}
+	public int getSizeSticheTeam2(){
+		return sticheTeam2.size();
+	}
+	public int getSizeCardsInRound(){
+		return cardsInRound.length;
+	}
 
 	public void addToCardsTotal(String card){
 		cardsTotalString.add(card);}
@@ -430,6 +442,18 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	}
 	public String getCardsDealt(int i){
 		return cardsDealt.get(i);
+	}
+
+	public void clearSticheTeams(){
+		sticheTeam1.clear();
+		sticheTeam2.clear();
+	}
+
+	public void setStichWinner(String username){
+		stichWinner=username;
+	}
+	public String getStichWinner(){
+		return stichWinner;
 	}
 
 

@@ -326,71 +326,108 @@ public class GameView {
 			getHandButton(0).setOnAction(e10 -> {
 
 				clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby);
-				clientController.waiterino(1000);
-				clientController.turnFinished(finalGamelobby);
+				clientController.waiterino(500);
+				for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+					if(pp.getCardsHolder(0).toString().equals(clientController.getCardsPlayed(x).toString())){
+						getHandButton(0).setGraphic(null);
+					}
+				}
 
 			});
 		getHandButton(1).setOnAction(e11 -> {
 
 
 			clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby);
-			clientController.waiterino(1000);
-			clientController.turnFinished(finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(1).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(1).setGraphic(null);
+				}
+			}
+
 
 		});
 		getHandButton(2).setOnAction(e12 -> {
 
 			clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby);
-			clientController.waiterino(1000);
-			clientController.turnFinished(finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(2).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(2).setGraphic(null);
+				}
+			}
 
 		});
 		getHandButton(3).setOnAction(e13 -> {
 
 
 			clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby);
-			clientController.waiterino(1000);
-			clientController.turnFinished(finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(3).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(3).setGraphic(null);
+				}
+			}
 
 		});
 		getHandButton(4).setOnAction(e14 -> {
 
 
 			clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby);
-			clientController.waiterino(1000);
-			clientController.turnFinished(finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(4).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(4).setGraphic(null);
+				}
+			}
 
 		});
 		getHandButton(5).setOnAction(e15 -> {
 
 
 			clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby);
-			clientController.waiterino(1000);
-			clientController.turnFinished(finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(5).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(5).setGraphic(null);
+				}
+			}
 
 		});
 		getHandButton(6).setOnAction(e16 -> {
 
 
 			clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby);
-			clientController.waiterino(1000);
-			clientController.turnFinished(finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(6).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(6).setGraphic(null);
+				}
+			}
 
 		});
 		getHandButton(7).setOnAction(e17 -> {
 
 
 			clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby);
-			clientController.waiterino(1000);
-			clientController.turnFinished(finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(7).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(7).setGraphic(null);
+				}
+			}
 
 		});
 		getHandButton(8).setOnAction(e18 -> {
 
 
 			clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby);
-			clientController.waiterino(1000);
-			clientController.turnFinished(finalGamelobby);
+			clientController.waiterino(500);
+			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+				if(pp.getCardsHolder(8).toString().equals(clientController.getCardsPlayed(x).toString())){
+					getHandButton(8).setGraphic(null);
+				}
+			}
 
 		});
 

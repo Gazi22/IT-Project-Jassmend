@@ -126,11 +126,11 @@ class DeckofCardsTest {
 
 			Card card1=new Card(Card.Suit.Kreuz, Card.Rank.Koenig);
 
-			Card card2=new Card(Card.Suit.Herz, Card.Rank.Ass);
+			Card card2=new Card(Card.Suit.Kreuz, Card.Rank.Ass);
 
-			Card card3=new Card(Card.Suit.Ecke, Card.Rank.Neun);
+			Card card3=new Card(Card.Suit.Kreuz, Card.Rank.Neun);
 
-			Card card4=new Card(Card.Suit.Schaufel, Card.Rank.Bube);
+			Card card4=new Card(Card.Suit.Herz, Card.Rank.Bube);
 
 
 			cardsTotal.add(card1);

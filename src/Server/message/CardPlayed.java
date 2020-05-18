@@ -32,18 +32,22 @@ public class CardPlayed extends Message {
      */
     @Override
     public void process(Client client) {
+        Gamelobby gamelobby = Gamelobby.exists(name);
         boolean result = false;
         String[] arrCardsPlayed = new String[4];
         String cardCounter = "";
         String roundCounter = "";
         ServerController serverController = new ServerController();
         if (client.getToken().equals(token)) {
-            Gamelobby gamelobby = Gamelobby.exists(name);
             gamelobby.increaseCardCounter();
-
+            if (gamelobby.getCardCounter() > 4) {
+                gamelobby.resetCardCounter();
+                gamelobby.increaseCardCounter();
+            }
 
             if (gamelobby.getCardCounter() == 1) {
                 gamelobby.setFirstCardInTurn(cardPlayed);
+                result = true;
             }
 
 
@@ -60,41 +64,61 @@ public class CardPlayed extends Message {
                         x = 27;
                         break;
                 }
-                if (!cardPlayed.substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4))) {
-                    for (int y = x; y < x + 9; x++) {
 
-                        if (gamelobby.getCardsDealt(y).substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4)) || gamelobby.getCardsDealt(y).substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))) {
-                            result = false;
-                            break;
+
+                if (!cardPlayed.substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4)) && !cardPlayed.substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))) {
+                    for (int y = x; y < y + 9; y++) {
+
+                        if (gamelobby.getCardsDealt(y).substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4))) {
+                            if (!gamelobby.getCardsDealt(y).equals(gamelobby.getTrumpf() + "Bube")) {
+                                result = false;
+                                break;
+                            }
                         }
-
+                        else result = true;
                     }
                 } else result = true;
+                if (cardPlayed.substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))&&!gamelobby.getFirstCardInTurn().substring(0,4).equals(gamelobby.getTrumpf().substring(0,4))) {
+                    for (int z = 0; z < gamelobby.getCardCounter() - 1; z++) {
+                        if (gamelobby.getCardsInRound(z).substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))) {
+                            if (serverController.stringToCard(gamelobby.getCardsInRound(z)).compareTo(serverController.stringToCard(cardPlayed)) == 1) {
+                                result = false;
+                                break;
+                            } else result = true;
+                        } else result = true;
+                    }
+
+
+                }
+                else if(result ==false){
+                    result=false;
+                }
+                else result = true;
             }
-            roundCounter = Integer.toString(gamelobby.getRoundCounter());
-            if (gamelobby.getCardCounter() > 4) {
-                gamelobby.resetCardCounter();
-                gamelobby.increaseCardCounter();
-            }
-
-            for (int x = gamelobby.getCardCounter(); x < gamelobby.getCardCounter() + 1; x++) {
-
-                gamelobby.setCardsInRound(x, cardPlayed);
-                arrCardsPlayed[x - 1] = gamelobby.getCardsInRound(x - 1);
-                cardCounter = Integer.toString(gamelobby.getCardCounter());
-            }
-
-            gamelobby.addToCardsTotal(cardPlayed);
-            gamelobby.addCardsWithNames(cardPlayed);
-            gamelobby.addCardsWithNames(username);
-
-            if (gamelobby.getCardCounter() == 4) {
-                serverController.handleStiche(gamelobby);
 
 
+            if (result == true) {
+                roundCounter = Integer.toString(gamelobby.getRoundCounter());
+
+
+                for (int x = gamelobby.getCardCounter(); x < gamelobby.getCardCounter() + 1; x++) {
+
+                    gamelobby.setCardsInRound(x, cardPlayed);
+                    arrCardsPlayed[x - 1] = gamelobby.getCardsInRound(x - 1);
+                    cardCounter = Integer.toString(gamelobby.getCardCounter());
+                }
+
+                gamelobby.addToCardsTotal(cardPlayed);
+                gamelobby.addCardsWithNames(cardPlayed);
+                gamelobby.addCardsWithNames(username);
+
+                if (gamelobby.getCardCounter() == 4) {
+                    serverController.handleStiche(gamelobby);
+
+
+                }
             }
         }
-
 
         String[] gameInfo = new String[4];
         gameInfo[1] = this.token;
@@ -103,13 +127,16 @@ public class CardPlayed extends Message {
 
         gameInfo[3] = "CardsPlayed" + "|" + roundCounter + "|" + cardCounter + "|" + arrCardsPlayed[0] + "|" + arrCardsPlayed[1] + "|" + arrCardsPlayed[2] + "|" + arrCardsPlayed[3];
 
-        if (result=true) {
+        if (result==true) {
             SendGameMessage msgGame = new SendGameMessage(gameInfo);
-
             msgGame.process(client);
+            System.out.println("Server: Seen the card, checked and sent back to client!");
         }
-        else client.send(new Result(result));
-
+        else {
+            gamelobby.decreaseCardCounter();
+            client.send(new Result(result));
+            System.out.println("Illegal Move");
+        }
     }
 
 

@@ -82,19 +82,27 @@ public class ServerController {
     public void trumpfComparison(String trumpf) {
         switch (trumpf) {
             case "Herz":
-                card.trumpfHerzSuitValue();
+                for(Card card:cardsTotalCard) {
+                    card.trumpfHerzSuitValue();
+                }
                 break;
-
             case "Schaufel":
-                card.trumpfSchaufelSuitValue();
-                break;
+                for(Card card:cardsTotalCard) {
+                    card.trumpfSchaufelSuitValue();
 
+                }
+                break;
             case "Ecke":
-                card.trumpfEckeSuitValue();
-                break;
+                for(Card card:cardsTotalCard) {
+                    card.trumpfEckeSuitValue();
 
+                }
+                break;
             case "Kreuz":
-                card.trumpfKreuzSuitValue();
+                for(Card card:cardsTotalCard) {
+                    card.trumpfKreuzSuitValue();
+
+                }
                 break;
         }
 
@@ -151,6 +159,9 @@ public class ServerController {
                 if (getCardsTotalCard(0).toString().equals(gamelobby.getCardsWithNames(x))) {
                     username2 = gamelobby.getCardsWithNames(x + 1);
                 }
+                else if (getCardsTotalCard(0).toString().equals(gamelobby.getCardsWithNames(x+4))) {
+                    username2 = gamelobby.getCardsWithNames(x + 5);
+                }
             }
             for (int y = 0; y < 2; y++) {
                 if (username2.equals(gamelobby.getTeam1Members(y))) {
@@ -158,18 +169,28 @@ public class ServerController {
                     gamelobby.setSticheTeam1(getCardsTotalCard(1));
                     gamelobby.setSticheTeam1(getCardsTotalCard(2));
                     gamelobby.setSticheTeam1(getCardsTotalCard(3));
+                    gamelobby.setSticheTeam2(null);
+                    gamelobby.setSticheTeam2(null);
+                    gamelobby.setSticheTeam2(null);
+                    gamelobby.setSticheTeam2(null);
+
+
                 } else if (username2.equals(gamelobby.getTeam2Members(y))) {
                     gamelobby.setSticheTeam2(getCardsTotalCard(0));
                     gamelobby.setSticheTeam2(getCardsTotalCard(1));
                     gamelobby.setSticheTeam2(getCardsTotalCard(2));
                     gamelobby.setSticheTeam2(getCardsTotalCard(3));
+                    gamelobby.setSticheTeam1(null);
+                    gamelobby.setSticheTeam1(null);
+                    gamelobby.setSticheTeam1(null);
+                    gamelobby.setSticheTeam1(null);
                 }
             }
 
             gamelobby.clearTotalCards(); //clear string cards arraylist
             clearTotalCards(); //clear card cards arraylist
             gamelobby.clearCardsWithNames();//Clear cards with names arraylist string
-
+            gamelobby.setStichWinner(username2);
 
         }
 

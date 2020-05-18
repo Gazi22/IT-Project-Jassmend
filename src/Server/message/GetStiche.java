@@ -11,6 +11,7 @@ public class GetStiche extends Message {
 	private String name;
 	private String username;
 	//provisorisch 100
+	String stichWinner="";
 	String[] sticheTeam1 = new String[4];
 	String[] sticheTeam2 = new String[4];
 
@@ -32,21 +33,25 @@ public class GetStiche extends Message {
 	public void process(Client client) {
 		if (client.getToken().equals(token)) {
 			Gamelobby gamelobby = Gamelobby.exists(name);
-
+			stichWinner=gamelobby.getStichWinner();
+			int y = 0;
+			int z = 0;
 			int roundCount = (gamelobby.getTurnCounter() + 1);
 
 			for (int x = gamelobby.getTurnCounter()-4; x < gamelobby.getTurnCounter(); x++) {
 
+					if (gamelobby.getSticheTeam1(x) != null && gamelobby.getSizeSticheTeam1() > x) {
+						sticheTeam1[y] =gamelobby.getSticheTeam1(x).toString();
+						y++;
+					}
 
+					//Stiche Team 2
+					if (gamelobby.getSticheTeam2(x) != null && gamelobby.getSizeSticheTeam2() > x) {
+						sticheTeam2[z] = gamelobby.getSticheTeam2(x).toString();
+						z++;
+					}
+				}
 
-				//Stiche Team 1
-				sticheTeam1[x] = gamelobby.getSticheTeam1(x);
-
-
-				//Stiche Team 2
-				sticheTeam2[x] = gamelobby.getSticheTeam2(x);
-
-			}
 		}
 
 
@@ -58,7 +63,7 @@ public class GetStiche extends Message {
 		gameInfo[2] = this.name;
 
 
-		gameInfo[3] = "Stich" + "|" +"SticheTeam1"+"|"+sticheTeam1[0]+"|"+sticheTeam1[1]+"|"+sticheTeam1[2]+"|"+sticheTeam1[3]+"SticheTeam2"+"|"+sticheTeam2[0]+"|"+sticheTeam2[1]+"|"+sticheTeam2[2]+"|"+sticheTeam2[3];
+		gameInfo[3] = "Stich" + "|"+stichWinner +"|"+"SticheTeam1"+"|"+sticheTeam1[0]+"|"+sticheTeam1[1]+"|"+sticheTeam1[2]+"|"+sticheTeam1[3]+"|"+"SticheTeam2"+"|"+sticheTeam2[0]+"|"+sticheTeam2[1]+"|"+sticheTeam2[2]+"|"+sticheTeam2[3];
 
 		SendGameMessage msgGame = new SendGameMessage(gameInfo);
 

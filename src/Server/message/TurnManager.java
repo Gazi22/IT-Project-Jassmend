@@ -38,6 +38,7 @@ public class TurnManager extends Message {
 			gamelobby.clearCardsDealt();
 			gamelobby.increaseRoundCounter();
 			gamelobby.getDeck().shuffle();
+			gamelobby.clearSticheTeams();
 		}
 		if(gamelobby.getRoundCounter()==9){gamelobby.resetRoundCounter();}
 		int mod =gamelobby.getTurnCounter()%4;

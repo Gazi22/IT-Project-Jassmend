@@ -14,6 +14,7 @@ public class ClientModel {
 	 InetAddress localHost;
 	 String localIP;
      int clientPlayerID;
+     int clientTurnPlayerID;
      //https://crunchify.com/how-to-get-server-ip-address-and-hostname-in-java/
 {
      try {
@@ -84,6 +85,11 @@ public class ClientModel {
         return this.clientPlayerID;
     }
 
+    public void setClientTurnPlayerID(int id){this.clientTurnPlayerID=id;}
+
+    public int getClientTurnPlayerID(){
+        return this.clientTurnPlayerID;
+    }
 
     public String getUser(){
         return this.user;
