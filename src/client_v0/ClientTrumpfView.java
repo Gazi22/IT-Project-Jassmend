@@ -1,9 +1,6 @@
-package jassmendView;
-
-import java.awt.Checkbox;
+package client_v0;
 
 
-import jassmendController.JassmendController;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,15 +9,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
+public class ClientTrumpfView {
 
-public class TrumpfView {
-	
+	ClientController clientController;
 	private Stage trumpfWindow;
 	private Scene secondScene;
 	Label lblEcke = new Label();
@@ -35,8 +29,8 @@ public class TrumpfView {
 	
 	
 	
-	public TrumpfView() {
-		
+	public ClientTrumpfView(ClientController clientController) {
+		this.clientController = clientController;
 		
 		Image image1 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke_Jass_trumpf.jpg"));
 	    lblEcke.setGraphic(new ImageView(image1));	
@@ -61,7 +55,18 @@ public class TrumpfView {
 		
 		
 	
-
+	btnEcke.setOnAction(e1->{
+		clientController.sendTrumpf("Ecke",clientController.getFinalGamelobby());
+		});
+	btnSchaufel.setOnAction(e1->{
+		clientController.sendTrumpf("Schaufel",clientController.getFinalGamelobby());
+		});
+	btnKreuz.setOnAction(e1->{
+		clientController.sendTrumpf("Kreuz",clientController.getFinalGamelobby());
+		});
+	btnHerz.setOnAction(e1->{
+		clientController.sendTrumpf("Herz",clientController.getFinalGamelobby());
+		});
 	
 	
 	BorderPane trumpfLayout = new BorderPane();

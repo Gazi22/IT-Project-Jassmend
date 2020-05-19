@@ -83,24 +83,24 @@ public class ServerController {
         switch (trumpf) {
             case "Herz":
                 for(Card card:cardsTotalCard) {
-                    card.trumpfHerzSuitValue();
+                    card.firstCardHerzSuitValue();
                 }
                 break;
             case "Schaufel":
                 for(Card card:cardsTotalCard) {
-                    card.trumpfSchaufelSuitValue();
+                    card.firstCardSchaufelSuitValue();
 
                 }
                 break;
             case "Ecke":
                 for(Card card:cardsTotalCard) {
-                    card.trumpfEckeSuitValue();
+                    card.firstCardEckeSuitValue();
 
                 }
                 break;
             case "Kreuz":
                 for(Card card:cardsTotalCard) {
-                    card.trumpfKreuzSuitValue();
+                    card.firstCardKreuzSuitValue();
 
                 }
                 break;
@@ -194,5 +194,63 @@ public class ServerController {
 
         }
 
-    }
+
+
+
+
+        public int getPoints(Gamelobby gamelobby, Card card){
+
+            if (card.getSuit().toString() == gamelobby.getTrumpf()) {
+                if (card.getRank().toString() == "Bube") {
+                    return 20;
+                } else if (card.getRank().toString() == "Neun") {
+                    return 14;
+                }
+               else if (card.getRank().toString() == "Koenig") {
+                    return 4;
+                }
+               else if (card.getRank().toString() == "Dame") {
+                    return 3;
+                }
+                else if (card.getRank().toString() == "Bube") {
+                    return 2;
+                }
+                else if (card.getRank().toString() == "Zehn") {
+                    return 10;
+                }
+                else if (card.getRank().toString() == "Ass") {
+                    return 11;
+                }
+            }
+
+           else if(card.getSuit().toString()==gamelobby.getTrumpf()){
+                if (card.getRank().toString() == "Bube") {
+                    return 2;
+                }
+                if (card.getRank().toString() == "Koenig") {
+                    return 4;
+                }
+                if (card.getRank().toString() == "Dame") {
+                    return 3;
+                }
+                if (card.getRank().toString() == "Bube") {
+                    return 2;
+                }
+                if (card.getRank().toString() == "Zehn") {
+                    return 10;
+                }
+                if (card.getRank().toString() == "Ass") {
+                    return 11;
+                }
+            }
+
+
+
+            return 0;
+        }
+
+
+
+
+}
 

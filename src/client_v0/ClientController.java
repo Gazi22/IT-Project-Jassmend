@@ -1,5 +1,6 @@
 package client_v0;
 
+import Server.Gamelobby;
 import jassmendModel.Card;
 import jassmendModel.Player;
 import jassmendView.CardView;
@@ -41,6 +42,9 @@ public class ClientController {
     int cardPlayedNr;
     int sticheTeam1=0;
     int sticheTeam2=0;
+    int roundcounter =0;
+    int pointsTeam1=0;
+    int pointsTeam2=0;
 
 
 
@@ -226,8 +230,11 @@ public class ClientController {
 
                                         }
                                     //Auf Server implementieren etc
-                                    else if (arrMsgText[3].equals("RoundFinished")) {
-                                        //CLEAR CARDSHOLDER?
+                                    else if (arrMsgText[3].equals("EvaluateRound")) {
+                                        waiterino(500);
+                                        pointsTeam1=Integer.parseInt(arrMsgText[5]);
+                                        pointsTeam2=Integer.parseInt(arrMsgText[7]);
+
                                     }
 
 
@@ -305,9 +312,14 @@ public class ClientController {
                                         //CLEAR CARDSHOLDER?
                                     }
 
+                                        if (roundcounter==9){
+                                            getEvaluation(menuView.getFinalGamelobby());
+                                            gameView.getPlayerPane(1).clearCardsHolder();
 
+                                        }
 
                                     else if (arrMsgText[3].equals("CardsPlayed")) {
+                                        roundcounter=Integer.parseInt(arrMsgText[4]);
                                         System.out.println("Server sent the card: "+arrMsgText);
                                         if(clientModel.getClientTurnPlayerID()==1){turnFinished(menuView.getFinalGamelobby());}
                                         if(cardsPlayed.size()==4){clearCardsPlayed();}
@@ -534,6 +546,10 @@ public class ClientController {
 
     public void getStiche(String gamelobby){
         String concatString = "GetStiche|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        sendToServer(concatString);
+    }
+    public void getEvaluation(String gamelobby){
+        String concatString = "Evaluation|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
         sendToServer(concatString);
     }
 
@@ -841,6 +857,10 @@ public class ClientController {
         {
             Thread.currentThread().interrupt();
         }
+    }
+
+    public String getFinalGamelobby(){
+       return menuView.getFinalGamelobby();
     }
 
     public void getGameView() {

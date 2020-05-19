@@ -13,6 +13,7 @@ import jassmendModel.JassmendModel;
 import jassmendModel.Player;
 import jassmendView.CardView;
 import jassmendView.PlayerPane;
+import client_v0.ClientTrumpfView;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -62,8 +63,8 @@ public class GameView {
 	String finalGamelobby="";
 
 //temporary
-	Button btnEndTurn = new Button("End Turn");
 
+	Button btnTrumpf = new Button("Trumpf");
 	Button btnDeal = new Button("Deal");
 	// Player areas
 	
@@ -118,9 +119,7 @@ public class GameView {
     
 	
 	
-	public Object areaMessages;
-	
-	
+
 	// Chat
 	TitledPane chatArea = new TitledPane();
 	TextField txt1 = new TextField ();
@@ -137,6 +136,11 @@ public class GameView {
 	VBox playedCardPl2 = new VBox();
 	HBox playedCardPl3 = new HBox();
 	VBox playedCardPl4 = new VBox();
+
+
+// Label for displaying the trumpf suit
+
+	Label trumpf = new Label();
 
 
 	public GameView (ClientController clientController, ClientModel model) {
@@ -221,6 +225,7 @@ public class GameView {
 
 		msgArea.setPrefHeight(600);
 		msgArea.setPrefWidth(300);
+		msgArea.setId("ChatArea");
 
 		chatbox1.getChildren().add(btnSend);
 		chatbox1.getChildren().add(txt1);
@@ -236,7 +241,9 @@ public class GameView {
 		//-----------------------------------------------------------------------
 
 		HBox controlBox = new HBox();
-		controlBox.getChildren().addAll(btnDeal, btnEndTurn);
+		controlBox.getChildren().addAll(btnDeal,btnTrumpf);
+		btnDeal.setTooltip(new Tooltip ("Start the game by getting your cards!"));
+		btnTrumpf.setTooltip(new Tooltip ("Select the Trumpf suit for this round!"));
 		controlBox.setAlignment(Pos.CENTER);
 
 
@@ -246,33 +253,40 @@ public class GameView {
 		TableView table = new TableView();
 		table.setEditable(false);
 
-		TableColumn playerNameCol = new TableColumn("Player");
+		//Runde
+		//Team
+		//Stiche
+		//Score
+		TableColumn roundCol = new TableColumn("Round");
+		TableColumn teamCol = new TableColumn("Team");
+		TableColumn stichCol = new TableColumn("Stiche");
 		TableColumn scoreCol = new TableColumn("Score");
 
-		playerNameCol.setCellValueFactory(c -> Player.getPlayerName());
-
-		table.getColumns().addAll(playerNameCol, scoreCol);
+		table.getColumns().addAll(roundCol, teamCol , stichCol, scoreCol);
 
 		//----------------------------------------------------------------------------------------------------------
-		for (int i = 0; i < 1; i++) {
+
 			Button btnCard = new CardView();
 			playedCardPl1.getChildren().add(btnCard);
 			btnCard.getStyleClass().add("btnCard");
 			playedCardPl1.setAlignment(Pos.CENTER);
 			Button btnCard2 = new CardView();
+
 			playedCardPl2.getChildren().add(btnCard2);
 			btnCard.getStyleClass().add("btnCard");
 			playedCardPl2.setAlignment(Pos.CENTER);
 			Button btnCard3 = new CardView();
+
 			playedCardPl3.getChildren().add(btnCard3);
 			btnCard.getStyleClass().add("btnCard");
 			playedCardPl3.setAlignment(Pos.CENTER);
 			Button btnCard4 = new CardView();
+
 			playedCardPl4.getChildren().add(btnCard4);
 			btnCard.getStyleClass().add("btnCard");
 			playedCardPl4.setAlignment(Pos.CENTER);
 
-		}
+
 
 
 		//-----------------------------------------------------------------------------------------------------
@@ -301,6 +315,7 @@ public class GameView {
 		innerPane.setLeft(playedCardPl2);
 		innerPane.setTop(playedCardPl3);
 		innerPane.setRight(playedCardPl4);
+		innerPane.setCenter(trumpf);
 
 		scene = new Scene(outerPane);
 		scene.getStylesheets().add(getClass().getResource("Jass.css").toExternalForm());
@@ -431,6 +446,11 @@ public class GameView {
 
 		});
 
+		getBtnTrumpf().setOnAction(e ->{
+			new ClientTrumpfView(clientController);
+
+		});
+
 
 
 		btnDeal.setOnAction(e7 -> {
@@ -438,7 +458,7 @@ public class GameView {
 				});
 
 
-		btnEndTurn.setOnAction(e8->clientController.turnFinished(finalGamelobby));
+
 
      //Handlungsbedarf transition
      LogoutItem.setOnAction(e -> {
@@ -539,6 +559,11 @@ public void addMainMenuView(MainMenuView mainMenuView){
 public void setGamelobby(String gamelobby){
 		this.finalGamelobby=gamelobby;
 }
+
+
+	public Button getBtnTrumpf() {
+		return btnTrumpf;
+	}
 }
 
 

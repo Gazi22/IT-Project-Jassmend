@@ -126,11 +126,11 @@ class DeckofCardsTest {
 
 			Card card1=new Card(Card.Suit.Kreuz, Card.Rank.Koenig);
 
-			Card card2=new Card(Card.Suit.Kreuz, Card.Rank.Ass);
+			Card card2=new Card(Card.Suit.Herz, Card.Rank.Ass);
 
-			Card card3=new Card(Card.Suit.Kreuz, Card.Rank.Neun);
+			Card card3=new Card(Card.Suit.Herz, Card.Rank.Neun);
 
-			Card card4=new Card(Card.Suit.Herz, Card.Rank.Bube);
+			Card card4=new Card(Card.Suit.Kreuz, Card.Rank.Bube);
 
 
 			cardsTotal.add(card1);
@@ -147,33 +147,33 @@ class DeckofCardsTest {
 		}
 
 
-
-
 		if (trumpfYN==0){
 			if(cardsTotal.get(0).toString().startsWith("Kreuz")){
 				for(Card card:cardsTotal){
-					card.trumpfKreuzSuitValue();
+					card.firstCardKreuzSuitValue();
 				}}
 
 			else if(cardsTotal.get(0).toString().startsWith("Herz")){
-					for(Card card:cardsTotal){
-						card.trumpfHerzSuitValue();
-					}}
+				for(Card card:cardsTotal){
+					card.firstCardHerzSuitValue();
+				}}
 
 			else if(cardsTotal.get(0).toString().startsWith("Schaufel")){
-					for(Card card:cardsTotal){
-						card.trumpfSchaufelSuitValue();
-					}}
+				for(Card card:cardsTotal){
+					card.firstCardSchaufelSuitValue();
+				}}
 
 			else if(cardsTotal.get(0).toString().startsWith("Ecke")){
-						for(Card card:cardsTotal){
-							card.trumpfEckeSuitValue();
-						}}
+				for(Card card:cardsTotal){
+					card.firstCardEckeSuitValue();
+				}}
 		}
 
-			else for(Card card:cardsTotal){
-				card.trumpfHerzSuitValue();
-			}
+		else for(Card card:cardsTotal){
+			card.trumpfHerzSuitValue();
+		}
+
+
 
 
 
@@ -184,6 +184,7 @@ class DeckofCardsTest {
 		Collections.reverse(cardsTotal);
 		String username2="";
 		System.out.println(cardsTotal.toString()+"                   "+cardsTotal.get(0).toString());
+		System.out.println(cardsTotal.get(0).getSuitValue());
 
 
 

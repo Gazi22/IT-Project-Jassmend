@@ -18,16 +18,30 @@ public class Card implements Collection <Card>, Serializable, Comparable<Card> {
 			return 1;
 		} else {
 // suit is identical: compare number
+			if (this.getSuitValue() == 3&&o.getSuitValue()==3) {
+				if (this.rank.ordinal() == 5) {
+					return 1;
+				} else if (this.rank.ordinal() == 3 && o.rank.ordinal() != 5) {
+					return 1;
+				} else if (this.rank.ordinal() > o.rank.ordinal()) {
+					return 1;
+				} else if (this.rank.ordinal() < o.rank.ordinal()) {
+					return -1;
+				} else {
+					return 0;
+			}
 
-			if (this.rank.ordinal() < o.rank.ordinal()) {
-				return -1;
-			} else if (this.rank.ordinal() > o.rank.ordinal()) {
-				return 1;
+
 			} else {
-				return 0;
+				if (this.rank.ordinal() < o.rank.ordinal()) {
+					return -1;
+				} else if (this.rank.ordinal() > o.rank.ordinal()) {
+					return 1;
+				} else {
+					return 0;
+				}
 			}
 		}
-
 	}
 
 
@@ -45,24 +59,20 @@ public class Card implements Collection <Card>, Serializable, Comparable<Card> {
         }
     }
 
-    public enum Rank { Sechs, Sieben, Acht, Zehn, Dame, Koenig,Ass,Neun, Bube;
+    public enum Rank { Sechs, Sieben, Acht, Neun, Zehn, Bube,Dame,Koenig,Ass;
         @Override
         public String toString() {
-            String str = "Bube";  // Assume we have an Bube, then cover all other cases
+            String str = "Ass";  // Assume we have an Ass, then cover all other cases
             // Get ordinal value, which ranges from 0 to 8
             int ordinal = this.ordinal();
-            if (ordinal <= 2) {
+            if (ordinal <= 4) {
                 str = Integer.toString(ordinal+6);
-			} else if (ordinal == 3) { // Jack
-				str = "10";
-            } else if (ordinal == 4) { // Jack
-                str = "Dame";
-            } else if (ordinal == 5) { // Queen
-                str = "Koenig";
+			} else if (ordinal == 5) { // Queen
+                str = "Bube";
             } else if (ordinal == 6) { // King
-                str = "Ass";
+                str = "Dame";
             }else if (ordinal == 7) { // King
-				str = "9";
+				str = "Koenig";
 			}
             return str;
         }
@@ -197,6 +207,34 @@ public class Card implements Collection <Card>, Serializable, Comparable<Card> {
 		schaufelValue =3;
 		kreuzValue =0;
 	}
+
+	public void firstCardHerzSuitValue(){
+		herzValue =2;
+		eckeValue =0;
+		schaufelValue =0;
+		kreuzValue =0;
+	}
+	public void firstCardKreuzSuitValue(){
+		herzValue =0;
+		eckeValue =0;
+		schaufelValue =0;
+		kreuzValue =2;
+	}
+	public void firstCardEckeSuitValue(){
+		herzValue =0;
+		eckeValue =2;
+		schaufelValue =0;
+		kreuzValue =0;
+	}
+	public void firstCardSchaufelSuitValue(){
+		herzValue =0;
+		eckeValue =0;
+		schaufelValue =2;
+		kreuzValue =0;
+	}
+
+
+
 
 	public int getSuitValue() {
 		if (suit == suit.Herz) {
