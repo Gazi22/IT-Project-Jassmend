@@ -102,6 +102,35 @@ public class JassmendGameView {
 	VBox chatbox2 = new VBox (); 
 	VBox chatbox3 = new VBox (); 
 	
+	// Leaderboard
+	
+	Label lblLeaderboard = new Label("Leaderboard");
+	Label lblRound = new Label("Round:");
+	Label lblTeam1 = new Label("Team1");
+	Label lblPl1 = new Label("Player1");
+	Label lblPl2 = new Label("Player2");
+	Label lblSticheT1 = new Label("SticheT1");
+	Label lblScoreT1 = new Label("ScoreT1");
+	Label lblTeam2 = new Label("Team2");
+	Label lblPl3 = new Label("Player3");
+	Label lblPl4 = new Label("Player4");
+	Label lblSticheT2 = new Label("SticheT2");
+	Label lblScoreT2 = new Label("ScoreT2");
+	Label lblStiche = new Label("Stiche ");
+	Label lblScore = new Label("Score");
+	
+	
+	HBox lblLeaderboardBox = new HBox();
+	HBox rssBox = new HBox();
+	HBox team1Box = new HBox();
+	HBox pl1team1Box = new HBox();
+	HBox pl2team1Box = new HBox();
+	HBox team2Box = new HBox();
+	HBox pl1team2Box = new HBox();
+	HBox pl2team2Box = new HBox();
+	VBox lbBox = new VBox();
+	
+	
 	// Play Area
 	HBox playedCardPl1 = new HBox();
 	VBox playedCardPl2 = new VBox();
@@ -215,9 +244,36 @@ public class JassmendGameView {
 		//_____________________________________________________________________
 
 		
-		//Table Leaderboard
+		// Leaderboard
 		
-        TableView table = new TableView();
+		
+		lblLeaderboardBox.getChildren().add(lblLeaderboard);
+		lblLeaderboardBox.setAlignment(Pos.CENTER);
+		lblLeaderboard.setId("Leaderboard");
+		
+		rssBox.getChildren().addAll(lblRound, lblStiche, lblScore);
+		rssBox.setAlignment(Pos.CENTER_LEFT);
+		rssBox.setSpacing(15);
+		
+		team1Box.getChildren().addAll(lblTeam1, lblSticheT1, lblScoreT1);
+		team1Box.setAlignment(Pos.CENTER_LEFT);
+		team1Box.setSpacing(10);
+		
+		pl1team1Box.getChildren().add(lblPl1);
+		pl2team1Box.getChildren().add(lblPl2);
+		
+		team2Box.getChildren().addAll(lblTeam2, lblSticheT2, lblScoreT2);
+		team2Box.setAlignment(Pos.CENTER_LEFT);
+		team2Box.setSpacing(10);
+		
+		pl1team2Box.getChildren().add(lblPl3);
+		pl2team2Box.getChildren().add(lblPl4);
+		
+		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box,pl1team1Box, pl2team1Box, team2Box, pl1team2Box, pl2team2Box);
+		lbBox.setSpacing(40);
+		
+		
+        /**TableView table = new TableView();
 		
 		table.setEditable(false);
 		
@@ -232,8 +288,8 @@ public class JassmendGameView {
 		
 		
 		
-		table.getColumns().addAll(roundCol, teamCol , stichCol, scoreCol);
-		
+		table.getColumns().addAll(teamCol, roundCol, stichCol, scoreCol);
+		*/
 		//______________________________________________________________________
 		
 		
@@ -296,12 +352,14 @@ public class JassmendGameView {
 		middlePane.setLeft(player2Info);
 		middlePane.setRight(player4Info);
 		middlePane.setCenter(innerPane);
+		
+		middlePane.setId("middlePane");
 
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
 		outerPane.setRight(chatArea); 
 		outerPane.setBottom(controlBox);
-		outerPane.setLeft(table);
+		outerPane.setLeft(lbBox);
 
 		
 		gameScene = new Scene(outerPane);
