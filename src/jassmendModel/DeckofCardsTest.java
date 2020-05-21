@@ -124,13 +124,13 @@ class DeckofCardsTest {
 		int trumpfYN=0;
 
 
-			Card card1=new Card(Card.Suit.Kreuz, Card.Rank.Koenig);
+			Card card1=new Card(Card.Suit.Herz, Card.Rank.Koenig);
 
 			Card card2=new Card(Card.Suit.Herz, Card.Rank.Ass);
 
 			Card card3=new Card(Card.Suit.Herz, Card.Rank.Neun);
 
-			Card card4=new Card(Card.Suit.Kreuz, Card.Rank.Bube);
+			Card card4=new Card(Card.Suit.Herz, Card.Rank.Bube);
 
 
 			cardsTotal.add(card1);

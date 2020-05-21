@@ -262,7 +262,10 @@ public class GameView {
 		TableColumn stichCol = new TableColumn("Stiche");
 		TableColumn scoreCol = new TableColumn("Score");
 
+
 		table.getColumns().addAll(roundCol, teamCol , stichCol, scoreCol);
+
+
 
 		//----------------------------------------------------------------------------------------------------------
 
@@ -340,11 +343,13 @@ public class GameView {
 		//Play the first Card into the first fieldbutton
 			getHandButton(0).setOnAction(e10 -> {
 
-				clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby);
+				clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby,clientController.getFirstPlayer());
 				clientController.waiterino(500);
 				for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 					if(pp.getCardsHolder(0).toString().equals(clientController.getCardsPlayed(x).toString())){
 						getHandButton(0).setGraphic(null);
+						pp.setCardsHolderNull(0);
+
 					}
 				}
 
@@ -352,11 +357,12 @@ public class GameView {
 		getHandButton(1).setOnAction(e11 -> {
 
 
-			clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby);
+			clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(1).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(1).setGraphic(null);
+					pp.setCardsHolderNull(1);
 				}
 			}
 
@@ -364,11 +370,12 @@ public class GameView {
 		});
 		getHandButton(2).setOnAction(e12 -> {
 
-			clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby);
+			clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(2).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(2).setGraphic(null);
+					pp.setCardsHolderNull(2);
 				}
 			}
 
@@ -376,11 +383,12 @@ public class GameView {
 		getHandButton(3).setOnAction(e13 -> {
 
 
-			clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby);
+			clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(3).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(3).setGraphic(null);
+					pp.setCardsHolderNull(3);
 				}
 			}
 
@@ -388,11 +396,12 @@ public class GameView {
 		getHandButton(4).setOnAction(e14 -> {
 
 
-			clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby);
+			clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(4).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(4).setGraphic(null);
+					pp.setCardsHolderNull(4);
 				}
 			}
 
@@ -400,11 +409,12 @@ public class GameView {
 		getHandButton(5).setOnAction(e15 -> {
 
 
-			clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby);
+			clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(5).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(5).setGraphic(null);
+					pp.setCardsHolderNull(5);
 				}
 			}
 
@@ -412,11 +422,12 @@ public class GameView {
 		getHandButton(6).setOnAction(e16 -> {
 
 
-			clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby);
+			clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(6).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(6).setGraphic(null);
+					pp.setCardsHolderNull(6);
 				}
 			}
 
@@ -424,11 +435,12 @@ public class GameView {
 		getHandButton(7).setOnAction(e17 -> {
 
 
-			clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby);
+			clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(7).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(7).setGraphic(null);
+					pp.setCardsHolderNull(7);
 				}
 			}
 
@@ -436,11 +448,12 @@ public class GameView {
 		getHandButton(8).setOnAction(e18 -> {
 
 
-			clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby);
+			clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(8).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(8).setGraphic(null);
+					pp.setCardsHolderNull(8);
 				}
 			}
 

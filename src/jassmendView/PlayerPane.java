@@ -82,6 +82,10 @@ public class PlayerPane extends VBox {
 
 	}
 
+	public void setCardsHolderNull(int i){
+    	cardsHolder.set(i,null);
+	}
+
 	public int getCardsHolderSize(){
 		return cardsHolder.size();
 	}

@@ -443,6 +443,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	public String getCardsDealt(int i){
 		return cardsDealt.get(i);
 	}
+	public void setCardsDealtNull(int i){cardsDealt.set(i,null);}
 
 	public void clearSticheTeams(){
 		sticheTeam1.clear();

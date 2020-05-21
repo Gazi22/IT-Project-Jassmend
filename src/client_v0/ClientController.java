@@ -45,6 +45,7 @@ public class ClientController {
     int roundcounter =0;
     int pointsTeam1=0;
     int pointsTeam2=0;
+    int firstPlayer=0;
 
 
 
@@ -287,7 +288,8 @@ public class ClientController {
                                         }
 
 
-
+                                        if (clientModel.getClientTurnPlayerID()==1){
+                                            setFirstPlayer(clientModel.getClientPlayerID());}
 
                                         if(arrMsgText[6]!="null"){
                                             sticheTeam1++;
@@ -319,6 +321,7 @@ public class ClientController {
                                         }
 
                                     else if (arrMsgText[3].equals("CardsPlayed")) {
+                                        setFirstPlayer(Integer.parseInt(arrMsgText[10]));
                                         roundcounter=Integer.parseInt(arrMsgText[4]);
                                         System.out.println("Server sent the card: "+arrMsgText);
                                         if(clientModel.getClientTurnPlayerID()==1){turnFinished(menuView.getFinalGamelobby());}
@@ -578,8 +581,8 @@ public class ClientController {
         sendToServer(concatString);
     }
 
-    public void sendCardPlayed(String card,String gamelobby){
-        String concatString = "CardPlayed|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+card;
+    public void sendCardPlayed(String card,String gamelobby,String firstPlayer){
+        String concatString = "CardPlayed|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+card+"|"+firstPlayer;
         sendToServer(concatString);
 
     }
@@ -872,4 +875,12 @@ public class ClientController {
             }
         });
     }
+
+    public String getFirstPlayer(){
+        return Integer.toString(firstPlayer);
+    }
+
+    public void setFirstPlayer(int player){firstPlayer=player;}
 }
+
+

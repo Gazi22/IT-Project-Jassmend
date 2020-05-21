@@ -3,9 +3,6 @@ package Server.message;
 import Server.Client;
 import Server.Gamelobby;
 import Server.ServerController;
-import jassmendModel.Card;
-
-import java.util.Collections;
 
 /**
  * Add a user as a member of a gamelobby.
@@ -15,6 +12,7 @@ public class CardPlayed extends Message {
     private String name;
     private String username;
     private String cardPlayed;
+    private String firstPlayer;
 
 
     public CardPlayed(String[] data) {
@@ -23,6 +21,7 @@ public class CardPlayed extends Message {
         this.name = data[2];
         this.username = data[3];
         this.cardPlayed = data[4];
+        this.firstPlayer = data [5];
     }
 
 
@@ -33,12 +32,15 @@ public class CardPlayed extends Message {
     @Override
     public void process(Client client) {
         Gamelobby gamelobby = Gamelobby.exists(name);
+
         boolean result = false;
         String[] arrCardsPlayed = new String[4];
         String cardCounter = "";
         String roundCounter = "";
+        int firstPlayerID=Integer.parseInt(firstPlayer);
+
         ServerController serverController = new ServerController();
-        if (client.getToken().equals(token)) {
+        if (client.getToken().equals(token)&&cardPlayed!="null") {
             gamelobby.increaseCardCounter();
             if (gamelobby.getCardCounter() > 4) {
                 gamelobby.resetCardCounter();
@@ -53,17 +55,46 @@ public class CardPlayed extends Message {
 
             if (gamelobby.getCardCounter() > 1) {
                 int x = 0;
-                switch (gamelobby.getCardCounter()) {
-                    case 2:
-                        x = 9;
+                switch(firstPlayerID){
+                    case 0:
+
+                    case 1:
+                        if(gamelobby.getCardCounter()==2){
+                        x=9;}
+                    else if(gamelobby.getCardCounter()==3){
+                        x=18;}
+                    else if(gamelobby.getCardCounter()==4){
+                        x=27;}
                         break;
-                    case 3:
-                        x = 18;
-                        break;
-                    case 4:
-                        x = 27;
-                        break;
+
+                    case 2:if(gamelobby.getCardCounter()==2){
+                                 x=18;}
+                            else if(gamelobby.getCardCounter()==3){
+                                 x=27;}
+                            else if(gamelobby.getCardCounter()==4){
+                                 x=0;}
+                            break;
+
+
+                    case 3:if(gamelobby.getCardCounter()==2){
+                                x=27;}
+                            else if(gamelobby.getCardCounter()==3){
+                                x=0;}
+                            else if(gamelobby.getCardCounter()==4){
+                                x=9;}
+                            break;
+
+
+                    case 4:if(gamelobby.getCardCounter()==2){
+                             x=0;}
+                            else if(gamelobby.getCardCounter()==3){
+                             x=9;}
+                            else if(gamelobby.getCardCounter()==4){
+                             x=18;}
+                            break;
                 }
+
+
 
 
                 if (!cardPlayed.substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4)) && !cardPlayed.substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))) {
@@ -98,6 +129,14 @@ public class CardPlayed extends Message {
 
 
             if (result == true) {
+
+                for(int x = 0;x<36;x++){
+                    if(cardPlayed.equals(gamelobby.getCardsDealt(x))){
+                        gamelobby.setCardsDealtNull(x);
+                    }
+                }
+
+
                 roundCounter = Integer.toString(gamelobby.getRoundCounter());
 
 
@@ -125,7 +164,7 @@ public class CardPlayed extends Message {
         gameInfo[2] = this.name;
 
 
-        gameInfo[3] = "CardsPlayed" + "|" + roundCounter + "|" + cardCounter + "|" + arrCardsPlayed[0] + "|" + arrCardsPlayed[1] + "|" + arrCardsPlayed[2] + "|" + arrCardsPlayed[3];
+        gameInfo[3] = "CardsPlayed" + "|" + roundCounter + "|" + cardCounter + "|" + arrCardsPlayed[0] + "|" + arrCardsPlayed[1] + "|" + arrCardsPlayed[2] + "|" + arrCardsPlayed[3]+"|"+firstPlayerID;
 
         if (result==true) {
             SendGameMessage msgGame = new SendGameMessage(gameInfo);

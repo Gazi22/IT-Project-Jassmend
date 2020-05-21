@@ -78,8 +78,36 @@ public class ServerController {
         } else return null;
     }
 
-
     public void trumpfComparison(String trumpf) {
+        switch (trumpf) {
+            case "Herz":
+                for(Card card:cardsTotalCard) {
+                    card.trumpfHerzSuitValue();
+                }
+                break;
+            case "Schaufel":
+                for(Card card:cardsTotalCard) {
+                    card.trumpfSchaufelSuitValue();
+
+                }
+                break;
+            case "Ecke":
+                for(Card card:cardsTotalCard) {
+                    card.trumpfEckeSuitValue();
+
+                }
+                break;
+            case "Kreuz":
+                for(Card card:cardsTotalCard) {
+                    card.trumpfKreuzSuitValue();
+
+                }
+                break;
+        }
+
+    }
+
+    public void firstCardComparison(String trumpf) {
         switch (trumpf) {
             case "Herz":
                 for(Card card:cardsTotalCard) {
@@ -136,20 +164,23 @@ public class ServerController {
         for (int y = 0; y < 4; y++) {
             if (gamelobby.getCardsTotal(y).startsWith(gamelobby.getTrumpf())) {
                 trumpfYN = 1;
+                break;
             }
             }
             if (trumpfYN == 0) {
                 if (gamelobby.getCardsTotal(0).startsWith("Kreuz")) {
-                    trumpfComparison("Kreuz");
+                    firstCardComparison("Kreuz");
                 } else if (gamelobby.getCardsTotal(0).startsWith("Herz")) {
-                    trumpfComparison("Herz");
+                    firstCardComparison("Herz");
                 } else if (gamelobby.getCardsTotal(0).startsWith("Schaufel")) {
-                    trumpfComparison("Schaufel");
+                    firstCardComparison("Schaufel");
                 } else if (gamelobby.getCardsTotal(0).startsWith("Ecke")) {
-                    trumpfComparison("Ecke");
+                    firstCardComparison("Ecke");
                 }
 
-            } else {trumpfComparison(gamelobby.getTrumpf());}
+            } else{
+                trumpfComparison(gamelobby.getTrumpf());
+            }
 
 
             Collections.sort(cardsTotalCard);
