@@ -97,7 +97,7 @@ public class CreateAccountView{
 			this.clientController.getLoginView().newStageCreateAccount.close();
 			});
 
-		sceneAccView = new Scene(gridAccountView, 500, 275);
+		sceneAccView = new Scene(gridAccountView, 700, 275);
 		sceneAccView.getStylesheets().add(getClass().getResource("AccJass.css").toExternalForm());
 
 	}

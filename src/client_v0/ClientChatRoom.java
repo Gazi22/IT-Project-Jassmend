@@ -32,7 +32,7 @@ public class ClientChatRoom extends Application {
         clientController.addGameView(view);
         loginView = new LoginView(clientController, view);
         clientController.addLoginView(loginView);
-        viewMenu = new MainMenuView(clientController, view);
+        viewMenu = new MainMenuView(clientController, view, loginView);
         clientController.addMainMenuView(viewMenu);
         createAccountView = new CreateAccountView(clientController);
 

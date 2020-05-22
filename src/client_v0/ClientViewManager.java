@@ -16,7 +16,7 @@ public class ClientViewManager {
     private GameView view;
     private LoginView loginView;
     private MainMenuView menuView;
-   
+    private ClientModel clientModel;
     
 
     public ClientViewManager(Stage primaryStage, GameView view, MainMenuView menuView, LoginView loginView, CreateAccountView createAccountView) {

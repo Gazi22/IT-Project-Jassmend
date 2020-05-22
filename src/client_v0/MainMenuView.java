@@ -2,6 +2,7 @@ package client_v0;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Observable;
 import java.util.Optional;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
@@ -20,7 +21,9 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -34,87 +37,104 @@ import javafx.util.Duration;
 
 public class MainMenuView {
 
+	// Author: Gazmend Shefiu
 	private static Scene scene;
 	private ClientController clientController;
+	private ClientModel clientModel;
 	private GameView view;
-	public LoginView logView;
-	private ClientModel clientmodel;
-	private Slider volumeSlider;
+	private Slider volumeSlider = new Slider();
 	private Media musicFile;
 	private MediaPlayer musicPlayer;
-	private MediaView mediaView;
-	final ProgressBar pb;
+	public LoginView logView;
+	public String finalGamelobby;
+	public String userName;
 	
-	
-	Label lblUserName = new Label ("Welcome KEK!");
-	Button showGameLobbyScreen = new Button("Show Gamelobbies");
-	HBox hBoxButton = new HBox();
-	HBox hBoxSlider = new HBox();
-	Button showLobby = new Button("Show Lobby");
+	// Author: Gazmend Shefiu
+	Label lblUserName = new Label ();
+	Button createGameLobby = new Button("Create Lobby");
+	Button joinGameLobby = new Button("Join Lobby");
+	HBox hBoxMusicButton = new HBox();
+	HBox hBoxLobby = new HBox();
+	HBox hBoxBoard = new HBox();
+	HBox hBoxLogout = new HBox();
+	Button showLobby = new Button("Show Jass Board");
 	Button playMusic = new Button("Play Music");
 	Button pauseMusic = new Button("Pause Music");
 	Button stopMusic = new Button("Stop Music");
+	Button logOut = new Button("Logout");
 	Insets insets = new Insets(5, 5, 5, 5);
-	GridPane gridMainMenuView;
-	public String finalGamelobby;
-	StackPane volumePane;
-
+	GridPane gridMainMenuView = new GridPane();
 	
-	public MainMenuView (ClientController clientController, GameView view) {
+	
+
+	// Author: Gazmend Shefiu
+	public MainMenuView (ClientController clientController, GameView view, LoginView logView) {
 		
 		this.clientController = clientController;
 		this.view = view;
+		this.logView = logView;
 		
-		double sliderWidth = 400;
+		// Label Username
+		
+		lblUserName.getStyleClass().add("outline");
+		
+		
+		double sliderWidth = 300;
 		double sliderHeight = 75;
 		
-		pb = new ProgressBar(0);
-		pb.setMinWidth(sliderWidth);
-	    pb.setMinHeight(sliderHeight);
-	
-	    hBoxSlider.setSpacing(5);
-	    hBoxSlider.setAlignment(Pos.CENTER);
-
-		volumeSlider = new Slider();
+		musicFile = new Media(getClass().getResource("Halo 2 Theme song.wav").toString());
+		musicPlayer = new MediaPlayer(musicFile);
+		
+		
 		volumeSlider.setMin(0);
 		volumeSlider.setMax(100);
-		volumeSlider.setValue(50);
+		volumeSlider.setValue(20);
 		volumeSlider.setMinWidth(sliderWidth);
 		volumeSlider.setMinHeight(sliderHeight);
 		volumeSlider.setShowTickLabels(true);
 		volumeSlider.setShowTickMarks(true);
-		volumeSlider.setMajorTickUnit(50);
-		volumeSlider.setMinorTickCount(5);
-		volumeSlider.setBlockIncrement(10);
+		volumeSlider.setMajorTickUnit(10);
+		volumeSlider.setBlockIncrement(5);
 		
+		// Inspired By: Akatsuki Project || Author: Gazmend Shefiu
 		volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            public void changed(ObservableValue<? extends Number> ov,
-                    Number old_val, Number new_val) {
-                pb.setProgress(new_val.doubleValue() / 100);
-              
-                
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                musicPlayer.setVolume(newValue.doubleValue() / 100);
             }
         });
 		
-		volumePane = new StackPane();
-       
-		hBoxButton.getChildren().addAll(playMusic, pauseMusic, stopMusic);
-		volumePane.getChildren().addAll(pb, volumeSlider);
-		hBoxSlider.getChildren().addAll(volumePane);
+		hBoxBoard.getChildren().add(showLobby);
+				
+		hBoxMusicButton.getChildren().addAll(playMusic, pauseMusic, stopMusic);
+		hBoxMusicButton.setSpacing(10);
+		
+		hBoxLobby.getChildren().addAll(createGameLobby, joinGameLobby);
+		hBoxLobby.setSpacing(10);
+		
+		hBoxLogout.getChildren().add(logOut);
+		
+		lblUserName.setAlignment(Pos.CENTER);
+		hBoxBoard.setAlignment(Pos.CENTER);
+		hBoxLobby.setAlignment(Pos.CENTER);
+		hBoxMusicButton.setAlignment(Pos.CENTER);
+		hBoxLogout.setAlignment(Pos.CENTER);
+		
+		showLobby.setMinWidth(50);
+		hBoxLobby.setMinWidth(50);
+		hBoxLogout.setMinWidth(50);
 		
 		gridMainMenuView = new GridPane();
 		gridMainMenuView.setAlignment(Pos.CENTER);
-		gridMainMenuView.setHgap(10);
-		gridMainMenuView.setVgap(10);
-		gridMainMenuView.setPadding(new Insets(25, 25, 25, 25));
-		gridMainMenuView.add(lblUserName, 0, 4);
-		gridMainMenuView.add(showLobby, 0, 5);
-		gridMainMenuView.add(showGameLobbyScreen, 0, 6);
-		gridMainMenuView.add(hBoxButton, 0, 7);
-		gridMainMenuView.add(hBoxSlider, 0, 8);
-		gridMainMenuView.setMinSize(400, 400);
-		lblUserName.getStyleClass().add("outline");
-		
+		gridMainMenuView.setHgap(5);
+		gridMainMenuView.setVgap(5);
+		gridMainMenuView.add(lblUserName, 0, 1);
+		gridMainMenuView.add(hBoxBoard, 0, 3);
+		gridMainMenuView.add(hBoxLobby, 0, 5);
+		gridMainMenuView.add(hBoxMusicButton, 0, 7);
+		gridMainMenuView.add(volumeSlider, 0, 9);
+		gridMainMenuView.add(hBoxLogout, 0, 11);
+		gridMainMenuView.setMinSize(700, 400);
 		
 		/*
 		 * Loading Screen Animation = https://stackoverflow.com/questions/45326525/how-to-show-a-loading-animation-in-javafx-application
@@ -125,29 +145,10 @@ public class MainMenuView {
 
 		    Platform.runLater(()-> messageField.getStyleClass().remove("smallLoading"));
 		}).start();
-		
-		
-		String path = new File("src/client_v0/Halo 2 Theme song.wav").getAbsolutePath();
-		musicFile = new Media(new File(path).toURI().toString());
-		musicPlayer = new MediaPlayer(musicFile);
-		mediaView.setMediaPlayer(musicPlayer);
-		DoubleProperty width = mediaView.fitWidthProperty();
-		DoubleProperty height = mediaView.fitHeightProperty();
-		width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
-		hieght.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
-		volumeSlider.setValue(musicPlayer.getVolume() * 100);
-		volumeSlider.valueProperty().addListener(New InvalidationListener());
-		musicPlayer.setVolume(volumeSlider.getValue() / 100);
-		
-		musicFile = new Media("Halo 2 Theme.mp3");
-		mediaPlayer = new MediaPlayer(musicFile);
-		mediaPlayer.setVolume(0.1);
-		mediaPlayer.setAutoPlay(true);
 		*/
-		
 
 		
-		scene = new Scene(gridMainMenuView, 400, 400);
+		scene = new Scene(gridMainMenuView, 700, 400);
 		scene.getStylesheets().add(getClass().getResource("MainMenuJass.css").toExternalForm());
 		
 		showLobby.setOnAction(e ->{
@@ -158,15 +159,43 @@ public class MainMenuView {
 		});
 		
 		
-		showGameLobbyScreen.setOnAction(e2 -> {
-			showgamelobbyScreen();
+		createGameLobby.setOnAction(e2 -> {
+			createGameLobby();
 			
 		});
-			/*
+		
+		joinGameLobby.setOnAction(e3 -> {
+			joinGameLobby();
+			
 		});
+		
+		// Author: Florian J�ger
+	     logOut.setOnAction(e -> {
+	    	 clientController.getGamelobbyList();
+	    	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
+	         pause.setOnFinished(e5 -> {
+
+	        	 int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
+	             String [] lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
+	    		 String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
+	             for (String str:gameLobbyList) {
+	             clientController.leaveGamelobby(str);
+	             }
+
+
+	         clientController.logout();
+	         this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
+	     });
+
+	     pause.play();
+
+	     });
+			
+		
 		playMusic.setOnAction(e3 -> {
 			musicPlayer.play();
 		});
+		
 		pauseMusic.setOnAction(e4 -> {
 			musicPlayer.pause();
 		});
@@ -174,108 +203,128 @@ public class MainMenuView {
 			musicPlayer.stop();
 		});
 
-		*/
+		
 	
 	}
+	// Author: Florian J�ger
+	public void joinGameLobby() {
+		//Based on http://tutorials.jenkov.com/javafx/listview.html
+        Stage stage = new Stage();
 
-	//Open Gamelobby View
-		public void showgamelobbyScreen() {
-	        //Based on http://tutorials.jenkov.com/javafx/listview.html
-	        Stage stage = new Stage();
-	        
-	               
-	        Button btnCreateGamelobby = new Button("Create gamelobby:");
-	        Button btnJoinGamelobby = new Button("Join selected gamelobby");
-	     
-	        stage.setTitle("Gamelobby List");
+        Button btnJoinGamelobby = new Button("Join selected gamelobby");
+        btnJoinGamelobby.setId("btnJoinGamelobby");
+     
+        stage.setTitle("Gamelobby List");
 
-	        ListView listView = new ListView();
+        ListView listView = new ListView();
 
-	        clientController.getGamelobbyList();
-	        //Not the best way to do it but it does the trick
-	        PauseTransition pause = new PauseTransition(Duration.seconds(1));
-	        pause.setOnFinished(e -> {
-	            int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
-	            String [] lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
-							String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
-	            for (String str:gameLobbyList) {
-	                listView.getItems().add(str);
-	            }
-	            btnJoinGamelobby.setOnAction(e2 -> {
-	                ObservableList selectedIndices = listView.getSelectionModel().getSelectedIndices();
-	                String gamelobby = "";
-	                for(Object o : selectedIndices){
-	                    gamelobby = (String)listView.getItems().get((int)o);
-	                    clientController.joinGamelobby(gamelobby);
-	                    
-	                }
-	                //Don't do this at home kids !
-	                PauseTransition pause2 = new PauseTransition(Duration.seconds(1));
-	                finalGamelobby = gamelobby;
-	                view.setGamelobby(finalGamelobby);
-	                pause2.setOnFinished(e3 -> {
-	                    int lastMessageIndex2 = view.msgArea.getText().split("\n").length-1;
-	                    String lastMessage2 = view.msgArea.getText().split("\n")[lastMessageIndex2];
+        clientController.getGamelobbyList();
+        //Not the best way to do it but it does the trick
+        PauseTransition pause = new PauseTransition(Duration.seconds(1));
+        pause.setOnFinished(e -> {
+            int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
+            String [] lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
+						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
+            for (String str:gameLobbyList) {
+                listView.getItems().add(str);
+            }
+            btnJoinGamelobby.setOnAction(e2 -> {
+                ObservableList selectedIndices = listView.getSelectionModel().getSelectedIndices();
+                String gamelobby = "";
+                for(Object o : selectedIndices){
+                    gamelobby = (String)listView.getItems().get((int)o);
+                    clientController.joinGamelobby(gamelobby);
+                    this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
+                    
+                }
+                //Don't do this at home kids !
+                PauseTransition pause2 = new PauseTransition(Duration.seconds(1));
+                finalGamelobby = gamelobby;
+                view.setGamelobby(finalGamelobby);
+                pause2.setOnFinished(e3 -> {
+                    int lastMessageIndex2 = view.msgArea.getText().split("\n").length-1;
+                    String lastMessage2 = view.msgArea.getText().split("\n")[lastMessageIndex2];
 
-	                    if (lastMessage2.startsWith("PlayerIDs")){
-	                        clientController.joinSuccessfull(finalGamelobby);
-							clientController.joinedGamelobbyMode();
+                    if (lastMessage2.startsWith("PlayerIDs")){
+                        clientController.joinSuccessfull(finalGamelobby);
+						clientController.joinedGamelobbyMode();
 
-							for (int x=0; x < view.playerIDs.length; x++) {
-								if (clientController.getPlayerIDs(x)!=null){
-									view.playerIDs[x]= clientController.getPlayerIDs(x);
-									System.out.println("Arraypostition"+ x+" "+view.playerIDs[x]);
-								}
-								else{
-									System.out.println("Arraypostition"+ x+" "+"is empty");
-								}
-
-								}
-
-
-	                        stage.close();
-							if (clientController.isFull()){
-								clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
+						for (int x=0; x < view.playerIDs.length; x++) {
+							if (clientController.getPlayerIDs(x)!=null){
+								view.playerIDs[x]= clientController.getPlayerIDs(x);
+								System.out.println("Arraypostition"+ x+" "+view.playerIDs[x]);
+							}
+							else{
+								System.out.println("Arraypostition"+ x+" "+"is empty");
+							}
 
 							}
-	                        //Handling Create Account button
-	                                                                       
-	                    }
-
-	                });
-	                pause2.play();
-	            });
-	        });
-	        pause.play();
-
-	        btnCreateGamelobby.setOnAction(e4 -> {
-	            // Assume success always!
-	        					
-	    			TextInputDialog txtInput = new TextInputDialog();
-	    	    	 txtInput.setTitle("Create new gamelobby");
-	    	    	 txtInput.setContentText("Name of new gamelobby:");
-						Optional<String> result = txtInput.showAndWait();
-	    	    	 String newGamelobby = "";
-	    	    	 if (result.isPresent()){
-	    	    	 	newGamelobby = result.get();
-							 }
-	    	    	
-	    			clientController.createGamelobby(newGamelobby);
-	    	    	 stage.close();
-	    			
-	                clientController.showAlert("New gamelobby","The gamelobby " + newGamelobby + " has been created");
-				showgamelobbyScreen();
-	                            
-	    		});
 
 
+                        stage.close();
+						if (clientController.isFull()){
+							clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
 
-	        VBox vBox = new VBox(listView, btnJoinGamelobby,btnCreateGamelobby);
-	        vBox.setStyle("-fx-background-color: BEIGE;");
-	        Scene scene = new Scene(vBox, 250, 150);
-	        stage.setScene(scene);
-	        stage.show();
-	    }
+						}
+                        //Handling Create Account button
+                                                                       
+                    }
+
+                });
+                pause2.play();
+            });
+        });
+        pause.play();
+
+        VBox vBox = new VBox(listView, btnJoinGamelobby);
+        vBox.setStyle("-fx-background-color: BEIGE;");
+        vBox.setAlignment(Pos.BOTTOM_CENTER);
+        Scene scene = new Scene(vBox, 275, 150);
+        scene.getStylesheets().add(getClass().getResource("CreateJoinLobby.css").toExternalForm());
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    
+	}
+	
+	// Author: Florian J�ger
+	public void createGameLobby() {
+		//Based on http://tutorials.jenkov.com/javafx/listview.html
+		Stage stage = new Stage();
+		
+		Button btnCreateGamelobby = new Button("Create gamelobby:");
+		stage.setTitle("Gamelobby List");
+		
+		btnCreateGamelobby.setOnAction(e4 -> {
+            // Assume success always!
+        					
+    			TextInputDialog txtInput = new TextInputDialog();
+    	    	 txtInput.setTitle("Create new gamelobby");
+    	    	 txtInput.setContentText("Name of new gamelobby:");
+					Optional<String> result = txtInput.showAndWait();
+    	    	 String newGamelobby = "";
+    	    	 if (result.isPresent()){
+    	    	 	newGamelobby = result.get();
+						 }
+    	    	
+    			clientController.createGamelobby(newGamelobby);
+    	    	 stage.close();
+    			
+                clientController.showAlert("New gamelobby","The gamelobby " + newGamelobby + " has been created");
+                joinGameLobby();
+                            
+    		});
+		
+		BorderPane bp = new BorderPane ();
+		VBox vBox = new VBox(btnCreateGamelobby);
+		vBox.setAlignment(Pos.CENTER);
+		Scene scene = new Scene(vBox, 275, 150);
+		scene.getStylesheets().add(getClass().getResource("CreateJoinLobby.css").toExternalForm());
+		stage.setResizable(false);
+		stage.setScene(scene);
+	    stage.show();
+	}
+
 	
 	public static Scene getScene() {
 		return scene;
