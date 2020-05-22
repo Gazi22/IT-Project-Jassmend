@@ -92,7 +92,7 @@ public class CreateAccountView{
 		 btnSubmit.setOnAction(event -> {
 	            // Assume success always!
 			
-			//jassDB.registerAccDB(txtUsername.getText(), txtPassword.getText());
+			jassDB.registerAccDB(txtUsername.getText(), txtPassword.getText());
 			clientController.registerUser(txtUsername.getText(), txtPassword.getText());
 			this.clientController.getLoginView().newStageCreateAccount.close();
 			});

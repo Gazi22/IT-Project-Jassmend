@@ -56,6 +56,9 @@ public class ClientViewManager {
     public MainMenuView getMenuView() {
     	return menuView;
     }
-    
+
+
+
+
    
 }

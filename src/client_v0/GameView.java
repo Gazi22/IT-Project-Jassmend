@@ -4,19 +4,12 @@ package client_v0;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
-import jassmendModel.JassmendModel;
-import jassmendModel.Player;
 import jassmendView.CardView;
 import jassmendView.PlayerPane;
-import client_v0.ClientTrumpfView;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -31,24 +24,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Toolkit;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 
 
 public class GameView {
@@ -72,11 +51,14 @@ public class GameView {
 	//Player areas
 	
 	//Player bottom
-	Label userNamePl1 = new Label("Player 1");
+	Label userNamePl1 = new Label("");
+	VBox player1Info =new VBox();
 	Label scorePl1 = new Label("Score:");
 	VBox player1Box = new VBox();
+	VBox player1InfoBox=new VBox();
 	HBox player1Cards = new HBox();
 	Button player1Btn = new Button("Test");
+	HBox player1BottomBox=new HBox();
 	
 	//Player top
 	Label userNamePl2 = new Label("Player 2");
@@ -130,6 +112,34 @@ public class GameView {
 	VBox chatbox2 = new VBox ();
 	VBox chatbox3 = new VBox ();
 
+	// Leaderboard
+
+	Label lblLeaderboard = new Label("Leaderboard");
+	Label lblRound = new Label("Round:");
+	Label lblTeam1 = new Label("Team1");
+	Label lblPl1 = new Label("Player1");
+	Label lblPl2 = new Label("Player2");
+	Label lblSticheT1 = new Label("SticheT1");
+	Label lblScoreT1 = new Label("ScoreT1");
+	Label lblTeam2 = new Label("Team2");
+	Label lblPl3 = new Label("Player3");
+	Label lblPl4 = new Label("Player4");
+	Label lblSticheT2 = new Label("SticheT2");
+	Label lblScoreT2 = new Label("ScoreT2");
+	Label lblStiche = new Label("Stiche ");
+	Label lblScore = new Label("Score");
+
+
+	HBox lblLeaderboardBox = new HBox();
+	HBox rssBox = new HBox();
+	HBox team1Box = new HBox();
+	HBox pl1team1Box = new HBox();
+	HBox pl2team1Box = new HBox();
+	HBox team2Box = new HBox();
+	HBox pl1team2Box = new HBox();
+	HBox pl2team2Box = new HBox();
+	VBox lbBox = new VBox();
+
 
 	//PlayArea
 	HBox playedCardPl1 = new HBox();
@@ -140,7 +150,7 @@ public class GameView {
 
 // Label for displaying the trumpf suit
 
-	Label trumpf = new Label();
+	Label lblTrumpf = new Label();
 
 
 	public GameView (ClientController clientController, ClientModel model) {
@@ -196,7 +206,10 @@ public class GameView {
 
 		player1Box.getChildren().add(pp);
 		player1Box.setAlignment(Pos.CENTER);
-
+		player1Info.getChildren().add(userNamePl1);
+		player1InfoBox.getChildren().addAll(player1Box,player1Info);
+		player1BottomBox.getChildren().add(player1InfoBox);
+		player1BottomBox.setAlignment(Pos.CENTER);
 		player2Info.getChildren().add(userNamePl2);
 		player2Info.getChildren().add(scorePl2);
 
@@ -250,20 +263,32 @@ public class GameView {
 		//----------------------------------------------------------------------------------------------------------
 		//Table Leaderboard
 
-		TableView table = new TableView();
-		table.setEditable(false);
 
-		//Runde
-		//Team
-		//Stiche
-		//Score
-		TableColumn roundCol = new TableColumn("Round");
-		TableColumn teamCol = new TableColumn("Team");
-		TableColumn stichCol = new TableColumn("Stiche");
-		TableColumn scoreCol = new TableColumn("Score");
+		lblLeaderboardBox.getChildren().add(lblLeaderboard);
+		lblLeaderboardBox.setAlignment(Pos.CENTER);
+		lblLeaderboard.setId("Leaderboard");
 
+		rssBox.getChildren().addAll(lblRound, lblStiche, lblScore);
+		rssBox.setAlignment(Pos.CENTER_LEFT);
+		rssBox.setSpacing(15);
 
-		table.getColumns().addAll(roundCol, teamCol , stichCol, scoreCol);
+		team1Box.getChildren().addAll(lblTeam1, lblSticheT1, lblScoreT1);
+		team1Box.setAlignment(Pos.CENTER_LEFT);
+		team1Box.setSpacing(10);
+
+		pl1team1Box.getChildren().add(lblPl1);
+		pl2team1Box.getChildren().add(lblPl2);
+
+		team2Box.getChildren().addAll(lblTeam2, lblSticheT2, lblScoreT2);
+		team2Box.setAlignment(Pos.CENTER_LEFT);
+		team2Box.setSpacing(10);
+
+		pl1team2Box.getChildren().add(lblPl3);
+		pl2team2Box.getChildren().add(lblPl4);
+
+		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box,pl1team1Box, pl2team1Box, team2Box, pl1team2Box, pl2team2Box);
+		lbBox.setSpacing(40);
+
 
 
 
@@ -302,31 +327,29 @@ public class GameView {
 		BorderPane innerPane = new BorderPane();
 		innerPane.setVisible(true);
 
-		middlePane.setBottom(player1Box);
+		middlePane.setBottom(player1BottomBox);
 		middlePane.setTop(player3Box);
 		middlePane.setLeft(player2Info);
 		middlePane.setRight(player4Info);
 		middlePane.setCenter(innerPane);
 
+		middlePane.setId("middlePane");
+
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
 		outerPane.setRight(chatArea);
-		outerPane.setLeft(table);
+		outerPane.setLeft(lbBox);
 		outerPane.setBottom(controlBox);
 
 		innerPane.setBottom(playedCardPl1);
 		innerPane.setLeft(playedCardPl2);
 		innerPane.setTop(playedCardPl3);
 		innerPane.setRight(playedCardPl4);
-		innerPane.setCenter(trumpf);
+		innerPane.setCenter(lblTrumpf);
 
 		scene = new Scene(outerPane);
 		scene.getStylesheets().add(getClass().getResource("Jass.css").toExternalForm());
-		//	primaryStage.setMinHeight(500);//500
-		//	primaryStage.setMinWidth(1250);//1250
-		//	primaryStage.setScene(scene);
-		//	primaryStage.setTitle("Jassmend");
-		//primaryStage.setMaximized(true);
+
 
 
 		btnSend.setOnAction((event -> {
@@ -577,6 +600,26 @@ public void setGamelobby(String gamelobby){
 	public Button getBtnTrumpf() {
 		return btnTrumpf;
 	}
+
+
+
+	public Label getUserNamePl1(){
+		return userNamePl1;
+	}
+	public Label getUserNamePl2(){
+		return userNamePl2;
+	}
+	public Label getUserNamePl3(){
+		return userNamePl3;
+	}
+	public Label getUserNamePl4(){
+		return userNamePl4;
+	}
+
+	public Label getLblTrumpf(){
+		return lblTrumpf;
+	}
+
 }
 
 

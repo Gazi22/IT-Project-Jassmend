@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 
 import java.io.BufferedReader;
@@ -165,6 +166,16 @@ public class ClientController {
 
                                             System.out.println("The gamelobby is full, the game will now start");
                                             //show gameView
+                                            setTextlblUsername();
+                                            Platform.runLater(new Runnable() {
+                                                @Override public void run() {
+
+                                                    getViewManager().primaryStage.setTitle("Jassmend");
+                                                    getViewManager().primaryStage.setScene(GameView.getScene());
+                                                    getViewManager().primaryStage.setMaximized(true);
+                                                }
+                                                });
+
                                             getGameView();
                                             comparePlayerIDs();
                                             setGameConfig();
@@ -518,6 +529,10 @@ public class ClientController {
         clientModel.setHash(hash);
     }
 
+    public String getUsername(){
+        return clientModel.getUser();
+    }
+
     public void getGamelobbyList(){
         //No additional checks done, since button is disabled until confirmed login
         String concatString = "ListGamelobbys|"+clientModel.gethash();
@@ -638,6 +653,7 @@ public class ClientController {
     public void joinSuccessfull(String gamelobby){
         clientModel.setCurrentgamelobby(gamelobby);
     }
+
 
 
     public LoginView getLoginView() {
@@ -874,6 +890,56 @@ public class ClientController {
                 getViewManager().primaryStage.setScene(GameView.getScene());
             }
         });
+    }
+
+
+    public void setTextlblUsername() {
+
+        int y =0;
+        int playerID= 0;
+
+        for(int v = 0; v< playerIDs.length; v++) {
+            if (playerIDs[v].equals(clientModel.getUser())) {
+                playerID = v;
+            }
+        }
+
+
+        switch(playerID){
+            case 0:
+                gameView.getUserNamePl1().setText(playerIDs[0]);
+                gameView.getUserNamePl2().setText(playerIDs[1]);
+                gameView.getUserNamePl3().setText(playerIDs[2]);
+                gameView.getUserNamePl4().setText(playerIDs[3]);
+                break;
+            case 1:
+                gameView.getUserNamePl1().setText(playerIDs[1]);
+                gameView.getUserNamePl2().setText(playerIDs[2]);
+                gameView.getUserNamePl3().setText(playerIDs[3]);
+                gameView.getUserNamePl4().setText(playerIDs[0]);
+                break;
+            case 2:
+                gameView.getUserNamePl1().setText(playerIDs[2]);
+                gameView.getUserNamePl2().setText(playerIDs[3]);
+                gameView.getUserNamePl3().setText(playerIDs[0]);
+                gameView.getUserNamePl4().setText(playerIDs[1]);
+                break;
+            case 3:
+                gameView.getUserNamePl1().setText(playerIDs[3]);
+                gameView.getUserNamePl2().setText(playerIDs[0]);
+                gameView.getUserNamePl3().setText(playerIDs[1]);
+                gameView.getUserNamePl4().setText(playerIDs[2]);
+                break;
+        }
+
+    }
+
+    public Label getLblTrumpf(){
+        return gameView.getLblTrumpf();
+    }
+
+    public void setTextlblUsernameMenu() {
+        menuView.getLblUserName().setText("Welcome "+ getUsername()+" to JASSMEND!");
     }
 
     public String getFirstPlayer(){

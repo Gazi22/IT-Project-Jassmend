@@ -74,7 +74,7 @@ public class MainMenuView {
 	
 	    hBoxSlider.setSpacing(5);
 	    hBoxSlider.setAlignment(Pos.CENTER);
-		
+
 		volumeSlider = new Slider();
 		volumeSlider.setMin(0);
 		volumeSlider.setMax(100);
@@ -151,7 +151,10 @@ public class MainMenuView {
 		scene.getStylesheets().add(getClass().getResource("MainMenuJass.css").toExternalForm());
 		
 		showLobby.setOnAction(e ->{
+
+			this.clientController.getViewManager().primaryStage.setTitle("Jassmend");
 			this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
+			this.clientController.getViewManager().primaryStage.setMaximized(true);
 		});
 		
 		
@@ -280,5 +283,9 @@ public class MainMenuView {
 
 	public String getFinalGamelobby(){
 		return finalGamelobby;
+	}
+
+	public Label getLblUserName(){
+		return lblUserName;
 	}
 }

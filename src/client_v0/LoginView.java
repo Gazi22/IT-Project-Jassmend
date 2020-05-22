@@ -118,7 +118,8 @@ public class LoginView {
                     int hashIndex = lastMessage.split("\\|").length-1;
                     String hash = lastMessage.split("\\|")[hashIndex];
                     clientController.loginSuccesfull(user, hash);
-                   
+
+                    clientController.setTextlblUsernameMenu();
                     this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene()); 
                 }
                 else {

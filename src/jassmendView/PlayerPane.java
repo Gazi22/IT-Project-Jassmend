@@ -50,7 +50,7 @@ public class PlayerPane extends VBox {
     	//added new fx thread
 		Platform.runLater(new Runnable() {
 			@Override public void run() {
-				lblName.setText(Player.getPlayerName());
+
 				for (int i = 0; i < Player.HAND_SIZE; i++) {
 					Card card = null;
 					if (player.getCards().size() > i) card = player.getCards().get(i);

@@ -57,15 +57,19 @@ public class ClientTrumpfView {
 	
 	btnEcke.setOnAction(e1->{
 		clientController.sendTrumpf("Ecke",clientController.getFinalGamelobby());
+		clientController.getLblTrumpf().setGraphic(new ImageView(image1));
 		});
 	btnSchaufel.setOnAction(e1->{
 		clientController.sendTrumpf("Schaufel",clientController.getFinalGamelobby());
+		clientController.getLblTrumpf().setGraphic(new ImageView(image4));
 		});
 	btnKreuz.setOnAction(e1->{
 		clientController.sendTrumpf("Kreuz",clientController.getFinalGamelobby());
+		clientController.getLblTrumpf().setGraphic(new ImageView(image3));
 		});
 	btnHerz.setOnAction(e1->{
 		clientController.sendTrumpf("Herz",clientController.getFinalGamelobby());
+		clientController.getLblTrumpf().setGraphic(new ImageView(image2));
 		});
 	
 	

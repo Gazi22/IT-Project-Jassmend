@@ -13,6 +13,7 @@
 .root{
     -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
     -fx-background-size:cover;
+    
 }
 
 .button {
@@ -33,12 +34,79 @@
     -fx-scale-x: 1.5;
 }
 
-.table-view{
-	-fx-border-color: b8860b;
+
+#btnSend{
+
+    -fx-border-radius: 7px;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow(three-pass-box, #000000, 5, 0, 0, 5);
+    -fx-background-color: linear-gradient(to right, rgba(230,171,0,1) 0%, rgba(223,189,0,1) 100%);
+    -fx-min-height: 10;
+    -fx-min-width: 10;
+    -fx-text-fill: black;
 
 
 }
 
+#btnSend:hover{
+	-fx-scale-y:0.8;
+    -fx-scale-x:0.8;
+
+}
+
+
+Label{
+
+	-fx-font-family: "Arial Black";
+	-fx-font-size: 12px;
+
+
+}
+
+
+
+#Leaderboard{
+
+	-fx-font-family: "Arial Black";
+	-fx-font-size: 20px;
+
+}
+
+
+
+#middlePane{
+
+	-fx-border-color: black;
+	-fx-border-width: 3px;
+
+
+}
+
+
+
+
+.titled-pane{
+	-fx-border-color: b8860b;
+	
+	
+	
+
+
+}
+
+.text-field{
+
+	-fx-background-color: white;
+	-fx-border-color: black;
+
+}
+
+.text-area{
+
+	-fx-background-color: white;
+	-fx-border-color: black;
+}
 
 .card {
     -fx-font-size: 50.0px;
