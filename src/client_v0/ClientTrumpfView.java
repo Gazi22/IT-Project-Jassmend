@@ -38,9 +38,17 @@ public class ClientTrumpfView {
 	    lblHerz.setGraphic(new ImageView(image2));	
 	    Image image3 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz_Jass_trumpf.jpg"));
 	    lblKreuz.setGraphic(new ImageView(image3));	
-	    Image image4 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufe_Jass_trumpf.jpg"));
-	    lblSchaufel.setGraphic(new ImageView(image4));	
-		
+	    Image image4 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel_Jass_trumpf.jpg"));
+	    lblSchaufel.setGraphic(new ImageView(image4));
+
+		Image image5 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke.png"));
+		Image image6 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz.png"));
+		Image image7 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz.png"));
+		Image image8 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel.png"));
+
+
+
+
 		HBox trumpfBox = new HBox();
 		trumpfBox.setSpacing(5);
 		trumpfBox.getChildren().addAll(lblEcke, lblHerz, lblKreuz, lblSchaufel);
@@ -57,19 +65,19 @@ public class ClientTrumpfView {
 	
 	btnEcke.setOnAction(e1->{
 		clientController.sendTrumpf("Ecke",clientController.getFinalGamelobby());
-		clientController.getLblTrumpf().setGraphic(new ImageView(image1));
+		clientController.getLblTrumpf().setGraphic(new ImageView(image5));
 		});
 	btnSchaufel.setOnAction(e1->{
 		clientController.sendTrumpf("Schaufel",clientController.getFinalGamelobby());
-		clientController.getLblTrumpf().setGraphic(new ImageView(image4));
+		clientController.getLblTrumpf().setGraphic(new ImageView(image8));
 		});
 	btnKreuz.setOnAction(e1->{
 		clientController.sendTrumpf("Kreuz",clientController.getFinalGamelobby());
-		clientController.getLblTrumpf().setGraphic(new ImageView(image3));
+		clientController.getLblTrumpf().setGraphic(new ImageView(image7));
 		});
 	btnHerz.setOnAction(e1->{
 		clientController.sendTrumpf("Herz",clientController.getFinalGamelobby());
-		clientController.getLblTrumpf().setGraphic(new ImageView(image2));
+		clientController.getLblTrumpf().setGraphic(new ImageView(image6));
 		});
 	
 	

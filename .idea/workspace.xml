@@ -20,21 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19__2_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IT-Project-Jassmend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IT-Project-Jassmend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/META-INF/IT-Project-Jassmend.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/ClientTrumpfView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientTrumpfView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientViewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/CreateAccountView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/CreateAccountView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/Jass.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/MainMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/MainMenuView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jassmendView/PlayerPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jassmendView/PlayerPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trumpf/images/test.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,22 +219,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="431" height="466" key="DebuggerActiveHint/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590069110179" />
-    <state width="2517" height="221" key="GridCell.Tab.0.bottom" timestamp="1590164963569">
+    <state width="2517" height="221" key="GridCell.Tab.0.bottom" timestamp="1590165643994">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="221" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590164963569" />
-    <state width="2517" height="221" key="GridCell.Tab.0.center" timestamp="1590164963569">
+    <state width="2517" height="221" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590165643994" />
+    <state width="2517" height="221" key="GridCell.Tab.0.center" timestamp="1590165643993">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="221" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590164963569" />
-    <state width="2517" height="221" key="GridCell.Tab.0.left" timestamp="1590164963569">
+    <state width="2517" height="221" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590165643993" />
+    <state width="2517" height="221" key="GridCell.Tab.0.left" timestamp="1590165643993">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="221" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590164963569" />
-    <state width="2517" height="221" key="GridCell.Tab.0.right" timestamp="1590164963569">
+    <state width="2517" height="221" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590165643993" />
+    <state width="2517" height="221" key="GridCell.Tab.0.right" timestamp="1590165643993">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="221" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590164963569" />
+    <state width="2517" height="221" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590165643993" />
     <state width="2517" height="286" key="GridCell.Tab.1.bottom" timestamp="1590164227690">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
