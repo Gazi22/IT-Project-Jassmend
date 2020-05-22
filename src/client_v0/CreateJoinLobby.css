@@ -1,0 +1,30 @@
+
+
+.root{
+    -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
+    -fx-background-size:cover;
+}
+
+.button {
+	 -fx-background-color: #ffd700;
+	 -fx-background-radius: 50px;
+ 	 -fx-font-family: "Arial Rounded MT Bold";
+   	 -fx-font-size: 15px;
+   	 -fx-cursor: hand;
+
+}
+
+.button:hover {
+
+	-fx-background-color: linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(255,209,0,1) 100%);;
+    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.1;
+
+}
+
+#btnJoinGamelobby {
+
+	-fx-scale-y: 1;
+    -fx-scale-x: 1;
+
+}

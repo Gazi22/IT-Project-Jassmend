@@ -15,6 +15,8 @@ import jassmendView.CardView;
 import jassmendView.PlayerPane;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -32,6 +34,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.awt.Desktop;
@@ -66,9 +70,7 @@ public class GameView {
 
 	Button btnDeal = new Button("Deal");
 	// Player areas
-	
 	Insets insets = new Insets(10);
-	//Player areas
 	
 	//Player bottom
 	Label userNamePl1 = new Label("Player 1");
@@ -104,17 +106,12 @@ public class GameView {
 	Menu HelpMenu = new Menu("Help");
 	Menu returnToMenu = new Menu("Return To Menu");
 	Menu helpMenu = new Menu("Help");
-	Menu soundMenu = new Menu("Sound Options");
 	
 	MenuItem ResumeItem = new MenuItem("Quit Game");
 	MenuItem LogoutItem = new MenuItem("Logout");
 	MenuItem RulesItem = new MenuItem("How to play?");
 
 	MenuItem clickToReturn = new MenuItem("Click to return");
-	CustomMenuItem customMenuItem = new CustomMenuItem(new Slider());
-	MenuItem playSound = new MenuItem("Play Music");
-	MenuItem pauseSound = new MenuItem("Pause Music");
-	MenuItem stopSound = new MenuItem("Stop Music");
     
 	
 	
@@ -145,13 +142,12 @@ public class GameView {
 
 
 	this.clientController = clientController;
+	this.mainMenuView = mainMenuView;
 	PlayerPane pp = new PlayerPane();
 	pp.setPlayer(model.getPlayer(1));
 	OptionsMenu.getItems().addAll(ResumeItem,LogoutItem);
 	HelpMenu.getItems().addAll(RulesItem);
 	returnToMenu.getItems().addAll(clickToReturn);
-	soundMenu.getItems().addAll(playSound, pauseSound, stopSound, customMenuItem);
-	customMenuItem.setHideOnClick(false);
 
 
 	// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
@@ -178,12 +174,8 @@ public class GameView {
 			this.clientController.getViewManager().primaryStage.close();
 		});
 		
-		
-		
-		
 
-
-		meba.getMenus().addAll(OptionsMenu, HelpMenu, returnToMenu, soundMenu);
+		meba.getMenus().addAll(OptionsMenu, HelpMenu, returnToMenu);
 	
 	// ___________________________________________________________________
 
