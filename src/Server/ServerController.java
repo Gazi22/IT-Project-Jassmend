@@ -78,6 +78,9 @@ public class ServerController {
         } else return null;
     }
 
+
+
+
     public void trumpfComparison(String trumpf) {
         switch (trumpf) {
             case "Herz":

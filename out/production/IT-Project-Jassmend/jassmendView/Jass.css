@@ -13,6 +13,7 @@
 .root{
     -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
     -fx-background-size:cover;
+    
 }
 
 .button {
@@ -63,16 +64,31 @@ Label{
 
 }
 
-.table-view{
+
+
+#Leaderboard{
+
+	-fx-font-family: "Arial Black";
+	-fx-font-size: 20px;
+
+}
+
+
+
+#middlePane{
+
 	-fx-border-color: black;
-	-fx-background-color: transparent //#D2AB6F 	rgb(210, 171, 111)
+	-fx-border-width: 3px;
 
 
 }
 
+
+
+
 .titled-pane{
 	-fx-border-color: b8860b;
-	-fx-
+	
 	
 	
 

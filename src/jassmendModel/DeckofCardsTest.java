@@ -128,9 +128,9 @@ class DeckofCardsTest {
 
 			Card card2=new Card(Card.Suit.Herz, Card.Rank.Ass);
 
-			Card card3=new Card(Card.Suit.Herz, Card.Rank.Neun);
+			Card card3=new Card(Card.Suit.Kreuz, Card.Rank.Sieben);
 
-			Card card4=new Card(Card.Suit.Herz, Card.Rank.Bube);
+			Card card4=new Card(Card.Suit.Herz, Card.Rank.Acht);
 
 
 			cardsTotal.add(card1);
@@ -182,9 +182,11 @@ class DeckofCardsTest {
 
 		Collections.sort(cardsTotal);
 		Collections.reverse(cardsTotal);
+		cardsTotal.get(0).compareTo(cardsTotal.get(2));
+		cardsTotal.get(2).compareTo(cardsTotal.get(0));
 		String username2="";
 		System.out.println(cardsTotal.toString()+"                   "+cardsTotal.get(0).toString());
-		System.out.println(cardsTotal.get(0).getSuitValue());
+		System.out.println(cardsTotal.get(0).getSuitValue()+cardsTotal.get(1).getSuitValue());
 
 
 

@@ -21,8 +21,12 @@ public class Card implements Collection <Card>, Serializable, Comparable<Card> {
 			if (this.getSuitValue() == 3&&o.getSuitValue()==3) {
 				if (this.rank.ordinal() == 5) {
 					return 1;
-				} else if (this.rank.ordinal() == 3 && o.rank.ordinal() != 5) {
+				}else if (o.rank.ordinal() == 5) {
+					return -1;
+				}else if (this.rank.ordinal() == 3 && o.rank.ordinal() != 5) {
 					return 1;
+				}else if (o.rank.ordinal() == 3 && this.rank.ordinal() != 5) {
+					return -1;
 				} else if (this.rank.ordinal() > o.rank.ordinal()) {
 					return 1;
 				} else if (this.rank.ordinal() < o.rank.ordinal()) {
@@ -67,11 +71,11 @@ public class Card implements Collection <Card>, Serializable, Comparable<Card> {
             int ordinal = this.ordinal();
             if (ordinal <= 4) {
                 str = Integer.toString(ordinal+6);
-			} else if (ordinal == 5) { // Queen
+			} else if (ordinal == 5) { // Bube
                 str = "Bube";
-            } else if (ordinal == 6) { // King
+            } else if (ordinal == 6) { // Dame
                 str = "Dame";
-            }else if (ordinal == 7) { // King
+            }else if (ordinal == 7) { // König
 				str = "Koenig";
 			}
             return str;
@@ -182,6 +186,14 @@ public class Card implements Collection <Card>, Serializable, Comparable<Card> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+public void completeSuitValue(){
+		herzValue =3;
+		eckeValue =3;
+		schaufelValue =3;
+		kreuzValue =3;
+	}
+
 
 	public void trumpfHerzSuitValue(){
 		herzValue =3;

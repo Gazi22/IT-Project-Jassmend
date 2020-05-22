@@ -3,6 +3,7 @@ package Server.message;
 import Server.Client;
 import Server.Gamelobby;
 import Server.ServerController;
+import jassmendModel.Card;
 
 /**
  * Add a user as a member of a gamelobby.
@@ -98,21 +99,29 @@ public class CardPlayed extends Message {
 
 
                 if (!cardPlayed.substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4)) && !cardPlayed.substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))) {
-                    for (int y = x; y < y + 9; y++) {
-
-                        if (gamelobby.getCardsDealt(y).substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4))) {
-                            if (!gamelobby.getCardsDealt(y).equals(gamelobby.getTrumpf() + "Bube")) {
-                                result = false;
-                                break;
-                            }
+                    for (int y = x; y < x + 9; y++) {
+                        if (gamelobby.getCardsDealt(y) != null) {
+                            if (gamelobby.getCardsDealt(y).substring(0, 4).equals(gamelobby.getFirstCardInTurn().substring(0, 4))) {
+                                if (!gamelobby.getCardsDealt(y).equals(gamelobby.getTrumpf() + "Bube")) {
+                                    result = false;
+                                    break;
+                                }
+                            } else result = true;
                         }
-                        else result = true;
                     }
-                } else result = true;
+                }else result = true;
+
                 if (cardPlayed.substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))&&!gamelobby.getFirstCardInTurn().substring(0,4).equals(gamelobby.getTrumpf().substring(0,4))) {
                     for (int z = 0; z < gamelobby.getCardCounter() - 1; z++) {
                         if (gamelobby.getCardsInRound(z).substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))) {
-                            if (serverController.stringToCard(gamelobby.getCardsInRound(z)).compareTo(serverController.stringToCard(cardPlayed)) == 1) {
+
+                            Card card1=serverController.stringToCard(gamelobby.getCardsInRound(z));
+                            Card card2=serverController.stringToCard(cardPlayed);
+
+                            card1.completeSuitValue();
+                            card2.completeSuitValue();
+
+                            if (card1.compareTo(card2) == 1) {
                                 result = false;
                                 break;
                             } else result = true;
