@@ -107,13 +107,9 @@ public class JassmendGameView {
 	Label lblLeaderboard = new Label("Leaderboard");
 	Label lblRound = new Label("Round:");
 	Label lblTeam1 = new Label("Team1");
-	Label lblPl1 = new Label("Player1");
-	Label lblPl2 = new Label("Player2");
 	Label lblSticheT1 = new Label("SticheT1");
 	Label lblScoreT1 = new Label("ScoreT1");
 	Label lblTeam2 = new Label("Team2");
-	Label lblPl3 = new Label("Player3");
-	Label lblPl4 = new Label("Player4");
 	Label lblSticheT2 = new Label("SticheT2");
 	Label lblScoreT2 = new Label("ScoreT2");
 	Label lblStiche = new Label("Stiche ");
@@ -123,12 +119,37 @@ public class JassmendGameView {
 	HBox lblLeaderboardBox = new HBox();
 	HBox rssBox = new HBox();
 	HBox team1Box = new HBox();
-	HBox pl1team1Box = new HBox();
-	HBox pl2team1Box = new HBox();
+	
 	HBox team2Box = new HBox();
-	HBox pl1team2Box = new HBox();
-	HBox pl2team2Box = new HBox();
+	
 	VBox lbBox = new VBox();
+	
+	
+	
+	
+	// Team table
+	
+	
+	Label lblTeam1Pl = new Label("Team1:");
+	
+	Label lblPl1 = new Label("Player1");
+	Label lblPl3 = new Label("Player3");
+	
+	Label lblTeam2Pl = new Label("Team2:");
+	
+	Label lblPl2 = new Label("Player2");
+	Label lblPl4 = new Label("Player4");
+	
+	VBox plTeam1Box = new VBox();
+	HBox team1PlBox = new HBox();
+	
+	VBox plTeam2Box = new VBox();
+	HBox team2PlBox = new HBox();
+	
+	
+	
+	VBox teamBox = new VBox();
+	
 	
 	
 	// Play Area
@@ -141,7 +162,7 @@ public class JassmendGameView {
 	
 	// Label for displaying the trumpf suit
 	
-	Label trumpf = new Label();
+	Label lbltrumpf = new Label();
 	
 	
 	
@@ -196,8 +217,7 @@ public class JassmendGameView {
 		HBox player3Box = new HBox(player3Info);
 		player3Box.setAlignment(Pos.CENTER);
 
-		player3Box.setVisible(true);
-
+	
 		player4Info.getChildren().add(userNamePl4);
 
 
@@ -217,8 +237,7 @@ public class JassmendGameView {
 		msgArea.setPrefHeight(600);
 		msgArea.setPrefWidth(300);
 		msgArea.setId("ChatArea");
-
-		
+	
 		chatbox1.getChildren().add(btnSend);
 		chatbox1.getChildren().add(txt1);
 
@@ -244,52 +263,73 @@ public class JassmendGameView {
 		//_____________________________________________________________________
 
 		
-		// Leaderboard
+		// Leaderboard & Team table
 		
 		
 		lblLeaderboardBox.getChildren().add(lblLeaderboard);
 		lblLeaderboardBox.setAlignment(Pos.CENTER);
+		lblLeaderboardBox.setPadding(new Insets(20,0,0,0));
 		lblLeaderboard.setId("Leaderboard");
 		
+		
+		lblRound.setId("lblRound");
+		lblStiche.setId("lblStiche");
+		lblScore.setId("lblScore");
 		rssBox.getChildren().addAll(lblRound, lblStiche, lblScore);
-		rssBox.setAlignment(Pos.CENTER_LEFT);
-		rssBox.setSpacing(15);
+		rssBox.setAlignment(Pos.CENTER);
+		rssBox.setPadding(new Insets(0,20,0,0));
+		rssBox.setSpacing(10);
+	
 		
 		team1Box.getChildren().addAll(lblTeam1, lblSticheT1, lblScoreT1);
-		team1Box.setAlignment(Pos.CENTER_LEFT);
+		lblTeam1.setId("lblTeam1");
+		lblSticheT1.setId("lblSticheT1");
+		lblScoreT1.setId("lblScoreT1");
+		team1Box.setAlignment(Pos.CENTER);
 		team1Box.setSpacing(10);
 		
-		pl1team1Box.getChildren().add(lblPl1);
-		pl2team1Box.getChildren().add(lblPl2);
 		
 		team2Box.getChildren().addAll(lblTeam2, lblSticheT2, lblScoreT2);
-		team2Box.setAlignment(Pos.CENTER_LEFT);
+		lblTeam2.setId("lblTeam2");
+		lblSticheT2.setId("lblSticheT2");
+		lblScoreT2.setId("lblScoreT2");
+		team2Box.setAlignment(Pos.CENTER);
 		team2Box.setSpacing(10);
+	
 		
-		pl1team2Box.getChildren().add(lblPl3);
-		pl2team2Box.getChildren().add(lblPl4);
-		
-		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box,pl1team1Box, pl2team1Box, team2Box, pl1team2Box, pl2team2Box);
+		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box, team2Box);
 		lbBox.setSpacing(40);
 		
+		plTeam1Box.getChildren().addAll(lblTeam1Pl, lblPl1, lblPl3);
+		lblTeam1Pl.setId("lblTeam1Pl");
+		lblPl1.setId("lblPl1");
+		lblPl3.setId("lblPl3");
+		plTeam1Box.setSpacing(7);
+		plTeam2Box.getChildren().addAll(lblTeam2Pl, lblPl2, lblPl4);
+		lblTeam2Pl.setId("lblTeam2Pl");
+		lblPl2.setId("lblPl2");
+		lblPl4.setId("lblPl4");
+		plTeam2Box.setSpacing(7);
+	
 		
-        /**TableView table = new TableView();
+		team1PlBox.getChildren().add(plTeam1Box);
+		team1PlBox.setAlignment(Pos. CENTER);
+		team2PlBox.getChildren().add(plTeam2Box);
+		team2PlBox.setAlignment(Pos. CENTER);
 		
-		table.setEditable(false);
+		teamBox.getChildren().addAll(team1PlBox,team2PlBox);
+		teamBox.setSpacing(10);
 		
-		//Runde
-		//Team
-		//Stiche
-		//Score
-		TableColumn roundCol = new TableColumn("Round");
-		TableColumn teamCol = new TableColumn("Team");
-		TableColumn stichCol = new TableColumn("Stiche");
-		TableColumn scoreCol = new TableColumn("Score");
+		VBox mpLeftBox = new VBox();
+		mpLeftBox.setMinWidth(300);
+		mpLeftBox.setMaxHeight(700);
+		mpLeftBox.setId("mpLeftBox");
+		
+		mpLeftBox.getChildren().addAll(lbBox, teamBox);
+		mpLeftBox.setSpacing(90);
 		
 		
-		
-		table.getColumns().addAll(teamCol, roundCol, stichCol, scoreCol);
-		*/
+	
 		//______________________________________________________________________
 		
 		
@@ -343,7 +383,7 @@ public class JassmendGameView {
         innerPane.setLeft(playedCardPl2);
         innerPane.setTop(playedCardPl3);
         innerPane.setRight(playedCardPl4);
-        innerPane.setCenter(trumpf);
+        innerPane.setCenter(lbltrumpf);
         
         
 		middlePane.setBottom(player1Box);
@@ -359,7 +399,7 @@ public class JassmendGameView {
 		outerPane.setTop(meba);
 		outerPane.setRight(chatArea); 
 		outerPane.setBottom(controlBox);
-		outerPane.setLeft(lbBox);
+		outerPane.setLeft(mpLeftBox);
 
 		
 		gameScene = new Scene(outerPane);

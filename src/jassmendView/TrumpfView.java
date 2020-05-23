@@ -38,13 +38,13 @@ public class TrumpfView {
 	public TrumpfView() {
 		
 		
-		Image image1 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke_Jass_trumpf.jpg"));
+		Image image1 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke_Jass_trumpf.png"));
 	    lblEcke.setGraphic(new ImageView(image1));	
-	    Image image2 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz_Jass_trumpf.jpg"));
+	    Image image2 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz_Jass_trumpf.png"));
 	    lblHerz.setGraphic(new ImageView(image2));	
-	    Image image3 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz_Jass_trumpf.jpg"));
+	    Image image3 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz_Jass_trumpf.png"));
 	    lblKreuz.setGraphic(new ImageView(image3));	
-	    Image image4 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufe_Jass_trumpf.jpg"));
+	    Image image4 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel_Jass_trumpf.png"));
 	    lblSchaufel.setGraphic(new ImageView(image4));	
 		
 		HBox trumpfBox = new HBox();

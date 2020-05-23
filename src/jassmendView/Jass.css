@@ -1,15 +1,3 @@
-
-
-.player {
-    -fx-font-size: 20.0px;
-    -fx-font-family: Forte;
-    -fx-font-color: rgb(250,250,210);
-    -fx-padding: 5.0px;
-    -fx-border-color: black;
-    -fx-border-width: 3.0px;
-    -fx-background-color: green;
-}
-
 .root{
     -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
     -fx-background-size:cover;
@@ -59,9 +47,85 @@
 Label{
 
 	-fx-font-family: "Arial Black";
-	-fx-font-size: 12px;
+	-fx-font-size: 14px;
+	
+
+}
 
 
+
+
+#lblRound{
+
+	-fx-text-fill: white;
+	-fx-font-size: 13px;
+}
+
+
+#lblStiche{
+
+	-fx-text-fill: white;
+	-fx-font-size: 13px;
+}
+
+#lblScore{
+
+	-fx-text-fill: white;
+	-fx-font-size: 13px;
+}
+
+#lblTeam1{
+	-fx-text-fill: white;
+}
+
+#lblSticheT1{
+	-fx-text-fill: white;
+}
+
+#lblScoreT1{
+	-fx-text-fill: white;
+}
+
+#lblTeam2{
+	-fx-text-fill: white;
+}
+
+#lblSticheT2{
+	-fx-text-fill: white;
+}
+
+#lblScoreT2{
+	-fx-text-fill: white;
+}
+
+#lblTeam1Pl{
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+}
+
+#lblTeam2Pl{
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+}
+
+#lblPl1{
+	-fx-text-fill: white;
+	-fx-font-size: 13px;
+}
+
+#lblPl3{
+	-fx-text-fill: white;
+	-fx-font-size: 13px;
+}
+
+#lblPl2{
+	-fx-text-fill: white;
+	-fx-font-size: 13px;
+}
+
+#lblPl4{
+	-fx-text-fill: white;
+	-fx-font-size: 13px;
 }
 
 
@@ -69,43 +133,51 @@ Label{
 #Leaderboard{
 
 	-fx-font-family: "Arial Black";
-	-fx-font-size: 20px;
-
+	-fx-font-size: 25px;
+	-fx-text-fill: white;
 }
 
 
 
-#middlePane{
 
-	-fx-border-color: black;
-	-fx-border-width: 3px;
+#mpLeftBox{
 
-
+	-fx-background-image: url(/background/image/Blackboard.png);
+	-fx-background-size: cover;
 }
 
+
+#rssBox{
+
+	-fx-text-fill: white;
+
+}
 
 
 
 .titled-pane{
 	-fx-border-color: b8860b;
-	
-	
-	
-
-
 }
 
 .text-field{
 
 	-fx-background-color: white;
 	-fx-border-color: black;
-
 }
 
 .text-area{
 
 	-fx-background-color: white;
 	-fx-border-color: black;
+}
+
+
+
+#lblchat{
+
+	-fx-text-fill: black;
+
+
 }
 
 .card {
