@@ -52,26 +52,23 @@ Label{
 
 }
 
-
-
-
 #lblRound{
 
 	-fx-text-fill: white;
-	-fx-font-size: 13px;
+	-fx-font-size: 15px;
 }
 
 
 #lblStiche{
 
 	-fx-text-fill: white;
-	-fx-font-size: 13px;
+	-fx-font-size: 15px;
 }
 
 #lblScore{
 
 	-fx-text-fill: white;
-	-fx-font-size: 13px;
+	-fx-font-size: 15px;
 }
 
 #lblTeam1{
@@ -153,7 +150,9 @@ Label{
 
 }
 
-
+#lblChat{
+	-fx-font-size: 11px;
+}
 
 .titled-pane{
 	-fx-border-color: b8860b;
@@ -173,12 +172,7 @@ Label{
 
 
 
-#lblchat{
 
-	-fx-text-fill: black;
-
-
-}
 
 .card {
     -fx-font-size: 50.0px;
