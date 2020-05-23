@@ -28,7 +28,7 @@ public class ClientChatRoom extends Application {
         ClientModel clientModel = new ClientModel();
 
         ClientController clientController = new ClientController(clientModel);
-        view = new GameView(clientController,clientModel);
+        view = new GameView(clientController,clientModel, viewMenu);
         clientController.addGameView(view);
         loginView = new LoginView(clientController, view);
         clientController.addLoginView(loginView);

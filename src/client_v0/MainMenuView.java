@@ -145,6 +145,7 @@ public class MainMenuView {
 			this.clientController.getViewManager().primaryStage.setTitle("Jassmend");
 			this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
 			this.clientController.getViewManager().primaryStage.setMaximized(true);
+			this.clientController.getViewManager().primaryStage.setResizable(true);
 		});
 		
 		
@@ -182,6 +183,7 @@ public class MainMenuView {
 			
 		
 		playMusic.setOnAction(e3 -> {
+			musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 			musicPlayer.play();
 		});
 		
@@ -195,7 +197,7 @@ public class MainMenuView {
 		
 	
 	}
-	// Author: Florian Jï¿½ger
+	// Author: Florian Jäger
 	public void joinGameLobby() {
 		//Based on http://tutorials.jenkov.com/javafx/listview.html
         Stage stage = new Stage();
@@ -273,7 +275,7 @@ public class MainMenuView {
     
 	}
 	
-	// Author: Florian Jï¿½ger
+	// Author: Florian Jäger
 	public void createGameLobby() {
 		//Based on http://tutorials.jenkov.com/javafx/listview.html
 		Stage stage = new Stage();
@@ -301,7 +303,7 @@ public class MainMenuView {
                             
     		});
 		
-		BorderPane bp = new BorderPane ();
+	
 		VBox vBox = new VBox(btnCreateGamelobby);
 		vBox.setAlignment(Pos.CENTER);
 		Scene scene = new Scene(vBox, 275, 150);

@@ -12,6 +12,7 @@ import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -165,7 +166,7 @@ public class GameView {
 	Label lblTrumpf = new Label();
 
 
-	public GameView (ClientController clientController, ClientModel model) {
+	public GameView (ClientController clientController, ClientModel model, MainMenuView mainMenuView) {
 
 
 
@@ -196,7 +197,10 @@ public class GameView {
 		});
 		
 		returnToMenu.setOnAction(e2 -> {
+			this.clientController.getViewManager().primaryStage.setMaximized(false);
 			this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene());
+			this.clientController.getViewManager().primaryStage.setResizable(false);
+			
 		});
 		
 		ResumeItem.setOnAction(e3 -> {
@@ -275,6 +279,8 @@ public class GameView {
 		lblLeaderboardBox.setAlignment(Pos.CENTER);
 		lblLeaderboardBox.setPadding(new Insets(20,0,0,0));
 		lblLeaderboard.setId("Leaderboard");
+		lblLeaderboard.getStyleClass().add("outline");
+		lblLeaderboardBox.getStyleClass().add("outline");
 
 
 		lblRound.setId("lblRound");
@@ -616,6 +622,7 @@ public class GameView {
 
 
          clientController.logout();
+         this.clientController.getViewManager().primaryStage.setMaximized(false);
          this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
      });
 
