@@ -355,121 +355,176 @@ public class GameView {
 
 		//Play the first Card into the first fieldbutton
 			getHandButton(0).setOnAction(e10 -> {
+				if(pp.getCardsHolder(0)!=null) {
+					clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-				clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby,clientController.getFirstPlayer());
 				clientController.waiterino(500);
-				for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
-					if(pp.getCardsHolder(0).toString().equals(clientController.getCardsPlayed(x).toString())){
-						getHandButton(0).setGraphic(null);
-						pp.setCardsHolderNull(0);
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						for (int x = 0; x < clientController.getSizeCardsPlayed(); x++) {
+							if (pp.getCardsHolder(0).toString().equals(clientController.getCardsPlayed(x).toString())) {
+								getHandButton(0).setGraphic(null);
+								pp.setCardsHolderNull(0);
 
+							}
+						}
 					}
+				});
 				}
-
 			});
 		getHandButton(1).setOnAction(e11 -> {
 
+			if(pp.getCardsHolder(1)!=null) {
+				clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(1).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(1).setGraphic(null);
 					pp.setCardsHolderNull(1);
 				}
 			}
-
+				}
+			});
+			}
 
 		});
 		getHandButton(2).setOnAction(e12 -> {
 
-			clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby,clientController.getFirstPlayer());
+			if(pp.getCardsHolder(2)!=null) {
+				clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby, clientController.getFirstPlayer());
+
 			clientController.waiterino(500);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(2).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(2).setGraphic(null);
 					pp.setCardsHolderNull(2);
 				}
 			}
-
+				}
+			});
+			}
 		});
 		getHandButton(3).setOnAction(e13 -> {
 
+			if(pp.getCardsHolder(3)!=null) {
+				clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(3).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(3).setGraphic(null);
 					pp.setCardsHolderNull(3);
 				}
 			}
-
+				}
+			});
+			}
 		});
 		getHandButton(4).setOnAction(e14 -> {
 
+			if(pp.getCardsHolder(4)!=null) {
+				clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(4).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(4).setGraphic(null);
 					pp.setCardsHolderNull(4);
 				}
 			}
-
+				}
+			});
+			}
 		});
 		getHandButton(5).setOnAction(e15 -> {
 
+			if(pp.getCardsHolder(5)!=null) {
+				clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(5).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(5).setGraphic(null);
 					pp.setCardsHolderNull(5);
 				}
 			}
-
+				}
+			});
+			}
 		});
 		getHandButton(6).setOnAction(e16 -> {
 
+			if(pp.getCardsHolder(6)!=null) {
+				clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(6).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(6).setGraphic(null);
 					pp.setCardsHolderNull(6);
 				}
 			}
-
+				}
+			});
+			}
 		});
 		getHandButton(7).setOnAction(e17 -> {
 
+			if(pp.getCardsHolder(7)!=null) {
+				clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(7).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(7).setGraphic(null);
 					pp.setCardsHolderNull(7);
 				}
 			}
-
+				}
+			});
+			}
 		});
 		getHandButton(8).setOnAction(e18 -> {
 
+			if(pp.getCardsHolder(8)!=null) {
+				clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby,clientController.getFirstPlayer());
 			clientController.waiterino(500);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(8).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(8).setGraphic(null);
 					pp.setCardsHolderNull(8);
 				}
 			}
-
+				}
+			});
+			}
 		});
 
 		getBtnTrumpf().setOnAction(e ->{
@@ -610,6 +665,45 @@ public void setGamelobby(String gamelobby){
 		return lblTrumpf;
 	}
 
+	public Label getLblRound() {
+		return lblRound;
+	}
+
+	public void setLblRound(Label lblRound) {
+		this.lblRound = lblRound;
+	}
+
+	public Label getLblSticheT1() {
+		return lblSticheT1;
+	}
+
+	public void setLblSticheT1(Label lblSticheT1) {
+		this.lblSticheT1 = lblSticheT1;
+	}
+
+	public Label getLblScoreT1() {
+		return lblScoreT1;
+	}
+
+	public void setLblScoreT1(Label lblScoreT1) {
+		this.lblScoreT1 = lblScoreT1;
+	}
+
+	public Label getLblSticheT2() {
+		return lblSticheT2;
+	}
+
+	public void setLblSticheT2(Label lblSticheT2) {
+		this.lblSticheT2 = lblSticheT2;
+	}
+
+	public Label getLblScoreT2() {
+		return lblScoreT2;
+	}
+
+	public void setLblScoreT2(Label lblScoreT2) {
+		this.lblScoreT2 = lblScoreT2;
+	}
 }
 
 

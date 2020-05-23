@@ -128,11 +128,37 @@ public class CardPlayed extends Message {
                         } else result = true;
                     }
 
+                    if(result ==false) {
+                        int countA = 0;
+                        int countB = 0;
+                        for (int c = x; c < x + 9; c++) {
+                            if (gamelobby.getCardsDealt(c) != null) {
+                                countA++;
+                            }
+                        }
+                        for (int z = 0; z < gamelobby.getCardCounter() - 1; z++) {
+                            if (gamelobby.getCardsInRound(z).substring(0, 4).equals(gamelobby.getTrumpf().substring(0, 4))) {
+
+                                Card card1 = serverController.stringToCard(gamelobby.getCardsInRound(z));
+                                Card card2 = serverController.stringToCard(cardPlayed);
+
+                                card1.completeSuitValue();
+                                card2.completeSuitValue();
+
+                                if (card1.compareTo(card2) == 1) {
+                                    countB++;
+                                }
+                            }
+                        }
+
+                        if(countA==countB){
+                            result=true;
+                        }
+                    }
 
                 }
-                else if(result ==false){
-                    result=false;
-                }
+
+
                 else result = true;
             }
 

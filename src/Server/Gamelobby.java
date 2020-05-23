@@ -63,7 +63,9 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private String userPlayingCard;
 	private ArrayList<String> cardsWithNames = new ArrayList<>();
 	private String stichWinner="";
-
+	private int stichCounter=0;
+	private int pointsTeam1;
+	private int pointsTeam2;
 
 	/**
 	 * Add a new gamelobby to our list of gamelobbys
@@ -457,5 +459,31 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		return stichWinner;
 	}
 
+	public int getStichCounter() {
+		return stichCounter;
+	}
 
+	public void increaseStichCounter() {
+		stichCounter++;
+	}
+
+	public void resetStichCounter(){
+		stichCounter=0;
+	}
+
+	public int getPointsTeam1() {
+		return pointsTeam1;
+	}
+
+	public void setPointsTeam1(int pointsTeam1) {
+		this.pointsTeam1 = pointsTeam1;
+	}
+
+	public int getPointsTeam2() {
+		return pointsTeam2;
+	}
+
+	public void setPointsTeam2(int pointsTeam2) {
+		this.pointsTeam2 = pointsTeam2;
+	}
 }

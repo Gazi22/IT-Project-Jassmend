@@ -47,6 +47,7 @@ public class ClientController {
     int pointsTeam1=0;
     int pointsTeam2=0;
     int firstPlayer=0;
+    int sticheCounter=0;
 
 
 
@@ -166,10 +167,10 @@ public class ClientController {
 
                                             System.out.println("The gamelobby is full, the game will now start");
                                             //show gameView
-                                            setTextlblUsername();
+
                                             Platform.runLater(new Runnable() {
                                                 @Override public void run() {
-
+                                                    setTextlblUsername();
                                                     getViewManager().primaryStage.setTitle("Jassmend");
                                                     getViewManager().primaryStage.setScene(GameView.getScene());
                                                     getViewManager().primaryStage.setMaximized(true);
@@ -231,12 +232,12 @@ public class ClientController {
 
                                             if(playerTurns[y].equals("1")) {
                                                 if (clientModel.getClientTurnPlayerID()==(y+1)) {
-                                                     buttonsFalse();
-                                                    showAlert("Gameinfo","It is your turn!");}
+                                                     buttonsFalse();}
+                                                    //showAlert("Gameinfo","It is your turn!");}
 
                                                 
-                                                else {buttonsTrue();
-                                                showAlert("Gameinfo","It is Player "+(y+1)+" turn!");}
+                                                else {buttonsTrue();}
+                                               // showAlert("Gameinfo","It is Player "+(y+1)+" turn!");}
                                         }
                                         }
 
@@ -247,12 +248,20 @@ public class ClientController {
                                         pointsTeam1=Integer.parseInt(arrMsgText[5]);
                                         pointsTeam2=Integer.parseInt(arrMsgText[7]);
 
+                                        Platform.runLater(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                gameView.getLblScoreT1().setText(Integer.toString(pointsTeam1));
+                                                gameView.getLblScoreT2().setText(Integer.toString(pointsTeam2));
+                                            }
+                                            });
                                     }
 
 
                                     else if (arrMsgText[3].equals("Stich")) {
 
-                                        String turnPlayer1 = arrMsgText[4];
+                                        sticheCounter=Integer.parseInt(arrMsgText[4]);
+                                        String turnPlayer1 = arrMsgText[5];
 
                                         int y =0;
                                         int z= 0;
@@ -302,13 +311,22 @@ public class ClientController {
                                         if (clientModel.getClientTurnPlayerID()==1){
                                             setFirstPlayer(clientModel.getClientPlayerID());}
 
-                                        if(arrMsgText[6]!="null"){
+
+                                        if(!arrMsgText[7].equals("null")){
                                             sticheTeam1++;
                                         }
                                         else sticheTeam2++;
 
 
+                                        Platform.runLater(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                gameView.getLblSticheT1().setText(Integer.toString(sticheTeam1));
+                                                gameView.getLblSticheT2().setText(Integer.toString(sticheTeam2));
+                                            }
+                                            });
 
+                                        waiterino(250);
 
                                         for (int r=0;r<4;r++){
 
@@ -323,13 +341,46 @@ public class ClientController {
                                             }
                                         }
                                         //CLEAR CARDSHOLDER?
-                                    }
 
-                                        if (roundcounter==9){
-                                            getEvaluation(menuView.getFinalGamelobby());
+
+                                        if (sticheCounter==9){
+                                            if(clientModel.getClientPlayerID()==1) {
+                                                getEvaluation(menuView.getFinalGamelobby());
+                                            }
                                             gameView.getPlayerPane(1).clearCardsHolder();
+                                            sticheTeam2=0;
+                                            sticheTeam1=0;
+                                            sticheCounter=0;
 
+
+                                            waiterino(500);
+                                            switch(clientModel.getClientPlayerID()){
+                                                case 1:dealCards(menuView.getFinalGamelobby());
+                                                    break;
+                                                case 2:waiterino(500);
+                                                    dealCards(menuView.getFinalGamelobby());
+                                                    break;
+                                                case 3:waiterino(1000);
+                                                    dealCards(menuView.getFinalGamelobby());
+                                                    break;
+                                                case 4:waiterino(1500);
+                                                    dealCards(menuView.getFinalGamelobby());
+                                                    break;
+                                            }
+
+                                            Platform.runLater(new Runnable() {
+                                                @Override
+                                                public void run() {
+
+                                                    gameView.getLblSticheT1().setText(Integer.toString(sticheTeam1));
+                                                    gameView.getLblSticheT2().setText(Integer.toString(sticheTeam2));
+                                                }
+                                            });
+
+                                            waiterino(250);
                                         }
+
+                                    }
 
                                     else if (arrMsgText[3].equals("CardsPlayed")) {
                                         setFirstPlayer(Integer.parseInt(arrMsgText[10]));
@@ -344,7 +395,7 @@ public class ClientController {
 
 
 
-                                       // CARDHOLDER LéSCHEN BEI RUNDENÄNDERUNG?int roundCount = Integer.parseInt(arrMsgText[4]);
+
 
 
 
@@ -947,6 +998,39 @@ public class ClientController {
     }
 
     public void setFirstPlayer(int player){firstPlayer=player;}
+
+
+    public int getPointsTeam1() {
+        return pointsTeam1;
+    }
+
+    public int getPointsTeam2() {
+        return pointsTeam2;
+    }
+
+    public int getSticheTeam1() {
+        return sticheTeam1;
+    }
+
+    public void setSticheTeam1(int sticheTeam1) {
+        this.sticheTeam1 = sticheTeam1;
+    }
+
+    public int getSticheTeam2() {
+        return sticheTeam2;
+    }
+
+    public void setSticheTeam2(int sticheTeam2) {
+        this.sticheTeam2 = sticheTeam2;
+    }
+
+    public int getRoundcounter() {
+        return roundcounter;
+    }
+
+    public void setRoundcounter(int roundcounter) {
+        this.roundcounter = roundcounter;
+    }
 }
 
 

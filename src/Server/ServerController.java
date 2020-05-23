@@ -237,7 +237,7 @@ public class ServerController {
             if (card.getSuit().toString() == gamelobby.getTrumpf()) {
                 if (card.getRank().toString() == "Bube") {
                     return 20;
-                } else if (card.getRank().toString() == "Neun") {
+                } else if (card.getRank().toString() == "9") {
                     return 14;
                 }
                else if (card.getRank().toString() == "Koenig") {
@@ -246,18 +246,15 @@ public class ServerController {
                else if (card.getRank().toString() == "Dame") {
                     return 3;
                 }
-                else if (card.getRank().toString() == "Bube") {
-                    return 2;
-                }
-                else if (card.getRank().toString() == "Zehn") {
+               else if (card.getRank().toString() == "10") {
                     return 10;
                 }
-                else if (card.getRank().toString() == "Ass") {
+               else if (card.getRank().toString() == "Ass") {
                     return 11;
                 }
             }
 
-           else if(card.getSuit().toString()==gamelobby.getTrumpf()){
+           else if(card.getSuit().toString()!=gamelobby.getTrumpf()){
                 if (card.getRank().toString() == "Bube") {
                     return 2;
                 }
@@ -267,10 +264,7 @@ public class ServerController {
                 if (card.getRank().toString() == "Dame") {
                     return 3;
                 }
-                if (card.getRank().toString() == "Bube") {
-                    return 2;
-                }
-                if (card.getRank().toString() == "Zehn") {
+                if (card.getRank().toString() == "10") {
                     return 10;
                 }
                 if (card.getRank().toString() == "Ass") {

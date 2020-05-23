@@ -12,8 +12,10 @@ public class Evaluation extends Message {
 	private String name;
 	private String username;
 	private int pointsTeam1;
-	private int points;
 	private int pointsTeam2;
+	private int points;
+	private int count1;
+	private int count2;
 
 
 
@@ -38,15 +40,46 @@ public class Evaluation extends Message {
 			ServerController serverController = new ServerController();
 
 			for (int x = 0; x < gamelobby.getSizeSticheTeam1(); x++){
-				points = serverController.getPoints(gamelobby, gamelobby.getSticheTeam1(x));
-				pointsTeam1=pointsTeam1+points;
+				if(gamelobby.getSticheTeam1(x)!=null) {
+					points = serverController.getPoints(gamelobby, gamelobby.getSticheTeam1(x));
+					gamelobby.setPointsTeam1(gamelobby.getPointsTeam1()+points);
+
+					count1++;
+
+				}
 		}
 
+			for (int y = 0; y < gamelobby.getSizeSticheTeam2(); y++) {
+				if (gamelobby.getSticheTeam2(y) != null) {
+					points = serverController.getPoints(gamelobby, gamelobby.getSticheTeam2(y));
+					gamelobby.setPointsTeam2(gamelobby.getPointsTeam2()+points);
 
-			for (int x = 0; x < gamelobby.getSizeSticheTeam2(); x++) {
-				points = serverController.getPoints(gamelobby, gamelobby.getSticheTeam2(x));
-				pointsTeam2=pointsTeam2+points;
-		}
+					count2++;
+				}
+			}
+
+
+
+			if(count1==36){
+				gamelobby.setPointsTeam1(gamelobby.getPointsTeam1()+100);
+			}
+
+			if(count2==36){
+				gamelobby.setPointsTeam2(gamelobby.getPointsTeam2()+100);
+			}
+
+
+			//5 points for last Stich
+			if(gamelobby.getSticheTeam1(35)!= null){
+				gamelobby.setPointsTeam1(gamelobby.getPointsTeam1()+5);
+			}
+			else gamelobby.setPointsTeam1(gamelobby.getPointsTeam2()+5);
+
+
+
+			pointsTeam1=gamelobby.getPointsTeam1();
+			pointsTeam2=gamelobby.getPointsTeam2();
+			gamelobby.clearSticheTeams();
 	}
 
 
