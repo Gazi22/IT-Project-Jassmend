@@ -231,10 +231,7 @@ public class MainMenuView {
                 finalGamelobby = gamelobby;
                 view.setGamelobby(finalGamelobby);
                 pause2.setOnFinished(e3 -> {
-                    int lastMessageIndex2 = view.msgArea.getText().split("\n").length-1;
-                    String lastMessage2 = view.msgArea.getText().split("\n")[lastMessageIndex2];
-
-                    if (lastMessage2.startsWith("PlayerIDs")){
+                   if(clientController.readLastMessage("PlayerIDs")==true){
                         clientController.joinSuccessfull(finalGamelobby);
 						clientController.joinedGamelobbyMode();
 

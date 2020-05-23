@@ -108,32 +108,49 @@ public class GameView {
 	VBox chatbox3 = new VBox ();
 
 	// Leaderboard
-
 	Label lblLeaderboard = new Label("Leaderboard");
 	Label lblRound = new Label("Round:");
 	Label lblTeam1 = new Label("Team1");
-	Label lblPl1 = new Label("Player1");
-	Label lblPl2 = new Label("Player2");
 	Label lblSticheT1 = new Label("SticheT1");
 	Label lblScoreT1 = new Label("ScoreT1");
 	Label lblTeam2 = new Label("Team2");
-	Label lblPl3 = new Label("Player3");
-	Label lblPl4 = new Label("Player4");
 	Label lblSticheT2 = new Label("SticheT2");
 	Label lblScoreT2 = new Label("ScoreT2");
 	Label lblStiche = new Label("Stiche ");
 	Label lblScore = new Label("Score");
 
 
+
 	HBox lblLeaderboardBox = new HBox();
 	HBox rssBox = new HBox();
 	HBox team1Box = new HBox();
-	HBox pl1team1Box = new HBox();
-	HBox pl2team1Box = new HBox();
+
 	HBox team2Box = new HBox();
-	HBox pl1team2Box = new HBox();
-	HBox pl2team2Box = new HBox();
+
 	VBox lbBox = new VBox();
+
+	// Team table
+
+
+	Label lblTeam1Pl = new Label("Team1:");
+
+	Label lblPl1 = new Label("Player1");
+	Label lblPl3 = new Label("Player3");
+
+	Label lblTeam2Pl = new Label("Team2:");
+
+	Label lblPl2 = new Label("Player2");
+	Label lblPl4 = new Label("Player4");
+
+	VBox plTeam1Box = new VBox();
+	HBox team1PlBox = new HBox();
+
+	VBox plTeam2Box = new VBox();
+	HBox team2PlBox = new HBox();
+
+
+
+	VBox teamBox = new VBox();
 
 
 	//PlayArea
@@ -256,28 +273,65 @@ public class GameView {
 
 		lblLeaderboardBox.getChildren().add(lblLeaderboard);
 		lblLeaderboardBox.setAlignment(Pos.CENTER);
+		lblLeaderboardBox.setPadding(new Insets(20,0,0,0));
 		lblLeaderboard.setId("Leaderboard");
 
+
+		lblRound.setId("lblRound");
+		lblStiche.setId("lblStiche");
+		lblScore.setId("lblScore");
 		rssBox.getChildren().addAll(lblRound, lblStiche, lblScore);
-		rssBox.setAlignment(Pos.CENTER_LEFT);
-		rssBox.setSpacing(15);
+		rssBox.setAlignment(Pos.CENTER);
+		rssBox.setPadding(new Insets(0,20,0,0));
+		rssBox.setSpacing(12);
+
 
 		team1Box.getChildren().addAll(lblTeam1, lblSticheT1, lblScoreT1);
-		team1Box.setAlignment(Pos.CENTER_LEFT);
-		team1Box.setSpacing(10);
+		lblTeam1.setId("lblTeam1");
+		lblSticheT1.setId("lblSticheT1");
+		lblScoreT1.setId("lblScoreT1");
+		team1Box.setAlignment(Pos.CENTER);
+		team1Box.setSpacing(12);
 
-		pl1team1Box.getChildren().add(lblPl1);
-		pl2team1Box.getChildren().add(lblPl2);
 
 		team2Box.getChildren().addAll(lblTeam2, lblSticheT2, lblScoreT2);
-		team2Box.setAlignment(Pos.CENTER_LEFT);
-		team2Box.setSpacing(10);
+		lblTeam2.setId("lblTeam2");
+		lblSticheT2.setId("lblSticheT2");
+		lblScoreT2.setId("lblScoreT2");
+		team2Box.setAlignment(Pos.CENTER);
+		team2Box.setSpacing(12);
 
-		pl1team2Box.getChildren().add(lblPl3);
-		pl2team2Box.getChildren().add(lblPl4);
 
-		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box,pl1team1Box, pl2team1Box, team2Box, pl1team2Box, pl2team2Box);
+		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box, team2Box);
 		lbBox.setSpacing(40);
+
+		plTeam1Box.getChildren().addAll(lblTeam1Pl, lblPl1, lblPl3);
+		lblTeam1Pl.setId("lblTeam1Pl");
+		lblPl1.setId("lblPl1");
+		lblPl3.setId("lblPl3");
+		plTeam1Box.setSpacing(7);
+		plTeam2Box.getChildren().addAll(lblTeam2Pl, lblPl2, lblPl4);
+		lblTeam2Pl.setId("lblTeam2Pl");
+		lblPl2.setId("lblPl2");
+		lblPl4.setId("lblPl4");
+		plTeam2Box.setSpacing(7);
+
+
+		team1PlBox.getChildren().add(plTeam1Box);
+		team1PlBox.setAlignment(Pos. CENTER);
+		team2PlBox.getChildren().add(plTeam2Box);
+		team2PlBox.setAlignment(Pos. CENTER);
+
+		teamBox.getChildren().addAll(team1PlBox,team2PlBox);
+		teamBox.setSpacing(15);
+
+		VBox mpLeftBox = new VBox();
+		mpLeftBox.setMinWidth(300);
+		mpLeftBox.setMaxHeight(700);
+		mpLeftBox.setId("mpLeftBox");
+
+		mpLeftBox.getChildren().addAll(lbBox, teamBox);
+		mpLeftBox.setSpacing(90);
 
 
 
@@ -328,7 +382,7 @@ public class GameView {
 		outerPane.setCenter(middlePane);
 		outerPane.setTop(meba);
 		outerPane.setRight(chatArea);
-		outerPane.setLeft(lbBox);
+		outerPane.setLeft(mpLeftBox);
 		outerPane.setBottom(controlBox);
 
 		innerPane.setBottom(playedCardPl1);
@@ -357,8 +411,14 @@ public class GameView {
 			getHandButton(0).setOnAction(e10 -> {
 				if(pp.getCardsHolder(0)!=null) {
 					clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby, clientController.getFirstPlayer());
+					clientController.waiterino(200);
+					if(clientController.readLastMessage("Result|false")==true){
+						
+					}
 
-				clientController.waiterino(500);
+
+
+				clientController.waiterino(250);
 				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
@@ -378,7 +438,7 @@ public class GameView {
 			if(pp.getCardsHolder(1)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(500);
+			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -398,7 +458,7 @@ public class GameView {
 			if(pp.getCardsHolder(2)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(500);
+			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -417,7 +477,7 @@ public class GameView {
 			if(pp.getCardsHolder(3)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(500);
+			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -436,7 +496,7 @@ public class GameView {
 			if(pp.getCardsHolder(4)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(500);
+			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -455,7 +515,7 @@ public class GameView {
 			if(pp.getCardsHolder(5)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(500);
+			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -474,7 +534,7 @@ public class GameView {
 			if(pp.getCardsHolder(6)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(500);
+			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -493,7 +553,7 @@ public class GameView {
 			if(pp.getCardsHolder(7)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(500);
+			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -512,7 +572,7 @@ public class GameView {
 			if(pp.getCardsHolder(8)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(500);
+			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
@@ -703,6 +763,38 @@ public void setGamelobby(String gamelobby){
 
 	public void setLblScoreT2(Label lblScoreT2) {
 		this.lblScoreT2 = lblScoreT2;
+	}
+
+	public Label getLblPl1() {
+		return lblPl1;
+	}
+
+	public void setLblPl1(Label lblPl1) {
+		this.lblPl1 = lblPl1;
+	}
+
+	public Label getLblPl3() {
+		return lblPl3;
+	}
+
+	public void setLblPl3(Label lblPl3) {
+		this.lblPl3 = lblPl3;
+	}
+
+	public Label getLblPl2() {
+		return lblPl2;
+	}
+
+	public void setLblPl2(Label lblPl2) {
+		this.lblPl2 = lblPl2;
+	}
+
+	public Label getLblPl4() {
+		return lblPl4;
+	}
+
+	public void setLblPl4(Label lblPl4) {
+		this.lblPl4 = lblPl4;
 	}
 }
 

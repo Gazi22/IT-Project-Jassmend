@@ -962,24 +962,41 @@ public class ClientController {
                 gameView.getUserNamePl2().setText(playerIDs[1]);
                 gameView.getUserNamePl3().setText(playerIDs[2]);
                 gameView.getUserNamePl4().setText(playerIDs[3]);
+                gameView.getLblPl1().setText(playerIDs[0]);
+                gameView.getLblPl2().setText(playerIDs[1]);
+                gameView.getLblPl3().setText(playerIDs[2]);
+                gameView.getLblPl4().setText(playerIDs[3]);
+
                 break;
             case 1:
                 gameView.getUserNamePl1().setText(playerIDs[1]);
                 gameView.getUserNamePl2().setText(playerIDs[2]);
                 gameView.getUserNamePl3().setText(playerIDs[3]);
                 gameView.getUserNamePl4().setText(playerIDs[0]);
+                gameView.getLblPl1().setText(playerIDs[1]);
+                gameView.getLblPl2().setText(playerIDs[2]);
+                gameView.getLblPl3().setText(playerIDs[3]);
+                gameView.getLblPl4().setText(playerIDs[0]);
                 break;
             case 2:
                 gameView.getUserNamePl1().setText(playerIDs[2]);
                 gameView.getUserNamePl2().setText(playerIDs[3]);
                 gameView.getUserNamePl3().setText(playerIDs[0]);
                 gameView.getUserNamePl4().setText(playerIDs[1]);
+                gameView.getLblPl1().setText(playerIDs[2]);
+                gameView.getLblPl2().setText(playerIDs[3]);
+                gameView.getLblPl3().setText(playerIDs[0]);
+                gameView.getLblPl4().setText(playerIDs[1]);
                 break;
             case 3:
                 gameView.getUserNamePl1().setText(playerIDs[3]);
                 gameView.getUserNamePl2().setText(playerIDs[0]);
                 gameView.getUserNamePl3().setText(playerIDs[1]);
                 gameView.getUserNamePl4().setText(playerIDs[2]);
+                gameView.getLblPl1().setText(playerIDs[3]);
+                gameView.getLblPl2().setText(playerIDs[0]);
+                gameView.getLblPl3().setText(playerIDs[1]);
+                gameView.getLblPl4().setText(playerIDs[2]);
                 break;
         }
 
@@ -1031,6 +1048,18 @@ public class ClientController {
     public void setRoundcounter(int roundcounter) {
         this.roundcounter = roundcounter;
     }
+
+
+    public boolean readLastMessage(String lookFor) {
+        int lastMessageIndex2 = gameView.msgArea.getText().split("\n").length - 1;
+        String lastMessage2 = gameView.msgArea.getText().split("\n")[lastMessageIndex2];
+
+        if (lastMessage2.startsWith(lookFor)) {
+            return true;
+        }
+        else return false;
+    }
+
 }
 
 
