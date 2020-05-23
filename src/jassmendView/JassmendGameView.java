@@ -97,7 +97,7 @@ public class JassmendGameView {
 	TextField txt1 = new TextField (); 
 	Button btnSend = new Button ("Send"); 
 	TextArea msgArea = new TextArea (); 
-	Label lblchat = new Label("Chat with your fellow players");
+	Label lblChat = new Label("Chat with your fellow players");
 	HBox chatbox1 = new HBox (); 
 	VBox chatbox2 = new VBox (); 
 	VBox chatbox3 = new VBox (); 
@@ -230,6 +230,8 @@ public class JassmendGameView {
 		
 		btnSend.setId("btnSend");
 		
+		lblChat.setId("lblChat");
+		
 		 
 		txt1.setPromptText("Type here your message"); 
 		HBox.setHgrow(txt1, Priority.ALWAYS); 
@@ -241,7 +243,7 @@ public class JassmendGameView {
 		chatbox1.getChildren().add(btnSend);
 		chatbox1.getChildren().add(txt1);
 
-		chatbox2.getChildren().add(lblchat);
+		chatbox2.getChildren().add(lblChat);
 		chatbox2.getChildren().add(msgArea);
 		 
 		chatbox3.getChildren().add(chatbox2); 
@@ -278,7 +280,7 @@ public class JassmendGameView {
 		rssBox.getChildren().addAll(lblRound, lblStiche, lblScore);
 		rssBox.setAlignment(Pos.CENTER);
 		rssBox.setPadding(new Insets(0,20,0,0));
-		rssBox.setSpacing(10);
+		rssBox.setSpacing(12);
 	
 		
 		team1Box.getChildren().addAll(lblTeam1, lblSticheT1, lblScoreT1);
@@ -286,7 +288,7 @@ public class JassmendGameView {
 		lblSticheT1.setId("lblSticheT1");
 		lblScoreT1.setId("lblScoreT1");
 		team1Box.setAlignment(Pos.CENTER);
-		team1Box.setSpacing(10);
+		team1Box.setSpacing(12);
 		
 		
 		team2Box.getChildren().addAll(lblTeam2, lblSticheT2, lblScoreT2);
@@ -294,7 +296,7 @@ public class JassmendGameView {
 		lblSticheT2.setId("lblSticheT2");
 		lblScoreT2.setId("lblScoreT2");
 		team2Box.setAlignment(Pos.CENTER);
-		team2Box.setSpacing(10);
+		team2Box.setSpacing(12);
 	
 		
 		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box, team2Box);
@@ -318,7 +320,7 @@ public class JassmendGameView {
 		team2PlBox.setAlignment(Pos. CENTER);
 		
 		teamBox.getChildren().addAll(team1PlBox,team2PlBox);
-		teamBox.setSpacing(10);
+		teamBox.setSpacing(15);
 		
 		VBox mpLeftBox = new VBox();
 		mpLeftBox.setMinWidth(300);
