@@ -234,40 +234,40 @@ public class ServerController {
 
         public int getPoints(Gamelobby gamelobby, Card card){
 
-            if (card.getSuit().toString() == gamelobby.getTrumpf()) {
-                if (card.getRank().toString() == "Bube") {
+            if (card.getSuit().toString().equals( gamelobby.getTrumpf())) {
+                if (card.getRank().toString() .equals ("Bube")) {
                     return 20;
-                } else if (card.getRank().toString() == "9") {
+                } else if (card.getRank().toString() .equals ("9")) {
                     return 14;
                 }
-               else if (card.getRank().toString() == "Koenig") {
+               else if (card.getRank().toString() .equals ("Koenig")) {
                     return 4;
                 }
-               else if (card.getRank().toString() == "Dame") {
+               else if (card.getRank().toString() .equals ("Dame")) {
                     return 3;
                 }
-               else if (card.getRank().toString() == "10") {
+               else if (card.getRank().toString() .equals ("10")) {
                     return 10;
                 }
-               else if (card.getRank().toString() == "Ass") {
+               else if (card.getRank().toString() .equals ("Ass")) {
                     return 11;
                 }
             }
 
            else if(card.getSuit().toString()!=gamelobby.getTrumpf()){
-                if (card.getRank().toString() == "Bube") {
+                if (card.getRank().toString() .equals ("Bube")) {
                     return 2;
                 }
-                if (card.getRank().toString() == "Koenig") {
+                if (card.getRank().toString() .equals ("Koenig")) {
                     return 4;
                 }
-                if (card.getRank().toString() == "Dame") {
+                if (card.getRank().toString() .equals ("Dame")) {
                     return 3;
                 }
-                if (card.getRank().toString() == "10") {
+                if (card.getRank().toString() .equals ("10")){
                     return 10;
                 }
-                if (card.getRank().toString() == "Ass") {
+                if (card.getRank().toString() .equals ("Ass")) {
                     return 11;
                 }
             }

@@ -63,19 +63,19 @@ public class GameView {
 	HBox player1BottomBox=new HBox();
 	
 	//Player top
-	Label userNamePl2 = new Label("Player 2");
+	Label userNamePl2 = new Label("");
 	Label scorePl2 = new Label("Score:");
 	VBox player2Info = new VBox();
 	HBox player2Cards = new HBox();
 		
 	//Player left
-	Label userNamePl3 = new Label("Player 3");
+	Label userNamePl3 = new Label("");
 	Label scorePl3 = new Label("Score:");
 	VBox player3Info = new VBox();
 	HBox player3Cards = new HBox();
 	
 	//Player right
-	Label userNamePl4 = new Label("Player 4");
+	Label userNamePl4 = new Label("");
 	Label scorePl4 = new Label("Score:");
 	VBox player4Info = new VBox();
 	HBox player4Cards = new HBox();

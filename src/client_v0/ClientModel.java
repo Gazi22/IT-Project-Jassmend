@@ -1,7 +1,7 @@
 package client_v0;
 
 import Server.Deck;
-import client_v0.ClientChatRoom;
+
 import jassmendModel.Player;
 
 import java.util.ArrayList;

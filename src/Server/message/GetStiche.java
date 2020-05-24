@@ -36,7 +36,7 @@ public class GetStiche extends Message {
 			stichWinner=gamelobby.getStichWinner();
 			int y = 0;
 			int z = 0;
-			int roundCount = (gamelobby.getTurnCounter() + 1);
+			int roundCount = (gamelobby.getRoundCounter());
 
 
 			for (int x = gamelobby.getTurnCounter()-4; x < gamelobby.getTurnCounter(); x++) {

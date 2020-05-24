@@ -35,12 +35,12 @@ public class ClientViewManager {
         this.loginView = loginView;
         this.menuView = menuView;
         this.clientController = clientController;
-       
+
         
      // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
-
+        primaryStage.setOnCloseRequest(e->{
         closeWindow();
-      		
+        });
         primaryStage.setScene(LoginView.getScene());
     }
     
@@ -55,16 +55,14 @@ public class ClientViewManager {
                });
         
     }
-    // Author: Gazmend Shefiu & Davide Seabra & Florian Jäger
+// Author: Gazmend Shefiu & Davide Seabra & Florian Jäger
  // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
     public void closeWindow () {
     	if (clientController.getSocket()!= null) {
     	try {
-    		
-    	primaryStage.setOnCloseRequest(e->{
 
           	Platform.exit();
-          	System.exit(0);
+
        		clientController.getGamelobbyList();
           	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
                pause.setOnFinished(e5 -> {
@@ -76,17 +74,19 @@ public class ClientViewManager {
                    clientController.leaveGamelobby(str);
                    }
 
-               clientController.logout();
-               clientController.waiterino(250);
-               clientController.logoutUser(clientController.getUsername());
-              
-           });
 
-           pause.play();
-          	});
-    	
-    	clientController.getSocket().close();
-    	
+
+           });
+       pause.play();
+
+        clientController.logout();
+        clientController.waiterino(250);
+        clientController.logoutUser(clientController.getUsername());
+
+        clientController.getSocket().close();
+
+        System.exit(0);
+
     	} catch (IOException e){
     		System.out.println("Error: " + e);
     	}

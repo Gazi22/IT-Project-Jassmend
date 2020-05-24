@@ -30,10 +30,7 @@ public class ClientTrumpfView {
 	Image image2 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz_Jass_trumpf.jpg"));
 	Image image3 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz_Jass_trumpf.jpg"));
 	Image image4 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel_Jass_trumpf.jpg"));
-	Image image5 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke.png"));
-	Image image6 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz.png"));
-	Image image7 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz.png"));
-	Image image8 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel.png"));
+
 
 
 	public ClientTrumpfView(ClientController clientController) {
@@ -124,19 +121,5 @@ public class ClientTrumpfView {
 		
 	}
 
-	public Image getImage5() {
-		return image5;
-	}
 
-	public Image getImage6() {
-		return image6;
-	}
-
-	public Image getImage7() {
-		return image7;
-	}
-
-	public Image getImage8() {
-		return image8;
-	}
 }

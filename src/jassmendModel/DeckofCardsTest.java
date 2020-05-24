@@ -187,6 +187,7 @@ class DeckofCardsTest {
 		String username2="";
 		System.out.println(cardsTotal.toString()+"                   "+cardsTotal.get(0).toString());
 		System.out.println(cardsTotal.get(0).getSuitValue()+cardsTotal.get(1).getSuitValue());
+		System.out.println(cardsTotal.get(3).getRank());
 
 
 

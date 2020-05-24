@@ -1,13 +1,14 @@
 
-
+/*  Author: Gazmend Shefiu || Inspired by Akatsuki Project
+ *  http://fxexperience.com/2011/12/styling-fx-buttons-with-css/
+	https://cssgradient.io/ */
 .root{
     -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
     -fx-background-size:cover;
    
 }
 
-// http://fxexperience.com/2011/12/styling-fx-buttons-with-css/
-// https://cssgradient.io/
+
 
 .button {
 	 -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),

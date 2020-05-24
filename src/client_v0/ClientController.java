@@ -11,6 +11,7 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.BufferedReader;
@@ -50,7 +51,10 @@ public class ClientController {
     int firstPlayer=0;
     int sticheCounter=0;
     String trumpf ="";
-
+    Image image5 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke.png"));
+    Image image6 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz.png"));
+    Image image7 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz.png"));
+    Image image8 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel.png"));
 
 
 
@@ -276,26 +280,38 @@ public class ClientController {
                                     else if(arrMsgText[3].equals("Trumpf")){
                                         trumpf=arrMsgText[4];
 
+
+                                        Platform.runLater(new Runnable() {
+                                            @Override
+                                            public void run() {
+
+
                                         switch(trumpf){
                                             case "Ecke":
-                                                getLblTrumpf().setGraphic(new ImageView(trumpfView.getImage5()));
+                                                getLblTrumpf().setGraphic(new ImageView(image5));
                                                 btnTrumpfTrue();
                                                 break;
 
                                             case "Schaufel":
-                                                getLblTrumpf().setGraphic(new ImageView(trumpfView.getImage8()));
+                                                getLblTrumpf().setGraphic(new ImageView(image8));
                                                 btnTrumpfTrue();
                                                 break;
 
                                             case "Herz":
-                                                getLblTrumpf().setGraphic(new ImageView(trumpfView.getImage6()));
+                                                getLblTrumpf().setGraphic(new ImageView(image6));
                                                 btnTrumpfTrue();
                                                 break;
 
                                             case "Kreuz":
-                                                getLblTrumpf().setGraphic(new ImageView(trumpfView.getImage7()));
+                                                getLblTrumpf().setGraphic(new ImageView(image7));
                                                 btnTrumpfTrue();
                                                 break;
+                                        }
+                                            }
+                                        });
+
+                                        if(clientModel.getClientTurnPlayerID()==1) {
+                                            buttonsFalse();
                                         }
 
                                     }
@@ -826,7 +842,7 @@ public class ClientController {
      public void addGameView(GameView gameView){
          this.gameView = gameView;
      }
-    public void addTrumpfView(ClientTrumpfView trumpfView){
+     public void addTrumpfView(ClientTrumpfView trumpfView){
         this.trumpfView = trumpfView;
     }
      public void setViewManager(ClientViewManager viewManager) {

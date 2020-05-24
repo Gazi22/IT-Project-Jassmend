@@ -137,6 +137,7 @@ public class MainMenuView {
 			this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
 			this.clientController.getViewManager().primaryStage.setMaximized(true);
 			this.clientController.getViewManager().primaryStage.setResizable(true);
+			clientController.btnTrumpfTrue();
 		});
 		
 		
@@ -150,7 +151,7 @@ public class MainMenuView {
 			
 		});
 		
-		// Author: Florian Jï¿½ger
+		// Author: Florian Jäger
 	     logOut.setOnAction(e -> {
 	    	 clientController.getGamelobbyList();
 	    	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
@@ -162,15 +163,15 @@ public class MainMenuView {
 	             for (String str:gameLobbyList) {
 	             clientController.leaveGamelobby(str);
 	             }
+			 });
 
+			 pause.play();
 
 	             clientController.logout();
 	             clientController.waiterino(250);
 	             clientController.logoutUser(clientController.getUsername());
 	         this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
-	     });
 
-	     pause.play();
 
 	     });
 			
@@ -222,6 +223,7 @@ public class MainMenuView {
                     this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
                     this.clientController.getViewManager().primaryStage.setMaximized(true);
                     this.clientController.getViewManager().primaryStage.setResizable(true);
+                    clientController.btnTrumpfTrue();
                     
                 }
                 //Don't do this at home kids !
