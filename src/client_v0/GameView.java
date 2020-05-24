@@ -180,7 +180,7 @@ public class GameView {
 	HelpMenu.getItems().addAll(RulesItem);
 	returnToMenu.getItems().addAll(clickToReturn);
 
-
+	// Author: Davide Seabra
 	// Hyperlink test helpMenu - Code From Reddit https://www.reddit.com/r/javahelp/comments/4bqcci/how_to_make_a_link_hyperlink_in_javafx/
 
 		helpMenu.setOnAction(e -> {
@@ -649,8 +649,8 @@ public class GameView {
              clientController.leaveGamelobby(str);
              }
 
-		 clientController.logoutUser(clientController.getUsername());
-		 clientController.waiterino(250);
+         clientController.logoutUser(clientController.getUsername());
+         clientController.waiterino(250);
          clientController.logout();
          this.clientController.getViewManager().primaryStage.setMaximized(false);
          this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());

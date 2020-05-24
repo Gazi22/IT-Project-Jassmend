@@ -19,6 +19,7 @@ import javafx.util.Duration;
 
 public class LoginView {
 
+	// Author: Florian Jäger
     private static Scene scene;
     private ClientController clientController;
     private MainMenuView menuView;
@@ -54,6 +55,7 @@ public class LoginView {
     
         GridPane gridLoginView = new GridPane();
 
+    	// Author: Gazmend Shefiu
         // https://stackoverflow.com/questions/17014012/how-to-unmask-a-javafx-passwordfield-or-properly-mask-a-textfield
         passwordTextField.setManaged(false);
         passwordTextField.setVisible(false);

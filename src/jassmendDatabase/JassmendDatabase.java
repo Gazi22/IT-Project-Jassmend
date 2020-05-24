@@ -23,6 +23,7 @@ import javafx.application.Platform;
 
 public class JassmendDatabase {
 	
+	// Author: Gazmend Shefiu || Code from Akatsuki Project
 	final String sqlUrl = "jdbc:mysql://eu-cdbr-west-03.cleardb.net/heroku_ffd397e5d72f806?reconnect=true";
 	final String sqlUser = "b3ab4e3875375e";
 	final String sqlPw = "10ff5735";
@@ -53,8 +54,8 @@ public class JassmendDatabase {
 	        return  databaseDriver;
 	    }
 	 
-
-    public boolean connectDB() {    /** @author Philipp Yanni */
+	// Author: Gazmend Shefiu || Code from Akatsuki Project
+    public boolean connectDB() {   
 
         try {
             System.out.println("Connecting");
@@ -73,7 +74,8 @@ public class JassmendDatabase {
 
     }
     
-    public void clearResource() {   /** @author Philipp Yanni  , concept by Mr. Bradley Richards*/
+ // Code provided by Mr. Bradley Richards || Author: Gazmend Shefiu
+    public void clearResource() { 
         try {
             System.out.println("Freeing resources..");
             if (rs != null) try {
@@ -95,6 +97,7 @@ public class JassmendDatabase {
         }
     }
     
+    // Author: Gazmend Shefiu || Code from Akatsuki Project
     public boolean checkRegistratedAccDB(String userName) {
     
     		this.userName = userName;
@@ -121,8 +124,8 @@ public class JassmendDatabase {
     	return true;
     }
 	
-    
-    public void registerAccDB(String userName, String userPassword) {   /** @author Philipp Yanni & Kiran Kumullil */
+    // Author: Gazmend Shefiu || Code from Akatsuki Project
+    public void registerAccDB(String userName, String userPassword) { 
 
     	this.userName = userName;
     	this.userPassword = userPassword;
@@ -150,7 +153,9 @@ public class JassmendDatabase {
         }
         
     }
-        public void checkLogin(String userNameLogin, String userPasswordLogin) {  /** @author Kiran Kumullil & Philipp Yanni */
+    	// Author: Gazmend Shefiu || Code from Akatsuki Project
+    
+        public void checkLogin(String userNameLogin, String userPasswordLogin) {
 
             try {
                 this.userNameLogin = userNameLogin;
@@ -197,8 +202,8 @@ public class JassmendDatabase {
                 clearResource();
             }
         }
-
-        public String getIpAdress(){    /** @author Philipp Yanni */
+     // Author: Gazmend Shefiu || Code from Akatsuki Project
+        public String getIpAdress(){    
             try {
                 localIP = InetAddress.getLocalHost().getHostAddress();
             } catch (Exception e) {
@@ -208,7 +213,7 @@ public class JassmendDatabase {
         return localIP;
     }
     
-    
+     // Author: Gazmend Shefiu || Code from Akatsuki Project
     private static String generateStrongPasswordHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         int iterations = 1000;
@@ -222,7 +227,7 @@ public class JassmendDatabase {
         
         
     }
-    
+ // Author: Gazmend Shefiu || Code from Akatsuki Project
     private static byte[] getSalt() throws NoSuchAlgorithmException /** https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/ */
     {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
@@ -230,7 +235,7 @@ public class JassmendDatabase {
         sr.nextBytes(salt);
         return salt;
     }
-    
+ // Author: Gazmend Shefiu || Code from Akatsuki Project
     private static String toHex(byte[] array)    /** https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/ */
     {
         BigInteger bi = new BigInteger(1, array);
@@ -243,7 +248,7 @@ public class JassmendDatabase {
             return hex;
         }
     }
-    
+ // Author: Gazmend Shefiu || Code from Akatsuki Project
     private static boolean validatePassword(String originalPassword, String storedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         String[] parts = storedPassword.split(":");
@@ -262,6 +267,7 @@ public class JassmendDatabase {
         }
         return diff == 0;
     }
+    // Author: Gazmend Shefiu || Code from Akatsuki Project
     /** https://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/ */
     private static byte[] fromHex(String hex) {
         byte[] bytes = new byte[hex.length() / 2];
@@ -272,6 +278,7 @@ public class JassmendDatabase {
         return bytes;
     }
 	
+    	// Author: Gazmend Shefiu
 		//https://stackoverflow.com/questions/7080205/popup-message-boxes
 		public static void infoBox(String infoMessage, String titleBar)
 	    {
