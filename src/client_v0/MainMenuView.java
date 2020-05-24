@@ -227,7 +227,7 @@ public class MainMenuView {
                     this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
                     this.clientController.getViewManager().primaryStage.setMaximized(true);
                     this.clientController.getViewManager().primaryStage.setResizable(true);
-                    clientController.btnTrumpfTrue();
+                    //clientController.btnTrumpfTrue();
                     
                 }
                 //Don't do this at home kids !

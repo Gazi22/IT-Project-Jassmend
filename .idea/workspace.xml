@@ -20,15 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/Evaluation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/Evaluation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientTrumpfView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientTrumpfView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/Jass.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/trumpfView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/trumpfView.css" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="653271646">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client_v0/AccJass.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,7 +106,19 @@
       <recent name="client_v0" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ClientChatRoom">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Unknown.ClientChatRoom345766851">
     <configuration name="CardTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jassmendModel.CardTest" />
       <module name="IT-Project-Jassmend" />
@@ -150,19 +188,6 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/dblib/mysql-connector-java-8.0.19.jar" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Application.ClientChatRoom" />
-      <item itemvalue="Application.Server" />
-      <item itemvalue="Application.JassmendMain" />
-      <item itemvalue="Application.DeckofCardsTest" />
-      <item itemvalue="Application.CardTest" />
-      <item itemvalue="JAR Application.mysql-connector-java-8.0.19.jar" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Server" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -176,23 +201,59 @@
       <updated>1589032188570</updated>
       <workItem from="1589487067140" duration="3000" />
       <workItem from="1590318874545" duration="1000" />
+      <workItem from="1590339009810" duration="2000" />
+      <workItem from="1590339957736" duration="6000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4000" />
+    <option name="totallyTimeSpent" value="12000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589218494985">
@@ -285,20 +346,11 @@
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590314628208" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client_v0/ClientController.java</url>
-          <line>431</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="gamelobby.getSizeSticheTeam1()" language="JAVA" />
-        <watch expression="gamelobby.getSticheTeam1(0)" language="JAVA" />
-        <watch expression="card.toString()" language="JAVA" />
+        <watch expression="gamelobby.getSizeSticheTeam1()" />
+        <watch expression="gamelobby.getSticheTeam1(0)" />
+        <watch expression="card.toString()" />
       </configuration>
     </watches-manager>
   </component>
@@ -306,5 +358,10 @@
     <SUITE FILE_PATH="coverage/IT_Project_Jassmend$ClientChatRoom.ic" NAME="ClientChatRoom Coverage Results" MODIFIED="1589646617836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>client_v0.*</FILTER>
     </SUITE>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/client_v0/AccJass.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
   </component>
 </project>
