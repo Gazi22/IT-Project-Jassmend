@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
+//Author: Florian Jäger
 public class ClientViewManager {
 	
 	public Stage getPrimaryStage() {
@@ -26,7 +26,7 @@ public class ClientViewManager {
     private ClientModel clientModel;
     private ClientController clientController;
     
-
+ // Author: Florian Jäger
     public ClientViewManager(Stage primaryStage, GameView view, MainMenuView menuView, LoginView loginView, CreateAccountView createAccountView, ClientController clientController) {
         
     	this.primaryStage = primaryStage;
@@ -36,7 +36,7 @@ public class ClientViewManager {
         this.menuView = menuView;
         this.clientController = clientController;
 
-        
+     // Author: Florian Jäger & Gazmend Shefiu
      // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
         primaryStage.setOnCloseRequest(e->{
         closeWindow();
@@ -45,7 +45,7 @@ public class ClientViewManager {
     }
     
     
-
+ // Author: Florian Jäger
     public void setScene(Scene scene) {
         Platform.runLater(new Runnable(){
             @Override

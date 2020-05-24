@@ -22,6 +22,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Optional;
 
+//Author: Florian Jäger
 public class ClientController {
     private  ClientModel clientModel;
     private Socket socket;
@@ -58,7 +59,7 @@ public class ClientController {
 
 
 
-
+ // Author: Florian Jäger
     public boolean connect (String ipaddress, String port){
         if (validateIpAddress(ipaddress)&&validatePortNumber(port)){
             try {
@@ -101,7 +102,7 @@ public class ClientController {
 
 
     }
-
+ // Author: Florian Jäger
     public void appendMessage(String message){
         view.areaMessages.appendText(message+"\n");
     }
@@ -117,7 +118,7 @@ public class ClientController {
     public void setText_PortField(String text){
         loginView.txtPort.setText(text);
     }
-    
+ // Author: Florian Jäger
     public boolean connect(){
         try {
             // Get IP address and port from user or use default settings
@@ -614,7 +615,7 @@ public class ClientController {
         }
 
     }
-
+ // Author: Florian Jäger
     private  boolean validateIpAddress(String ipAddress) {
         boolean formatOK = false;
         // Check for validity (not complete, but not bad)
@@ -633,7 +634,7 @@ public class ClientController {
         }
         return formatOK;
     }
-
+ // Author: Florian Jäger
     private  boolean validatePortNumber(String portText) {
         boolean formatOK = false;
         try {
@@ -645,7 +646,7 @@ public class ClientController {
         }
         return formatOK;
     }
-
+ // Author: Florian Jäger
     private  void sendToServer(String message){
         try {
             socketOut.write(message + "\n");
@@ -655,7 +656,7 @@ public class ClientController {
         }
     }
 
-
+ // Author: Florian Jäger
     public void registerUser(String username, String password){
         String concatString = "CreateLogin|"+username+"|"+password;
         sendToServer(concatString);
@@ -676,13 +677,13 @@ public class ClientController {
     public String getUsername(){
         return clientModel.getUser();
     }
-
+ // Author: Florian Jäger
     public void getGamelobbyList(){
         //No additional checks done, since button is disabled until confirmed login
         String concatString = "ListGamelobbys|"+clientModel.gethash();
         sendToServer(concatString);
     }
-
+ // Author: Florian Jäger
     public void comparePlayerIDs() {
         for (int x = 0; x < playerIDs.length; x++) {
             if (playerIDs[x].equals(clientModel.getUser())) {
@@ -691,13 +692,13 @@ public class ClientController {
             }
         }
     }
-
+ // Author: Florian Jäger
     public void setMyCurrentPlayerHand(int i,String cardString){
 
             myCurrentPlayerHand[i]=cardString;
         }
 
-
+ // Author: Florian Jäger
     public void setGameConfig(){
         for(int i  = 0; i < 4;i++){
               clientModel.getPlayer(i).setPlayerName(getPlayerIDs(i));
@@ -705,7 +706,7 @@ public class ClientController {
             }
         }
 
-
+ // Author: Florian Jäger
     public void getStiche(String gamelobby){
         String concatString = "GetStiche|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
         sendToServer(concatString);
@@ -783,7 +784,7 @@ public class ClientController {
         }
          return playerNames[i];
     }
-
+ // Author: Florian Jäger
     public  void logout(){
 
         sendToServer("Logout");
@@ -836,7 +837,7 @@ public class ClientController {
 
 
 
-
+  // Author: Florian Jäger
     //Source: https://tagmycode.com/snippet/5207/yes-no-cancel-dialog-in-javafx#.XiML3MhKjD4
      void showAlertYesNo(String alertTitle,String alertMessage) {
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -854,7 +855,7 @@ public class ClientController {
     });
 }
 
-
+  // Author: Florian Jäger
      public ClientController(ClientModel clientModel){
          this.clientModel = clientModel;
 
@@ -892,7 +893,7 @@ public class ClientController {
 
 
 
-
+ // Author: Florian Jäger
     public void joinedGamelobbyMode(){
         gameView.btnSend.setDisable(false);
         gameView.txt1.setDisable(false);
@@ -921,7 +922,7 @@ public class ClientController {
 
 
 
-
+ // Author: Florian Jäger
     public boolean isFull() {
 
         boolean full = true;
@@ -933,7 +934,7 @@ public class ClientController {
         }
         return full;
     }
-
+ // Author: Florian Jäger
 //Player p = clientModel.getPlayer(clientModel.getClientPlayerID());!!!!
     private void applyCardImages(){
         Player p = clientModel.getPlayer(1);
@@ -946,7 +947,7 @@ public class ClientController {
         pp.updatePlayerDisplay();
 
     }
-
+ // Author: Florian Jäger
     public String switchNumbersToWords(String number){
         switch(number){
             case "6": return "Sechs";
@@ -960,7 +961,7 @@ public class ClientController {
         }
     }
 
-
+ // Author: Florian Jäger
 //https://stackoverflow.com/questions/1080904/how-can-i-lookup-a-java-enum-from-its-string-value/1080914
 //https://stackoverflow.com/questions/9276639/java-how-to-split-a-string-by-a-number-of-characters
     public Card stringToCard(String stringOfCard){
@@ -1030,7 +1031,7 @@ public class ClientController {
     public int getCardPlayedNr() {
         return cardPlayedNr;
     }
-
+ // Author: Florian Jäger
     //https://stackoverflow.com/questions/24104313/how-do-i-make-a-delay-in-java
     public static void waiterino(int ms){
         try
@@ -1042,11 +1043,11 @@ public class ClientController {
             Thread.currentThread().interrupt();
         }
     }
-
+ // Author: Florian Jäger
     public String getFinalGamelobby(){
        return menuView.getFinalGamelobby();
     }
-
+ // Author: Florian Jäger
     public void getGameView() {
         //added new fx thread
         Platform.runLater(new Runnable() {
@@ -1058,13 +1059,13 @@ public class ClientController {
     }
 
 
-
+ // Author: Florian Jäger
     public void setTextlblRoundCount(){
-        gameView.getLblRound().setText("Round: "+roundcounter+1);
+        gameView.getLblRound().setText("Round: "+roundcounter);
     }
 
 
-
+ // Author: Florian Jäger
     public void setTextlblUsername() {
 
         int y =0;
@@ -1122,7 +1123,7 @@ public class ClientController {
         }
 
     }
-
+ // Author: Florian Jäger
     public Label getLblTrumpf(){
         return gameView.getLblTrumpf();
     }
@@ -1180,7 +1181,7 @@ public class ClientController {
     	return socket;
     }
 
-
+ // Author: Florian Jäger
     public boolean readLastMessage(String lookFor) {
         int lastMessageIndex2 = gameView.msgArea.getText().split("\n").length - 1;
         String lastMessage2 = gameView.msgArea.getText().split("\n")[lastMessageIndex2];

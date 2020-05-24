@@ -5,6 +5,7 @@ package client_v0;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+	//Author: Florian Jäger
 public class ClientChatRoom extends Application {
     ClientViewManager clientView;
     LoginView loginView;
@@ -18,7 +19,7 @@ public class ClientChatRoom extends Application {
     		launch();
     		
     }
-
+    // Author: Florian Jäger
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Jassmend");

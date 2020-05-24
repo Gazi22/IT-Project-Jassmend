@@ -17,9 +17,10 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+//Author: Florian Jäger & Gazmend Shefiu
 public class LoginView {
 
-	// Author: Florian Jäger
+	
     private static Scene scene;
     private ClientController clientController;
     private MainMenuView menuView;
@@ -46,7 +47,7 @@ public class LoginView {
 
     HBox hboxBtn = new HBox(10);
  
-
+  //Author: Florian Jäger
     public LoginView(ClientController clientController, GameView view)
     {
         this.clientController = clientController;
@@ -69,6 +70,7 @@ public class LoginView {
         // Bind the textField and passwordField text values bidirectionally.
         passwordTextField.textProperty().bindBidirectional(passwordField.textProperty());
         
+      //Author: Florian Jäger
         btnSignIn.setDisable(true);
         btnCreateAccount.setDisable(true);
         gridLoginView.setAlignment(Pos.CENTER);
@@ -81,6 +83,7 @@ public class LoginView {
         passwordTextField.setPromptText("Type here your Password");
         passwordField.setPromptText("Type here your Password");
 
+      //Author: Gazmend Shefiu
         checkPw.getStyleClass().add("outline");
         lblUserName.getStyleClass().add("outline");
         lblPassword.getStyleClass().add("outline");
@@ -89,7 +92,7 @@ public class LoginView {
         
         
        
-
+      //Author: Florian Jäger
 		gridLoginView.add(lblUserName, 0, 4);
 
 		gridLoginView.add(txtUser, 1, 4);
@@ -129,9 +132,9 @@ public class LoginView {
         
         
         
-        //Handling Login button
-
         
+
+        //Author: Florian Jäger
         //Handling Create Account button
         btnCreateAccount.setOnAction(e -> {
             newStageCreateAccount = new Stage();
@@ -142,8 +145,8 @@ public class LoginView {
             newStageCreateAccount.show();
         });
         
-        
-
+      //Author: Florian Jäger & Gazmend Shefiu
+      //Handling Login button
         btnSignIn.setOnAction(event -> {
             // Assume success always!
             String user = txtUser.getText();
@@ -171,7 +174,7 @@ public class LoginView {
             });
             pause.play();
         });
-        
+      //Author: Florian Jäger & Gazmend Shefiu
         passwordField.setOnKeyPressed(e11 -> {
         	if(e11.getCode() == KeyCode.ENTER) {
                 // Assume success always!
@@ -202,7 +205,7 @@ public class LoginView {
 			}
         });
 
-
+      //Author: Florian Jäger
         btnConnect.setOnAction((event2) -> {
             // Button was clicked, do something...
             String inputIP = txtIPAddress.getText();
@@ -223,7 +226,7 @@ public class LoginView {
         scene.getStylesheets().add(getClass().getResource("LogJass.css").toExternalForm());
         
     }
-
+  //Author: Florian Jäger
     public void connectedMode(){
         //If connection to server was successfully established, disable all related fields and enable
         //chat functionality.
@@ -234,14 +237,14 @@ public class LoginView {
         btnConnect.setDisable(true);
     }
 
-
+  //Author: Florian Jäger
     public void loggedInMode(){
         btnSignIn.setDisable(true);
 
 
     }
 
-
+  //Author: Florian Jäger
 public static Scene getScene () {
 		
 		return scene;
