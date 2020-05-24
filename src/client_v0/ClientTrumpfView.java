@@ -1,6 +1,6 @@
 package client_v0;
 
-// Author: Davide Seabra
+
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-
+	// Author: Davide Seabra & Florian Jäger
 public class ClientTrumpfView {
 
 	ClientController clientController;
@@ -21,17 +21,21 @@ public class ClientTrumpfView {
 	Label lblSchaufel = new Label();
 	Label lblHerz = new Label();
 	Label lblKreuz = new Label();
-	Button btnEcke = new Button("E");
-	Button btnSchaufel = new Button("S");;
-	Button btnHerz = new Button("H");
-	Button btnKreuz = new Button("K");
+	Button btnEcke = new Button("Ecke");
+	Button btnSchaufel = new Button("Schaufel");;
+	Button btnHerz = new Button("Herz");
+	Button btnKreuz = new Button("Kreuz");
+    Label lblspace = new Label("__");
 	Image image1 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke_Jass_trumpf.jpg"));
 	Image image2 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz_Jass_trumpf.jpg"));
 	Image image3 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz_Jass_trumpf.jpg"));
 	Image image4 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel_Jass_trumpf.jpg"));
+	Image image5 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke.png"));
+	Image image6 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz.png"));
+	Image image7 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz.png"));
+	Image image8 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel.png"));
 
-
-
+	// Author: Davide Seabra & Florian Jäger
 	public ClientTrumpfView(ClientController clientController) {
 		this.clientController = clientController;
 		
@@ -48,7 +52,7 @@ public class ClientTrumpfView {
 
 
 
-
+	    
 		HBox trumpfBox = new HBox();
 		trumpfBox.setSpacing(5);
 		trumpfBox.getChildren().addAll(lblEcke, lblHerz, lblKreuz, lblSchaufel);
@@ -58,8 +62,8 @@ public class ClientTrumpfView {
 		
 		HBox slcBox = new HBox();
 		slcBox.getChildren().addAll(btnEcke, btnHerz,  btnKreuz, btnSchaufel);
-		slcBox.setPadding(new Insets(5, 10, 10, 33));
-		slcBox.setSpacing(74);
+		slcBox.setPadding(new Insets(5, 7, 10, 15));
+		slcBox.setSpacing(50);
 		
 		btnEcke.setId("btnEcke");
 		btnSchaufel.setId("btnSchaufel");
@@ -67,7 +71,7 @@ public class ClientTrumpfView {
 		btnKreuz.setId("btnKreuz");
 		
 		
-	
+		// Author: Davide Seabra & Florian Jäger
 	btnEcke.setOnAction(e1->{
 		clientController.sendTrumpf("Ecke",clientController.getFinalGamelobby());
 		trumpfWindow.close();
@@ -85,7 +89,7 @@ public class ClientTrumpfView {
 		trumpfWindow.close();
 		});
 	
-	
+	// Author: Davide Seabra & Florian Jäger
 	BorderPane trumpfLayout = new BorderPane();
 	
 	
@@ -97,7 +101,7 @@ public class ClientTrumpfView {
 	
 	
 	
-	
+	// Author: Davide Seabra & Florian Jäger
 	secondScene = new Scene(trumpfLayout);
 	secondScene.getStylesheets().add(getClass().getResource("trumpfView.css").toExternalForm());
 	trumpfWindow = new Stage();
@@ -111,7 +115,7 @@ public class ClientTrumpfView {
 
 	
 	
-	
+	// Author: Davide Seabra & Florian Jäger
 
 }
 	public Scene getSceneTrumpfView () {
@@ -120,5 +124,19 @@ public class ClientTrumpfView {
 		
 	}
 
+	public Image getImage5() {
+		return image5;
+	}
 
+	public Image getImage6() {
+		return image6;
+	}
+
+	public Image getImage7() {
+		return image7;
+	}
+
+	public Image getImage8() {
+		return image8;
+	}
 }

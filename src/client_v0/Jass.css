@@ -1,5 +1,5 @@
 
-/** Author: Gazmend Shefiu & Davide Seabra || inspired by Akatsuki Project & Poker Project */
+/** Author: Gazmend Shefiu & Davide Seabra || inspired by Akatsuki Project & Pokerproject*/
 
 .root{
     -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
@@ -83,79 +83,74 @@
 #lblRound{
 
 	-fx-text-fill: white;
-	-fx-font-size: 17px;
+	-fx-font-size: 15px;
 }
 
 
 #lblStiche{
 
 	-fx-text-fill: white;
-	-fx-font-size: 17px;
+	-fx-font-size: 15px;
 }
 
 #lblScore{
 
 	-fx-text-fill: white;
-	-fx-font-size: 17px;
+	-fx-font-size: 15px;
 }
 
 #lblTeam1{
 	-fx-text-fill: white;
-	-fx-font-size: 16px;
 }
 
 #lblSticheT1{
 	-fx-text-fill: white;
-	-fx-font-size: 16px;
 }
 
 #lblScoreT1{
 	-fx-text-fill: white;
-	-fx-font-size: 16px;
 }
 
 #lblTeam2{
 	-fx-text-fill: white;
-	-fx-font-size: 16px;
 }
 
 #lblSticheT2{
 	-fx-text-fill: white;
-	-fx-font-size: 16px;
 }
 
 #lblScoreT2{
 	-fx-text-fill: white;
-	-fx-font-size: 16px;
 }
 
 #lblTeam1Pl{
 	-fx-text-fill: white;
-	-fx-font-size: 16px;
+	-fx-font-size: 14px;
 }
 
 #lblTeam2Pl{
 	-fx-text-fill: white;
-	-fx-font-size: 16px;}
+	-fx-font-size: 14px;
+}
 
 #lblPl1{
 	-fx-text-fill: white;
-	-fx-font-size: 15px;
+	-fx-font-size: 13px;
 }
 
 #lblPl3{
 	-fx-text-fill: white;
-	-fx-font-size: 15px;
+	-fx-font-size: 13px;
 }
 
 #lblPl2{
 	-fx-text-fill: white;
-	-fx-font-size: 15px;
+	-fx-font-size: 13px;
 }
 
 #lblPl4{
 	-fx-text-fill: white;
-	-fx-font-size: 15px;
+	-fx-font-size: 13px;
 }
 
 #userNamePl2{

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 import  java.net.InetAddress;
 import java.net.UnknownHostException;
-
+//Author: Florian Jäger
 public class ClientModel {
 	
 	 InetAddress localHost;
@@ -26,6 +26,7 @@ public class ClientModel {
     
     	 e.printStackTrace();
      }
+     // Author: Florian Jäger
      //end https://crunchify.com/how-to-get-server-ip-address-and-hostname-in-java/
      
 }
@@ -39,11 +40,11 @@ public class ClientModel {
     private String currentGamelobby;
 
     private Logger logger = Logger.getLogger("");
-
+ // Author: Florian Jäger
     public void setIpAddress(String ip){
         this.ipAddress = ip;
     }
-
+ // Author: Florian Jäger
     public String getIpAddress(){
         if (this.ipAddress != null){
             return this.ipAddress;
@@ -115,7 +116,7 @@ public class ClientModel {
     private Deck deck;
 
 
-
+ // Author: Florian Jäger
     public ClientModel() {
         for (int i = 0; i < ClientChatRoom.NUM_PLAYERS; i++) {
             players.add(new Player("Player " + i, 0));

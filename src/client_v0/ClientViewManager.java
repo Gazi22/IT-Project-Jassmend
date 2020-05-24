@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
+//Author: Florian Jï¿½ger
 public class ClientViewManager {
 	
 	public Stage getPrimaryStage() {
@@ -28,6 +28,7 @@ public class ClientViewManager {
     private ChatView chatView;
 
     public ClientViewManager(Stage primaryStage, GameView view, MainMenuView menuView, LoginView loginView, CreateAccountView createAccountView, ClientController clientController,ChatView chatView) {
+ // Author: Florian Jï¿½ger
         
     	this.primaryStage = primaryStage;
         this.createAccountView = createAccountView;
@@ -45,7 +46,7 @@ public class ClientViewManager {
     }
     
     
-
+ // Author: Florian Jï¿½ger
     public void setScene(Scene scene) {
         Platform.runLater(new Runnable(){
             @Override
@@ -55,7 +56,7 @@ public class ClientViewManager {
                });
         
     }
-// Author: Gazmend Shefiu & Davide Seabra & Florian Jäger
+// Author: Gazmend Shefiu & Davide Seabra & Florian Jï¿½ger
  // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
     public void closeWindow () {
     	if (clientController.getSocket()!= null) {
