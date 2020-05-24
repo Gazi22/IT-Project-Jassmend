@@ -48,7 +48,7 @@ public class GameView {
 //temporary
 
 	Button btnTrumpf = new Button("Trumpf");
-	Button btnDeal = new Button("Deal");
+	//Button btnDeal = new Button("Deal");
 	// Player areas
 	Insets insets = new Insets(10);
 	
@@ -288,8 +288,7 @@ public class GameView {
 		//-----------------------------------------------------------------------
 
 		HBox controlBox = new HBox();
-		controlBox.getChildren().addAll(btnDeal,btnTrumpf);
-		btnDeal.setTooltip(new Tooltip ("Start the game by getting your cards!"));
+		controlBox.getChildren().addAll(btnTrumpf);
 		btnTrumpf.setTooltip(new Tooltip ("Select the Trumpf suit for this round!"));
 		controlBox.setAlignment(Pos.CENTER);
 
@@ -632,9 +631,7 @@ public class GameView {
 
 
 
-		btnDeal.setOnAction(e7 -> {
-			clientController.dealCards(finalGamelobby);
-				});
+
 
 
 
@@ -652,7 +649,8 @@ public class GameView {
              clientController.leaveGamelobby(str);
              }
 
-
+		 clientController.logoutUser(clientController.getUsername());
+		 clientController.waiterino(250);
          clientController.logout();
          this.clientController.getViewManager().primaryStage.setMaximized(false);
          this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
@@ -666,10 +664,7 @@ public class GameView {
 
 
 	}
-	public Button getBtnDeal() {
 
-		return btnDeal;
-	}
 
 
 	public PlayerPane getPlayerPane(int i) {
@@ -727,15 +722,6 @@ public static Scene getScene () {
 
 
 
-public String[] getPlayerIDs() {
-	return playerIDs;
-}
-
-public void addMainMenuView(MainMenuView mainMenuView){
-		this.mainMenuView = mainMenuView;
-	}
-
-
 public void setGamelobby(String gamelobby){
 		this.finalGamelobby=gamelobby;
 }
@@ -764,77 +750,53 @@ public void setGamelobby(String gamelobby){
 		return lblTrumpf;
 	}
 
-	public Label getLblRound() {
-		return lblRound;
-	}
 
-	public void setLblRound(Label lblRound) {
-		this.lblRound = lblRound;
-	}
 
 	public Label getLblSticheT1() {
 		return lblSticheT1;
 	}
 
-	public void setLblSticheT1(Label lblSticheT1) {
-		this.lblSticheT1 = lblSticheT1;
-	}
+
 
 	public Label getLblScoreT1() {
 		return lblScoreT1;
 	}
 
-	public void setLblScoreT1(Label lblScoreT1) {
-		this.lblScoreT1 = lblScoreT1;
-	}
+
 
 	public Label getLblSticheT2() {
 		return lblSticheT2;
 	}
 
-	public void setLblSticheT2(Label lblSticheT2) {
-		this.lblSticheT2 = lblSticheT2;
-	}
 
 	public Label getLblScoreT2() {
 		return lblScoreT2;
 	}
 
-	public void setLblScoreT2(Label lblScoreT2) {
-		this.lblScoreT2 = lblScoreT2;
-	}
 
 	public Label getLblPl1() {
 		return lblPl1;
 	}
 
-	public void setLblPl1(Label lblPl1) {
-		this.lblPl1 = lblPl1;
-	}
+
 
 	public Label getLblPl3() {
 		return lblPl3;
 	}
 
-	public void setLblPl3(Label lblPl3) {
-		this.lblPl3 = lblPl3;
-	}
+
 
 	public Label getLblPl2() {
 		return lblPl2;
 	}
 
-	public void setLblPl2(Label lblPl2) {
-		this.lblPl2 = lblPl2;
-	}
+
 
 	public Label getLblPl4() {
 		return lblPl4;
 	}
 
-	public void setLblPl4(Label lblPl4) {
-		this.lblPl4 = lblPl4;
-	}
+
 }
 
 

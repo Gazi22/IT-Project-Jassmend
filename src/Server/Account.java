@@ -29,7 +29,7 @@ import javax.crypto.spec.PBEKeySpec;
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1;
 	private static Logger logger = Logger.getLogger("");
-
+	private static final ArrayList <String> usersLoggedIn = new ArrayList<>();
 	private static final ArrayList<Account> accounts = new ArrayList<>();
 	private static final SecureRandom rand = new SecureRandom();
 	private static final int iterations = 127;
@@ -166,6 +166,29 @@ public class Account implements Serializable {
 		return username;
 	}
 
+	public boolean checkForusersLoggedIn(String user){
+		boolean check=false;
+		if(usersLoggedIn.size()!=0) {
+			for (int x = 0; x < usersLoggedIn.size(); x++) {
+				if (user.equals(usersLoggedIn.get(x))) {
+					check = false;
+					break;
+				} else check = true;
+
+			}
+		}
+		else check=true;
+
+		return check;
+	}
+
+	public void setusersLoggedIn(String user){
+		usersLoggedIn.add(user);
+	}
+
+	public void removeUsersLoggedIn(String user){
+		usersLoggedIn.remove(user);
+	}
 	/**
 	 * There are many sources of info on how to securely hash passwords. I'm not a
 	 * crypto expert, so I follow the recommendations of the experts. Here are two
@@ -202,4 +225,6 @@ public class Account implements Serializable {
 		}
 		return new String(hexChars);
 	}
+
+
 }

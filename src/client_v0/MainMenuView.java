@@ -174,6 +174,8 @@ public class MainMenuView {
 
 
 	         clientController.logout();
+			 clientController.waiterino(250);
+			 clientController.logoutUser(clientController.getUsername());
 	         this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
 	     });
 

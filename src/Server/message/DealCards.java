@@ -2,15 +2,6 @@ package Server.message;
 
 import Server.Client;
 import Server.Gamelobby;
-import client_v0.ClientModel;
-import client_v0.GameView;
-import jassmendMain.JassmendMain;
-import jassmendModel.Card;
-import jassmendModel.Player;
-import jassmendView.PlayerPane;
-import javafx.scene.control.Alert;
-
-import java.util.ArrayList;
 
 /**
  * Add a user as a member of a gamelobby.

@@ -11,7 +11,7 @@ public class ClientChatRoom extends Application {
     CreateAccountView createAccountView;
     GameView view;
     MainMenuView viewMenu;
-   
+    final public static int NUM_PLAYERS = 4;
 
     public static void main(String[] args) {
     	 	

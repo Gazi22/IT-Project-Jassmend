@@ -26,25 +26,29 @@ public class ClientTrumpfView {
 	Button btnHerz = new Button("Herz");
 	Button btnKreuz = new Button("Kreuz");
     Label lblspace = new Label("__");
-	
-	
-	
+	Image image1 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke_Jass_trumpf.jpg"));
+	Image image2 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz_Jass_trumpf.jpg"));
+	Image image3 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz_Jass_trumpf.jpg"));
+	Image image4 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel_Jass_trumpf.jpg"));
+	Image image5 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke.png"));
+	Image image6 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz.png"));
+	Image image7 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz.png"));
+	Image image8 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel.png"));
+
+
 	public ClientTrumpfView(ClientController clientController) {
 		this.clientController = clientController;
 		
-		Image image1 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke_Jass_trumpf.jpg"));
+
 	    lblEcke.setGraphic(new ImageView(image1));	
-	    Image image2 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz_Jass_trumpf.jpg"));
+
 	    lblHerz.setGraphic(new ImageView(image2));	
-	    Image image3 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz_Jass_trumpf.jpg"));
+
 	    lblKreuz.setGraphic(new ImageView(image3));	
-	    Image image4 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel_Jass_trumpf.jpg"));
+
 	    lblSchaufel.setGraphic(new ImageView(image4));
 
-		Image image5 = new Image(getClass().getResourceAsStream("/trumpf/images/Ecke.png"));
-		Image image6 = new Image(getClass().getResourceAsStream("/trumpf/images/Herz.png"));
-		Image image7 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz.png"));
-		Image image8 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel.png"));
+
 
 
 
@@ -65,19 +69,19 @@ public class ClientTrumpfView {
 	
 	btnEcke.setOnAction(e1->{
 		clientController.sendTrumpf("Ecke",clientController.getFinalGamelobby());
-		clientController.getLblTrumpf().setGraphic(new ImageView(image5));
+		trumpfWindow.close();
 		});
 	btnSchaufel.setOnAction(e1->{
 		clientController.sendTrumpf("Schaufel",clientController.getFinalGamelobby());
-		clientController.getLblTrumpf().setGraphic(new ImageView(image8));
+		trumpfWindow.close();
 		});
 	btnKreuz.setOnAction(e1->{
 		clientController.sendTrumpf("Kreuz",clientController.getFinalGamelobby());
-		clientController.getLblTrumpf().setGraphic(new ImageView(image7));
+		trumpfWindow.close();
 		});
 	btnHerz.setOnAction(e1->{
 		clientController.sendTrumpf("Herz",clientController.getFinalGamelobby());
-		clientController.getLblTrumpf().setGraphic(new ImageView(image6));
+		trumpfWindow.close();
 		});
 	
 	
@@ -109,10 +113,25 @@ public class ClientTrumpfView {
 	
 
 }
-public Scene getSceneTrumpfView () {
+	public Scene getSceneTrumpfView () {
 		
 		return secondScene;
 		
 	}
-	
+
+	public Image getImage5() {
+		return image5;
+	}
+
+	public Image getImage6() {
+		return image6;
+	}
+
+	public Image getImage7() {
+		return image7;
+	}
+
+	public Image getImage8() {
+		return image8;
+	}
 }

@@ -34,24 +34,27 @@ public class JoinGamelobby extends Message {
 		if (client.getToken().equals(token)) {
 			Gamelobby gamelobby = Gamelobby.exists(name);
 			if(!gamelobby.isFull()) {
-			if (gamelobby.getOwner().equals(client.getName())
-					|| client.getName().equals(username) && gamelobby.isPublic()) {
-				gamelobby.addUser(username);
-				ids[0] = gamelobby.getPlayerIDs(0);
-				ids[1] = gamelobby.getPlayerIDs(1);
-				ids[2] = gamelobby.getPlayerIDs(2);
-				ids[3] = gamelobby.getPlayerIDs(3);
+				if (gamelobby.getOwner().equals(client.getName()) || client.getName().equals(username) && gamelobby.isPublic()) {
 
 
-				if(ids[3]!=null) {
-					//Add to Teams
-					gamelobby.addToTeam1(0, ids[0]);
-					gamelobby.addToTeam1(1, ids[2]);
-					gamelobby.addToTeam2(0, ids[1]);
-					gamelobby.addToTeam2(1, ids[3]);
-					result = true;
-				}
-			}
+
+						gamelobby.addUser(username);
+						ids[0] = gamelobby.getPlayerIDs(0);
+						ids[1] = gamelobby.getPlayerIDs(1);
+						ids[2] = gamelobby.getPlayerIDs(2);
+						ids[3] = gamelobby.getPlayerIDs(3);
+
+
+						if (ids[3] != null) {
+							//Add to Teams
+							gamelobby.addToTeam1(0, ids[0]);
+							gamelobby.addToTeam1(1, ids[2]);
+							gamelobby.addToTeam2(0, ids[1]);
+							gamelobby.addToTeam2(1, ids[3]);
+							result = true;
+						}
+					}
+
 			}
 		}
 

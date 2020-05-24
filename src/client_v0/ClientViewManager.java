@@ -28,7 +28,8 @@ public class ClientViewManager {
        
         
      // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
-      	closeWindow();
+
+        closeWindow();
       		
         primaryStage.setScene(LoginView.getScene());
     }
@@ -48,6 +49,7 @@ public class ClientViewManager {
     public void closeWindow () {
     	
     	primaryStage.setOnCloseRequest(e->{
+
           	Platform.exit();
           	System.exit(0);
           	});

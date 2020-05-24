@@ -1,7 +1,7 @@
 package client_v0;
 
 import Server.Deck;
-import jassmendMain.JassmendMain;
+import client_v0.ClientChatRoom;
 import jassmendModel.Player;
 
 import java.util.ArrayList;
@@ -117,7 +117,7 @@ public class ClientModel {
 
 
     public ClientModel() {
-        for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
+        for (int i = 0; i < ClientChatRoom.NUM_PLAYERS; i++) {
             players.add(new Player("Player " + i, 0));
         }
 

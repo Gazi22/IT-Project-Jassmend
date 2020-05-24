@@ -1,6 +1,5 @@
 package client_v0;
 
-import Server.Gamelobby;
 import jassmendModel.Card;
 import jassmendModel.Player;
 import jassmendView.CardView;
@@ -12,6 +11,7 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.ImageView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,6 +29,7 @@ public class ClientController {
     private MainMenuView menuView;
     private ClientViewManager viewManager;
     private GameView gameView;
+    private ClientTrumpfView trumpfView;
     private int gamelobbyFlag=0;
     private String[] playerIDs= new String[4];
     private String gamelobbyName;
@@ -48,6 +49,7 @@ public class ClientController {
     int pointsTeam2=0;
     int firstPlayer=0;
     int sticheCounter=0;
+    String trumpf ="";
 
 
 
@@ -181,6 +183,19 @@ public class ClientController {
                                             comparePlayerIDs();
                                             setGameConfig();
 
+                                            if(clientModel.getClientTurnPlayerID()==1) {
+                                                showAlert("Game starts now", "Choose the Trumpf!");
+                                            }
+
+                                            else showAlert("Game starts now", "Wait for the Trumpf to be chosen.");
+                                            buttonsTrue();
+
+                                            if(clientModel.getClientPlayerID()==1){
+                                                btnTrumpfFalse();
+                                            }
+                                            else btnTrumpfTrue();
+
+
                                             switch(clientModel.getClientPlayerID()){
                                                 case 1:dealCards(menuView.getFinalGamelobby());
                                                     break;
@@ -195,11 +210,12 @@ public class ClientController {
                                                     break;
                                             }
 
-                                            if (clientModel.getClientPlayerID()==1){
-                                                buttonsFalse();
-                                            }
-                                            else buttonsTrue();
+
+
                                             gamelobbyFlag = 1;
+
+
+
                                             System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+clientModel.getUser());
                                         }
                                     }
@@ -256,6 +272,34 @@ public class ClientController {
                                             }
                                             });
                                     }
+
+                                    else if(arrMsgText[3].equals("Trumpf")){
+                                        trumpf=arrMsgText[4];
+
+                                        switch(trumpf){
+                                            case "Ecke":
+                                                getLblTrumpf().setGraphic(new ImageView(trumpfView.getImage5()));
+                                                btnTrumpfTrue();
+                                                break;
+
+                                            case "Schaufel":
+                                                getLblTrumpf().setGraphic(new ImageView(trumpfView.getImage8()));
+                                                btnTrumpfTrue();
+                                                break;
+
+                                            case "Herz":
+                                                getLblTrumpf().setGraphic(new ImageView(trumpfView.getImage6()));
+                                                btnTrumpfTrue();
+                                                break;
+
+                                            case "Kreuz":
+                                                getLblTrumpf().setGraphic(new ImageView(trumpfView.getImage7()));
+                                                btnTrumpfTrue();
+                                                break;
+                                        }
+
+                                    }
+
 
 
                                     else if (arrMsgText[3].equals("Stich")) {
@@ -351,6 +395,10 @@ public class ClientController {
                                             sticheTeam2=0;
                                             sticheTeam1=0;
                                             sticheCounter=0;
+                                            if(clientModel.getClientTurnPlayerID()==1){
+                                                btnTrumpfFalse();
+                                            }
+
 
 
                                             waiterino(500);
@@ -571,7 +619,6 @@ public class ClientController {
         sendToServer(concatString);
     }
     public void loginUser(String username, String password){
-
         String concatString = "Login|"+username+"|"+password;
         sendToServer(concatString);
     }
@@ -696,6 +743,12 @@ public class ClientController {
         sendToServer("Logout");
     }
 
+    public  void logoutUser(String username){
+        String concatString = "LogoutUser|"+username;
+        sendToServer(concatString);
+
+    }
+
     public void sendMessage(String message){
         // Destination is currently selected gamelobby
         String concatString = "SendMessage|"+clientModel.gethash()+"|"+clientModel.getCurrentGamelobby()+"|"+message;
@@ -773,6 +826,9 @@ public class ClientController {
      public void addGameView(GameView gameView){
          this.gameView = gameView;
      }
+    public void addTrumpfView(ClientTrumpfView trumpfView){
+        this.trumpfView = trumpfView;
+    }
      public void setViewManager(ClientViewManager viewManager) {
          this.viewManager = viewManager;
      }
@@ -808,6 +864,18 @@ public class ClientController {
             gameView.getPlayerPane(1).getCardBox().getChildren().get(i).setDisable(true);
         }
     }
+
+    public void btnTrumpfFalse(){
+      gameView.getBtnTrumpf().setDisable(false);
+    }
+
+    public void btnTrumpfTrue(){
+        gameView.getBtnTrumpf().setDisable(true);
+    }
+
+
+
+
     public boolean isFull() {
 
         boolean full = true;
