@@ -1,8 +1,6 @@
-package client_v0;
+package Jassmend;
 
 import java.io.IOException;
-import java.net.Socket;
-import java.net.SocketException;
 import java.util.Arrays;
 
 import javafx.animation.PauseTransition;
@@ -12,37 +10,37 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 //Author: Florian J�ger
-public class ClientViewManager {
+public class JassmendViewManager {
 	
 	public Stage getPrimaryStage() {
         return primaryStage;
     }
 
     public Stage primaryStage;
-    private CreateAccountView createAccountView;
-    private GameView view;
-    private LoginView loginView;
-    private MainMenuView menuView;
-    private ClientModel clientModel;
-    private ClientController clientController;
-    private ChatView chatView;
+    private JassmendAccountView jassmendAccountView;
+    private JassmendGameView view;
+    private JassmendLoginView jassmendLoginView;
+    private JassmendMainMenuView menuView;
+    private JasmendModel jasmendModel;
+    private JasmendController jasmendController;
+    private JassmendLogView jassmendLogView;
 
-    public ClientViewManager(Stage primaryStage, GameView view, MainMenuView menuView, LoginView loginView, CreateAccountView createAccountView, ClientController clientController,ChatView chatView) {
+    public JassmendViewManager(Stage primaryStage, JassmendGameView view, JassmendMainMenuView menuView, JassmendLoginView jassmendLoginView, JassmendAccountView jassmendAccountView, JasmendController jasmendController, JassmendLogView jassmendLogView) {
  // Author: Florian J�ger
         
     	this.primaryStage = primaryStage;
-        this.createAccountView = createAccountView;
+        this.jassmendAccountView = jassmendAccountView;
         this.view = view;
-        this.loginView = loginView;
+        this.jassmendLoginView = jassmendLoginView;
         this.menuView = menuView;
-        this.clientController = clientController;
-        this.chatView=chatView;
+        this.jasmendController = jasmendController;
+        this.jassmendLogView = jassmendLogView;
         
      // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
         //primaryStage.setOnCloseRequest(e->{
         //closeWindow();
         //});
-        primaryStage.setScene(LoginView.getScene());
+        primaryStage.setScene(JassmendLoginView.getScene());
     }
     
     
@@ -59,12 +57,12 @@ public class ClientViewManager {
 // Author: Gazmend Shefiu & Davide Seabra & Florian J�ger
  // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
     public void closeWindow () {
-    	if (clientController.getSocket()!= null) {
+    	if (jasmendController.getSocket()!= null) {
     	try {
 
           	Platform.exit();
 
-       		clientController.getGamelobbyList();
+       		jasmendController.getGamelobbyList();
           	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
                pause.setOnFinished(e5 -> {
 
@@ -72,7 +70,7 @@ public class ClientViewManager {
                    String [] lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
           		 String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
                    for (String str:gameLobbyList) {
-                   clientController.leaveGamelobby(str);
+                   jasmendController.leaveGamelobby(str);
                    }
 
 
@@ -80,11 +78,11 @@ public class ClientViewManager {
            });
        pause.play();
 
-        clientController.logout();
-        clientController.waiterino(250);
-        clientController.logoutUser(clientController.getUsername());
+        jasmendController.logout();
+        jasmendController.waiterino(250);
+        jasmendController.logoutUser(jasmendController.getUsername());
 
-        clientController.getSocket().close();
+        jasmendController.getSocket().close();
 
         System.exit(0);
 
@@ -97,19 +95,19 @@ public class ClientViewManager {
     }
    
 
-    public CreateAccountView getCreateAccountView() {
-        return createAccountView;
+    public JassmendAccountView getJassmendAccountView() {
+        return jassmendAccountView;
     }
     
-    public GameView getView() {
+    public JassmendGameView getView() {
         return view;
     }
 
-    public LoginView getLoginView() {
-        return loginView;
+    public JassmendLoginView getJassmendLoginView() {
+        return jassmendLoginView;
     }
     
-    public MainMenuView getMenuView() {
+    public JassmendMainMenuView getMenuView() {
     	return menuView;
     }
 

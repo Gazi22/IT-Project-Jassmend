@@ -1,4 +1,4 @@
-package client_v0;
+package Jassmend;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -8,14 +8,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -24,17 +22,17 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class MainMenuView {
+public class JassmendMainMenuView {
 
 	// Author: Gazmend Shefiu
 	private static Scene scene;
-	private ClientController clientController;
-	private ClientModel clientModel;
-	private GameView view;
+	private JasmendController jasmendController;
+	private JasmendModel jasmendModel;
+	private JassmendGameView view;
 	private Slider volumeSlider = new Slider();
 	private Media musicFile;
 	private MediaPlayer musicPlayer;
-	public LoginView logView;
+	public JassmendLoginView logView;
 	public String finalGamelobby;
 	public String userName;
 	
@@ -57,9 +55,9 @@ public class MainMenuView {
 	
 
 	// Author: Gazmend Shefiu
-	public MainMenuView (ClientController clientController, GameView view, LoginView logView) {
+	public JassmendMainMenuView(JasmendController jasmendController, JassmendGameView view, JassmendLoginView logView) {
 		
-		this.clientController = clientController;
+		this.jasmendController = jasmendController;
 		this.view = view;
 		this.logView = logView;
 		
@@ -133,11 +131,11 @@ public class MainMenuView {
 		// Author: Gazmend Shefiu
 		showLobby.setOnAction(e ->{
 
-			this.clientController.getViewManager().primaryStage.setTitle("Jassmend");
-			this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
-			this.clientController.getViewManager().primaryStage.setMaximized(true);
-			this.clientController.getViewManager().primaryStage.setResizable(true);
-			clientController.btnTrumpfTrue();
+			this.jasmendController.getViewManager().primaryStage.setTitle("Jassmend");
+			this.jasmendController.getViewManager().primaryStage.setScene(JassmendGameView.getScene());
+			this.jasmendController.getViewManager().primaryStage.setMaximized(true);
+			this.jasmendController.getViewManager().primaryStage.setResizable(true);
+			jasmendController.btnTrumpfTrue();
 		});
 		
 		
@@ -153,24 +151,24 @@ public class MainMenuView {
 		
 		// Author: Florian Jäger
 	     logOut.setOnAction(e -> {
-	    	 clientController.getGamelobbyList();
+	    	 jasmendController.getGamelobbyList();
 	    	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
 	         pause.setOnFinished(e5 -> {
 
-	        	 int lastMessageIndex = clientController.getAreaMessages().getText().split("\n").length-1;
-	             String [] lastMessage = clientController.getAreaMessages().getText().split("\n")[lastMessageIndex].split("\\|");
+	        	 int lastMessageIndex = jasmendController.getAreaMessages().getText().split("\n").length-1;
+	             String [] lastMessage = jasmendController.getAreaMessages().getText().split("\n")[lastMessageIndex].split("\\|");
 	    		 String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
 	             for (String str:gameLobbyList) {
-	             clientController.leaveGamelobby(str);
+	             jasmendController.leaveGamelobby(str);
 	             }
 			 });
 
 			 pause.play();
 
-	             clientController.logout();
-	             clientController.waiterino(250);
-	             clientController.logoutUser(clientController.getUsername());
-	         this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
+	             jasmendController.logout();
+	             jasmendController.waiterino(250);
+	             jasmendController.logoutUser(jasmendController.getUsername());
+	         this.jasmendController.getViewManager().primaryStage.setScene(JassmendLoginView.getScene());
 
 
 	     });
@@ -203,12 +201,12 @@ public class MainMenuView {
 
         ListView listView = new ListView();
 
-        clientController.getGamelobbyList();
+        jasmendController.getGamelobbyList();
         //Not the best way to do it but it does the trick
         PauseTransition pause = new PauseTransition(Duration.seconds(1));
         pause.setOnFinished(e -> {
-            int lastMessageIndex = clientController.getAreaMessages().getText().split("\n").length-1;
-            String [] lastMessage = clientController.getAreaMessages().getText().split("\n")[lastMessageIndex].split("\\|");
+            int lastMessageIndex = jasmendController.getAreaMessages().getText().split("\n").length-1;
+            String [] lastMessage = jasmendController.getAreaMessages().getText().split("\n")[lastMessageIndex].split("\\|");
 						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
             for (String str:gameLobbyList) {
                 listView.getItems().add(str);
@@ -218,13 +216,13 @@ public class MainMenuView {
                 String gamelobby = "";
                 for(Object o : selectedIndices){
                     gamelobby = (String)listView.getItems().get((int)o);
-                    clientController.joinGamelobby(gamelobby);
+                    jasmendController.joinGamelobby(gamelobby);
 
                  
-                    this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
-                    this.clientController.getViewManager().primaryStage.setMaximized(true);
-                    this.clientController.getViewManager().primaryStage.setResizable(true);
-                    clientController.btnTrumpfTrue();
+                    this.jasmendController.getViewManager().primaryStage.setScene(JassmendGameView.getScene());
+                    this.jasmendController.getViewManager().primaryStage.setMaximized(true);
+                    this.jasmendController.getViewManager().primaryStage.setResizable(true);
+                    jasmendController.btnTrumpfTrue();
                     
                 }
                 //Don't do this at home kids !
@@ -232,13 +230,13 @@ public class MainMenuView {
                 finalGamelobby = gamelobby;
                 view.setGamelobby(finalGamelobby);
                 pause2.setOnFinished(e3 -> {
-                   if(clientController.readLastMessage("PlayerIDs")==true){
-                        clientController.joinSuccessfull(finalGamelobby);
-						clientController.joinedGamelobbyMode();
+                   if(jasmendController.readLastMessage("PlayerIDs")==true){
+                        jasmendController.joinSuccessfull(finalGamelobby);
+						jasmendController.joinedGamelobbyMode();
 
 						for (int x=0; x < view.playerIDs.length; x++) {
-							if (clientController.getPlayerIDs(x)!=null){
-								view.playerIDs[x]= clientController.getPlayerIDs(x);
+							if (jasmendController.getPlayerIDs(x)!=null){
+								view.playerIDs[x]= jasmendController.getPlayerIDs(x);
 								System.out.println("Arraypostition"+ x+" "+view.playerIDs[x]);
 							}
 							else{
@@ -254,8 +252,8 @@ public class MainMenuView {
                 pause2.play();
 
 				stage.close();
-				if (clientController.isFull()){
-					clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
+				if (jasmendController.isFull()){
+					jasmendController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
 
 				}
             });
@@ -293,10 +291,10 @@ public class MainMenuView {
     	    	 	newGamelobby = result.get();
 						 }
     	    	
-    			clientController.createGamelobby(newGamelobby);
+    			jasmendController.createGamelobby(newGamelobby);
     	    	 stage.close();
     			
-                clientController.showAlert("New gamelobby","The gamelobby " + newGamelobby + " has been created");
+                jasmendController.showAlert("New gamelobby","The gamelobby " + newGamelobby + " has been created");
                 joinGameLobby();
                             
     		});

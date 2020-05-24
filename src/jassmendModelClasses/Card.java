@@ -1,4 +1,4 @@
-package jassmendModel;
+package jassmendModelClasses;
 
 import java.io.Serializable;
 import java.util.Collection;

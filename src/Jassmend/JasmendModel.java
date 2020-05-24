@@ -1,15 +1,15 @@
-package client_v0;
+package Jassmend;
 
 import Server.Deck;
 
-import jassmendModel.Player;
+import jassmendModelClasses.Player;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import  java.net.InetAddress;
 import java.net.UnknownHostException;
-//Author: Florian Jäger
-public class ClientModel {
+//Author: Florian Jï¿½ger
+public class JasmendModel {
 	
 	 InetAddress localHost;
 	 String localIP;
@@ -26,7 +26,7 @@ public class ClientModel {
     
     	 e.printStackTrace();
      }
-     // Author: Florian Jäger
+     // Author: Florian Jï¿½ger
      //end https://crunchify.com/how-to-get-server-ip-address-and-hostname-in-java/
      
 }
@@ -40,11 +40,11 @@ public class ClientModel {
     private String currentGamelobby;
 
     private Logger logger = Logger.getLogger("");
- // Author: Florian Jäger
+ // Author: Florian Jï¿½ger
     public void setIpAddress(String ip){
         this.ipAddress = ip;
     }
- // Author: Florian Jäger
+ // Author: Florian Jï¿½ger
     public String getIpAddress(){
         if (this.ipAddress != null){
             return this.ipAddress;
@@ -116,9 +116,9 @@ public class ClientModel {
     private Deck deck;
 
 
- // Author: Florian Jäger
-    public ClientModel() {
-        for (int i = 0; i < ClientChatRoom.NUM_PLAYERS; i++) {
+ // Author: Florian Jï¿½ger
+    public JasmendModel() {
+        for (int i = 0; i < JassmendMain.NUM_PLAYERS; i++) {
             players.add(new Player("Player " + i, 0));
         }
 

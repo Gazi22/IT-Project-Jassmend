@@ -7,18 +7,14 @@ import javafx.scene.control.Alert.AlertType;
 import client_v0.*;
 
 
-import java.util.ArrayList;
 import java.util.Date;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.math.BigInteger;
-import java.net.ConnectException;
 import java.net.InetAddress;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
-
-import javafx.application.Platform;
 
 
 public class JassmendDatabase {
@@ -33,9 +29,9 @@ public class JassmendDatabase {
 	public final String checkQuery = "SELECT * FROM userinformation WHERE Username = ?";
 	private String userName;
 	private String userPassword;
-	private ClientController clientController;
+	private JasmendController jasmendController;
 	private Date dateLastRequest;
-	private CreateAccountView createAccView;
+	private JassmendAccountView createAccView;
 	private Connection myConnection = null;
 	private static JassmendDatabase databaseDriver;
 	private ResultSet rs;

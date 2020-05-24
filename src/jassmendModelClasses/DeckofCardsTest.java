@@ -1,11 +1,7 @@
-package jassmendModel;
-
-import static org.junit.jupiter.api.Assertions.*;
+package jassmendModelClasses;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
-import org.junit.jupiter.api.Test;
 
 import javafx.beans.property.SimpleIntegerProperty;
 

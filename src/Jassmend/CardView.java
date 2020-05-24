@@ -1,13 +1,9 @@
-package jassmendView;
+package Jassmend;
 
-import jassmendModel.Card;
-import javafx.application.Platform;
+import jassmendModelClasses.Card;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.util.ArrayList;
 
 // Code from Pokerproject || with adjustments from Davide Seabra
 

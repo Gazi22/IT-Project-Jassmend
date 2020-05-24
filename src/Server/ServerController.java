@@ -1,7 +1,6 @@
 package Server;
 
-import Server.message.CardPlayed;
-import jassmendModel.Card;
+import jassmendModelClasses.Card;
 
 import java.util.ArrayList;
 import java.util.Collections;

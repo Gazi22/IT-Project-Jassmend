@@ -1,9 +1,8 @@
-package jassmendView;
+package Jassmend;
 
 // Code from Poker project 
-import client_v0.ClientController;
-import jassmendModel.Card;
-import jassmendModel.Player;
+import jassmendModelClasses.Card;
+import jassmendModelClasses.Player;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +15,7 @@ public class PlayerPane extends VBox {
 	private Label lblName = new Label();
 	private Label lblScore = new Label("");
 	private HBox cardBox = new HBox();
-	private ClientController clientController;
+	private JasmendController jasmendController;
 	ArrayList<Card> cardsHolder = new ArrayList<>();
 	
 	// Link to player object

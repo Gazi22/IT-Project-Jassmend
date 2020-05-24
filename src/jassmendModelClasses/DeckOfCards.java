@@ -1,4 +1,4 @@
-package jassmendModel;
+package jassmendModelClasses;
 
 import java.util.ArrayList;
 import java.util.Collections;

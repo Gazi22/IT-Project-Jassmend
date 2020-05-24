@@ -3,7 +3,7 @@ package Server.message;
 import Server.Client;
 import Server.Gamelobby;
 import Server.ServerController;
-import jassmendModel.Card;
+import jassmendModelClasses.Card;
 
 
 //Inspired by Chat Server from Bradley Richards

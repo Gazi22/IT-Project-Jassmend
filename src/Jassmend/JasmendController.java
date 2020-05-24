@@ -1,9 +1,7 @@
-package client_v0;
+package Jassmend;
 
-import jassmendModel.Card;
-import jassmendModel.Player;
-import jassmendView.CardView;
-import jassmendView.PlayerPane;
+import jassmendModelClasses.Card;
+import jassmendModelClasses.Player;
 import javafx.application.Platform;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
@@ -17,18 +15,18 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Optional;
+
 //Author: Florian Jäger
 //some things from Chat project 2019 (Florian Jäger)
-public class ClientController {
-    private  ClientModel clientModel;
+public class JasmendController {
+    private JasmendModel jasmendModel;
     private Socket socket;
-    private LoginView loginView;
-    private MainMenuView menuView;
-    private ClientViewManager viewManager;
-    private ChatView chatView;
-    private GameView gameView;
-    private ClientTrumpfView trumpfView;
+    private JassmendLoginView jassmendLoginView;
+    private JassmendMainMenuView menuView;
+    private JassmendViewManager viewManager;
+    private JassmendLogView jassmendLogView;
+    private JassmendGameView jassmendGameView;
+    private JassmendTrumpfView trumpfView;
     private int gamelobbyFlag=0;
     private String[] playerIDs= new String[4];
     private String gamelobbyName;
@@ -63,19 +61,19 @@ public class ClientController {
                 // Get IP address and port from user or use default settings
 
                 String connecting = "Connecting to "+ipaddress+" via port:"+port;
-                clientModel.log_info(connecting);
+                jasmendModel.log_info(connecting);
                 appendMessage(connecting);
 
                 socket = new Socket(ipaddress, Integer.parseInt(port));
                 String established = "Connection established !";
-                clientModel.log_info(established);
+                jasmendModel.log_info(established);
                 appendMessage(established);
 
-                clientModel.setIpAddress(ipaddress);
-                clientModel.setPort(Integer.parseInt(port));
+                jasmendModel.setIpAddress(ipaddress);
+                jasmendModel.setPort(Integer.parseInt(port));
 
-                loginView.setText_txtIPAddress(ipaddress);
-                loginView.setText_txtPort(port);
+                jassmendLoginView.setText_txtIPAddress(ipaddress);
+                jassmendLoginView.setText_txtPort(port);
                 try {
                     socketIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     socketOut = new OutputStreamWriter(socket.getOutputStream());
@@ -85,13 +83,13 @@ public class ClientController {
 
                 return true;
             } catch (Exception e) {
-                clientModel.log_error(e.toString());
+                jasmendModel.log_error(e.toString());
                 return false;
             }
         } else {
             String incorrectFormat = "Formatting of IP-Address and/or Port is incorrect !";
 
-            clientModel.log_warning(incorrectFormat);
+            jasmendModel.log_warning(incorrectFormat);
             appendMessage(incorrectFormat);
 
             return false;
@@ -102,22 +100,22 @@ public class ClientController {
  // Author: Florian Jäger
  //append Servermessages
     public void appendMessage(String message){
-        chatView.areaMessages.appendText(message+"\n");
+        jassmendLogView.areaMessages.appendText(message+"\n");
     }
 
 //append messages for the chat
     public void appendMessageGameView(String message){
-        gameView.msgArea.appendText(message+"\n");
+        jassmendGameView.msgArea.appendText(message+"\n");
     }
 
 
     
     public void setText_IPField(String text){
-        loginView.txtIPAddress.setText(text);
+        jassmendLoginView.txtIPAddress.setText(text);
     }
 
     public void setText_PortField(String text){
-        loginView.txtPort.setText(text);
+        jassmendLoginView.txtPort.setText(text);
     }
  // Author: Florian Jäger
     public boolean connect(){
@@ -126,20 +124,20 @@ public class ClientController {
             String ipaddress;
             int port;
 
-            ipaddress = clientModel.defaultiIPAddress;
-            port = clientModel.defaultPortNumber;
+            ipaddress = jasmendModel.defaultiIPAddress;
+            port = jasmendModel.defaultPortNumber;
 
             String connecting = "Connecting to "+ipaddress+" via port:"+port;
-            clientModel.log_info(connecting);
+            jasmendModel.log_info(connecting);
             appendMessage(connecting);
 
             socket = new Socket(ipaddress, port);
             String established = "Connection established !";
-            clientModel.log_info(established);
+            jasmendModel.log_info(established);
             appendMessage(established);
 
-            loginView.setText_txtIPAddress(ipaddress);
-            loginView.setText_txtPort(String.valueOf(port));
+            jassmendLoginView.setText_txtIPAddress(ipaddress);
+            jassmendLoginView.setText_txtPort(String.valueOf(port));
             try {
                 socketIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 socketOut = new OutputStreamWriter(socket.getOutputStream());
@@ -189,7 +187,7 @@ public class ClientController {
                                                     setTextlblUsername();
                                                     setTextlblRoundCount();
                                                     getViewManager().primaryStage.setTitle("Jassmend");
-                                                    getViewManager().primaryStage.setScene(GameView.getScene());
+                                                    getViewManager().primaryStage.setScene(JassmendGameView.getScene());
                                                     getViewManager().primaryStage.setMaximized(true);
                                                 }
                                                 });
@@ -198,20 +196,20 @@ public class ClientController {
                                             comparePlayerIDs();
                                             setGameConfig();
 
-                                            if(clientModel.getClientTurnPlayerID()==1) {
+                                            if(jasmendModel.getClientTurnPlayerID()==1) {
                                                 showAlert("Game starts now", "Choose the Trumpf!");
                                             }
 
                                             else showAlert("Game starts now", "Wait for the Trumpf to be chosen.");
                                             buttonsTrue();
 
-                                            if(clientModel.getClientPlayerID()==1){
+                                            if(jasmendModel.getClientPlayerID()==1){
                                                 btnTrumpfFalse();
                                             }
                                             else btnTrumpfTrue();
 
 
-                                            switch(clientModel.getClientPlayerID()){
+                                            switch(jasmendModel.getClientPlayerID()){
                                                 case 1:dealCards(menuView.getFinalGamelobby());
                                                     break;
                                                 case 2:waiterino(500);
@@ -231,13 +229,13 @@ public class ClientController {
 
 
 
-                                            System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+clientModel.getUser());
+                                            System.out.println("PlayerIDClient: "+ jasmendModel.getClientPlayerID()+"playername: "+ jasmendModel.getUser());
                                         }
                                     }
 
                                     //Player hands from the server
                                     else if (arrMsgText[3].equals("PlayerHand")){
-                                        if(clientModel.getUser().equals(arrMsgText[1])) {
+                                        if(jasmendModel.getUser().equals(arrMsgText[1])) {
                                             msg = arrMsgText[3] + "|" + arrMsgText[4] + "|" + arrMsgText[5] + "|" + arrMsgText[6] + "|" + arrMsgText[7] + "|" + arrMsgText[8] + "|" + arrMsgText[9] + "|" + arrMsgText[10] + "|" + arrMsgText[11] + "|" + arrMsgText[12];
                                             for (int x = 4; x < 13; x++) {
                                                 setMyCurrentPlayerHand(x-4,arrMsgText[x]);}
@@ -265,7 +263,7 @@ public class ClientController {
                                         for (int y = 0; y < 4; y++) {
 
                                             if (playerTurns[y].equals("1")) {
-                                                if (clientModel.getClientTurnPlayerID() == (y + 1)) {
+                                                if (jasmendModel.getClientTurnPlayerID() == (y + 1)) {
                                                     buttonsFalse();
                                                     appendMessageGameView("It is your turn");
                                                 } else {
@@ -287,8 +285,8 @@ public class ClientController {
                                         Platform.runLater(new Runnable() {
                                             @Override
                                             public void run() {
-                                                gameView.getLblScoreT1().setText(Integer.toString(pointsTeam1));
-                                                gameView.getLblScoreT2().setText(Integer.toString(pointsTeam2));
+                                                jassmendGameView.getLblScoreT1().setText(Integer.toString(pointsTeam1));
+                                                jassmendGameView.getLblScoreT2().setText(Integer.toString(pointsTeam2));
                                             }
                                             });
                                     }
@@ -327,7 +325,7 @@ public class ClientController {
                                             }
                                         });
 
-                                        if(clientModel.getClientTurnPlayerID()==1) {
+                                        if(jasmendModel.getClientTurnPlayerID()==1) {
                                             buttonsFalse();
                                         }
 
@@ -344,7 +342,7 @@ public class ClientController {
                                         int z= 0;
 
                                         for(int v = 0; v< playerIDs.length; v++) {
-                                            if (playerIDs[v].equals(clientModel.getUser())) {
+                                            if (playerIDs[v].equals(jasmendModel.getUser())) {
                                                 z = v;
                                             }
                                         }
@@ -366,34 +364,50 @@ public class ClientController {
 
                                         switch(y){
                                             case 0:
-                                                if(z==0){clientModel.setClientTurnPlayerID(1);}
-                                                if(z==1){clientModel.setClientTurnPlayerID(2);}
-                                                if(z==2){clientModel.setClientTurnPlayerID(3);}
-                                                if(z==3){clientModel.setClientTurnPlayerID(4);}
+                                                if(z==0){
+                                                    jasmendModel.setClientTurnPlayerID(1);}
+                                                if(z==1){
+                                                    jasmendModel.setClientTurnPlayerID(2);}
+                                                if(z==2){
+                                                    jasmendModel.setClientTurnPlayerID(3);}
+                                                if(z==3){
+                                                    jasmendModel.setClientTurnPlayerID(4);}
                                                break;
                                             case 1:
-                                                if(z==0){clientModel.setClientTurnPlayerID(4);}
-                                                if(z==1){clientModel.setClientTurnPlayerID(1);}
-                                                if(z==2){clientModel.setClientTurnPlayerID(2);}
-                                                if(z==3){clientModel.setClientTurnPlayerID(3);}
+                                                if(z==0){
+                                                    jasmendModel.setClientTurnPlayerID(4);}
+                                                if(z==1){
+                                                    jasmendModel.setClientTurnPlayerID(1);}
+                                                if(z==2){
+                                                    jasmendModel.setClientTurnPlayerID(2);}
+                                                if(z==3){
+                                                    jasmendModel.setClientTurnPlayerID(3);}
                                                 break;
                                             case 2:
-                                                if(z==0){clientModel.setClientTurnPlayerID(3);}
-                                                if(z==1){clientModel.setClientTurnPlayerID(4);}
-                                                if(z==2){clientModel.setClientTurnPlayerID(1);}
-                                                if(z==3){clientModel.setClientTurnPlayerID(2);}
+                                                if(z==0){
+                                                    jasmendModel.setClientTurnPlayerID(3);}
+                                                if(z==1){
+                                                    jasmendModel.setClientTurnPlayerID(4);}
+                                                if(z==2){
+                                                    jasmendModel.setClientTurnPlayerID(1);}
+                                                if(z==3){
+                                                    jasmendModel.setClientTurnPlayerID(2);}
                                                 break;
                                             case 3:
-                                                if(z==0){clientModel.setClientTurnPlayerID(2);}
-                                                if(z==1){clientModel.setClientTurnPlayerID(3);}
-                                                if(z==2){clientModel.setClientTurnPlayerID(4);}
-                                                if(z==3){clientModel.setClientTurnPlayerID(1);}
+                                                if(z==0){
+                                                    jasmendModel.setClientTurnPlayerID(2);}
+                                                if(z==1){
+                                                    jasmendModel.setClientTurnPlayerID(3);}
+                                                if(z==2){
+                                                    jasmendModel.setClientTurnPlayerID(4);}
+                                                if(z==3){
+                                                    jasmendModel.setClientTurnPlayerID(1);}
                                                 break;
                                         }
 
 
-                                        if (clientModel.getClientTurnPlayerID()==1){
-                                            setFirstPlayer(clientModel.getClientPlayerID());}
+                                        if (jasmendModel.getClientTurnPlayerID()==1){
+                                            setFirstPlayer(jasmendModel.getClientPlayerID());}
 
 
                                         if(!arrMsgText[7].equals("null")){
@@ -405,8 +419,8 @@ public class ClientController {
                                         Platform.runLater(new Runnable() {
                                             @Override
                                             public void run() {
-                                                gameView.getLblSticheT1().setText(Integer.toString(sticheTeam1));
-                                                gameView.getLblSticheT2().setText(Integer.toString(sticheTeam2));
+                                                jassmendGameView.getLblSticheT1().setText(Integer.toString(sticheTeam1));
+                                                jassmendGameView.getLblSticheT2().setText(Integer.toString(sticheTeam2));
                                             }
                                             });
 
@@ -415,7 +429,7 @@ public class ClientController {
                                         for (int r=0;r<4;r++){
 
                                             if(playerTurns[r].equals("1")) {
-                                                if (clientModel.getClientTurnPlayerID()==(r+1)) {
+                                                if (jasmendModel.getClientTurnPlayerID()==(r+1)) {
                                                     buttonsFalse();}
 
 
@@ -428,7 +442,7 @@ public class ClientController {
 
                                         //End of round
                                         if (sticheCounter==9){
-                                            if(clientModel.getClientPlayerID()==1) {
+                                            if(jasmendModel.getClientPlayerID()==1) {
                                                 getEvaluation(menuView.getFinalGamelobby());
                                             }
 
@@ -437,7 +451,7 @@ public class ClientController {
                                             sticheTeam2=0;
                                             sticheTeam1=0;
                                             String winner="";
-                                            if(Integer.parseInt(gameView.getLblScoreT1().getText())>Integer.parseInt(gameView.getLblScoreT2().getText())){
+                                            if(Integer.parseInt(jassmendGameView.getLblScoreT1().getText())>Integer.parseInt(jassmendGameView.getLblScoreT2().getText())){
                                                   winner ="Team 1";
                                             }
                                             else winner="Team 2";
@@ -519,7 +533,7 @@ public class ClientController {
                                         setFirstPlayer(Integer.parseInt(arrMsgText[10]));
 
                                         System.out.println("Server sent the card: "+arrMsgText);
-                                        if(clientModel.getClientTurnPlayerID()==1){turnFinished(menuView.getFinalGamelobby());}
+                                        if(jasmendModel.getClientTurnPlayerID()==1){turnFinished(menuView.getFinalGamelobby());}
                                         if(cardsPlayed.size()==4){clearCardsPlayed();}
                                         int cardsPlayedCounter=Integer.parseInt(arrMsgText[5]);
                                         cardsPlayed.add(stringToCard(arrMsgText[cardsPlayedCounter+5]));
@@ -536,73 +550,73 @@ public class ClientController {
 
                                         {cardPlayedNr=1;
                                             //client ID ersetzen durch clientModel.getclientTurnPlayerID()!=1){
-                                                if (clientModel.getClientTurnPlayerID()==1){
+                                                if (jasmendModel.getClientTurnPlayerID()==1){
                                                     btnToActivate= 1;
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==2){
+                                                if (jasmendModel.getClientTurnPlayerID()==2){
                                                     btnToActivate= 4;
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==3){
+                                                if (jasmendModel.getClientTurnPlayerID()==3){
                                                     btnToActivate= 3;//then btn3
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==4){
+                                                if (jasmendModel.getClientTurnPlayerID()==4){
                                                     btnToActivate= 2;//then btn2
                                                 }
-                                                gameView.showPlayedCards();
+                                                jassmendGameView.showPlayedCards();
 
 
                                         }
                                         else if (arrMsgText[5].equals("2")){
                                             cardPlayedNr=2;
-                                                if (clientModel.getClientTurnPlayerID()==2){
+                                                if (jasmendModel.getClientTurnPlayerID()==2){
                                                     btnToActivate= 1;
                                                  }
-                                                if (clientModel.getClientTurnPlayerID()==1){
+                                                if (jasmendModel.getClientTurnPlayerID()==1){
                                                     btnToActivate= 2;//then btn2
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==3){
+                                                if (jasmendModel.getClientTurnPlayerID()==3){
                                                     btnToActivate= 4;//then btn3
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==4){
+                                                if (jasmendModel.getClientTurnPlayerID()==4){
                                                     btnToActivate= 3; //then btn4
                                                 }
-                                                gameView.showPlayedCards();
+                                                jassmendGameView.showPlayedCards();
 
 
                                         }
                                         else if (arrMsgText[5].equals("3")){
                                             cardPlayedNr=3;
-                                                if (clientModel.getClientTurnPlayerID()==3){
+                                                if (jasmendModel.getClientTurnPlayerID()==3){
                                                     btnToActivate=1;
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==1){
+                                                if (jasmendModel.getClientTurnPlayerID()==1){
                                                     btnToActivate= 3;//then btn3
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==2){
+                                                if (jasmendModel.getClientTurnPlayerID()==2){
                                                     btnToActivate= 2;//then btn4
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==4){
+                                                if (jasmendModel.getClientTurnPlayerID()==4){
                                                     btnToActivate= 4;//then btn2
                                                 }
-                                                gameView.showPlayedCards();
+                                                jassmendGameView.showPlayedCards();
 
 
                                         }
                                         else if (arrMsgText[5].equals("4")){
                                             cardPlayedNr=4;
-                                                if (clientModel.getClientTurnPlayerID()==4){
+                                                if (jasmendModel.getClientTurnPlayerID()==4){
                                                     btnToActivate=1;
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==1){
+                                                if (jasmendModel.getClientTurnPlayerID()==1){
                                                     btnToActivate= 4;//then btn4
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==2){
+                                                if (jasmendModel.getClientTurnPlayerID()==2){
                                                     btnToActivate= 3;//then btn3
                                                 }
-                                                if (clientModel.getClientTurnPlayerID()==3){
+                                                if (jasmendModel.getClientTurnPlayerID()==3){
                                                     btnToActivate= 2;//then btn2
                                                 }
-                                                gameView.showPlayedCards();
+                                                jassmendGameView.showPlayedCards();
 
 
                                         }
@@ -612,12 +626,12 @@ public class ClientController {
                                     if (cardPlayedNr == 4) {
                                         waiterino(1000);
 
-                                        if(clientModel.getClientTurnPlayerID()==1) {
+                                        if(jasmendModel.getClientTurnPlayerID()==1) {
                                             getStiche(menuView.getFinalGamelobby());
                                         }
 
                                        // waiterino(5000);
-                                        gameView.clearFieldButtons();
+                                        jassmendGameView.clearFieldButtons();
                                     }
 
 
@@ -646,7 +660,7 @@ public class ClientController {
             return true;
 
         } catch (Exception e) {
-            clientModel.log_error(e.toString());
+            jasmendModel.log_error(e.toString());
             return false;
         }
 
@@ -698,7 +712,7 @@ public class ClientController {
         sendToServer(concatString);
     }
     public void gamelobbyIsFull(String gamelobby,String message){
-        String concatString = message+"|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        String concatString = message+"|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser();
         sendToServer(concatString);
     }
     public void loginUser(String username, String password){
@@ -706,25 +720,25 @@ public class ClientController {
         sendToServer(concatString);
     }
     public  void loginSuccesfull(String username, String hash){
-        clientModel.setUser(username);
-        clientModel.setHash(hash);
+        jasmendModel.setUser(username);
+        jasmendModel.setHash(hash);
     }
 
     public String getUsername(){
-        return clientModel.getUser();
+        return jasmendModel.getUser();
     }
  // Author: Florian Jäger
     public void getGamelobbyList(){
         //No additional checks done, since button is disabled until confirmed login
-        String concatString = "ListGamelobbys|"+clientModel.gethash();
+        String concatString = "ListGamelobbys|"+ jasmendModel.gethash();
         sendToServer(concatString);
     }
  // Author: Florian Jäger
     public void comparePlayerIDs() {
         for (int x = 0; x < playerIDs.length; x++) {
-            if (playerIDs[x].equals(clientModel.getUser())) {
-                clientModel.setClientPlayerID(x + 1);
-                clientModel.setClientTurnPlayerID(x+1);
+            if (playerIDs[x].equals(jasmendModel.getUser())) {
+                jasmendModel.setClientPlayerID(x + 1);
+                jasmendModel.setClientTurnPlayerID(x+1);
             }
         }
     }
@@ -737,79 +751,79 @@ public class ClientController {
  // Author: Florian Jäger
     public void setGameConfig(){
         for(int i  = 0; i < 4;i++){
-              clientModel.getPlayer(i).setPlayerName(getPlayerIDs(i));
+              jasmendModel.getPlayer(i).setPlayerName(getPlayerIDs(i));
 
             }
         }
 
  // Author: Florian Jäger
     public void getStiche(String gamelobby){
-        String concatString = "GetStiche|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        String concatString = "GetStiche|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser();
         sendToServer(concatString);
     }
     public void getEvaluation(String gamelobby){
-        String concatString = "Evaluation|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        String concatString = "Evaluation|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser();
         sendToServer(concatString);
     }
 
     public void getGamelobbyUsers(String gamelobby){
         //No additional checks done, since button is disabled until confirmed login
-        String concatString = "ListGamelobbyUsers|"+clientModel.gethash()+"|"+gamelobby;
+        String concatString = "ListGamelobbyUsers|"+ jasmendModel.gethash()+"|"+gamelobby;
         sendToServer(concatString);
     }
 
     public void startGame(String gamelobby){
-        String concatString = "StartGame|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        String concatString = "StartGame|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser();
         sendToServer(concatString);
     }
 
     public void joinGamelobby(String gamelobby){
-        String concatString = "JoinGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        String concatString = "JoinGamelobby|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser();
         sendToServer(concatString);
     }
     public void dealCards(String gamelobby){
-        String concatString = "DealCards|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        String concatString = "DealCards|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser();
         sendToServer(concatString);
     }
 
     public void turnFinished(String gamelobby){
-        String concatString = "TurnManager|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+        String concatString = "TurnManager|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser();
         sendToServer(concatString);
     }
 
     public void sendCardPlayed(String card,String gamelobby,String firstPlayer){
-        String concatString = "CardPlayed|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+card+"|"+firstPlayer;
+        String concatString = "CardPlayed|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser()+"|"+card+"|"+firstPlayer;
         sendToServer(concatString);
 
     }
     public void sendTrumpf(String trumpf,String gamelobby){
-        String concatString = "Trumpf|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser()+"|"+trumpf;
+        String concatString = "Trumpf|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser()+"|"+trumpf;
         sendToServer(concatString);
 
     }
 
     public void leaveGamelobby (String gamelobby) {
-    	String concatString = "LeaveGamelobby|"+clientModel.gethash()+"|"+gamelobby+"|"+clientModel.getUser();
+    	String concatString = "LeaveGamelobby|"+ jasmendModel.gethash()+"|"+gamelobby+"|"+ jasmendModel.getUser();
         sendToServer(concatString);
     }
 
     public  void createGamelobby(String newGamelobby){
-        String concatString = "CreateGamelobby|"+clientModel.gethash()+"|"+newGamelobby+"|"+"true";
+        String concatString = "CreateGamelobby|"+ jasmendModel.gethash()+"|"+newGamelobby+"|"+"true";
         sendToServer(concatString);
     }
 
     public  void deleteAccount(){
-        String concatString = "DeleteLogin|"+clientModel.gethash();
+        String concatString = "DeleteLogin|"+ jasmendModel.gethash();
         sendToServer(concatString);
     }
 
     public  void changePassword(String newPassword){
-        String concatString = "ChangePassword|"+clientModel.gethash()+"|"+newPassword;
+        String concatString = "ChangePassword|"+ jasmendModel.gethash()+"|"+newPassword;
         sendToServer(concatString);
     }
 
     public  void ping(){
-        String concatString = "Ping|"+clientModel.gethash();
+        String concatString = "Ping|"+ jasmendModel.gethash();
         sendToServer(concatString);
     }
 
@@ -817,7 +831,7 @@ public class ClientController {
     public String getPlayerNames(int i){
         String[] playerNames=new String[4];
          for(int x=0;x<4;x++){
-           playerNames[x]=clientModel.getPlayer(x).getPlayerName();
+           playerNames[x]= jasmendModel.getPlayer(x).getPlayerName();
         }
          return playerNames[i];
     }
@@ -836,17 +850,17 @@ public class ClientController {
 
     public void sendMessage(String message){
         // Destination is currently selected gamelobby
-        String concatString = "SendMessage|"+clientModel.gethash()+"|"+clientModel.getCurrentGamelobby()+"|"+message;
+        String concatString = "SendMessage|"+ jasmendModel.gethash()+"|"+ jasmendModel.getCurrentGamelobby()+"|"+message;
         sendToServer(concatString);
     }
     public void joinSuccessfull(String gamelobby){
-        clientModel.setCurrentgamelobby(gamelobby);
+        jasmendModel.setCurrentgamelobby(gamelobby);
     }
 
 
 
-    public LoginView getLoginView() {
-        return loginView;
+    public JassmendLoginView getJassmendLoginView() {
+        return jassmendLoginView;
     }
 
     //https://www.geeksforgeeks.org/javafx-alert-with-examples/
@@ -887,30 +901,30 @@ public class ClientController {
 }
 
   // Author: Florian Jäger
-     public ClientController(ClientModel clientModel){
-         this.clientModel = clientModel;
+     public JasmendController(JasmendModel jasmendModel){
+         this.jasmendModel = jasmendModel;
      }
 
 
-     public void addMainMenuView (MainMenuView menuView) {
+     public void addMainMenuView (JassmendMainMenuView menuView) {
     	 this.menuView = menuView;
      }
-     public  void addChatView(ChatView chatView){
-         this.chatView = chatView;
+     public  void addChatView(JassmendLogView jassmendLogView){
+         this.jassmendLogView = jassmendLogView;
      }
-     public void addLoginView(LoginView loginView){
-         this.loginView = loginView;
+     public void addLoginView(JassmendLoginView jassmendLoginView){
+         this.jassmendLoginView = jassmendLoginView;
      }
-     public void addGameView(GameView gameView){
-         this.gameView = gameView;
+     public void addGameView(JassmendGameView jassmendGameView){
+         this.jassmendGameView = jassmendGameView;
      }
-     public void addTrumpfView(ClientTrumpfView trumpfView){
+     public void addTrumpfView(JassmendTrumpfView trumpfView){
         this.trumpfView = trumpfView;
     }
-     public void setViewManager(ClientViewManager viewManager) {
+     public void setViewManager(JassmendViewManager viewManager) {
          this.viewManager = viewManager;
      }
-     public ClientViewManager getViewManager() {
+     public JassmendViewManager getViewManager() {
          return viewManager;
      }
 
@@ -926,29 +940,29 @@ public class ClientController {
 
  // Author: Florian Jäger
     public void joinedGamelobbyMode(){
-        gameView.btnSend.setDisable(false);
-        gameView.txt1.setDisable(false);
+        jassmendGameView.btnSend.setDisable(false);
+        jassmendGameView.txt1.setDisable(false);
     }
 
     public void buttonsFalse() {
         for (int i = 0; i < 9; i++) {
-           gameView.getPlayerPane(1).getCardBox().getChildren().get(i).setDisable(false);
+           jassmendGameView.getPlayerPane(1).getCardBox().getChildren().get(i).setDisable(false);
             }
     }
 
 
     public void buttonsTrue() {
         for (int i = 0; i < 9; i++) {
-            gameView.getPlayerPane(1).getCardBox().getChildren().get(i).setDisable(true);
+            jassmendGameView.getPlayerPane(1).getCardBox().getChildren().get(i).setDisable(true);
         }
     }
 
     public void btnTrumpfFalse(){
-      gameView.getBtnTrumpf().setDisable(false);
+      jassmendGameView.getBtnTrumpf().setDisable(false);
     }
 
     public void btnTrumpfTrue(){
-        gameView.getBtnTrumpf().setDisable(true);
+        jassmendGameView.getBtnTrumpf().setDisable(true);
     }
 
 
@@ -968,13 +982,13 @@ public class ClientController {
  // Author: Florian Jäger
 //Player p = clientModel.getPlayer(clientModel.getClientPlayerID());!!!!
     private void applyCardImages(){
-        Player p = clientModel.getPlayer(1);
+        Player p = jasmendModel.getPlayer(1);
         p.discardHand();
         for (int j = 0; j < Player.HAND_SIZE; j++) {
             Card card = handCards.get(j);
             p.addCard(card);
         }
-        PlayerPane pp = gameView.getPlayerPane(1);
+        PlayerPane pp = jassmendGameView.getPlayerPane(1);
         pp.updatePlayerDisplay();
 
     }
@@ -1084,7 +1098,7 @@ public class ClientController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                getViewManager().primaryStage.setScene(GameView.getScene());
+                getViewManager().primaryStage.setScene(JassmendGameView.getScene());
             }
         });
     }
@@ -1092,7 +1106,7 @@ public class ClientController {
 
  // Author: Florian Jäger
     public void setTextlblRoundCount(){
-        gameView.getLblRound().setText("Round: "+roundcounter);
+        jassmendGameView.getLblRound().setText("Round: "+roundcounter);
     }
 
 
@@ -1104,7 +1118,7 @@ public class ClientController {
         int playerID= 0;
 
         for(int v = 0; v< playerIDs.length; v++) {
-            if (playerIDs[v].equals(clientModel.getUser())) {
+            if (playerIDs[v].equals(jasmendModel.getUser())) {
                 playerID = v;
             }
         }
@@ -1112,45 +1126,45 @@ public class ClientController {
 
         switch(playerID){
             case 0:
-                gameView.getUserNamePl1().setText(playerIDs[0]);
-                gameView.getUserNamePl2().setText(playerIDs[1]);
-                gameView.getUserNamePl3().setText(playerIDs[2]);
-                gameView.getUserNamePl4().setText(playerIDs[3]);
-                gameView.getLblPl1().setText(playerIDs[0]);
-                gameView.getLblPl2().setText(playerIDs[1]);
-                gameView.getLblPl3().setText(playerIDs[2]);
-                gameView.getLblPl4().setText(playerIDs[3]);
+                jassmendGameView.getUserNamePl1().setText(playerIDs[0]);
+                jassmendGameView.getUserNamePl2().setText(playerIDs[1]);
+                jassmendGameView.getUserNamePl3().setText(playerIDs[2]);
+                jassmendGameView.getUserNamePl4().setText(playerIDs[3]);
+                jassmendGameView.getLblPl1().setText(playerIDs[0]);
+                jassmendGameView.getLblPl2().setText(playerIDs[1]);
+                jassmendGameView.getLblPl3().setText(playerIDs[2]);
+                jassmendGameView.getLblPl4().setText(playerIDs[3]);
 
                 break;
             case 1:
-                gameView.getUserNamePl1().setText(playerIDs[1]);
-                gameView.getUserNamePl2().setText(playerIDs[2]);
-                gameView.getUserNamePl3().setText(playerIDs[3]);
-                gameView.getUserNamePl4().setText(playerIDs[0]);
-                gameView.getLblPl1().setText(playerIDs[0]);
-                gameView.getLblPl2().setText(playerIDs[1]);
-                gameView.getLblPl3().setText(playerIDs[2]);
-                gameView.getLblPl4().setText(playerIDs[3]);
+                jassmendGameView.getUserNamePl1().setText(playerIDs[1]);
+                jassmendGameView.getUserNamePl2().setText(playerIDs[2]);
+                jassmendGameView.getUserNamePl3().setText(playerIDs[3]);
+                jassmendGameView.getUserNamePl4().setText(playerIDs[0]);
+                jassmendGameView.getLblPl1().setText(playerIDs[0]);
+                jassmendGameView.getLblPl2().setText(playerIDs[1]);
+                jassmendGameView.getLblPl3().setText(playerIDs[2]);
+                jassmendGameView.getLblPl4().setText(playerIDs[3]);
                 break;
             case 2:
-                gameView.getUserNamePl1().setText(playerIDs[2]);
-                gameView.getUserNamePl2().setText(playerIDs[3]);
-                gameView.getUserNamePl3().setText(playerIDs[0]);
-                gameView.getUserNamePl4().setText(playerIDs[1]);
-                gameView.getLblPl1().setText(playerIDs[0]);
-                gameView.getLblPl2().setText(playerIDs[1]);
-                gameView.getLblPl3().setText(playerIDs[2]);
-                gameView.getLblPl4().setText(playerIDs[3]);
+                jassmendGameView.getUserNamePl1().setText(playerIDs[2]);
+                jassmendGameView.getUserNamePl2().setText(playerIDs[3]);
+                jassmendGameView.getUserNamePl3().setText(playerIDs[0]);
+                jassmendGameView.getUserNamePl4().setText(playerIDs[1]);
+                jassmendGameView.getLblPl1().setText(playerIDs[0]);
+                jassmendGameView.getLblPl2().setText(playerIDs[1]);
+                jassmendGameView.getLblPl3().setText(playerIDs[2]);
+                jassmendGameView.getLblPl4().setText(playerIDs[3]);
                 break;
             case 3:
-                gameView.getUserNamePl1().setText(playerIDs[3]);
-                gameView.getUserNamePl2().setText(playerIDs[0]);
-                gameView.getUserNamePl3().setText(playerIDs[1]);
-                gameView.getUserNamePl4().setText(playerIDs[2]);
-                gameView.getLblPl1().setText(playerIDs[0]);
-                gameView.getLblPl2().setText(playerIDs[1]);
-                gameView.getLblPl3().setText(playerIDs[2]);
-                gameView.getLblPl4().setText(playerIDs[3]);
+                jassmendGameView.getUserNamePl1().setText(playerIDs[3]);
+                jassmendGameView.getUserNamePl2().setText(playerIDs[0]);
+                jassmendGameView.getUserNamePl3().setText(playerIDs[1]);
+                jassmendGameView.getUserNamePl4().setText(playerIDs[2]);
+                jassmendGameView.getLblPl1().setText(playerIDs[0]);
+                jassmendGameView.getLblPl2().setText(playerIDs[1]);
+                jassmendGameView.getLblPl3().setText(playerIDs[2]);
+                jassmendGameView.getLblPl4().setText(playerIDs[3]);
                 break;
         }
 
@@ -1158,7 +1172,7 @@ public class ClientController {
  // Author: Florian Jäger
     //GETTERS AND SETTERS---------------------------------------------------------------------------------------------
     public Label getLblTrumpf(){
-        return gameView.getLblTrumpf();
+        return jassmendGameView.getLblTrumpf();
     }
 
     public void setTextlblUsernameMenu() {
@@ -1218,8 +1232,8 @@ public class ClientController {
  // Author: Florian Jäger
     //Read last message from text area
     public boolean readLastMessage(String lookFor) {
-        int lastMessageIndex2 = chatView.areaMessages.getText().split("\n").length - 1;
-        String lastMessage2 = chatView.areaMessages.getText().split("\n")[lastMessageIndex2];
+        int lastMessageIndex2 = jassmendLogView.areaMessages.getText().split("\n").length - 1;
+        String lastMessage2 = jassmendLogView.areaMessages.getText().split("\n")[lastMessageIndex2];
 
         if (lastMessage2.startsWith(lookFor)) {
             return true;
@@ -1227,10 +1241,10 @@ public class ClientController {
         else return false;
     }
 
-   
+
 
     public TextArea getAreaMessages(){
-        return chatView.areaMessages;
+        return jassmendLogView.areaMessages;
     }
 
 }

@@ -1,4 +1,4 @@
-package client_v0;
+package Jassmend;
 
 
 import javafx.geometry.HPos;
@@ -7,26 +7,10 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-import java.io.FileInputStream;
-import java.net.ConnectException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.application.Platform;
 import jassmendDatabase.JassmendDatabase;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
-//Author: Florian Jäger
-public class CreateAccountView{
+//Author: Florian Jï¿½ger
+public class JassmendAccountView {
 	
 	JassmendDatabase jassDB = new JassmendDatabase();
 	Label lblHeader = new Label("Create a new account FOR FREE!");
@@ -36,14 +20,14 @@ public class CreateAccountView{
 	public static TextField txtUsername = new TextField();
 	Button btnSubmit = new Button("Submit");
 	private static Scene sceneAccView;
-	private ClientController clientController;
-	public ClientViewManager primaryStage;
+	private JasmendController jasmendController;
+	public JassmendViewManager primaryStage;
 	 // https://stackoverflow.com/questions/43281490/sql-syntax-in-java-forms-gettext
 
-	// Author: Florian Jäger
-	public CreateAccountView(ClientController clientController)
+	// Author: Florian Jï¿½ger
+	public JassmendAccountView(JasmendController jasmendController)
 	{
-		this.clientController = clientController;
+		this.jasmendController = jasmendController;
 		//Width should increase when increasing windows size!
 		GridPane gridAccountView = new GridPane();
      	gridAccountView.setAlignment(Pos.CENTER);
@@ -93,9 +77,9 @@ public class CreateAccountView{
 	            // Assume success always!
 			// Author: Gazmend Shefiu
 			jassDB.registerAccDB(txtUsername.getText(), txtPassword.getText());
-			// Author: Florian Jäger
-			clientController.registerUser(txtUsername.getText(), txtPassword.getText());
-			this.clientController.getLoginView().newStageCreateAccount.close();
+			// Author: Florian Jï¿½ger
+			jasmendController.registerUser(txtUsername.getText(), txtPassword.getText());
+			this.jasmendController.getJassmendLoginView().newStageCreateAccount.close();
 			});
 
 		sceneAccView = new Scene(gridAccountView, 700, 275);
@@ -104,7 +88,7 @@ public class CreateAccountView{
 	}
 	
     
-	// Author: Florian Jäger
+	// Author: Florian Jï¿½ger
 	public static Scene getSceneAccView () {
 		
 		return sceneAccView;

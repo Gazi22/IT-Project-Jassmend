@@ -9,15 +9,14 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 
 import Server.message.Message;
-import client_v0.ClientModel;
-import jassmendModel.Card;
-import jassmendModel.Player;
+import Jassmend.JasmendModel;
+import jassmendModelClasses.Card;
+import jassmendModelClasses.Player;
 
 //Chat Server from Bradley Richards
 //Author Florian Jäger
@@ -42,7 +41,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	private static Logger logger = Logger.getLogger("");
 
 	private static final TreeSet<Gamelobby> gamelobbys = new TreeSet<>();
-	private ClientModel clientModel;
+	private JasmendModel jasmendModel;
 	private final String name;
 	private final String owner; // username of an account
 	private final boolean isPublic;

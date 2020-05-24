@@ -2,7 +2,6 @@ package client_v0;
 
 
 import javafx.animation.PauseTransition;
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -18,16 +17,16 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 //Author: Florian J�ger & Gazmend Shefiu
-public class LoginView {
+public class JassmendLoginView {
 
 	
     private static Scene scene;
-    private ClientController clientController;
-    private MainMenuView menuView;
-    private GameView view;
-    private ChatView chatView;
+    private JasmendController jasmendController;
+    private JassmendMainMenuView menuView;
+    private JassmendGameView view;
+    private JassmendLogView jassmendLogView;
     public Stage newStageCreateAccount;
-    private ClientModel clientModel;
+    private JasmendModel jasmendModel;
     
 
     Label lblUserName = new Label("User Name:");
@@ -49,12 +48,12 @@ public class LoginView {
     HBox hboxBtn = new HBox(10);
  
 
-    public LoginView(ClientController clientController, GameView view, ChatView chatView)
+    public JassmendLoginView(JasmendController jasmendController, JassmendGameView view, JassmendLogView jassmendLogView)
   //Author: Florian J�ger
     {
-        this.clientController = clientController;
+        this.jasmendController = jasmendController;
         this.view  = view;
-        this.chatView=chatView;
+        this.jassmendLogView = jassmendLogView;
     
         GridPane gridLoginView = new GridPane();
 
@@ -140,7 +139,7 @@ public class LoginView {
         //Handling Create Account button
         btnCreateAccount.setOnAction(e -> {
             newStageCreateAccount = new Stage();
-            newStageCreateAccount.setScene(CreateAccountView.getSceneAccView());
+            newStageCreateAccount.setScene(JassmendAccountView.getSceneAccView());
             newStageCreateAccount.setMinWidth(700);
             newStageCreateAccount.setMinHeight(400);
             newStageCreateAccount.setResizable(false);
@@ -153,22 +152,22 @@ public class LoginView {
             // Assume success always!
             String user = txtUser.getText();
             String password = passwordField.getText();
-            clientController.loginUser(user, password);
+            jasmendController.loginUser(user, password);
             
             //Not the best way to do it but it does the trick
             PauseTransition pause = new PauseTransition(Duration.seconds(1));
             pause.setOnFinished(event2 -> {
-                int lastMessageIndex = chatView.areaMessages.getText().split("\n").length-1;
-                String lastMessage = chatView.areaMessages.getText().split("\n")[lastMessageIndex];
+                int lastMessageIndex = jassmendLogView.areaMessages.getText().split("\n").length-1;
+                String lastMessage = jassmendLogView.areaMessages.getText().split("\n")[lastMessageIndex];
                 if (lastMessage.matches("Result\\|true\\|.*")) {
 
                     //Get Login hash and store in
                     int hashIndex = lastMessage.split("\\|").length-1;
                     String hash = lastMessage.split("\\|")[hashIndex];
-                    clientController.loginSuccesfull(user, hash);
+                    jasmendController.loginSuccesfull(user, hash);
 
-                    clientController.setTextlblUsernameMenu();
-                    this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene()); 
+                    jasmendController.setTextlblUsernameMenu();
+                    this.jasmendController.getViewManager().primaryStage.setScene(JassmendMainMenuView.getScene());
                 }
                 else {
                 	
@@ -182,22 +181,22 @@ public class LoginView {
                 // Assume success always!
                 String user = txtUser.getText();
                 String password = passwordField.getText();
-                clientController.loginUser(user, password);
+                jasmendController.loginUser(user, password);
                 
                 //Not the best way to do it but it does the trick
                 PauseTransition pause = new PauseTransition(Duration.seconds(1));
                 pause.setOnFinished(event2 -> {
-                    int lastMessageIndex = chatView.areaMessages.getText().split("\n").length-1;
-                    String lastMessage = chatView.areaMessages.getText().split("\n")[lastMessageIndex];
+                    int lastMessageIndex = jassmendLogView.areaMessages.getText().split("\n").length-1;
+                    String lastMessage = jassmendLogView.areaMessages.getText().split("\n")[lastMessageIndex];
                     if (lastMessage.matches("Received: Result\\|true\\|.*")) {
 
                         //Get Login hash and store in
                         int hashIndex = lastMessage.split("\\|").length-1;
                         String hash = lastMessage.split("\\|")[hashIndex];
-                        clientController.loginSuccesfull(user, hash);
+                        jasmendController.loginSuccesfull(user, hash);
 
-                        clientController.setTextlblUsernameMenu();
-                        this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene()); 
+                        jasmendController.setTextlblUsernameMenu();
+                        this.jasmendController.getViewManager().primaryStage.setScene(JassmendMainMenuView.getScene());
                     }
                     else {
                     	
@@ -213,11 +212,11 @@ public class LoginView {
             String inputIP = txtIPAddress.getText();
             String inputPort = txtPort.getText();
             if(!inputIP.equals("") && !inputPort.equals("")){
-                if (clientController.connect(inputIP, inputPort)){
+                if (jasmendController.connect(inputIP, inputPort)){
                     connectedMode();
                 }
             } else {
-                if (clientController.connect()){
+                if (jasmendController.connect()){
                     connectedMode();
                 }
             }

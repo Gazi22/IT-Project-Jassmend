@@ -1,9 +1,8 @@
 package Server;
 
-import jassmendModel.Card;
+import jassmendModelClasses.Card;
 import javafx.beans.property.SimpleIntegerProperty;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 

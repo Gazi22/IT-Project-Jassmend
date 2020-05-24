@@ -1,4 +1,4 @@
-package client_v0;
+package Jassmend;
 
 
 import javafx.geometry.Insets;
@@ -12,9 +12,9 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 	// Author: Davide Seabra & Florian J�ger
-public class ClientTrumpfView {
+public class JassmendTrumpfView {
 
-	ClientController clientController;
+	JasmendController jasmendController;
 	private Stage trumpfWindow;
 	private Scene secondScene;
 	Label lblEcke = new Label();
@@ -36,8 +36,8 @@ public class ClientTrumpfView {
 	Image image8 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel.png"));
 
 	// Author: Davide Seabra & Florian J�ger
-	public ClientTrumpfView(ClientController clientController) {
-		this.clientController = clientController;
+	public JassmendTrumpfView(JasmendController jasmendController) {
+		this.jasmendController = jasmendController;
 		
 
 	    lblEcke.setGraphic(new ImageView(image1));	
@@ -73,19 +73,19 @@ public class ClientTrumpfView {
 		
 		// Author: Davide Seabra & Florian J�ger
 	btnEcke.setOnAction(e1->{
-		clientController.sendTrumpf("Ecke",clientController.getFinalGamelobby());
+		jasmendController.sendTrumpf("Ecke", jasmendController.getFinalGamelobby());
 		trumpfWindow.close();
 		});
 	btnSchaufel.setOnAction(e1->{
-		clientController.sendTrumpf("Schaufel",clientController.getFinalGamelobby());
+		jasmendController.sendTrumpf("Schaufel", jasmendController.getFinalGamelobby());
 		trumpfWindow.close();
 		});
 	btnKreuz.setOnAction(e1->{
-		clientController.sendTrumpf("Kreuz",clientController.getFinalGamelobby());
+		jasmendController.sendTrumpf("Kreuz", jasmendController.getFinalGamelobby());
 		trumpfWindow.close();
 		});
 	btnHerz.setOnAction(e1->{
-		clientController.sendTrumpf("Herz",clientController.getFinalGamelobby());
+		jasmendController.sendTrumpf("Herz", jasmendController.getFinalGamelobby());
 		trumpfWindow.close();
 		});
 	

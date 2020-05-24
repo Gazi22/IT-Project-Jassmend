@@ -1,10 +1,7 @@
-package jassmendModel;
+package jassmendModelClasses;
 
-import static org.junit.jupiter.api.Assertions.*;
+// Author: Florian Jï¿½ger
 
-// Author: Florian Jäger
-
-import org.junit.jupiter.api.Test;
 
 //Author Davide Seabra
 
