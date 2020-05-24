@@ -108,11 +108,11 @@ public class JassmendGameView {
 	Label lblLeaderboard = new Label("Leaderboard");
 	Label lblRound = new Label("Round: 01");
 	Label lblTeam1 = new Label("Team1");
-	Label lblSticheT1 = new Label("7");
-	Label lblScoreT1 = new Label("300");
+	Label lblSticheT1 = new Label("");
+	Label lblScoreT1 = new Label("");
 	Label lblTeam2 = new Label("Team2");
-	Label lblSticheT2 = new Label("5");
-	Label lblScoreT2 = new Label("200");
+	Label lblSticheT2 = new Label("");
+	Label lblScoreT2 = new Label("");
 	Label lblStiche = new Label("Stiche ");
 	Label lblScore = new Label("Score");
 
