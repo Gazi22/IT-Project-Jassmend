@@ -1060,7 +1060,7 @@ public class ClientController {
 
 
     public void setTextlblRoundCount(){
-        gameView.getLblRound().setText("Round: "+roundcounter);
+        gameView.getLblRound().setText("Round: "+roundcounter+1);
     }
 
 

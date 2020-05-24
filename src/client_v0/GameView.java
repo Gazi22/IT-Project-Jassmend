@@ -111,13 +111,13 @@ public class GameView {
 
 	// Leaderboard
 	Label lblLeaderboard = new Label("Leaderboard");
-	Label lblRound = new Label("Round:");
+	Label lblRound = new Label("Round: 01");
 	Label lblTeam1 = new Label("Team1");
-	Label lblSticheT1 = new Label("SticheT1");
-	Label lblScoreT1 = new Label("ScoreT1");
+	Label lblSticheT1 = new Label("7");
+	Label lblScoreT1 = new Label("300");
 	Label lblTeam2 = new Label("Team2");
-	Label lblSticheT2 = new Label("SticheT2");
-	Label lblScoreT2 = new Label("ScoreT2");
+	Label lblSticheT2 = new Label("5");
+	Label lblScoreT2 = new Label("200");
 	Label lblStiche = new Label("Stiche ");
 	Label lblScore = new Label("Score");
 
@@ -131,9 +131,9 @@ public class GameView {
 
 	VBox lbBox = new VBox();
 
+	
+	
 	// Team table
-
-
 	Label lblTeam1Pl = new Label("Team1:");
 
 	Label lblPl1 = new Label("Player1");
@@ -308,25 +308,24 @@ public class GameView {
 		lblStiche.setId("lblStiche");
 		lblScore.setId("lblScore");
 		rssBox.getChildren().addAll(lblRound, lblStiche, lblScore);
-		rssBox.setAlignment(Pos.CENTER);
-		rssBox.setPadding(new Insets(0,20,0,0));
-		rssBox.setSpacing(12);
+		rssBox.setPadding(new Insets(0,0,0,20));
+		rssBox.setSpacing(26);
 
 
 		team1Box.getChildren().addAll(lblTeam1, lblSticheT1, lblScoreT1);
 		lblTeam1.setId("lblTeam1");
 		lblSticheT1.setId("lblSticheT1");
 		lblScoreT1.setId("lblScoreT1");
-		team1Box.setAlignment(Pos.CENTER);
-		team1Box.setSpacing(12);
+		team1Box.setPadding(new Insets(0,0,0,20));
+		team1Box.setSpacing(80);
 
 
 		team2Box.getChildren().addAll(lblTeam2, lblSticheT2, lblScoreT2);
 		lblTeam2.setId("lblTeam2");
 		lblSticheT2.setId("lblSticheT2");
 		lblScoreT2.setId("lblScoreT2");
-		team2Box.setAlignment(Pos.CENTER);
-		team2Box.setSpacing(12);
+		team2Box.setPadding(new Insets(0,0,0,20));
+		team2Box.setSpacing(80);
 
 
 		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box, team2Box);
@@ -350,7 +349,7 @@ public class GameView {
 		team2PlBox.setAlignment(Pos. CENTER);
 
 		teamBox.getChildren().addAll(team1PlBox,team2PlBox);
-		teamBox.setSpacing(15);
+		teamBox.setSpacing(25);
 
 		VBox mpLeftBox = new VBox();
 		mpLeftBox.setMinWidth(300);
@@ -358,7 +357,7 @@ public class GameView {
 		mpLeftBox.setId("mpLeftBox");
 
 		mpLeftBox.getChildren().addAll(lbBox, teamBox);
-		mpLeftBox.setSpacing(90);
+		mpLeftBox.setSpacing(75);
 
 
 
