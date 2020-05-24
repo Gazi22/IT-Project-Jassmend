@@ -293,12 +293,10 @@ public class JassmendGameView {
 		//Author: Davide Seabra
 		//Table Leaderboard
 
-
 		lblLeaderboardBox.getChildren().add(lblLeaderboard);
 		lblLeaderboardBox.setAlignment(Pos.CENTER);
 		lblLeaderboardBox.setPadding(new Insets(20,0,0,0));
 		lblLeaderboard.setId("Leaderboard");
-		
 
 
 		lblRound.setId("lblRound");
@@ -308,7 +306,6 @@ public class JassmendGameView {
 		rssBox.setPadding(new Insets(0,0,0,20));
 		rssBox.setSpacing(26);
 
-
 		team1Box.getChildren().addAll(lblTeam1, lblSticheT1, lblScoreT1);
 		lblTeam1.setId("lblTeam1");
 		lblSticheT1.setId("lblSticheT1");
@@ -316,14 +313,12 @@ public class JassmendGameView {
 		team1Box.setPadding(new Insets(0,0,0,20));
 		team1Box.setSpacing(80);
 
-
 		team2Box.getChildren().addAll(lblTeam2, lblSticheT2, lblScoreT2);
 		lblTeam2.setId("lblTeam2");
 		lblSticheT2.setId("lblSticheT2");
 		lblScoreT2.setId("lblScoreT2");
 		team2Box.setPadding(new Insets(0,0,0,20));
 		team2Box.setSpacing(80);
-
 
 		lbBox.getChildren().addAll(lblLeaderboardBox, rssBox, team1Box, team2Box);
 		lbBox.setSpacing(40);
@@ -338,7 +333,6 @@ public class JassmendGameView {
 		lblPl2.setId("lblPl2");
 		lblPl4.setId("lblPl4");
 		plTeam2Box.setSpacing(7);
-
 
 		team1PlBox.getChildren().add(plTeam1Box);
 		team1PlBox.setAlignment(Pos. CENTER);
@@ -355,6 +349,7 @@ public class JassmendGameView {
 
 		mpLeftBox.getChildren().addAll(lbBox, teamBox);
 		mpLeftBox.setSpacing(75);
+
 
 
 

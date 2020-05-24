@@ -1,6 +1,3 @@
-
-/** Author: Gazmend Shefiu & Davide Seabra || inspired by Akatsuki Project & Pokerproject*/
-
 .root{
     -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
     -fx-background-size:cover;
@@ -8,20 +5,20 @@
 }
 
 .button {
-	 -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
+     -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
         #ff0000,
         #ffd100,
         radial-gradient(center 50% 50%, radius 100%, #ff0000, #ffd100);
-	 -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
-	 -fx-background-radius: 50px;
- 	 -fx-font-family: "Arial Rounded MT Bold";
-   	 -fx-font-size: 15px;
-   	 -fx-cursor: hand;
-   	 -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
-   	 -fx-padding: 8 15 15 15;
+     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+     -fx-background-radius: 50px;
+     -fx-font-family: "Arial Rounded MT Bold";
+     -fx-font-size: 15px;
+     -fx-cursor: hand;
+     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+     -fx-padding: 8 15 15 15;
 }
 .button:hover{
-	-fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
         #ff0000,
         #ffd100,
         radial-gradient(center 50% 50%, radius 100%, #ff0000, #ffd100);
@@ -34,26 +31,24 @@
     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
 
-
 #btnSend{
 
-	 -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
+     -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
         #ff0000,
         #ffd100,
         radial-gradient(center 50% 50%, radius 100%, #ff0000, #ffd100);
-	 -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
-	 -fx-background-radius: 50px;
- 	 -fx-font-family: "Arial Rounded MT Bold";
-   	 -fx-font-size: 15px;
-   	 -fx-cursor: hand;
-   	 -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
-   	 -fx-padding: 8 15 15 15;
-
+     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+     -fx-background-radius: 50px;
+     -fx-font-family: "Arial Rounded MT Bold";
+     -fx-font-size: 15px;
+     -fx-cursor: hand;
+     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+     -fx-padding: 8 15 15 15;
 
 }
 
 #btnSend:hover{
-	-fx-scale-y:1;
+    -fx-scale-y:1;
     -fx-scale-x:1;
 
 }
@@ -65,172 +60,171 @@
 
 
 
-
 .label{
 
-	-fx-font-family: "Arial Black";
-	-fx-font-size: 14px;
-	
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 14px;
+    
 
 }
 
 .outline.label .text {
-	-fx-fill: white;
+    -fx-fill: white;
     -fx-stroke: black;
     -fx-stroke-width: 1px;
 }
 
 #lblRound{
 
-	-fx-text-fill: white;
-	-fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
 }
-
 
 #lblStiche{
 
-	-fx-text-fill: white;
-	-fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
 }
 
 #lblScore{
 
-	-fx-text-fill: white;
-	-fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
 }
 
 #lblTeam1{
-	-fx-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
 }
 
 #lblSticheT1{
-	-fx-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
 }
 
 #lblScoreT1{
-	-fx-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
 }
 
 #lblTeam2{
-	-fx-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
 }
 
 #lblSticheT2{
-	-fx-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
 }
 
 #lblScoreT2{
-	-fx-text-fill: white;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
 }
 
 #lblTeam1Pl{
-	-fx-text-fill: white;
-	-fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
 }
 
 #lblTeam2Pl{
-	-fx-text-fill: white;
-	-fx-font-size: 14px;
-}
+    -fx-text-fill: white;
+    -fx-font-size: 16px;}
 
 #lblPl1{
-	-fx-text-fill: white;
-	-fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
 }
 
 #lblPl3{
-	-fx-text-fill: white;
-	-fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
 }
 
 #lblPl2{
-	-fx-text-fill: white;
-	-fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
 }
 
 #lblPl4{
-	-fx-text-fill: white;
-	-fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
 }
 
 #userNamePl2{
-	
-	-fx-font-size: 30px;
+    
+    -fx-font-size: 30px;
 }
 
 #scorePlayer2{
-	
-	-fx-font-size: 20px;
-	
+    
+    -fx-font-size: 20px;
+    
 }
 
 #userNamePl3{
-	
-	-fx-font-size: 30px;
-	
+    
+    -fx-font-size: 30px;
+    
 }
 
 #scorePlayer3 {
-	
-	-fx-font-size: 20px;
+    
+    -fx-font-size: 20px;
 }
 
 #userNamePl4{
-	
-	-fx-font-size: 30px;
-	
+    
+    -fx-font-size: 30px;
+    
 }
 
-
 #scorePlayer4 {
-	
-	-fx-font-size: 20px;
-	
+    
+    -fx-font-size: 20px;
+    
 }
 
 #Leaderboard{
 
-	-fx-font-family: "Arial Black";
-	-fx-font-size: 25px;
-	-fx-text-fill: white;
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 25px;
+    -fx-text-fill: white;
 }
-
 
 
 
 #mpLeftBox{
 
-	-fx-background-image: url(/background/image/Blackboard.png);
-	-fx-background-size: cover;
+    -fx-background-image: url(/background/image/Blackboard.png);
+    -fx-background-size: cover;
 }
-
 
 #rssBox{
 
-	-fx-text-fill: white;
+    -fx-text-fill: white;
 
 }
 
 #lblChat{
-	-fx-font-size: 11px;
+    -fx-font-size: 11px;
 }
 
 .titled-pane{
-	-fx-border-color: b8860b;
+    -fx-border-color: b8860b;
 }
 
 .text-field{
 
-	-fx-background-color: white;
-	-fx-border-color: black;
+    -fx-background-color: white;
+    -fx-border-color: black;
 }
 
 .text-area{
 
-	-fx-background-color: white;
-	-fx-border-color: black;
+    -fx-background-color: white;
+    -fx-border-color: black;
 }
-
 
 
 
@@ -249,13 +243,3 @@
     -fx-pref-height: 90;
     -fx-max-height: 100;
 }
-
-
-
-
-
-
-
-
-
-

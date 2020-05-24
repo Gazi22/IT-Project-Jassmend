@@ -135,7 +135,7 @@ public class JassmendMainMenuView {
 			this.jasmendController.getViewManager().primaryStage.setScene(JassmendGameView.getScene());
 			this.jasmendController.getViewManager().primaryStage.setMaximized(true);
 			this.jasmendController.getViewManager().primaryStage.setResizable(true);
-			jasmendController.btnTrumpfTrue();
+			//jasmendController.btnTrumpfTrue();
 		});
 		
 		
