@@ -25,9 +25,9 @@ public class ClientViewManager {
     private MainMenuView menuView;
     private ClientModel clientModel;
     private ClientController clientController;
-    
+    private ChatView chatView;
 
-    public ClientViewManager(Stage primaryStage, GameView view, MainMenuView menuView, LoginView loginView, CreateAccountView createAccountView, ClientController clientController) {
+    public ClientViewManager(Stage primaryStage, GameView view, MainMenuView menuView, LoginView loginView, CreateAccountView createAccountView, ClientController clientController,ChatView chatView) {
         
     	this.primaryStage = primaryStage;
         this.createAccountView = createAccountView;
@@ -35,12 +35,12 @@ public class ClientViewManager {
         this.loginView = loginView;
         this.menuView = menuView;
         this.clientController = clientController;
-
+        this.chatView=chatView;
         
      // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
-        primaryStage.setOnCloseRequest(e->{
-        closeWindow();
-        });
+        //primaryStage.setOnCloseRequest(e->{
+        //closeWindow();
+        //});
         primaryStage.setScene(LoginView.getScene());
     }
     

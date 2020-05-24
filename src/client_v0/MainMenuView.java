@@ -160,8 +160,8 @@ public class MainMenuView {
 	    	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
 	         pause.setOnFinished(e5 -> {
 
-	        	 int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
-	             String [] lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
+	        	 int lastMessageIndex = clientController.getAreaMessages().getText().split("\n").length-1;
+	             String [] lastMessage = clientController.getAreaMessages().getText().split("\n")[lastMessageIndex].split("\\|");
 	    		 String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
 	             for (String str:gameLobbyList) {
 	             clientController.leaveGamelobby(str);
@@ -211,8 +211,8 @@ public class MainMenuView {
         //Not the best way to do it but it does the trick
         PauseTransition pause = new PauseTransition(Duration.seconds(1));
         pause.setOnFinished(e -> {
-            int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
-            String [] lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
+            int lastMessageIndex = clientController.getAreaMessages().getText().split("\n").length-1;
+            String [] lastMessage = clientController.getAreaMessages().getText().split("\n")[lastMessageIndex].split("\\|");
 						String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
             for (String str:gameLobbyList) {
                 listView.getItems().add(str);
@@ -223,11 +223,12 @@ public class MainMenuView {
                 for(Object o : selectedIndices){
                     gamelobby = (String)listView.getItems().get((int)o);
                     clientController.joinGamelobby(gamelobby);
+
                  
                     this.clientController.getViewManager().primaryStage.setScene(GameView.getScene());
                     this.clientController.getViewManager().primaryStage.setMaximized(true);
                     this.clientController.getViewManager().primaryStage.setResizable(true);
-                    //clientController.btnTrumpfTrue();
+                    clientController.btnTrumpfTrue();
                     
                 }
                 //Don't do this at home kids !
@@ -251,17 +252,16 @@ public class MainMenuView {
 							}
 
 
-                        stage.close();
-						if (clientController.isFull()){
-							clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
-
-						}
-                        //Handling Create Account button
-                                                                       
                     }
 
                 });
                 pause2.play();
+
+				stage.close();
+				if (clientController.isFull()){
+					clientController.gamelobbyIsFull(finalGamelobby,"GamelobbyIsFull");
+
+				}
             });
         });
         pause.play();

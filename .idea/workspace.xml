@@ -20,41 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19__2_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19__2_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/Jass.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/trumpfView.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/trumpfView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/message/GetStiche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/GetStiche.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/message/TurnManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/TurnManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/ChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ChatView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientChatRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientTrumpfView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientTrumpfView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientViewManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/Jass.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/trumpfView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/trumpfView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_v0/MainMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/MainMenuView.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="653271646">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="2" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/client_v0/AccJass.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -106,19 +93,7 @@
       <recent name="client_v0" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Unknown.ClientChatRoom345766851">
+  <component name="RunManager" selected="Application.ClientChatRoom">
     <configuration name="CardTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jassmendModel.CardTest" />
       <module name="IT-Project-Jassmend" />
@@ -188,6 +163,19 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/dblib/mysql-connector-java-8.0.19.jar" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.ClientChatRoom" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.JassmendMain" />
+      <item itemvalue="Application.DeckofCardsTest" />
+      <item itemvalue="Application.CardTest" />
+      <item itemvalue="JAR Application.mysql-connector-java-8.0.19.jar" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Server" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -209,28 +197,6 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="12000" />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -239,31 +205,22 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589218494985">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589218494985" />
-    <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser" timestamp="1590314559895">
+    <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser" timestamp="1590327773010">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590314559895" />
+    <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590327773010" />
     <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590318841426">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -280,38 +237,38 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="431" height="466" key="DebuggerActiveHint/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590069110179" />
-    <state width="2517" height="306" key="GridCell.Tab.0.bottom" timestamp="1590325330557">
+    <state width="2517" height="286" key="GridCell.Tab.0.bottom" timestamp="1590353040545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="306" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590325330557" />
-    <state width="2517" height="306" key="GridCell.Tab.0.center" timestamp="1590325330557">
+    <state width="2517" height="286" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
+    <state width="2517" height="286" key="GridCell.Tab.0.center" timestamp="1590353040545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="306" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590325330557" />
-    <state width="2517" height="306" key="GridCell.Tab.0.left" timestamp="1590325330557">
+    <state width="2517" height="286" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
+    <state width="2517" height="286" key="GridCell.Tab.0.left" timestamp="1590353040545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="306" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590325330557" />
-    <state width="2517" height="306" key="GridCell.Tab.0.right" timestamp="1590325330557">
+    <state width="2517" height="286" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
+    <state width="2517" height="286" key="GridCell.Tab.0.right" timestamp="1590353040545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="306" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590325330557" />
-    <state width="2517" height="285" key="GridCell.Tab.1.bottom" timestamp="1590323256103">
+    <state width="2517" height="286" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
+    <state width="2517" height="286" key="GridCell.Tab.1.bottom" timestamp="1590353040545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="285" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590323256103" />
-    <state width="2517" height="285" key="GridCell.Tab.1.center" timestamp="1590323256103">
+    <state width="2517" height="286" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
+    <state width="2517" height="286" key="GridCell.Tab.1.center" timestamp="1590353040545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="285" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590323256103" />
-    <state width="2517" height="285" key="GridCell.Tab.1.left" timestamp="1590323256103">
+    <state width="2517" height="286" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
+    <state width="2517" height="286" key="GridCell.Tab.1.left" timestamp="1590353040545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="285" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590323256103" />
-    <state width="2517" height="285" key="GridCell.Tab.1.right" timestamp="1590323256103">
+    <state width="2517" height="286" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
+    <state width="2517" height="286" key="GridCell.Tab.1.right" timestamp="1590353040545">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="285" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590323256103" />
+    <state width="2517" height="286" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
     <state x="760" y="274" key="SettingsEditor" timestamp="1589041233885">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -324,18 +281,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1089" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590245174030" />
-    <state x="797" y="429" width="965" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1590326447324">
+    <state x="797" y="429" width="965" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1590352509937">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="797" y="429" width="965" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590326447324" />
+    <state x="797" y="429" width="965" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590352509937" />
     <state x="1010" y="450" key="extract.method.dialog" timestamp="1590138173323">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="450" key="extract.method.dialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590138173323" />
-    <state x="1075" y="447" key="refactoring.ChangeSignatureDialog" timestamp="1589365166903">
+    <state x="1075" y="447" key="refactoring.ChangeSignatureDialog" timestamp="1590342958144">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1075" y="447" key="refactoring.ChangeSignatureDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1589365166903" />
+    <state x="1075" y="447" key="refactoring.ChangeSignatureDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590342958144" />
     <state x="936" y="330" key="run.anything.popup" timestamp="1589546357836">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -346,11 +303,21 @@
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590314628208" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/client_v0/ClientController.java</url>
+          <line>246</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="gamelobby.getSizeSticheTeam1()" />
-        <watch expression="gamelobby.getSticheTeam1(0)" />
-        <watch expression="card.toString()" />
+        <watch expression="gamelobby.getSizeSticheTeam1()" language="JAVA" />
+        <watch expression="gamelobby.getSticheTeam1(0)" language="JAVA" />
+        <watch expression="card.toString()" language="JAVA" />
+        <watch expression="clientController.readLastMessageTest()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -358,10 +325,5 @@
     <SUITE FILE_PATH="coverage/IT_Project_Jassmend$ClientChatRoom.ic" NAME="ClientChatRoom Coverage Results" MODIFIED="1589646617836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>client_v0.*</FILTER>
     </SUITE>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/client_v0/AccJass.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
   </component>
 </project>

@@ -5,12 +5,9 @@ import jassmendModel.Player;
 import jassmendView.CardView;
 import jassmendView.PlayerPane;
 import javafx.application.Platform;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -25,10 +22,10 @@ import java.util.Optional;
 public class ClientController {
     private  ClientModel clientModel;
     private Socket socket;
-    private ChatView view;
     private LoginView loginView;
     private MainMenuView menuView;
     private ClientViewManager viewManager;
+    private ChatView chatView;
     private GameView gameView;
     private ClientTrumpfView trumpfView;
     private int gamelobbyFlag=0;
@@ -66,12 +63,12 @@ public class ClientController {
 
                 String connecting = "Connecting to "+ipaddress+" via port:"+port;
                 clientModel.log_info(connecting);
-                appendMessageGameView(connecting);
+                appendMessage(connecting);
 
                 socket = new Socket(ipaddress, Integer.parseInt(port));
                 String established = "Connection established !";
                 clientModel.log_info(established);
-                appendMessageGameView(established);
+                appendMessage(established);
 
                 clientModel.setIpAddress(ipaddress);
                 clientModel.setPort(Integer.parseInt(port));
@@ -94,7 +91,7 @@ public class ClientController {
             String incorrectFormat = "Formatting of IP-Address and/or Port is incorrect !";
 
             clientModel.log_warning(incorrectFormat);
-            appendMessageGameView(incorrectFormat);
+            appendMessage(incorrectFormat);
 
             return false;
         }
@@ -103,12 +100,14 @@ public class ClientController {
     }
 
     public void appendMessage(String message){
-        view.areaMessages.appendText(message+"\n");
+        chatView.areaMessages.appendText(message+"\n");
     }
     
     public void appendMessageGameView(String message){
         gameView.msgArea.appendText(message+"\n");
     }
+
+
     
     public void setText_IPField(String text){
         loginView.txtIPAddress.setText(text);
@@ -129,12 +128,12 @@ public class ClientController {
 
             String connecting = "Connecting to "+ipaddress+" via port:"+port;
             clientModel.log_info(connecting);
-            appendMessageGameView(connecting);
+            appendMessage(connecting);
 
             socket = new Socket(ipaddress, port);
             String established = "Connection established !";
             clientModel.log_info(established);
-            appendMessageGameView(established);
+            appendMessage(established);
 
             loginView.setText_txtIPAddress(ipaddress);
             loginView.setText_txtPort(String.valueOf(port));
@@ -244,25 +243,28 @@ public class ClientController {
 
 
 
-                                    else if (arrMsgText[3].equals("TurnInfo")){
-                                        for(int x=0;x<4;x++){
-                                            playerTurns[x]=arrMsgText[x+4];
+                                    else if (arrMsgText[3].equals("TurnInfo")) {
+                                        roundcounter = Integer.parseInt(arrMsgText[8]);
+                                        for (int x = 0; x < 4; x++) {
+                                            playerTurns[x] = arrMsgText[x + 4];
                                         }
 
-                                        for (int y=0;y<4;y++){
+                                        for (int y = 0; y < 4; y++) {
 
-                                            if(playerTurns[y].equals("1")) {
-                                                if (clientModel.getClientTurnPlayerID()==(y+1)) {
-                                                     buttonsFalse();}
-                                                    //showAlert("Gameinfo","It is your turn!");}
+                                            if (playerTurns[y].equals("1")) {
+                                                if (clientModel.getClientTurnPlayerID() == (y + 1)) {
+                                                    buttonsFalse();
+                                                    appendMessageGameView("It is your turn");
+                                                } else {
+                                                    buttonsTrue();
+                                                    appendMessageGameView("It is Player " + (y + 1) + " turn!");
 
-                                                
-                                                else {buttonsTrue();}
-                                               // showAlert("Gameinfo","It is Player "+(y+1)+" turn!");}
-                                        }
-                                        }
+                                                }
+
+                                            }
 
                                         }
+                                    }
                                     //Auf Server implementieren etc
                                     else if (arrMsgText[3].equals("EvaluateRound")) {
                                         waiterino(500);
@@ -415,13 +417,28 @@ public class ClientController {
                                             if(clientModel.getClientPlayerID()==1) {
                                                 getEvaluation(menuView.getFinalGamelobby());
                                             }
-                                            gameView.getPlayerPane(1).clearCardsHolder();
+
+                                            //When more than 1 round is implemented
+                                            //gameView.getPlayerPane(1).clearCardsHolder();
                                             sticheTeam2=0;
                                             sticheTeam1=0;
+                                            String winner="";
+                                            if(Integer.parseInt(gameView.getLblScoreT1().getText())>Integer.parseInt(gameView.getLblScoreT2().getText())){
+                                                  winner ="Team 1";
+                                            }
+                                            else winner="Team 2";
+
+
+                                            showAlert("Game finished","The winner is: "+winner);
 
 
 
-                                            int p= 0;
+                                        }
+
+
+
+
+                                 /*           int p= 0;
 
                                             for(int v = 0; v< playerIDs.length; v++) {
                                                 if (playerIDs[v].equals(clientModel.getUser())) {
@@ -437,6 +454,9 @@ public class ClientController {
                                             }
 
                                             if(p==0){clientModel.setClientTurnPlayerID(1);}
+                                            if(p==1){clientModel.setClientTurnPlayerID(2);}
+                                            if(p==2){clientModel.setClientTurnPlayerID(3);}
+                                            if(p==3){clientModel.setClientTurnPlayerID(4);}
 
 
 
@@ -462,6 +482,8 @@ public class ClientController {
                                                     break;
                                             }
 
+
+
                                             Platform.runLater(new Runnable() {
                                                 @Override
                                                 public void run() {
@@ -472,13 +494,15 @@ public class ClientController {
                                             });
 
                                             waiterino(250);
-                                        }
+                                            **/
+
+
 
                                     }
 
                                     else if (arrMsgText[3].equals("CardsPlayed")) {
                                         setFirstPlayer(Integer.parseInt(arrMsgText[10]));
-                                        roundcounter=Integer.parseInt(arrMsgText[4]);
+
                                         System.out.println("Server sent the card: "+arrMsgText);
                                         if(clientModel.getClientTurnPlayerID()==1){turnFinished(menuView.getFinalGamelobby());}
                                         if(cardsPlayed.size()==4){clearCardsPlayed();}
@@ -586,13 +610,11 @@ public class ClientController {
 
 
 
-                                        appendMessageGameView(msg);
+                                    appendMessage(msg);
 
                                 }
+                                appendMessage(msg);
 
-                                else
-                                    //for testing purposes
-                                appendMessageGameView("Received: " + msg);
                             } catch (IOException e) {
                                 break;
                             }
@@ -857,14 +879,14 @@ public class ClientController {
 
      public ClientController(ClientModel clientModel){
          this.clientModel = clientModel;
-
-
      }
+
+
      public void addMainMenuView (MainMenuView menuView) {
     	 this.menuView = menuView;
      }
      public  void addChatView(ChatView chatView){
-         this.view = chatView;
+         this.chatView = chatView;
      }
      public void addLoginView(LoginView loginView){
          this.loginView = loginView;
@@ -1094,30 +1116,30 @@ public class ClientController {
                 gameView.getUserNamePl2().setText(playerIDs[2]);
                 gameView.getUserNamePl3().setText(playerIDs[3]);
                 gameView.getUserNamePl4().setText(playerIDs[0]);
-                gameView.getLblPl1().setText(playerIDs[1]);
-                gameView.getLblPl2().setText(playerIDs[2]);
-                gameView.getLblPl3().setText(playerIDs[3]);
-                gameView.getLblPl4().setText(playerIDs[0]);
+                gameView.getLblPl1().setText(playerIDs[0]);
+                gameView.getLblPl2().setText(playerIDs[1]);
+                gameView.getLblPl3().setText(playerIDs[2]);
+                gameView.getLblPl4().setText(playerIDs[3]);
                 break;
             case 2:
                 gameView.getUserNamePl1().setText(playerIDs[2]);
                 gameView.getUserNamePl2().setText(playerIDs[3]);
                 gameView.getUserNamePl3().setText(playerIDs[0]);
                 gameView.getUserNamePl4().setText(playerIDs[1]);
-                gameView.getLblPl1().setText(playerIDs[2]);
-                gameView.getLblPl2().setText(playerIDs[3]);
-                gameView.getLblPl3().setText(playerIDs[0]);
-                gameView.getLblPl4().setText(playerIDs[1]);
+                gameView.getLblPl1().setText(playerIDs[0]);
+                gameView.getLblPl2().setText(playerIDs[1]);
+                gameView.getLblPl3().setText(playerIDs[2]);
+                gameView.getLblPl4().setText(playerIDs[3]);
                 break;
             case 3:
                 gameView.getUserNamePl1().setText(playerIDs[3]);
                 gameView.getUserNamePl2().setText(playerIDs[0]);
                 gameView.getUserNamePl3().setText(playerIDs[1]);
                 gameView.getUserNamePl4().setText(playerIDs[2]);
-                gameView.getLblPl1().setText(playerIDs[3]);
-                gameView.getLblPl2().setText(playerIDs[0]);
-                gameView.getLblPl3().setText(playerIDs[1]);
-                gameView.getLblPl4().setText(playerIDs[2]);
+                gameView.getLblPl1().setText(playerIDs[0]);
+                gameView.getLblPl2().setText(playerIDs[1]);
+                gameView.getLblPl3().setText(playerIDs[2]);
+                gameView.getLblPl4().setText(playerIDs[3]);
                 break;
         }
 
@@ -1174,6 +1196,7 @@ public class ClientController {
     	
     	this.socket = socket;
     }
+
     
     public Socket getSocket() {
     	
@@ -1182,8 +1205,8 @@ public class ClientController {
 
 
     public boolean readLastMessage(String lookFor) {
-        int lastMessageIndex2 = gameView.msgArea.getText().split("\n").length - 1;
-        String lastMessage2 = gameView.msgArea.getText().split("\n")[lastMessageIndex2];
+        int lastMessageIndex2 = chatView.areaMessages.getText().split("\n").length - 1;
+        String lastMessage2 = chatView.areaMessages.getText().split("\n")[lastMessageIndex2];
 
         if (lastMessage2.startsWith(lookFor)) {
             return true;
@@ -1191,7 +1214,16 @@ public class ClientController {
         else return false;
     }
 
+    public String readLastMessageTest() {
+        int lastMessageIndex2 = gameView.msgArea.getText().split("\n").length - 1;
+        String lastMessage2 = gameView.msgArea.getText().split("\n")[lastMessageIndex2];
 
+        return lastMessage2;
+    }
+
+    public TextArea getAreaMessages(){
+        return chatView.areaMessages;
+    }
 
 }
 

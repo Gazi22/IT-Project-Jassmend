@@ -61,7 +61,6 @@ public class GetStiche extends Message {
 
 			if (gamelobby.getTurnCounter()%36==0){
 				gamelobby.clearCardsDealt();
-				gamelobby.increaseRoundCounter();
 				gamelobby.getDeck().shuffle();
 
 				gamelobby.resetStichCounter();

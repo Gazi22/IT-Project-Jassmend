@@ -19,11 +19,12 @@ import javafx.util.Duration;
 
 public class LoginView {
 
-	// Author: Florian Jäger
+	// Author: Florian Jï¿½ger
     private static Scene scene;
     private ClientController clientController;
     private MainMenuView menuView;
     private GameView view;
+    private ChatView chatView;
     public Stage newStageCreateAccount;
     private ClientModel clientModel;
     
@@ -47,11 +48,11 @@ public class LoginView {
     HBox hboxBtn = new HBox(10);
  
 
-    public LoginView(ClientController clientController, GameView view)
+    public LoginView(ClientController clientController, GameView view, ChatView chatView)
     {
         this.clientController = clientController;
         this.view  = view;
-      
+        this.chatView=chatView;
     
         GridPane gridLoginView = new GridPane();
 
@@ -153,9 +154,9 @@ public class LoginView {
             //Not the best way to do it but it does the trick
             PauseTransition pause = new PauseTransition(Duration.seconds(1));
             pause.setOnFinished(event2 -> {
-                int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
-                String lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex];
-                if (lastMessage.matches("Received: Result\\|true\\|.*")) {
+                int lastMessageIndex = chatView.areaMessages.getText().split("\n").length-1;
+                String lastMessage = chatView.areaMessages.getText().split("\n")[lastMessageIndex];
+                if (lastMessage.matches("Result\\|true\\|.*")) {
 
                     //Get Login hash and store in
                     int hashIndex = lastMessage.split("\\|").length-1;
@@ -182,8 +183,8 @@ public class LoginView {
                 //Not the best way to do it but it does the trick
                 PauseTransition pause = new PauseTransition(Duration.seconds(1));
                 pause.setOnFinished(event2 -> {
-                    int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
-                    String lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex];
+                    int lastMessageIndex = chatView.areaMessages.getText().split("\n").length-1;
+                    String lastMessage = chatView.areaMessages.getText().split("\n")[lastMessageIndex];
                     if (lastMessage.matches("Received: Result\\|true\\|.*")) {
 
                         //Get Login hash and store in

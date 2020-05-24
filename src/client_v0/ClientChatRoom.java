@@ -11,6 +11,7 @@ public class ClientChatRoom extends Application {
     CreateAccountView createAccountView;
     GameView view;
     MainMenuView viewMenu;
+    ChatView chatView;
     final public static int NUM_PLAYERS = 4;
 
     public static void main(String[] args) {
@@ -30,16 +31,25 @@ public class ClientChatRoom extends Application {
         ClientController clientController = new ClientController(clientModel);
         view = new GameView(clientController,clientModel, viewMenu);
         clientController.addGameView(view);
-        loginView = new LoginView(clientController, view);
+
+        chatView = new ChatView(clientController);
+        clientController.addChatView(chatView);
+
+        loginView = new LoginView(clientController, view,chatView);
         clientController.addLoginView(loginView);
-        viewMenu = new MainMenuView(clientController, view, loginView);
-        clientController.addMainMenuView(viewMenu);
+
         createAccountView = new CreateAccountView(clientController);
 
-       
+        viewMenu = new MainMenuView(clientController, view, loginView);
+        clientController.addMainMenuView(viewMenu);
+
+
+
+
+
       
 
-        clientView = new ClientViewManager(primaryStage, view, viewMenu, loginView, createAccountView, clientController);
+        clientView = new ClientViewManager(primaryStage, view, viewMenu, loginView, createAccountView, clientController,chatView);
        
         clientController.setViewManager(clientView);
         primaryStage.show();

@@ -450,17 +450,18 @@ public class GameView {
 			getHandButton(0).setOnAction(e10 -> {
 				if(pp.getCardsHolder(0)!=null) {
 					clientController.sendCardPlayed(pp.getCardsHolder(0).toString(), finalGamelobby, clientController.getFirstPlayer());
-					clientController.waiterino(200);
-					if(clientController.readLastMessage("Result|false")==true){
-						
-					}
+					clientController.waiterino(400);
 
 
-
-				clientController.waiterino(250);
 				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
+
+
+						clientController.waiterino(250);
+						if(clientController.readLastMessage("Result|false")==true){
+							clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+						}
 						for (int x = 0; x < clientController.getSizeCardsPlayed(); x++) {
 							if (pp.getCardsHolder(0).toString().equals(clientController.getCardsPlayed(x).toString())) {
 								getHandButton(0).setGraphic(null);
@@ -475,13 +476,20 @@ public class GameView {
 			//Author: Florian Jäger
 		getHandButton(1).setOnAction(e11 -> {
 
+
 			if(pp.getCardsHolder(1)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(1).toString(), finalGamelobby, clientController.getFirstPlayer());
+				clientController.waiterino(400);
 
-			clientController.waiterino(250);
+
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
+					clientController.waiterino(250);
+					if(clientController.readLastMessage("Result|false")==true){
+						clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+					}
+
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(1).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(1).setGraphic(null);
@@ -498,11 +506,16 @@ public class GameView {
 
 			if(pp.getCardsHolder(2)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(2).toString(), finalGamelobby, clientController.getFirstPlayer());
+				clientController.waiterino(400);
 
-			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
+					clientController.waiterino(250);
+					if(clientController.readLastMessage("Result|false")==true){
+						clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+					}
+
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(2).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(2).setGraphic(null);
@@ -519,12 +532,18 @@ public class GameView {
 			if(pp.getCardsHolder(3)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(3).toString(), finalGamelobby, clientController.getFirstPlayer());
 
-			clientController.waiterino(250);
+			clientController.waiterino(400);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
-			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
-				if(pp.getCardsHolder(3).toString().equals(clientController.getCardsPlayed(x).toString())){
+
+					clientController.waiterino(200);
+
+					if(clientController.readLastMessage("Result|false")==true){
+						clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+					}
+					for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
+					if(pp.getCardsHolder(3).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(3).setGraphic(null);
 					pp.setCardsHolderNull(3);
 				}
@@ -538,11 +557,17 @@ public class GameView {
 
 			if(pp.getCardsHolder(4)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(4).toString(), finalGamelobby, clientController.getFirstPlayer());
+				clientController.waiterino(400);
 
-			clientController.waiterino(250);
+
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
+					clientController.waiterino(250);
+					if(clientController.readLastMessage("Result|false")==true){
+						clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+					}
+
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(4).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(4).setGraphic(null);
@@ -558,11 +583,17 @@ public class GameView {
 
 			if(pp.getCardsHolder(5)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(5).toString(), finalGamelobby, clientController.getFirstPlayer());
+				clientController.waiterino(400);
 
-			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
+					clientController.waiterino(250);
+
+					if(clientController.readLastMessage("Result|false")==true){
+						clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+					}
+
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(5).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(5).setGraphic(null);
@@ -578,11 +609,17 @@ public class GameView {
 
 			if(pp.getCardsHolder(6)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(6).toString(), finalGamelobby, clientController.getFirstPlayer());
+				clientController.waiterino(400);
 
-			clientController.waiterino(250);
+
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
+					clientController.waiterino(250);
+					if(clientController.readLastMessage("Result|false")==true){
+						clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+					}
+
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(6).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(6).setGraphic(null);
@@ -598,11 +635,17 @@ public class GameView {
 
 			if(pp.getCardsHolder(7)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(7).toString(), finalGamelobby, clientController.getFirstPlayer());
+				clientController.waiterino(400);
 
-			clientController.waiterino(250);
+
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
+					clientController.waiterino(250);
+					if(clientController.readLastMessage("Result|false")==true){
+						clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+					}
+
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(7).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(7).setGraphic(null);
@@ -618,11 +661,18 @@ public class GameView {
 
 			if(pp.getCardsHolder(8)!=null) {
 				clientController.sendCardPlayed(pp.getCardsHolder(8).toString(), finalGamelobby, clientController.getFirstPlayer());
+				clientController.waiterino(400);
 
-			clientController.waiterino(250);
 			Platform.runLater(new Runnable() {
 				@Override
 				public void run() {
+					clientController.waiterino(250);
+
+					if(clientController.readLastMessage("Result|false")==true){
+						clientController.showAlert("Illegal Move","Pick the right card or review the gamerules!");
+					}
+
+
 			for(int x = 0;x<clientController.getSizeCardsPlayed();x++){
 				if(pp.getCardsHolder(8).toString().equals(clientController.getCardsPlayed(x).toString())){
 					getHandButton(8).setGraphic(null);
@@ -652,8 +702,8 @@ public class GameView {
     	 PauseTransition pause = new PauseTransition(Duration.seconds(1));
          pause.setOnFinished(e5 -> {
 
-        	 int lastMessageIndex = msgArea.getText().split("\n").length-1;
-             String [] lastMessage = msgArea.getText().split("\n")[lastMessageIndex].split("\\|");
+        	 int lastMessageIndex = clientController.getAreaMessages().getText().split("\n").length-1;
+             String [] lastMessage =clientController.getAreaMessages().getText().split("\n")[lastMessageIndex].split("\\|");
     		 String [] gameLobbyList = Arrays.copyOfRange(lastMessage, 2, lastMessage.length);
              for (String str:gameLobbyList) {
              clientController.leaveGamelobby(str);

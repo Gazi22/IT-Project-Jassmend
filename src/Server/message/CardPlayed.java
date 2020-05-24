@@ -159,7 +159,7 @@ public class CardPlayed extends Message {
                 }
 
 
-                else result = true;
+
             }
 
 

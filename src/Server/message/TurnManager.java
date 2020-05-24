@@ -10,7 +10,7 @@ public class TurnManager extends Message {
 	private String token;
 	private String name;
 	private String username;
-
+	String roundCounter;
 
 
 
@@ -55,7 +55,15 @@ public class TurnManager extends Message {
 				turnMessage="Error";
 				break;
 		}
+
+
+		if (gamelobby.getTurnCounter()%36==0) {
+			gamelobby.increaseRoundCounter();
+		}
+		roundCounter = Integer.toString(gamelobby.getRoundCounter());
+
 	}
+
 
 
 
@@ -64,7 +72,7 @@ public class TurnManager extends Message {
 		gameInfo[2]=this.name;
 
 
-		gameInfo[3]="TurnInfo"+"|"+turnMessage;
+		gameInfo[3]="TurnInfo"+"|"+turnMessage+"|"+roundCounter;
 
 		SendGameMessage msgGame=new SendGameMessage(gameInfo);
 
