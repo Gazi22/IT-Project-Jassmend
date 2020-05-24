@@ -62,8 +62,8 @@ public class JassmendTrumpfView {
 		
 		HBox slcBox = new HBox();
 		slcBox.getChildren().addAll(btnEcke, btnHerz,  btnKreuz, btnSchaufel);
-		slcBox.setPadding(new Insets(5, 7, 10, 15));
-		slcBox.setSpacing(50);
+		slcBox.setPadding(new Insets(5, 10, 10, 33));
+		slcBox.setSpacing(74);
 		
 		btnEcke.setId("btnEcke");
 		btnSchaufel.setId("btnSchaufel");
@@ -71,7 +71,7 @@ public class JassmendTrumpfView {
 		btnKreuz.setId("btnKreuz");
 		
 		
-		// Author: Davide Seabra & Florian Jï¿½ger
+		// Author: Davide Seabra & Florian Jäger
 	btnEcke.setOnAction(e1->{
 		jasmendController.sendTrumpf("Ecke", jasmendController.getFinalGamelobby());
 		trumpfWindow.close();
