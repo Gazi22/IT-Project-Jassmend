@@ -3,6 +3,8 @@ package jassmendModel;
 import java.util.ArrayList;
 import java.util.Collections;
 
+// Code from Poker project || adjustments made by Florian Jäger
+
 import javafx.beans.property.SimpleIntegerProperty;
 
 /**

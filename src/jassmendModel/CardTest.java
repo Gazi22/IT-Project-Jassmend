@@ -2,6 +2,8 @@ package jassmendModel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Author: Florian Jäger
+
 import org.junit.jupiter.api.Test;
 
 class CardTest {

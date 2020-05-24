@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
-// Code from Pokerproject
+// Code from Pokerproject || with adjustments from Davide Seabra
 
     public class CardView extends Button {
 
@@ -25,8 +25,6 @@ import java.util.ArrayList;
             String fileName = cardToFileName(card);
             Image image = new Image(this.getClass().getClassLoader().getResourceAsStream("cards/images/" + fileName));
             ImageView imv = new ImageView(image);
-            //imv.fitWidthProperty().bind(this.widthProperty());
-            //imv.fitHeightProperty().bind(this.heightProperty());
         	imv.setFitWidth(100);
         	imv.setFitHeight(100);
             imv.setPreserveRatio(true);

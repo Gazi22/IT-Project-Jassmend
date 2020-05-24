@@ -63,9 +63,7 @@ public class MainMenuView {
 		this.view = view;
 		this.logView = logView;
 		
-		//Author: Gazmend Shefiu
-		
-		// Label Username
+		// Label Username || Author: Gazmend Shefiu
 		
 		lblUserName.getStyleClass().add("outline");
 		
@@ -86,7 +84,6 @@ public class MainMenuView {
 		volumeSlider.setShowTickMarks(true);
 		volumeSlider.setMajorTickUnit(10);
 		volumeSlider.setBlockIncrement(5);
-		
 		
 		// Inspired By: Akatsuki Project || Author: Gazmend Shefiu
 		volumeSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -143,12 +140,12 @@ public class MainMenuView {
 			clientController.btnTrumpfTrue();
 		});
 		
-		// Author: Gazmend Shefiu
+		
 		createGameLobby.setOnAction(e2 -> {
 			createGameLobby();
 			
 		});
-		// Author: Gazmend Shefiu
+		
 		joinGameLobby.setOnAction(e3 -> {
 			joinGameLobby();
 			
@@ -178,16 +175,15 @@ public class MainMenuView {
 
 	     });
 			
-	  // Author: Gazmend Shefiu
+		
 		playMusic.setOnAction(e3 -> {
 			musicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 			musicPlayer.play();
 		});
-		// Author: Gazmend Shefiu
+		
 		pauseMusic.setOnAction(e4 -> {
 			musicPlayer.pause();
 		});
-		// Author: Gazmend Shefiu
 		stopMusic.setOnAction(e5 -> {
 			musicPlayer.stop();
 		});
@@ -315,7 +311,7 @@ public class MainMenuView {
 	    stage.show();
 	}
 
-	// Author: Gazmend Shefiu & Florian Jäger
+	
 	public static Scene getScene() {
 		return scene;
 	}

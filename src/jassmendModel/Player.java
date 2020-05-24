@@ -2,6 +2,8 @@ package jassmendModel;
 
 import java.util.ArrayList;
 
+// Code from Poker project || adjustements by Florian Jäger
+
 public class Player {
     public static final int HAND_SIZE = 9;
     

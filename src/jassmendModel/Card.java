@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 
+// Code from Poker Project || Author: Florian Jäger
+
 public class Card implements Collection <Card>, Serializable, Comparable<Card> {
 	int herzValue =0;
 	int eckeValue =0;

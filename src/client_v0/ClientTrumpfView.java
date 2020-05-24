@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-	// Author: Davide Seabra & Florian Jäger
+	// Author: Davide Seabra & Florian Jï¿½ger
 public class ClientTrumpfView {
 
 	ClientController clientController;
@@ -35,7 +35,7 @@ public class ClientTrumpfView {
 	Image image7 = new Image(getClass().getResourceAsStream("/trumpf/images/Kreuz.png"));
 	Image image8 = new Image(getClass().getResourceAsStream("/trumpf/images/Schaufel.png"));
 
-	// Author: Davide Seabra & Florian Jäger
+	// Author: Davide Seabra & Florian Jï¿½ger
 	public ClientTrumpfView(ClientController clientController) {
 		this.clientController = clientController;
 		
@@ -71,7 +71,7 @@ public class ClientTrumpfView {
 		btnKreuz.setId("btnKreuz");
 		
 		
-		// Author: Davide Seabra & Florian Jäger
+		// Author: Davide Seabra & Florian Jï¿½ger
 	btnEcke.setOnAction(e1->{
 		clientController.sendTrumpf("Ecke",clientController.getFinalGamelobby());
 		trumpfWindow.close();
@@ -89,7 +89,7 @@ public class ClientTrumpfView {
 		trumpfWindow.close();
 		});
 	
-	// Author: Davide Seabra & Florian Jäger
+	// Author: Davide Seabra & Florian Jï¿½ger
 	BorderPane trumpfLayout = new BorderPane();
 	
 	
@@ -101,7 +101,7 @@ public class ClientTrumpfView {
 	
 	
 	
-	// Author: Davide Seabra & Florian Jäger
+	// Author: Davide Seabra & Florian Jï¿½ger
 	secondScene = new Scene(trumpfLayout);
 	secondScene.getStylesheets().add(getClass().getResource("trumpfView.css").toExternalForm());
 	trumpfWindow = new Stage();
@@ -115,7 +115,7 @@ public class ClientTrumpfView {
 
 	
 	
-	// Author: Davide Seabra & Florian Jäger
+	// Author: Davide Seabra & Florian Jï¿½ger
 
 }
 	public Scene getSceneTrumpfView () {
