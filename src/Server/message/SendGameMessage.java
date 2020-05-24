@@ -4,6 +4,10 @@ import Server.Client;
 import Server.Gamelobby;
 import Server.Sendable;
 
+//Inspired by Chat Server from Bradley Richards
+//Author Florian Jäger
+
+
 public class SendGameMessage extends Message {
 	private String token;
 	private String destination;

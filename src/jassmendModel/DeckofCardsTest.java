@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-// Author Florian Jäger
+//Author Davide Seabra
 
 class DeckofCardsTest {
 	private final ArrayList<Card> cards = new ArrayList<>();

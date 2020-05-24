@@ -3,7 +3,7 @@ package Server.message;
 import java.util.ArrayList;
 
 import Server.Client;
-
+//Chat Server from Bradley Richards
 public class Result extends Message {
 
 	/**

@@ -4,6 +4,9 @@ import Server.Account;
 import Server.Gamelobby;
 import Server.Client;
 
+//Chat Server from Bradley Richards
+
+
 public class CreateGamelobby extends Message {
 	private String token;
 	private String name;

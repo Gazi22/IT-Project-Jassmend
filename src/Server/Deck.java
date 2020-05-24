@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//Pokerproject by Bradley Richards
+//Author Florian Jäger
+
 public class Deck  {
     private final ArrayList<Card> cards = new ArrayList<>();
     private final SimpleIntegerProperty cardsRemaining = new SimpleIntegerProperty();

@@ -3,6 +3,8 @@ package Server.message;
 import Server.Gamelobby;
 import Server.Client;
 
+//Chat Server from Bradley Richards
+
 /**
  * Remove a user as a member of a gamelobby
  */

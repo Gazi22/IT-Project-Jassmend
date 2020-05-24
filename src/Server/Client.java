@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 import Server.message.Message;
 import Server.message.MessageError;
 
+//Chat Server from Bradley Richards
+
 /**
  * This class represents a client, from the perspective of the server. We
  * communicate with the client using a socket. If the client is logged in, then

@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.Logger;
 
-
+//Chat Server from Bradley Richards
 
 public class ListenerThread extends Thread {
 	private static Logger logger = Logger.getLogger("");

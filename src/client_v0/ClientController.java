@@ -18,8 +18,8 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Optional;
-
 //Author: Florian Jäger
+//some things from Chat project 2019 (Florian Jäger)
 public class ClientController {
     private  ClientModel clientModel;
     private Socket socket;
@@ -100,10 +100,12 @@ public class ClientController {
 
     }
  // Author: Florian Jäger
+ //append Servermessages
     public void appendMessage(String message){
         chatView.areaMessages.appendText(message+"\n");
     }
-    
+
+//append messages for the chat
     public void appendMessageGameView(String message){
         gameView.msgArea.appendText(message+"\n");
     }
@@ -142,12 +144,17 @@ public class ClientController {
                 socketIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 socketOut = new OutputStreamWriter(socket.getOutputStream());
 
+
+
+         //Splitted in different kinds of messages
+
                 Runnable r = new Runnable() {
                     @Override
                     public void run() {
                         while (true) {
                             String msg;
                             try {
+                                //messages for the chatting
                                 msg = socketIn.readLine();
                                 if (msg.startsWith("MessageText")) {
                                    String [] arrMsgText = msg.split("\\|");
@@ -155,10 +162,12 @@ public class ClientController {
                                    appendMessageGameView(msg);
 
                                 }
+                                //all messages related to the gamecontrolling
                                 else if(msg.startsWith("MessageGameText")) {
 
                                     String[] arrMsgText = msg.split("\\|");
 
+                                    //PLayer arraylist with names
                                     if(arrMsgText[3].equals("PlayerIDs")){
                                     msg = arrMsgText[3] +"|"+ arrMsgText[4]+"|"+ arrMsgText[5]+"|"+  arrMsgText[6]+"|"+  arrMsgText[7];
 
@@ -168,6 +177,7 @@ public class ClientController {
                                         playerIDs[3]=arrMsgText[7];
                                         gamelobbyName=arrMsgText[2];
                                     }
+                                    //As soon as all players have joined the lobby->
                                     else if(arrMsgText[3].equals("GamelobbyFull")) {
                                         if (gamelobbyFlag == 0) {
 
@@ -224,6 +234,8 @@ public class ClientController {
                                             System.out.println("PlayerIDClient: "+clientModel.getClientPlayerID()+"playername: "+clientModel.getUser());
                                         }
                                     }
+
+                                    //Player hands from the server
                                     else if (arrMsgText[3].equals("PlayerHand")){
                                         if(clientModel.getUser().equals(arrMsgText[1])) {
                                             msg = arrMsgText[3] + "|" + arrMsgText[4] + "|" + arrMsgText[5] + "|" + arrMsgText[6] + "|" + arrMsgText[7] + "|" + arrMsgText[8] + "|" + arrMsgText[9] + "|" + arrMsgText[10] + "|" + arrMsgText[11] + "|" + arrMsgText[12];
@@ -243,7 +255,7 @@ public class ClientController {
 
 
 
-
+                                    //Turninfo, who's turn is it
                                     else if (arrMsgText[3].equals("TurnInfo")) {
                                         roundcounter = Integer.parseInt(arrMsgText[8]);
                                         for (int x = 0; x < 4; x++) {
@@ -266,7 +278,7 @@ public class ClientController {
 
                                         }
                                     }
-                                    //Auf Server implementieren etc
+                                    //Evaluation of the points at the end of the round
                                     else if (arrMsgText[3].equals("EvaluateRound")) {
                                         waiterino(500);
                                         pointsTeam1=Integer.parseInt(arrMsgText[5]);
@@ -281,6 +293,7 @@ public class ClientController {
                                             });
                                     }
 
+                                    //Trumpf set images for each client
                                     else if(arrMsgText[3].equals("Trumpf")){
                                         trumpf=arrMsgText[4];
 
@@ -321,7 +334,7 @@ public class ClientController {
                                     }
 
 
-
+                                    //Stiche for the designated team, calculation of the next player's turn
                                     else if (arrMsgText[3].equals("Stich")) {
 
                                         sticheCounter=Integer.parseInt(arrMsgText[4]);
@@ -411,9 +424,9 @@ public class ClientController {
 
                                             }
                                         }
-                                        //CLEAR CARDSHOLDER?
 
 
+                                        //End of round
                                         if (sticheCounter==9){
                                             if(clientModel.getClientPlayerID()==1) {
                                                 getEvaluation(menuView.getFinalGamelobby());
@@ -438,7 +451,7 @@ public class ClientController {
 
 
 
-
+                                    //Only relevant for the future development of the project - more rounds than 1
                                  /*           int p= 0;
 
                                             for(int v = 0; v< playerIDs.length; v++) {
@@ -501,6 +514,7 @@ public class ClientController {
 
                                     }
 
+                                    //apply cards played
                                     else if (arrMsgText[3].equals("CardsPlayed")) {
                                         setFirstPlayer(Integer.parseInt(arrMsgText[10]));
 
@@ -637,7 +651,7 @@ public class ClientController {
         }
 
     }
- // Author: Florian Jäger
+ // Author Bradley Richards
     private  boolean validateIpAddress(String ipAddress) {
         boolean formatOK = false;
         // Check for validity (not complete, but not bad)
@@ -656,7 +670,7 @@ public class ClientController {
         }
         return formatOK;
     }
- // Author: Florian Jäger
+    // Author Bradley Richards
     private  boolean validatePortNumber(String portText) {
         boolean formatOK = false;
         try {
@@ -668,7 +682,7 @@ public class ClientController {
         }
         return formatOK;
     }
- // Author: Florian Jäger
+
     private  void sendToServer(String message){
         try {
             socketOut.write(message + "\n");
@@ -678,7 +692,7 @@ public class ClientController {
         }
     }
 
- // Author: Florian Jäger
+ // Author: Florian Jäger // Messages to the Server
     public void registerUser(String username, String password){
         String concatString = "CreateLogin|"+username+"|"+password;
         sendToServer(concatString);
@@ -799,6 +813,7 @@ public class ClientController {
         sendToServer(concatString);
     }
 
+
     public String getPlayerNames(int i){
         String[] playerNames=new String[4];
          for(int x=0;x<4;x++){
@@ -806,6 +821,7 @@ public class ClientController {
         }
          return playerNames[i];
     }
+
  // Author: Florian Jäger
     public  void logout(){
 
@@ -833,7 +849,8 @@ public class ClientController {
         return loginView;
     }
 
-    //Alerts for user feedback
+    //https://www.geeksforgeeks.org/javafx-alert-with-examples/
+    //With help from third party (Fabian Jäger)
      void showAlert(String alertTitle,String alertMessage) {
          //added new fx thread
          Platform.runLater(new Runnable() {
@@ -848,14 +865,6 @@ public class ClientController {
          });
     }
 
-     void showInputDialog(String inputTitle,String inputContent) {
-    	 TextInputDialog txtInput = new TextInputDialog();
-    	 txtInput.setTitle(inputTitle);
-    	 txtInput.setContentText(inputContent);
-    	Optional<String> result = txtInput.showAndWait();
-
-
-    }
 
 
 
@@ -1088,6 +1097,7 @@ public class ClientController {
 
 
  // Author: Florian Jäger
+    //Update lbls on gameview
     public void setTextlblUsername() {
 
         int y =0;
@@ -1146,6 +1156,7 @@ public class ClientController {
 
     }
  // Author: Florian Jäger
+    //GETTERS AND SETTERS---------------------------------------------------------------------------------------------
     public Label getLblTrumpf(){
         return gameView.getLblTrumpf();
     }
@@ -1203,8 +1214,9 @@ public class ClientController {
     	
     	return socket;
     }
-
+//-------------------------------------------------------------------------------------------------------------------
  // Author: Florian Jäger
+    //Read last message from text area
     public boolean readLastMessage(String lookFor) {
         int lastMessageIndex2 = chatView.areaMessages.getText().split("\n").length - 1;
         String lastMessage2 = chatView.areaMessages.getText().split("\n")[lastMessageIndex2];
@@ -1215,12 +1227,7 @@ public class ClientController {
         else return false;
     }
 
-    public String readLastMessageTest() {
-        int lastMessageIndex2 = gameView.msgArea.getText().split("\n").length - 1;
-        String lastMessage2 = gameView.msgArea.getText().split("\n")[lastMessageIndex2];
-
-        return lastMessage2;
-    }
+   
 
     public TextArea getAreaMessages(){
         return chatView.areaMessages;

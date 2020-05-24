@@ -3,6 +3,9 @@ package Server.message;
 import Server.Gamelobby;
 import Server.Client;
 
+
+//Inspired by Chat Server from Bradley Richards
+//Author Florian Jäger
 /**
  * Add a user as a member of a gamelobby.
  */

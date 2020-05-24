@@ -6,13 +6,15 @@ import jassmendModel.Card;
 import java.util.ArrayList;
 import java.util.Collections;
 
+//Author Florian Jäger
+
 public class ServerController {
     Card card;
     Gamelobby gamelobby;
 
     ArrayList<Card> cardsTotalCard = new ArrayList<>();
 
-
+//Change numbers to words of card strings
     public String switchNumbersToWords(String number) {
         switch (number) {
             case "6":
@@ -80,7 +82,7 @@ public class ServerController {
 
 
 
-
+//Depending on Trumpf change values of suits
     public void trumpfComparison(String trumpf) {
         switch (trumpf) {
             case "Herz":
@@ -110,6 +112,7 @@ public class ServerController {
 
     }
 
+    //Depending on Trumpf change values of suits without trumpf
     public void firstCardComparison(String trumpf) {
         switch (trumpf) {
             case "Herz":
@@ -147,7 +150,7 @@ public class ServerController {
         cardsTotalCard.add(card);
     }
 
-
+//Sort Card Arraylist
     public void sortTotalCards() {
         Collections.sort(cardsTotalCard);
         Collections.reverse(cardsTotalCard);
@@ -158,6 +161,8 @@ public class ServerController {
         cardsTotalCard.clear();
     }
 
+
+    //Compare cards depending on trumpf or not
     public void handleStiche(Gamelobby gamelobby) {
 
         int trumpfYN = 0;
@@ -230,7 +235,7 @@ public class ServerController {
 
 
 
-
+//Evaluate points of Stiche
 
         public int getPoints(Gamelobby gamelobby, Card card){
 

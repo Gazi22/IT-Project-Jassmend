@@ -1,7 +1,7 @@
 package Server.message;
 
 import Server.Client;
-
+//Chat Server from Bradley Richards
 public class MessageText extends Message {
 
 	public MessageText(String name, String target, String message) {

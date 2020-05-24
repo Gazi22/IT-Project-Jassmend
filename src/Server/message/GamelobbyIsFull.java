@@ -5,6 +5,9 @@ import Server.Client;
 /**
  * Add a user as a member of a gamelobby.
  */
+
+//Inspired by Chat Server from Bradley Richards
+//Author Florian Jäger
 public class GamelobbyIsFull extends Message {
 	private String token;
 	private String name;

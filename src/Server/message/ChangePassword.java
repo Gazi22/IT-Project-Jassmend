@@ -3,6 +3,7 @@ package Server.message;
 import Server.Account;
 import Server.Client;
 
+
 public class ChangePassword extends Message {
 	private String token;
 	private String password;

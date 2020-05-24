@@ -2,6 +2,10 @@ package Server.message;
 
 import Server.Client;
 
+//Chat Server from Bradley Richards
+
+
+
 public class UserOnline extends Message {
 	private String token;
 	private String username;

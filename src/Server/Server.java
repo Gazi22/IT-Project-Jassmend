@@ -6,6 +6,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+//Chat Server from Bradley Richards
+
+
 public class Server {
 	private static final Logger logger = Logger.getLogger("");
 	private static int port = -1;

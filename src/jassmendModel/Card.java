@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 
-// Code from Poker Project || Author: Florian Jäger
+// Code from Poker project || adjustements by Florian JÃ¤ger, Davide Seabra
 
 public class Card implements Collection <Card>, Serializable, Comparable<Card> {
 	int herzValue =0;
@@ -19,6 +19,7 @@ public class Card implements Collection <Card>, Serializable, Comparable<Card> {
 		} else if (this.getSuitValue() > o.getSuitValue()) {
 			return 1;
 		} else {
+
 // suit is identical: compare number
 			if (this.getSuitValue() == 3&&o.getSuitValue()==3) {
 				if (this.rank.ordinal() == 5) {

@@ -3,6 +3,10 @@ package Server.message;
 import Server.Account;
 import Server.Client;
 
+
+//Chat Server from Bradley Richards
+
+
 /**
  * Login to an existing account. If successful, return an authentication token
  * to the client.

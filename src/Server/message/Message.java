@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import Server.Client;
-
+//Chat Server from Bradley Richards
 public abstract class Message {
 	private static Logger logger = Logger.getLogger("");
 

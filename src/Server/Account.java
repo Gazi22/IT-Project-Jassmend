@@ -16,6 +16,9 @@ import java.util.logging.Logger;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
+//Chat Server from Bradley Richards
+//Small changes: Author Florian Jäger
+
 /**
  * This class represents a registered client, i.e., one that has defined a
  * username and password

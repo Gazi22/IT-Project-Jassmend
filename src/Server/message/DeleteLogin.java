@@ -3,6 +3,8 @@ package Server.message;
 import Server.Account;
 import Server.Client;
 
+//Chat Server from Bradley Richards
+
 public class DeleteLogin extends Message {
 	private String token;
 	

@@ -2,7 +2,8 @@ package Server.message;
 
 import Server.Account;
 import Server.Client;
-
+//Inspired by Chat Server from Bradley Richards
+//Author Florian Jäger
 /**
  * Login to an existing account. If successful, return an authentication token
  * to the client.

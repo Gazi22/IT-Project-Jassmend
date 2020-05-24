@@ -2,6 +2,8 @@ package Server;
 
 import Server.message.Message;
 
+//Chat Server from Bradley Richards
+
 /**
  * We can send messages to a class that implements this interface.
  */

@@ -1,7 +1,7 @@
 package Server.message;
 
 import Server.Client;
-
+//Chat Server from Bradley Richards
 public class Ping extends Message {
 	private String token;
 	

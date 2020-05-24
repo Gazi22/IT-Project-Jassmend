@@ -3,7 +3,7 @@ package Server.message;
 import Server.Gamelobby;
 import Server.Client;
 import Server.Sendable;
-
+//Chat Server from Bradley Richards
 public class SendMessage extends Message {
 	private String token;
 	private String destination;

@@ -3,6 +3,8 @@ package Server.message;
 import Server.Gamelobby;
 import Server.Client;
 
+//Chat Server from Bradley Richards
+
 public class DeleteGamelobby extends Message {
 	private String token;
 	private String name;

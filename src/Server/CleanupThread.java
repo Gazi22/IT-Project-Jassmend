@@ -2,6 +2,10 @@ package Server;
 
 import java.util.logging.Logger;
 
+//Small changes: Author Florian Jäger
+//Chat Server from Bradley Richards
+
+
 public class CleanupThread extends Thread {
 	private static Logger logger = Logger.getLogger("");
 

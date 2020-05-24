@@ -7,6 +7,8 @@ import java.util.Collections;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
+// Code from Poker project || adjustements by Florian Jäger, Davide Seabra
+
 /**
  * This class represents a deck of playing cards. When initially created, the deck is filled and shuffled.
  * Later, the deck can be refilled and reshuffled by calling the "shuffle" method.

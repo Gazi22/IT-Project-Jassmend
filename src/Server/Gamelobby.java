@@ -19,6 +19,10 @@ import client_v0.ClientModel;
 import jassmendModel.Card;
 import jassmendModel.Player;
 
+//Chat Server from Bradley Richards
+//Author Florian Jäger
+
+
 
 /**
  * This class represents a gamelobby, which may be either public or private, and
@@ -89,6 +93,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	/**
 	 * List gamelobby names
 	 */
+
 	public static ArrayList<String> listPublicNames() {
 		ArrayList<String> names = new ArrayList<>();
 		synchronized (gamelobbys) {
@@ -167,6 +172,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		}
 	}
 
+	//Added Deck
 	public Gamelobby(String name, boolean isPublic, String owner) {
 		this.name = name;
 		this.isPublic = isPublic;
@@ -221,6 +227,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	}
 
 	//check array full
+	//Author Florian Jäger
 	public boolean isFull() {
 		boolean full = true;
 		for (int i = 0; i < playerIDs.length; i++) {
@@ -236,6 +243,8 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		return isPublic;
 	}
 
+
+	//Changed by Florian Jäger
 	public void addUser(String username) {
 		if (!users.contains(username)) {
 			users.add(username);
@@ -259,6 +268,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	}
 
 
+	//Added from Pokerproject from Bradley Richards, changed by Florian Jäger
 	public void deal() {
 
 
@@ -270,6 +280,7 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 
 		}
 	}
+
 
 	public Card getPlayerHand(int i) {
 		return playerHand.get(i);
@@ -295,6 +306,8 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 		playerHand.clear();
 	}
 
+
+	//Author Bradley Richards, changed by Florian Jäger
 	public void removeUser(String username) {
 		users.remove(username);
 		for (int x = 0; x < playerIDs.length; x++) {
@@ -310,6 +323,8 @@ public class Gamelobby implements Comparable<Gamelobby>, Sendable, Serializable 
 	}
 
 
+
+	//Getters and Setters------------------------------------------------------------------------
 	public Deck getDeck() {
 		return deck;
 	}

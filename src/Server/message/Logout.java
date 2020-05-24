@@ -2,6 +2,10 @@ package Server.message;
 
 import Server.Client;
 
+
+//Chat Server from Bradley Richards
+
+
 public class Logout extends Message {
 
 	public Logout(String[] data) {

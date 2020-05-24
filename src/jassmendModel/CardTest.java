@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+//Author Davide Seabra
+
 class CardTest {
 Card card;
 public static void main (String [] args)	

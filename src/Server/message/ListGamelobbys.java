@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import Server.Gamelobby;
 import Server.Client;
 
+//Chat Server from Bradley Richards
+
 public class ListGamelobbys extends Message {
 	private String token;
 	
