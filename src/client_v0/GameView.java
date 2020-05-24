@@ -22,6 +22,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -204,7 +205,7 @@ public class GameView {
 		});
 		
 		ResumeItem.setOnAction(e3 -> {
-			this.clientController.getViewManager().primaryStage.close();
+				this.clientController.getViewManager().primaryStage.close();
 		});
 		
 
@@ -222,12 +223,12 @@ public class GameView {
 		player1BottomBox.getChildren().add(player1InfoBox);
 		player1BottomBox.setAlignment(Pos.CENTER);
 		player2Info.getChildren().add(userNamePl2);
-		player2Info.getChildren().add(scorePl2);
-
+	
+		
 		player2Info.setAlignment(Pos.CENTER);
 
 		player3Info.getChildren().add(userNamePl3);
-		player3Info.getChildren().add(scorePl3);
+
 
 		HBox player3Box = new HBox(player3Info);
 		player3Box.setAlignment(Pos.CENTER);
@@ -235,22 +236,44 @@ public class GameView {
 		player3Box.setVisible(true);
 
 		player4Info.getChildren().add(userNamePl4);
-		player4Info.getChildren().add(scorePl4);
+
 
 		player4Info.setAlignment(Pos.CENTER);
-
+		
+		userNamePl2.getStyleClass().add("outline");
+		scorePl2.getStyleClass().add("outline");
+		userNamePl2.setId("userNamePl2");
+		scorePl2.setId("scorePlayer2");
+		
+		userNamePl3.getStyleClass().add("outline");
+		scorePl3.getStyleClass().add("outline");
+		userNamePl3.setId("userNamePl3");
+		scorePl3.setId("scorePlayer3");
+		
+		userNamePl4.getStyleClass().add("outline");
+		scorePl4.getStyleClass().add("outline");
+		userNamePl4.setId("userNamePl4");
+		scorePl4.setId("scorePlayer4");
+		
+		
 		// __________________________________________________________________
 
 
 		chatArea.setText("Chat");
 
+		
+		
 		txt1.setPromptText("Type here your message");
 		HBox.setHgrow(txt1, Priority.ALWAYS);
 
+		
+		msgArea.setEditable(false);
 		msgArea.setPrefHeight(600);
 		msgArea.setPrefWidth(300);
 		msgArea.setId("ChatArea");
-
+		
+		btnSend.setId("btnSend");
+		
 		chatbox1.getChildren().add(btnSend);
 		chatbox1.getChildren().add(txt1);
 
@@ -279,8 +302,7 @@ public class GameView {
 		lblLeaderboardBox.setAlignment(Pos.CENTER);
 		lblLeaderboardBox.setPadding(new Insets(20,0,0,0));
 		lblLeaderboard.setId("Leaderboard");
-		lblLeaderboard.getStyleClass().add("outline");
-		lblLeaderboardBox.getStyleClass().add("outline");
+		
 
 
 		lblRound.setId("lblRound");
@@ -348,21 +370,25 @@ public class GameView {
 			playedCardPl1.getChildren().add(btnCard);
 			btnCard.getStyleClass().add("btnCard");
 			playedCardPl1.setAlignment(Pos.CENTER);
+			playedCardPl1.setPadding(new Insets(0, 0, 30, 0));
 			Button btnCard2 = new CardView();
 
 			playedCardPl2.getChildren().add(btnCard2);
 			btnCard.getStyleClass().add("btnCard");
 			playedCardPl2.setAlignment(Pos.CENTER);
+			playedCardPl2.setPadding(new Insets(0, 0, 0, 30));
 			Button btnCard3 = new CardView();
 
 			playedCardPl3.getChildren().add(btnCard3);
 			btnCard.getStyleClass().add("btnCard");
 			playedCardPl3.setAlignment(Pos.CENTER);
+			playedCardPl3.setPadding(new Insets(30, 0, 0, 0));
 			Button btnCard4 = new CardView();
 
 			playedCardPl4.getChildren().add(btnCard4);
 			btnCard.getStyleClass().add("btnCard");
 			playedCardPl4.setAlignment(Pos.CENTER);
+			playedCardPl4.setPadding(new Insets(0, 30, 0, 0));
 
 
 
@@ -409,6 +435,12 @@ public class GameView {
 		player1Btn.setOnAction(e9 -> {
 			System.out.println("Turn finished, it is now player 2 turn");
 
+		});
+		
+		txt1.setOnKeyPressed(e11 -> {
+			if(e11.getCode() == KeyCode.ENTER) {
+				clientController.sendMessage(txt1.getText());
+			}
 		});
 
 

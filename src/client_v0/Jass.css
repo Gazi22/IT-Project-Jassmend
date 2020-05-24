@@ -5,51 +5,76 @@
 }
 
 .button {
-    -fx-border-radius: 7px;
-    -fx-font-family: "Arial Black";
-    -fx-font-size: 12px;
-    -fx-effect: dropshadow(three-pass-box, #000000, 5, 0, 0, 5);
-    -fx-background-color: linear-gradient(to right, rgba(230,171,0,1) 0%, rgba(223,189,0,1) 100%);
-    -fx-min-height: 30;
-    -fx-min-width: 80;
-    -fx-text-fill: black;
+	 -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
+        #ff0000,
+        #ffd100,
+        radial-gradient(center 50% 50%, radius 100%, #ff0000, #ffd100);
+	 -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+	 -fx-background-radius: 50px;
+ 	 -fx-font-family: "Arial Rounded MT Bold";
+   	 -fx-font-size: 15px;
+   	 -fx-cursor: hand;
+   	 -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+   	 -fx-padding: 8 15 15 15;
 }
 .button:hover{
-    -fx-background-color: linear-gradient(to right, rgba(255,130,60,1) 0%, rgba(255,156,77,1) 100%);
-    -fx-effect: dropshadow(three-pass-box, #000000, 15, 0.2, 0, 5);
-    -fx-cursor:hand;
+	-fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
+        #ff0000,
+        #ffd100,
+        radial-gradient(center 50% 50%, radius 100%, #ff0000, #ffd100);
     -fx-scale-y: 1.5;
     -fx-scale-x: 1.5;
+}
+
+.button:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
 
 
 #btnSend{
 
-    -fx-border-radius: 7px;
-    -fx-font-family: "Arial Black";
-    -fx-font-size: 12px;
-    -fx-effect: dropshadow(three-pass-box, #000000, 5, 0, 0, 5);
-    -fx-background-color: linear-gradient(to right, rgba(230,171,0,1) 0%, rgba(223,189,0,1) 100%);
-    -fx-min-height: 10;
-    -fx-min-width: 10;
-    -fx-text-fill: black;
+	 -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #ff0000 0%, #ffd100 100%),
+        #ff0000,
+        #ffd100,
+        radial-gradient(center 50% 50%, radius 100%, #ff0000, #ffd100);
+	 -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+	 -fx-background-radius: 50px;
+ 	 -fx-font-family: "Arial Rounded MT Bold";
+   	 -fx-font-size: 15px;
+   	 -fx-cursor: hand;
+   	 -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+   	 -fx-padding: 8 15 15 15;
 
 
 }
 
 #btnSend:hover{
-	-fx-scale-y:0.8;
-    -fx-scale-x:0.8;
+	-fx-scale-y:1;
+    -fx-scale-x:1;
 
 }
 
+#btnSend:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
 
-Label{
+
+
+
+.label{
 
 	-fx-font-family: "Arial Black";
 	-fx-font-size: 14px;
 	
 
+}
+
+.outline.label .text {
+	-fx-fill: white;
+    -fx-stroke: black;
+    -fx-stroke-width: 1px;
 }
 
 #lblRound{
@@ -125,7 +150,40 @@ Label{
 	-fx-font-size: 13px;
 }
 
+#userNamePl2{
+	
+	-fx-font-size: 30px;
+}
 
+#scorePlayer2{
+	
+	-fx-font-size: 20px;
+	
+}
+
+#userNamePl3{
+	
+	-fx-font-size: 30px;
+	
+}
+
+#scorePlayer3 {
+	
+	-fx-font-size: 20px;
+}
+
+#userNamePl4{
+	
+	-fx-font-size: 30px;
+	
+}
+
+
+#scorePlayer4 {
+	
+	-fx-font-size: 20px;
+	
+}
 
 #Leaderboard{
 

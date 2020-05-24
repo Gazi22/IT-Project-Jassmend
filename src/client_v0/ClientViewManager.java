@@ -27,8 +27,13 @@ public class ClientViewManager {
         this.menuView = menuView;
        
         
+     // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
+      	closeWindow();
+      		
         primaryStage.setScene(LoginView.getScene());
     }
+    
+    
 
     public void setScene(Scene scene) {
         Platform.runLater(new Runnable(){
@@ -38,6 +43,15 @@ public class ClientViewManager {
             }
                });
         
+    }
+ // https://noblecodemonkeys.com/properly-exiting-a-javafx-application/
+    public void closeWindow () {
+    	
+    	primaryStage.setOnCloseRequest(e->{
+          	Platform.exit();
+          	System.exit(0);
+          	});
+    	
     }
    
 
@@ -56,8 +70,6 @@ public class ClientViewManager {
     public MainMenuView getMenuView() {
     	return menuView;
     }
-
-
 
 
    

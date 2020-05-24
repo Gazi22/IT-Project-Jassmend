@@ -58,8 +58,8 @@ public class ClientTrumpfView {
 		
 		HBox slcBox = new HBox();
 		slcBox.getChildren().addAll(btnEcke, btnHerz,  btnKreuz, btnSchaufel);
-		slcBox.setPadding(new Insets(5, 7, 10, 14));
-		slcBox.setSpacing(46);
+		slcBox.setPadding(new Insets(5, 7, 10, 15));
+		slcBox.setSpacing(50);
 		
 		
 	

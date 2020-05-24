@@ -11,6 +11,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -167,6 +168,36 @@ public class LoginView {
                 }
             });
             pause.play();
+        });
+        
+        passwordField.setOnKeyPressed(e11 -> {
+        	if(e11.getCode() == KeyCode.ENTER) {
+                // Assume success always!
+                String user = txtUser.getText();
+                String password = passwordField.getText();
+                clientController.loginUser(user, password);
+                
+                //Not the best way to do it but it does the trick
+                PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                pause.setOnFinished(event2 -> {
+                    int lastMessageIndex = view.msgArea.getText().split("\n").length-1;
+                    String lastMessage = view.msgArea.getText().split("\n")[lastMessageIndex];
+                    if (lastMessage.matches("Received: Result\\|true\\|.*")) {
+
+                        //Get Login hash and store in
+                        int hashIndex = lastMessage.split("\\|").length-1;
+                        String hash = lastMessage.split("\\|")[hashIndex];
+                        clientController.loginSuccesfull(user, hash);
+
+                        clientController.setTextlblUsernameMenu();
+                        this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene()); 
+                    }
+                    else {
+                    	
+                    }
+                });
+                pause.play();
+			}
         });
 
 
