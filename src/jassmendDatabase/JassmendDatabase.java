@@ -4,7 +4,7 @@ import java.sql.*;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import client_v0.*;
+import Jassmend.*;
 
 
 import java.util.Date;

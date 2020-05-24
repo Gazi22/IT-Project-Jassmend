@@ -1,4 +1,4 @@
-package client_v0;
+package Jassmend;
 
 
 import javafx.animation.PauseTransition;
