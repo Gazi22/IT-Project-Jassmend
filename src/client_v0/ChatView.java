@@ -22,7 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
+	// Author: FLorian Jäger
 public class ChatView {
 	private ClientController clientController;
 	
@@ -36,6 +36,7 @@ public class ChatView {
 	Button btnLogout = new Button("Logout");
 	public Stage newStageGameView;
 	
+	// Author: Florian Jäger
 	public ChatView(ClientController clientController){
 		areaMessages.setPrefHeight(450);
 		areaMessages.setEditable(false);
@@ -70,6 +71,8 @@ public class ChatView {
 		user.getItems().add(menuItemDeleteAccount);
 		gamelobbys.getItems().add(menuItemGamelobbys);
 
+		
+		// Author: Florian Jäger
 		menuItemLogout.setOnAction(e -> {
 			clientController.logout();
             clientController.showAlert("Logout","You have been sucessfully logged out.");
@@ -81,7 +84,7 @@ public class ChatView {
         	
 		});
 		
-		
+		// Author: Florian Jäger
 		menuItemChangePassword.setOnAction(e2 -> {
 						
 			TextInputDialog txtInput = new TextInputDialog();
@@ -95,7 +98,7 @@ public class ChatView {
             clientController.showAlert("Change Password","Your password has been successfully changed.");
                         
 		});
-		
+		// Author: Florian Jäger
 		menuItemDeleteAccount.setOnAction(e3 -> {
 			
             clientController.showAlertYesNo("Delete Account?","You want to delete your account?");
@@ -107,7 +110,7 @@ public class ChatView {
         
           
 		});
-	
+		// Author: Florian Jäger
 		menuItemGamelobbys.setOnAction(e4 -> {
 			showgamelobbyScreen();
 		});
@@ -138,7 +141,7 @@ public class ChatView {
 		 
 		scene = new Scene(root, 500, 275);
 	}
-	
+	// Author: Florian Jäger
 	public void showgamelobbyScreen() {
         //Based on http://tutorials.jenkov.com/javafx/listview.html
         Stage stage = new Stage();
@@ -192,7 +195,8 @@ public class ChatView {
             });
         });
         pause.play();
-
+        
+     // Author: Florian Jäger
         btnCreateGamelobby.setOnAction(e4 -> {
             // Assume success always!
         					
@@ -222,7 +226,7 @@ public class ChatView {
 	
 	
 	
-	
+	// Author: Florian Jäger
 	public void joinedGamelobbyMode(){
         btnSend.setDisable(false);
         input.setDisable(false);

@@ -77,7 +77,7 @@ public class JassmendDatabase {
  // Code provided by Mr. Bradley Richards || Author: Gazmend Shefiu
     public void clearResource() { 
         try {
-            System.out.println("Freeing resources..");
+            System.out.println("Resources are being freed");
             if (rs != null) try {
                 if (!rs.isClosed()) rs.close();
             } catch (Exception e) {
@@ -296,7 +296,7 @@ public class JassmendDatabase {
 	        alert.showAndWait();
 	    }
 
-
+	 // Author: Gazmend Shefiu || Code from Akatsuki Project
 	    public String getLocalIp() {
 	        return localIP;
 	    }
