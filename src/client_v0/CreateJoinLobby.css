@@ -1,4 +1,4 @@
-
+/* Author: Gazmend Shefiu || Inspired by Akatsuki Project */
 
 .root{
     -fx-background-image: url(/background/image/Jassmend_GameView_Background_FULLHD.jpg);
@@ -16,7 +16,7 @@
 
 .button:hover {
 
-	-fx-background-color: linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(255,209,0,1) 100%);;
+	-fx-background-color: linear-gradient(to right, rgba(255,0,0,1) 0%, rgba(255,209,0,1) 100%);
     -fx-scale-y: 1.1;
     -fx-scale-x: 1.1;
 

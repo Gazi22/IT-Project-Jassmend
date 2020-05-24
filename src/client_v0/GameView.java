@@ -33,7 +33,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.awt.Desktop;
 
-
+//Author: Florian Jäger & Davide Seabra
 public class GameView {
 	  private static Scene scene;
 	private ClientController clientController;
@@ -166,7 +166,7 @@ public class GameView {
 
 	Label lblTrumpf = new Label();
 
-
+	//Author: Florian Jäger & Davide Seabra
 	public GameView (ClientController clientController, ClientModel model, MainMenuView mainMenuView) {
 
 
@@ -196,14 +196,14 @@ public class GameView {
 				}
 			}
 		});
-		
+		//Author: Gazmend Shefiu
 		returnToMenu.setOnAction(e2 -> {
 			this.clientController.getViewManager().primaryStage.setMaximized(false);
 			this.clientController.getViewManager().primaryStage.setScene(MainMenuView.getScene());
 			this.clientController.getViewManager().primaryStage.setResizable(false);
 			
 		});
-		
+		//Author: Gazmend Shefiu
 		ResumeItem.setOnAction(e3 -> {
 				this.clientController.getViewManager().primaryStage.close();
 		});
@@ -215,7 +215,7 @@ public class GameView {
 
 		// ___________________________________________________________________
 
-
+		//Author: Davide Seabra
 		player1Box.getChildren().add(pp);
 		player1Box.setAlignment(Pos.CENTER);
 		player1Info.getChildren().add(userNamePl1);
@@ -258,7 +258,7 @@ public class GameView {
 		
 		// __________________________________________________________________
 
-
+		//Author: Davide Seabra
 		chatArea.setText("Chat");
 
 		
@@ -287,6 +287,7 @@ public class GameView {
 
 		//-----------------------------------------------------------------------
 
+		//Author: Davide Seabra
 		HBox controlBox = new HBox();
 		controlBox.getChildren().addAll(btnTrumpf);
 		btnTrumpf.setTooltip(new Tooltip ("Select the Trumpf suit for this round!"));
@@ -294,6 +295,7 @@ public class GameView {
 
 
 		//----------------------------------------------------------------------------------------------------------
+		//Author: Davide Seabra
 		//Table Leaderboard
 
 
@@ -365,6 +367,7 @@ public class GameView {
 
 		//----------------------------------------------------------------------------------------------------------
 
+		//Author: Florian Jäger & Davide Seabra
 			Button btnCard = new CardView();
 			playedCardPl1.getChildren().add(btnCard);
 			btnCard.getStyleClass().add("btnCard");
@@ -394,7 +397,7 @@ public class GameView {
 
 		//-----------------------------------------------------------------------------------------------------
 
-
+		//Author: Davide Seabra
 		BorderPane outerPane = new BorderPane();
 		outerPane.setVisible(true);
 		BorderPane middlePane = new BorderPane();
@@ -426,16 +429,16 @@ public class GameView {
 		scene.getStylesheets().add(getClass().getResource("Jass.css").toExternalForm());
 
 
-
+		//Author: Florian Jäger
 		btnSend.setOnAction((event -> {
 			clientController.sendMessage(txt1.getText());
 		}));
-
+		//Author: Florian Jäger
 		player1Btn.setOnAction(e9 -> {
 			System.out.println("Turn finished, it is now player 2 turn");
 
 		});
-		
+		//Author: Gazmend Shefiu
 		txt1.setOnKeyPressed(e11 -> {
 			if(e11.getCode() == KeyCode.ENTER) {
 				clientController.sendMessage(txt1.getText());
@@ -443,7 +446,7 @@ public class GameView {
 		});
 
 
-
+		//Author: Florian Jäger
 		//Play the first Card into the first fieldbutton
 			getHandButton(0).setOnAction(e10 -> {
 				if(pp.getCardsHolder(0)!=null) {
@@ -470,6 +473,7 @@ public class GameView {
 				});
 				}
 			});
+			//Author: Florian Jäger
 		getHandButton(1).setOnAction(e11 -> {
 
 			if(pp.getCardsHolder(1)!=null) {
@@ -490,6 +494,7 @@ public class GameView {
 			}
 
 		});
+		//Author: Florian Jäger
 		getHandButton(2).setOnAction(e12 -> {
 
 			if(pp.getCardsHolder(2)!=null) {
@@ -509,6 +514,7 @@ public class GameView {
 			});
 			}
 		});
+		//Author: Florian Jäger
 		getHandButton(3).setOnAction(e13 -> {
 
 			if(pp.getCardsHolder(3)!=null) {
@@ -528,6 +534,7 @@ public class GameView {
 			});
 			}
 		});
+		//Author: Florian Jäger
 		getHandButton(4).setOnAction(e14 -> {
 
 			if(pp.getCardsHolder(4)!=null) {
@@ -547,6 +554,7 @@ public class GameView {
 			});
 			}
 		});
+		//Author: Florian Jäger
 		getHandButton(5).setOnAction(e15 -> {
 
 			if(pp.getCardsHolder(5)!=null) {
@@ -566,6 +574,7 @@ public class GameView {
 			});
 			}
 		});
+		//Author: Florian Jäger
 		getHandButton(6).setOnAction(e16 -> {
 
 			if(pp.getCardsHolder(6)!=null) {
@@ -585,6 +594,7 @@ public class GameView {
 			});
 			}
 		});
+		//Author: Florian Jäger
 		getHandButton(7).setOnAction(e17 -> {
 
 			if(pp.getCardsHolder(7)!=null) {
@@ -604,6 +614,7 @@ public class GameView {
 			});
 			}
 		});
+		//Author: Florian Jäger
 		getHandButton(8).setOnAction(e18 -> {
 
 			if(pp.getCardsHolder(8)!=null) {
@@ -623,7 +634,7 @@ public class GameView {
 			});
 			}
 		});
-
+		//Author: Florian Jäger
 		getBtnTrumpf().setOnAction(e ->{
 			new ClientTrumpfView(clientController);
 
@@ -635,7 +646,7 @@ public class GameView {
 
 
 
-
+		//Author: Florian Jäger & Gazmend Shefiu
      //Handlungsbedarf transition
      LogoutItem.setOnAction(e -> {
     	 clientController.getGamelobbyList();
@@ -666,13 +677,13 @@ public class GameView {
 	}
 
 
-
+	//Author: Florian Jäger
 	public PlayerPane getPlayerPane(int i) {
 		return (PlayerPane) player1Box.getChildren().get(0);
 	}
 
 
-
+	//Author: Florian Jäger
 	public Button getHandButton(int i) {
 
 		return  (Button) getPlayerPane(1).getCardBox().getChildren().get(i);
@@ -684,7 +695,7 @@ else if(i==2){return (Button) playedCardPl3.getChildren().get(0);}
 else if(i==3){return (Button) playedCardPl4.getChildren().get(0);}
 else return (Button) playedCardPl1.getChildren().get(0);
 	}
-
+	//Author: Florian Jäger
 	public void showPlayedCards(){
 		//added new fx thread
 		Platform.runLater(new Runnable() {
@@ -696,7 +707,7 @@ else return (Button) playedCardPl1.getChildren().get(0);
 				}
 		});
 	}
-
+	//Author: Florian Jäger
 	public void clearFieldButtons(){
 		//added new fx thread
 		Platform.runLater(new Runnable() {
@@ -713,7 +724,7 @@ else return (Button) playedCardPl1.getChildren().get(0);
 			});
 	}
 
-
+	//Author: Florian Jäger
 public static Scene getScene () {
 
 		return scene;

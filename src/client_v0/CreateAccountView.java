@@ -25,7 +25,7 @@ import jassmendDatabase.JassmendDatabase;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
+//Author: Florian Jäger
 public class CreateAccountView{
 	
 	JassmendDatabase jassDB = new JassmendDatabase();
@@ -40,7 +40,7 @@ public class CreateAccountView{
 	public ClientViewManager primaryStage;
 	 // https://stackoverflow.com/questions/43281490/sql-syntax-in-java-forms-gettext
 
-
+	// Author: Florian Jäger
 	public CreateAccountView(ClientController clientController)
 	{
 		this.clientController = clientController;
@@ -91,8 +91,9 @@ public class CreateAccountView{
 	//SOME ALERT ERROR HANDLING missing?
 		 btnSubmit.setOnAction(event -> {
 	            // Assume success always!
-			
+			// Author: Gazmend Shefiu
 			jassDB.registerAccDB(txtUsername.getText(), txtPassword.getText());
+			// Author: Florian Jäger
 			clientController.registerUser(txtUsername.getText(), txtPassword.getText());
 			this.clientController.getLoginView().newStageCreateAccount.close();
 			});
@@ -103,7 +104,7 @@ public class CreateAccountView{
 	}
 	
     
-	
+	// Author: Florian Jäger
 	public static Scene getSceneAccView () {
 		
 		return sceneAccView;
