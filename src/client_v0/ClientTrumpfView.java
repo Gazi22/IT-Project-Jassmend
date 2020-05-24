@@ -65,6 +65,11 @@ public class ClientTrumpfView {
 		slcBox.setPadding(new Insets(5, 7, 10, 15));
 		slcBox.setSpacing(50);
 		
+		btnEcke.setId("btnEcke");
+		btnSchaufel.setId("btnSchaufel");
+		btnHerz.setId("btnHerz");
+		btnKreuz.setId("btnKreuz");
+		
 		
 	
 	btnEcke.setOnAction(e1->{

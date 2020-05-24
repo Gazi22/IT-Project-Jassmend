@@ -1116,6 +1116,16 @@ public class ClientController {
     public void setRoundcounter(int roundcounter) {
         this.roundcounter = roundcounter;
     }
+    
+    public void setSocket(Socket socket) {
+    	
+    	this.socket = socket;
+    }
+    
+    public Socket getSocket() {
+    	
+    	return socket;
+    }
 
 
     public boolean readLastMessage(String lookFor) {

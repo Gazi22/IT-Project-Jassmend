@@ -39,7 +39,7 @@ public class ClientChatRoom extends Application {
        
       
 
-        clientView = new ClientViewManager(primaryStage, view, viewMenu, loginView, createAccountView);
+        clientView = new ClientViewManager(primaryStage, view, viewMenu, loginView, createAccountView, clientController);
        
         clientController.setViewManager(clientView);
         primaryStage.show();

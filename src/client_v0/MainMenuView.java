@@ -63,7 +63,7 @@ public class MainMenuView {
 		this.view = view;
 		this.logView = logView;
 		
-		// Label Username
+		// Label Username || Author: Gazmend Shefiu
 		
 		lblUserName.getStyleClass().add("outline");
 		
@@ -93,6 +93,8 @@ public class MainMenuView {
             }
         });
 		
+		
+		// Author: Gazmend Shefiu
 		hBoxBoard.getChildren().add(showLobby);
 				
 		hBoxMusicButton.getChildren().addAll(playMusic, pauseMusic, stopMusic);
@@ -124,22 +126,11 @@ public class MainMenuView {
 		gridMainMenuView.add(volumeSlider, 0, 9);
 		gridMainMenuView.add(hBoxLogout, 0, 11);
 		gridMainMenuView.setMinSize(700, 400);
-		
-		/*
-		 * Loading Screen Animation = https://stackoverflow.com/questions/45326525/how-to-show-a-loading-animation-in-javafx-application
-		new Thread(() -> {
-		    Platform.runLater(()-> messageField.getStyleClass().add("smallLoading"));
 
-		    submitImpl();
-
-		    Platform.runLater(()-> messageField.getStyleClass().remove("smallLoading"));
-		}).start();
-		*/
-
-		
 		scene = new Scene(gridMainMenuView, 700, 400);
 		scene.getStylesheets().add(getClass().getResource("MainMenuJass.css").toExternalForm());
 		
+		// Author: Gazmend Shefiu
 		showLobby.setOnAction(e ->{
 
 			this.clientController.getViewManager().primaryStage.setTitle("Jassmend");
@@ -173,9 +164,9 @@ public class MainMenuView {
 	             }
 
 
-	         clientController.logout();
-			 clientController.waiterino(250);
-			 clientController.logoutUser(clientController.getUsername());
+	             clientController.logout();
+	             clientController.waiterino(250);
+	             clientController.logoutUser(clientController.getUsername());
 	         this.clientController.getViewManager().primaryStage.setScene(LoginView.getScene());
 	     });
 
@@ -199,7 +190,7 @@ public class MainMenuView {
 		
 	
 	}
-	// Author: Florian Jäger
+	// Author: Florian Jäger & Gazmend Shefiu
 	public void joinGameLobby() {
 		//Based on http://tutorials.jenkov.com/javafx/listview.html
         Stage stage = new Stage();
@@ -280,7 +271,7 @@ public class MainMenuView {
     
 	}
 	
-	// Author: Florian Jäger
+	// Author: Florian Jäger & Gazmend Shefiu
 	public void createGameLobby() {
 		//Based on http://tutorials.jenkov.com/javafx/listview.html
 		Stage stage = new Stage();
