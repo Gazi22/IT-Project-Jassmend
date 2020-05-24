@@ -19,25 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19__2_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_19__2_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts.sav" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamelobby.sav" beforeDir="false" afterPath="$PROJECT_DIR$/gamelobby.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/Jass.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/Jass.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/trumpfView.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IT-Project-Jassmend/client_v0/trumpfView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/CardPlayed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/GetStiche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/GetStiche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/message/TurnManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/message/TurnManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ChatView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientChatRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/ClientViewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/ClientViewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client_v0/MainMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client_v0/MainMenuView.java" afterDir="false" />
-    </list>
+    <list default="true" id="80807e6f-cc3d-44d9-9ef8-7ffce72d3abb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,31 +70,25 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="client_v0" />
+      <recent name="jassmendController" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Server.message" />
       <recent name="client_v0" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\floja\OneDrive\Dokumente\BIT\4. Semester\IT Project\Project Jassmend\IT-Project-Jassmend\src\client_v0" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.ClientChatRoom">
+  <component name="RunManager" selected="Application.JassmendMain">
     <configuration name="CardTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jassmendModel.CardTest" />
+      <option name="MAIN_CLASS_NAME" value="jassmendModelClasses.CardTest" />
       <module name="IT-Project-Jassmend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jassmendModel.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClientChatRoom" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client_v0.ClientChatRoom" />
-      <module name="IT-Project-Jassmend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client_v0.*" />
+          <option name="PATTERN" value="jassmendModelClasses.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,11 +97,11 @@
       </method>
     </configuration>
     <configuration name="DeckofCardsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jassmendModel.DeckofCardsTest" />
+      <option name="MAIN_CLASS_NAME" value="jassmendModelClasses.DeckofCardsTest" />
       <module name="IT-Project-Jassmend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jassmendModel.*" />
+          <option name="PATTERN" value="jassmendModelClasses.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,6 +115,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="jassmendMain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JassmendMain" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Jassmend.JassmendMain" />
+      <module name="IT-Project-Jassmend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Jassmend.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,7 +153,6 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.ClientChatRoom" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.JassmendMain" />
       <item itemvalue="Application.DeckofCardsTest" />
@@ -221,6 +209,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1085" y="406" key="#com.intellij.ide.util.MemberChooser/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590327773010" />
+    <state x="1010" y="479" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1590356818625">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1010" y="479" key="#com.intellij.ide.util.PackageChooserDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356818625" />
+    <state x="1063" y="594" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1590356819511">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1063" y="594" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356819511" />
+    <state x="348" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590356759455">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="348" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356759455" />
     <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590318841426">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -237,38 +237,38 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="431" height="466" key="DebuggerActiveHint/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590069110179" />
-    <state width="2517" height="286" key="GridCell.Tab.0.bottom" timestamp="1590353040545">
+    <state width="2517" height="286" key="GridCell.Tab.0.bottom" timestamp="1590356835933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
-    <state width="2517" height="286" key="GridCell.Tab.0.center" timestamp="1590353040545">
+    <state width="2517" height="286" key="GridCell.Tab.0.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356835933" />
+    <state width="2517" height="286" key="GridCell.Tab.0.center" timestamp="1590356835933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
-    <state width="2517" height="286" key="GridCell.Tab.0.left" timestamp="1590353040545">
+    <state width="2517" height="286" key="GridCell.Tab.0.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356835933" />
+    <state width="2517" height="286" key="GridCell.Tab.0.left" timestamp="1590356835932">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
-    <state width="2517" height="286" key="GridCell.Tab.0.right" timestamp="1590353040545">
+    <state width="2517" height="286" key="GridCell.Tab.0.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356835932" />
+    <state width="2517" height="286" key="GridCell.Tab.0.right" timestamp="1590356835933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
-    <state width="2517" height="286" key="GridCell.Tab.1.bottom" timestamp="1590353040545">
+    <state width="2517" height="286" key="GridCell.Tab.0.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356835933" />
+    <state width="2517" height="286" key="GridCell.Tab.1.bottom" timestamp="1590356835933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
-    <state width="2517" height="286" key="GridCell.Tab.1.center" timestamp="1590353040545">
+    <state width="2517" height="286" key="GridCell.Tab.1.bottom/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356835933" />
+    <state width="2517" height="286" key="GridCell.Tab.1.center" timestamp="1590356835933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
-    <state width="2517" height="286" key="GridCell.Tab.1.left" timestamp="1590353040545">
+    <state width="2517" height="286" key="GridCell.Tab.1.center/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356835933" />
+    <state width="2517" height="286" key="GridCell.Tab.1.left" timestamp="1590356835933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
-    <state width="2517" height="286" key="GridCell.Tab.1.right" timestamp="1590353040545">
+    <state width="2517" height="286" key="GridCell.Tab.1.left/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356835933" />
+    <state width="2517" height="286" key="GridCell.Tab.1.right" timestamp="1590356835933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="286" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590353040545" />
+    <state width="2517" height="286" key="GridCell.Tab.1.right/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590356835933" />
     <state x="760" y="274" key="SettingsEditor" timestamp="1589041233885">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -303,21 +303,10 @@
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.101.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1590314628208" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/client_v0/ClientController.java</url>
-          <line>246</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="gamelobby.getSizeSticheTeam1()" language="JAVA" />
-        <watch expression="gamelobby.getSticheTeam1(0)" language="JAVA" />
-        <watch expression="card.toString()" language="JAVA" />
-        <watch expression="clientController.readLastMessageTest()" language="JAVA" />
+        <watch expression="chatView.areaMessages.getText().split(&quot;\n&quot;)" language="JAVA" />
+        <watch expression="chatView.areaMessages.getText().split(&quot;\n&quot;)[lastMessageIndex2]" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
