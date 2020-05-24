@@ -13,7 +13,8 @@ public class Evaluation extends Message {
 	private String username;
 	private int pointsTeam1;
 	private int pointsTeam2;
-	private int points;
+	private int points1;
+	private int points2;
 	private int count1;
 	private int count2;
 
@@ -41,8 +42,8 @@ public class Evaluation extends Message {
 
 			for (int x = 0; x < gamelobby.getSizeSticheTeam1(); x++){
 				if(gamelobby.getSticheTeam1(x)!=null) {
-					points = serverController.getPoints(gamelobby, gamelobby.getSticheTeam1(x));
-					gamelobby.setPointsTeam1(gamelobby.getPointsTeam1()+points);
+					points1 = serverController.getPoints(gamelobby, gamelobby.getSticheTeam1(x));
+					gamelobby.setPointsTeam1(gamelobby.getPointsTeam1()+points1);
 
 					count1++;
 
@@ -51,8 +52,8 @@ public class Evaluation extends Message {
 
 			for (int y = 0; y < gamelobby.getSizeSticheTeam2(); y++) {
 				if (gamelobby.getSticheTeam2(y) != null) {
-					points = serverController.getPoints(gamelobby, gamelobby.getSticheTeam2(y));
-					gamelobby.setPointsTeam2(gamelobby.getPointsTeam2()+points);
+					points2 = serverController.getPoints(gamelobby, gamelobby.getSticheTeam2(y));
+					gamelobby.setPointsTeam2(gamelobby.getPointsTeam2()+points2);
 
 					count2++;
 				}

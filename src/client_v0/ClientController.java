@@ -177,6 +177,7 @@ public class ClientController {
                                             Platform.runLater(new Runnable() {
                                                 @Override public void run() {
                                                     setTextlblUsername();
+                                                    setTextlblRoundCount();
                                                     getViewManager().primaryStage.setTitle("Jassmend");
                                                     getViewManager().primaryStage.setScene(GameView.getScene());
                                                     getViewManager().primaryStage.setMaximized(true);
@@ -331,6 +332,13 @@ public class ClientController {
                                                 z = v;
                                             }
                                         }
+
+
+
+
+
+
+
                                         for(int x = 0; x< playerIDs.length; x++){
                                             if(playerIDs[x].equals(turnPlayer1)){
                                                 y=x;
@@ -410,7 +418,29 @@ public class ClientController {
                                             gameView.getPlayerPane(1).clearCardsHolder();
                                             sticheTeam2=0;
                                             sticheTeam1=0;
-                                            sticheCounter=0;
+
+
+
+                                            int p= 0;
+
+                                            for(int v = 0; v< playerIDs.length; v++) {
+                                                if (playerIDs[v].equals(clientModel.getUser())) {
+                                                    p = v;
+                                                }
+                                            }
+
+                                            if(roundcounter>0){
+                                                for(int q = 0; q<roundcounter;q++){
+                                                        p++;
+                                                     if(p==4){p=0;}
+                                                }
+                                            }
+
+                                            if(p==0){clientModel.setClientTurnPlayerID(1);}
+
+
+
+
                                             if(clientModel.getClientTurnPlayerID()==1){
                                                 btnTrumpfFalse();
                                             }
@@ -1028,6 +1058,13 @@ public class ClientController {
     }
 
 
+
+    public void setTextlblRoundCount(){
+        gameView.getLblRound().setText("Round: "+roundcounter);
+    }
+
+
+
     public void setTextlblUsername() {
 
         int y =0;
@@ -1153,6 +1190,8 @@ public class ClientController {
         }
         else return false;
     }
+
+
 
 }
 

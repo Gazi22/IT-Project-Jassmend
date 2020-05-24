@@ -796,7 +796,9 @@ public void setGamelobby(String gamelobby){
 		return lblPl4;
 	}
 
-
+	public Label getLblRound() {
+		return lblRound;
+	}
 }
 
 
